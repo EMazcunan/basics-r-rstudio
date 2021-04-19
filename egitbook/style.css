@@ -26,3 +26,8 @@ pre code {
     padding: 0 0 0 3ex !important;
     border: none !important;
 }
+
+pre.custom-output {
+    background: transparent !important;
+    border: 1px solid lightgray !important;
+}

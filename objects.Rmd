@@ -1,7 +1,9 @@
-# Crear nuevos objetos de R {#objects}
+# Objetos en R {#objects}
+
+En este capítulo veremos cómo crear un objeto en `r R()` y estudiaremos dos tipos de objetos destacados en `r R()`: los **vectores** y las **hojas de datos**. 
 
 
-TODO
+## Crear un objeto
 
 La instrucción 
 
@@ -11,19 +13,78 @@ x <- 2
 crea una variable u objeto de nombre `x` y le asigna el valor $2$. 
 El operador de asignación en `R` es `<-` (compuesto por el símbolo menor `<` y un guión central `-`).
 
+Puedes comprobar que el objeto `x` aparece listado en el panel *Environment* de la ventana superior derecha de `r RStudio()`. En este panel podemos ver todos los objetos definidos en nuestro entorno o espacio de trabajo (*workspace*).
+
+Cuando se ejecuta una instrucción como la anterior, en la que se asigna un valor u expresión a un objeto, la salida no muestra el valor asignado. Para verlo tenemos que *imprimir* el objeto en cuestión, simplemente escribiendo su nombre: 
+```{r}
+x # muestra el valor actual de x
+```
+
 Una vez definida el objeto o variable `x` podremos referenciarlo en cálculos posteriores. Por ejemplo, al ejecutar la instrucción
 
 ```{r}
 x^2-3
 ```
-obtendremos la salida $1$ (resultado de $x^2-3 = 2^2-3 = 1$).
+obtendremos la salida $1$ (resultado de $2^2-3 = 1$).
 
-Cuando se ejecuta una instrucción en la que se realiza un cálculo y se almacena en un objeto, la salida no muestra el valor almacenado:
+## Vectores
+
+Para crear **vectores** en `r R()` usamos la función `c` (inicial de *concatenate* o *combine*). La instrucción 
 ```{r}
-y <- x^2-3 # no muestra el valor de y
+v <- c(1, 3, 5, 7, 9)
 ```
-La instrucción anterior crea el objeto `y` y le asigna el valor del cálculo `x^2-3`, pero no se muestra dicho valor en la salida. Para ver el valor almacenado en una variable hay que consultarlo explícitamente, utilizando la función `print` o simplemente escribiendo su nombre:
+crea un vector de nombre `v` formado por los primeros  $5$ números impares. Observa la entrada que se ha creado para `v` en el panel Environment.
+
+Para acceder al elemento número `i` del vector `v` se escribe `v[i]`. Por, ejemplo para extraer el segundo elemento de `v` escribimos 
 ```{r}
-print(y) # muestra el valor de y
-y 
+v[2]
 ```
+
+
+La instrucción 
+```{r}
+v^2
+```
+devuelve el vector cuyos elementos son los cuadrados de los elementos de `v`. 
+La mayoría de funciones de `r R()` que reciben argumentos numéricos  aplicadas a un vector numérico operan sobre cada elemento del vector (se dice que están vectorizadas).
+
+## Hojas de datos
+
+Las hojas de datos (en inglés *data frames*) son la clase de objetos que se usan en `r R()` para almacenar los datos obtenidos en un experimento y poder analizarlos. 
+
+
+Empezaremos explorando la hoja de datos de nombre `mpg` (**m**iles **p**er **g**allon), proporcionada por el paquete `ggplot2`(que ya hemos cargado al cargar el paquete `tidyverse`). Esta hoja de datos trata sobre el consumo de combustible de diferentes modelos de coches.
+
+Para obtener una descripción de la hoja de datos, escribe `mpg` en el campo de búsqueda del panel **Help** de `r RStudio()`. También puedes escribir `?mpg` o `help(mpg)` en la consola. La página de ayuda explica que la hoja de datos tiene  $234$ filas, donde cada fila representa un coche, y $11$ variables, que describen diferentes características de los coches. Nos vamos a centrar en las  variables `displ` y `hwy`, que nos describen como:
+
+* `displ`: *engine displacemente, in litres* (cilindrada)
+* `hwy`: *higway miles per gallon* (millas recorridas por galón de combustible en conducción por autopista)
+
+
+Para cargar la hoja de datos `mpg` en tu espacio de trabajo escribe
+```{r}
+data("mpg")
+```
+Verás que `mpg` aparece listada en el panel Environment. Inicialmente está catalogada como `<Promise>`, pero en cuanto hagamos click en esa celda (o escribamos el nombre de la variable para usarla en nuestro código), se completará la carga y podremos leer  que tiene $234$ observaciones de $11$ variables. Utilizando los iconos que se resaltan en la imagen siguiente, obtenemos más  información sobre la hoja de datos.
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("images/df.png")
+```
+
+
+* Presionando el icono de la izquierda, vemos los nombres de las 11 variables y sus valores para las primeras observaciones. 
+
+* Presionando el icono de la derecha, podremos visualizar la hoja de datos completa. El dato en la celda correspondiente a la fila $i$ y la columna $j$ es el valor observado para el coche número $i$ de la variable número $j$.  
+
+En general, una hoja de datos es una especie de matriz u hoja de cálculo, donde las filas representan unidades experimentales, casos u observaciones (en nuestro ejemplo coches) y las columnas representan variables que describen características de interés de las unidades experimentales (en nuestro caso fabricante, modelo, cilindrada, consumo de combustible ...). Las celdas contienen los valores observados para cada variable en cada unidad experimental. 
+
+
+Para extraer una de las variables de una hoja de datos se utiliza el formato `<nombre hoja>$<nombre variable>`. Por ejemplo, para extraer las cilindradas (variable `displ`) de la hoja de datos `mpg` utilizamos la instrucción siguiente:
+```{r}
+mpg$displ
+```
+que mostrará el vector con las cilindradas de los $234$ coches.
+
+
+ 
+

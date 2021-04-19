@@ -1,0 +1,55 @@
+# Importar datos {#import}
+
+En este capítulo veremos cómo crear una hoja de datos importando los datos contenidos en un archivo de extensión CSV (*comma separated values*).
+
+Haz click en el enlace a continuación para descargar en tu equivo el archivo CSV con el que trabajaremos, y guárdalo en la misma carpeta donde hayas guardado el script con el que estés trabajando: \href{https://drive.google.com//uc?export=download&amp;id=1xDIvAcQSS4_dFoSIO2hcprhqnbXJqx9r}{temperaturas.csv}
+
+El archivo `temperaturas.csv` contiene las temperaturas máximas y mínimas registradas en el observatorio de la Virgen del Camino para todos los días del mes de abril del año 2018.
+No tienes que abrirlo con ninguna aplicación de hojas de cálculo, sino importarlo en `R`  usando la función `read.csv` conforme se explica a continuación.
+
+
+Antes de nada, vamos a hacer que el directorio donde están el script y el archivo de datos sea nuestro directorio de trabajo. Los archivos ubicados en el directorio de trabajo son encontrados por  `R` sin necesidad de especificar su ruta completa.
+Para fijar el directorio de trabajo selecciona el menú de  `RStudio` la
+\begin{center}
+\texttt{Session > Set Working Directory > To Source File Location}.
+\end{center}
+Esto fijará como directorio de trabajo la carpeta del script que estas ejecutando, en la que también debe estar el archivo de datos `temperaturas.csv`.
+
+
+Ya estamos listos para importar el archivo `temperaturas.csv`. La siguiente instrucción lee los contenidos del archivo y los almacena en una hoja de datos de nombre `temps`:
+```{r}
+temps <- read.csv("data/temperaturas.csv")
+```
+
+## Trabajar con una hoja de datos
+
+Para visualizar el contenido de la hoja de datos `temps` que acabamos de crear puede usarse la función `View`:
+```{r, eval=FALSE}
+View(temps)
+```
+
+Al ejecutar la instrucción anterior se abrirá una nueva pestaña en el panel de scripts en la que se muestra la hoja de datos como una hoja de cálculo o matriz.
+Verás que hay $30$ filas, una por cada día del mes, y $3$ columnas con las variables:
+
+- `Fecha`: fecha del día en formato día/mes/año
+- `Tmax`: temperatura máxima del día
+- `Tmin`: temperatura mínima del día
+
+En general, los contenidos de una hoja de datos están organizados en forma de matriz u hoja de cálculo, de manera que cada fila representa una unidad experimental o  observación (en este caso un día del mes), y cada columna una característica o variable de interés.
+
+Para extraer una de las variables de una hoja de datos se utiliza el formato `<nombre hoja>$<nombre variable>`. Por ejemplo, para extraer las temperaturas máximas (variable `Tmax`) de nuestra hoja de datos utilizamos la instrucción siguiente:
+```{r}
+temps$Tmax
+```
+que mostrará en consola el vector con las $30$ temperaturas máximas.
+
+En el siguiente fragmento de código se almacenan,  en un vector de nombre `maximas`, los  $30$ valores de las temperaturas máximas en nuestra hoja de datos. Y después se calculan la media de las temperaturas máximas y la más alta de las temperaturas máximas, con las funciones `mean` y  `max` respectivamente (las dos líneas precedidas por `##` después del código son la salida que obtendrás por consola, no tienes que copiarlas en tu script).
+
+```{r, results='markup'}
+# vector de temperaturas máximas
+maximas <- temps$Tmax
+# media de las temperaturas máximas
+mean(maximas)
+# máxima de las temperaturas máximas
+max(maximas)
+```

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Gráficos | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="7 Gráficos | Primeros pasos con R y RStudio" />
+  <title>7 Visualización de datos | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="7 Visualización de datos | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Gráficos | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="7 Visualización de datos | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Gráficos | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="7 Visualización de datos | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="objects.html"/>
-
+<link rel="prev" href="hojas-de-datos.html"/>
+<link rel="next" href="tbc.html"/>
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -162,9 +162,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
-<li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a></li>
-<li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Crear nuevos objetos en R</a></li>
-<li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
+<li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>5.1</b> Instalar un paquete</a></li>
+<li class="chapter" data-level="5.2" data-path="cargar-un-paquete.html"><a href="cargar-un-paquete.html"><i class="fa fa-check"></i><b>5.2</b> Cargar un paquete</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Objetos en R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="crear-un-objeto.html"><a href="crear-un-objeto.html"><i class="fa fa-check"></i><b>6.1</b> Crear un objeto</a></li>
+<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6.2</b> Vectores</a></li>
+<li class="chapter" data-level="6.3" data-path="hojas-de-datos.html"><a href="hojas-de-datos.html"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Visualización de datos</a></li>
+<li class="chapter" data-level="8" data-path="tbc.html"><a href="tbc.html"><i class="fa fa-check"></i><b>8</b> Continuará</a></li>
 <li class="divider"></li>
 <li><ul>
 <li style="margin: 10px 0;">
@@ -192,8 +202,17 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 
             <section class="normal" id="section-">
 <div id="plots" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Gráficos</h1>
-<p>TODO</p>
+<h1><span class="header-section-number">7</span> Visualización de datos</h1>
+<p>En este capítulo seguimos trabajando con la hoja de datos <code>mpg</code> que presentamos antes. Vamos a realizar un gráfico para explorar la relación entre las variables <code>displ</code> (cilindrada) y <code>hyw</code> (millas por galón de combustible).
+Nos planteamos en concreto si los coches con motor más grande (mayor <code>displ</code>) tienen mayor consumo de combustible (menor <code>hyw</code>).</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="plots.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb46-2"><a href="plots.html#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="plots.html#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb46-4"><a href="plots.html#cb46-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Relación entre el tamaño del motor y el consumo de combustible&quot;</span>, </span>
+<span id="cb46-5"><a href="plots.html#cb46-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Cilindrada (litros)&quot;</span>,</span>
+<span id="cb46-6"><a href="plots.html#cb46-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Rendimiento combustible (millas/galón)&quot;</span></span>
+<span id="cb46-7"><a href="plots.html#cb46-7" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-21-1.png" width="100%" style="display: block; margin: auto;" /></p>
 
 </div>
             </section>
@@ -201,8 +220,8 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           </div>
         </div>
       </div>
-<a href="objects.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="hojas-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tbc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Paquetes | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <title>6.2 Vectores | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="6.2 Vectores | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="6.2 Vectores | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="6.2 Vectores | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flow.html"/>
-<link rel="next" href="install.html"/>
+<link rel="prev" href="crear-un-objeto.html"/>
+<link rel="next" href="hojas-de-datos.html"/>
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -201,20 +201,27 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="packages" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Paquetes</h1>
-<p>Cuando instalamos <span class="textbf">R</span> por primera vez estamos instalando el software <span class="textbf">base R</span>, que contiene las funciones básicas que se usan regularmente en la mayoría de análisis estadísticos.</p>
-<p>Un <strong>paquete</strong> de R es una colección de funciones, datos y documentación, que extiende las capacidades iniciales de la base de <span class="textbf">R</span>. Existen multitud de paquetes de <span class="textbf">R</span>, desarrollados por la comunidad de usuarios de <span class="textbf">R</span>, que añaden funciones para propósitos específicos.</p>
-<p><a href="https://www.tidyverse.org/" target="_blank"><code>tidyverse</code></a> es una colección de paquetes para ciencia de datos que comparten una filosofía común y están diseñados para funcionar juntos de forma natural.
-La mayoría de paquetes que usaremos a lo largo del curso forman parte de <code>tidyverse</code>, de forma que instalando este <em>meta-paquete</em> tendrás acceso a todos ellos.</p>
+<div id="vectores" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Vectores</h2>
+<p>Para crear <strong>vectores</strong> en <span class="textbf">R</span> usamos la función <code>c</code> (inicial de <em>concatenate</em> o <em>combine</em>). La instrucción</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="vectores.html#cb38-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span></code></pre></div>
+<p>crea un vector de nombre <code>v</code> formado por los primeros <span class="math inline">\(5\)</span> números impares. Observa la entrada que se ha creado para <code>v</code> en el panel Environment.</p>
+<p>Para acceder al elemento número <code>i</code> del vector <code>v</code> se escribe <code>v[i]</code>. Por, ejemplo para extraer el segundo elemento de <code>v</code> escribimos</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="vectores.html#cb39-1" aria-hidden="true" tabindex="-1"></a>v[<span class="dv">2</span>]</span></code></pre></div>
+<pre class="custom-output"><code>[1] 3</code></pre>
+<p>La instrucción</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="vectores.html#cb41-1" aria-hidden="true" tabindex="-1"></a>v<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre class="custom-output"><code>[1]  1  9 25 49 81</code></pre>
+<p>devuelve el vector cuyos elementos son los cuadrados de los elementos de <code>v</code>.
+La mayoría de funciones de <span class="textbf">R</span> que reciben argumentos numéricos aplicadas a un vector numérico operan sobre cada elemento del vector (se dice que están vectorizadas).</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="flow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="install.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="crear-un-objeto.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hojas-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

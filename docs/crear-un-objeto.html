@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Paquetes | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <title>6.1 Crear un objeto | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="6.1 Crear un objeto | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="6.1 Crear un objeto | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="6.1 Crear un objeto | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flow.html"/>
-<link rel="next" href="install.html"/>
+<link rel="prev" href="objects.html"/>
+<link rel="next" href="vectores.html"/>
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -201,20 +201,28 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="packages" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Paquetes</h1>
-<p>Cuando instalamos <span class="textbf">R</span> por primera vez estamos instalando el software <span class="textbf">base R</span>, que contiene las funciones básicas que se usan regularmente en la mayoría de análisis estadísticos.</p>
-<p>Un <strong>paquete</strong> de R es una colección de funciones, datos y documentación, que extiende las capacidades iniciales de la base de <span class="textbf">R</span>. Existen multitud de paquetes de <span class="textbf">R</span>, desarrollados por la comunidad de usuarios de <span class="textbf">R</span>, que añaden funciones para propósitos específicos.</p>
-<p><a href="https://www.tidyverse.org/" target="_blank"><code>tidyverse</code></a> es una colección de paquetes para ciencia de datos que comparten una filosofía común y están diseñados para funcionar juntos de forma natural.
-La mayoría de paquetes que usaremos a lo largo del curso forman parte de <code>tidyverse</code>, de forma que instalando este <em>meta-paquete</em> tendrás acceso a todos ellos.</p>
+<div id="crear-un-objeto" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Crear un objeto</h2>
+<p>La instrucción</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="crear-un-objeto.html#cb33-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span></code></pre></div>
+<p>crea una variable u objeto de nombre <code>x</code> y le asigna el valor <span class="math inline">\(2\)</span>.
+El operador de asignación en <code>R</code> es <code>&lt;-</code> (compuesto por el símbolo menor <code>&lt;</code> y un guión central <code>-</code>).</p>
+<p>Puedes comprobar que el objeto <code>x</code> aparece listado en el panel <em>Environment</em> de la ventana superior derecha de <span class="textbf">RStudio</span>. En este panel podemos ver todos los objetos definidos en nuestro entorno o espacio de trabajo (<em>workspace</em>).</p>
+<p>Cuando se ejecuta una instrucción como la anterior, en la que se asigna un valor u expresión a un objeto, la salida no muestra el valor asignado. Para verlo tenemos que <em>imprimir</em> el objeto en cuestión, simplemente escribiendo su nombre:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="crear-un-objeto.html#cb34-1" aria-hidden="true" tabindex="-1"></a>x <span class="co"># muestra el valor actual de x</span></span></code></pre></div>
+<pre class="custom-output"><code>[1] 2</code></pre>
+<p>Una vez definida el objeto o variable <code>x</code> podremos referenciarlo en cálculos posteriores. Por ejemplo, al ejecutar la instrucción</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="crear-un-objeto.html#cb36-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2-3</span></span></code></pre></div>
+<pre class="custom-output"><code>[1] 1</code></pre>
+<p>obtendremos la salida <span class="math inline">\(1\)</span> (resultado de <span class="math inline">\(2^2-3 = 1\)</span>).</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="flow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="install.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vectores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -14,7 +14,9 @@ knitr::opts_chunk$set(
     out.width="100%",
     message=FALSE,
     warning=FALSE,
-    error=FALSE
+    error=FALSE,
+    results = 'hold',
+    comment = ''
 )
 
 # -shell-escape
@@ -49,18 +51,10 @@ R <- function(){textsf("R")}
 RStudio <- function(){textsf("RStudio")}
 ```
 
-```{css, echo=FALSE}
-pre.console-source {
-    color: blue !important;
-    background: red !important;
-    background-color: lightpink !important;
-    padding: 0 0 0 3ex !important; 
-    border: none !important;
-}
-pre.console-output {
-    background-color: transparent !important;
-    padding: 0 0 0 3ex !important; 
-    border: none !important;    
-}
+
+```{r, echo=FALSE}
+# trick to be able to customize default output (see pre.custom-output in style.css)
+# https://stackoverflow.com/questions/65495605/in-r-bookdown-how-do-i-set-the-default-code-output-background-color
+knitr::opts_chunk$set(class.output = 'custom-output')
 ```
 

@@ -728,6 +728,177 @@ En caso de no estar instalado, recibiremos un mensaje de error indicando que no 
 
 Si bien instalación de un paquete (con \texttt{install.packages}) se realiza una sóla vez, la carga (con \texttt{library}) es necesaria en cada sesión en la que queramos usar funciones del paquete.
 
+\hypertarget{objects}{%
+\section{Objetos en R}\label{objects}}
+
+En este capítulo veremos cómo crear un objeto en \textsf{R} y estudiaremos dos tipos de objetos destacados en \textsf{R}: los \textbf{vectores} y las \textbf{hojas de datos}.
+
+\hypertarget{crear-un-objeto}{%
+\subsection{Crear un objeto}\label{crear-un-objeto}}
+
+La instrucción
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+crea una variable u objeto de nombre \texttt{x} y le asigna el valor \(2\).
+El operador de asignación en \texttt{R} es \texttt{\textless{}-} (compuesto por el símbolo menor \texttt{\textless{}} y un guión central \texttt{-}).
+
+Puedes comprobar que el objeto \texttt{x} aparece listado en el panel \emph{Environment} de la ventana superior derecha de \textsf{RStudio}. En este panel podemos ver todos los objetos definidos en nuestro entorno o espacio de trabajo (\emph{workspace}).
+
+Cuando se ejecuta una instrucción como la anterior, en la que se asigna un valor u expresión a un objeto, la salida no muestra el valor asignado. Para verlo tenemos que \emph{imprimir} el objeto en cuestión, simplemente escribiendo su nombre:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\CommentTok{\# muestra el valor actual de x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2
+\end{verbatim}
+
+Una vez definida el objeto o variable \texttt{x} podremos referenciarlo en cálculos posteriores. Por ejemplo, al ejecutar la instrucción
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\SpecialCharTok{\^{}}\DecValTok{2{-}3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1
+\end{verbatim}
+
+obtendremos la salida \(1\) (resultado de \(2^2-3 = 1\)).
+
+\hypertarget{vectores}{%
+\subsection{Vectores}\label{vectores}}
+
+Para crear \textbf{vectores} en \textsf{R} usamos la función \texttt{c} (inicial de \emph{concatenate} o \emph{combine}). La instrucción
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+crea un vector de nombre \texttt{v} formado por los primeros \(5\) números impares. Observa la entrada que se ha creado para \texttt{v} en el panel Environment.
+
+Para acceder al elemento número \texttt{i} del vector \texttt{v} se escribe \texttt{v{[}i{]}}. Por, ejemplo para extraer el segundo elemento de \texttt{v} escribimos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{v[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3
+\end{verbatim}
+
+La instrucción
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{v}\SpecialCharTok{\^{}}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  1  9 25 49 81
+\end{verbatim}
+
+devuelve el vector cuyos elementos son los cuadrados de los elementos de \texttt{v}.
+La mayoría de funciones de \textsf{R} que reciben argumentos numéricos aplicadas a un vector numérico operan sobre cada elemento del vector (se dice que están vectorizadas).
+
+\hypertarget{hojas-de-datos}{%
+\subsection{Hojas de datos}\label{hojas-de-datos}}
+
+Las hojas de datos (en inglés \emph{data frames}) son la clase de objetos que se usan en \textsf{R} para almacenar los datos obtenidos en un experimento y poder analizarlos.
+
+Empezaremos explorando la hoja de datos de nombre \texttt{mpg} (\textbf{m}iles \textbf{p}er \textbf{g}allon), proporcionada por el paquete \texttt{ggplot2}(que ya hemos cargado al cargar el paquete \texttt{tidyverse}). Esta hoja de datos trata sobre el consumo de combustible de diferentes modelos de coches.
+
+Para obtener una descripción de la hoja de datos, escribe \texttt{mpg} en el campo de búsqueda del panel \textbf{Help} de \textsf{RStudio}. También puedes escribir \texttt{?mpg} o \texttt{help(mpg)} en la consola. La página de ayuda explica que la hoja de datos tiene \(234\) filas, donde cada fila representa un coche, y \(11\) variables, que describen diferentes características de los coches. Nos vamos a centrar en las variables \texttt{displ} y \texttt{hwy}, que nos describen como:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{displ}: \emph{engine displacemente, in litres} (cilindrada)
+\item
+  \texttt{hwy}: \emph{higway miles per gallon} (millas recorridas por galón de combustible en conducción por autopista)
+\end{itemize}
+
+Para cargar la hoja de datos \texttt{mpg} en tu espacio de trabajo escribe
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"mpg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Verás que \texttt{mpg} aparece listada en el panel Environment. Inicialmente está catalogada como \texttt{\textless{}Promise\textgreater{}}, pero en cuanto hagamos click en esa celda (o escribamos el nombre de la variable para usarla en nuestro código), se completará la carga y podremos leer que tiene \(234\) observaciones de \(11\) variables. Utilizando los iconos que se resaltan en la imagen siguiente, obtenemos más información sobre la hoja de datos.
+
+\begin{center}\includegraphics[width=0.6\linewidth]{images/df} \end{center}
+
+\begin{itemize}
+\item
+  Presionando el icono de la izquierda, vemos los nombres de las 11 variables y sus valores para las primeras observaciones.
+\item
+  Presionando el icono de la derecha, podremos visualizar la hoja de datos completa. El dato en la celda correspondiente a la fila \(i\) y la columna \(j\) es el valor observado para el coche número \(i\) de la variable número \(j\).
+\end{itemize}
+
+En general, una hoja de datos es una especie de matriz u hoja de cálculo, donde las filas representan unidades experimentales, casos u observaciones (en nuestro ejemplo coches) y las columnas representan variables que describen características de interés de las unidades experimentales (en nuestro caso fabricante, modelo, cilindrada, consumo de combustible \ldots). Las celdas contienen los valores observados para cada variable en cada unidad experimental.
+
+Para extraer una de las variables de una hoja de datos se utiliza el formato \texttt{\textless{}nombre\ hoja\textgreater{}\$\textless{}nombre\ variable\textgreater{}}. Por ejemplo, para extraer las cilindradas (variable \texttt{displ}) de la hoja de datos \texttt{mpg} utilizamos la instrucción siguiente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mpg}\SpecialCharTok{$}\NormalTok{displ}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1] 1.8 1.8 2.0 2.0 2.8 2.8 3.1 1.8 1.8 2.0 2.0 2.8 2.8 3.1 3.1 2.8 3.1 4.2
+ [19] 5.3 5.3 5.3 5.7 6.0 5.7 5.7 6.2 6.2 7.0 5.3 5.3 5.7 6.5 2.4 2.4 3.1 3.5
+ [37] 3.6 2.4 3.0 3.3 3.3 3.3 3.3 3.3 3.8 3.8 3.8 4.0 3.7 3.7 3.9 3.9 4.7 4.7
+ [55] 4.7 5.2 5.2 3.9 4.7 4.7 4.7 5.2 5.7 5.9 4.7 4.7 4.7 4.7 4.7 4.7 5.2 5.2
+ [73] 5.7 5.9 4.6 5.4 5.4 4.0 4.0 4.0 4.0 4.6 5.0 4.2 4.2 4.6 4.6 4.6 5.4 5.4
+ [91] 3.8 3.8 4.0 4.0 4.6 4.6 4.6 4.6 5.4 1.6 1.6 1.6 1.6 1.6 1.8 1.8 1.8 2.0
+[109] 2.4 2.4 2.4 2.4 2.5 2.5 3.3 2.0 2.0 2.0 2.0 2.7 2.7 2.7 3.0 3.7 4.0 4.7
+[127] 4.7 4.7 5.7 6.1 4.0 4.2 4.4 4.6 5.4 5.4 5.4 4.0 4.0 4.6 5.0 2.4 2.4 2.5
+[145] 2.5 3.5 3.5 3.0 3.0 3.5 3.3 3.3 4.0 5.6 3.1 3.8 3.8 3.8 5.3 2.5 2.5 2.5
+[163] 2.5 2.5 2.5 2.2 2.2 2.5 2.5 2.5 2.5 2.5 2.5 2.7 2.7 3.4 3.4 4.0 4.7 2.2
+[181] 2.2 2.4 2.4 3.0 3.0 3.5 2.2 2.2 2.4 2.4 3.0 3.0 3.3 1.8 1.8 1.8 1.8 1.8
+[199] 4.7 5.7 2.7 2.7 2.7 3.4 3.4 4.0 4.0 2.0 2.0 2.0 2.0 2.8 1.9 2.0 2.0 2.0
+[217] 2.0 2.5 2.5 2.8 2.8 1.9 1.9 2.0 2.0 2.5 2.5 1.8 1.8 2.0 2.0 2.8 2.8 3.6
+\end{verbatim}
+
+que mostrará el vector con las cilindradas de los \(234\) coches.
+
+\hypertarget{plots}{%
+\section{Visualización de datos}\label{plots}}
+
+En este capítulo seguimos trabajando con la hoja de datos \texttt{mpg} que presentamos antes. Vamos a realizar un gráfico para explorar la relación entre las variables \texttt{displ} (cilindrada) y \texttt{hyw} (millas por galón de combustible).
+Nos planteamos en concreto si los coches con motor más grande (mayor \texttt{displ}) tienen mayor consumo de combustible (menor \texttt{hyw}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping=}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)) }\SpecialCharTok{+}
+    \FunctionTok{labs}\NormalTok{(}
+        \AttributeTok{title =} \StringTok{"Relación entre el tamaño del motor y el consumo de combustible"}\NormalTok{, }
+        \AttributeTok{x =} \StringTok{"Cilindrada (litros)"}\NormalTok{,}
+        \AttributeTok{y =} \StringTok{"Rendimiento combustible (millas/galón)"}
+\NormalTok{     )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-21-1} \end{center}
+
 \hypertarget{tbc}{%
 \section{Continuará}\label{tbc}}
 
