@@ -1,0 +1,14 @@
+#latex
+*.auxlock
+*.log
+*.mw
+*.bbl
+*.synctex.gz
+exsol-output/
+tikz/
+
+# R
+USAGE.txt
+.Rhistory
+.Rproj.user/
+*.Rproj

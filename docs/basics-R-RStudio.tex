@@ -1,0 +1,653 @@
+\documentclass[
+  degree=mecinf,
+  title=normal,
+  toc=normal,
+  bib=normal]{mnye}
+
+
+\usepackage{booktabs}
+\usepackage{emargintag}
+
+\newenvironment{menu}{
+    \begin{center}
+    \sffamily\bfseries
+}{
+    \end{center}
+}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+\addbibresource{book.bib}
+\addbibresource{packages.bib}
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+
+
+
+
+\title{Primeros pasos con R y RStudio}
+
+\term{2020-2021}
+
+\begin{document}
+
+% Before Body
+
+\hypertarget{section}{%
+\section*{}\label{section}}
+
+En este documento se da una breve introducción al lenguaje de programación \textsf{R} y a la interfaz gráfica \textsf{RStudio}.
+
+Se trata de una práctica introductoria, en la que no hay que entregar ningún material, y no hay ninguna tarea evaluable asociada. Pero es necesario
+que estudies este material como previo a la realización de las siguientes prácticas y tareas.
+
+\hypertarget{prerequisites}{%
+\section{Requisitos previos}\label{prerequisites}}
+
+Para realizar esta práctica tienes que instalar \textsf{R} y \textsf{RStudio} en tu equipo.
+
+En el documento \href{https://emazcunan.github.io/install-r-rstudio}{Instalación de R y RStudio} encontrarás las instrucciones para hacerlo.
+
+\hypertarget{rmarkdown}{%
+\section{Escribir y ejecutar código de R}\label{rmarkdown}}
+
+Para escribir y ejecutar código de \textsf{R} desde \textsf{RStudio} podremos utilizar bien la consola o bien escribir nuestro código en un archivo.
+
+La \textbf{consola} se utiliza para ejecutar instrucciones sueltas, que no tenemos interés en conservar, por ejemplo para realizar cálculos auxiliares o para instalar paquetes.
+
+Cuando el código que queremos escribir sea un conjunto de instrucciones que queramos conservar, de forma que podamos reutilizarlo posteriormente o compartirlo con otras personas, escribiremos nuestro código en un archivo.
+Entre los tipos de archivos que podemos crear desde \textsf{RStudio} para escribir y ejecutar código \textsf{R} están los \textbf{scripts} y los documentos \textbf{R Markdown}.
+
+\hypertarget{consola}{%
+\subsection{Consola}\label{consola}}
+
+En \textsf{RStudio} encontrarás la consola en el panel de nombre \textsf{Console} en la ventana a la izquierda de la pantalla.
+
+Para calcular \(\sqrt{2}\) desde la consola, sitúa el cursor al lado del símbolo \texttt{\textgreater{}} en la consola, escribe la instrucción \texttt{sqrt(2)} y presiona \texttt{Enter}. Verás la salida debajo:
+
+\begin{verbatim}
+> sqrt(2)
+\end{verbatim}
+
+\begin{verbatim}
+[1] 1.414214
+\end{verbatim}
+
+\hypertarget{scripts-de-r}{%
+\subsection{Scripts de R}\label{scripts-de-r}}
+
+Los scripts de R son el tipo de archivo más simple para escribir y ejecutar código de \textsf{R}.
+
+Para crear un script, utiliza el menú
+
+\begin{menu}
+File \textgreater{} New File \textgreater{} R Script
+
+\end{menu}
+
+El script se abrirá en una pestaña de una nueva ventana sobre la ventana con el panel de la consola. Este script no es más que un archivo de texto, que se guardará con la extensión \texttt{.R}.
+
+Escribe en la primera línea del script la instrucción
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sqrt(3)}
+\end{Highlighting}
+\end{Shaded}
+
+Para ejecutarla, sitúa el cursor sobre cualquier punto de la línea y presiona \texttt{Ctrl\ +\ Enter}. Verás la salida en la consola.
+
+Si en un script queremos incluir varias instrucciones, cada nueva instrucción debe comenzar en una nueva línea.
+
+Añade una nueva línea al script para calcular la raíz de \(5\), de forma que el contenido del script quede:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sqrt(3)}
+\NormalTok{sqrt(5)}
+\end{Highlighting}
+\end{Shaded}
+
+Para ejecutar las dos instrucciones al mismo tiempo, selecciona las dos líneas y presiona de nuevo \texttt{Ctrl\ +\ Enter}. En la consola, verás las dos instrucciones y su salida correspondiente.
+
+Pueden dejarse tantas líneas en blanco como se quiera entre diferentes instrucciones, y también dividir el código de una misma instrucción en varías líneas. Por ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sqrt(3)}
+
+\NormalTok{sqrt(}
+\NormalTok{    5}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Notar que si situamos el cursor sobre cualquiera de las tres líneas que componen la segunda instrucción para calcular la raíz de \(5\) y presionamos \texttt{Ctrl\ +\ Enter}, \textsf{RStudio} reconoce que la línea en la que tenemos el cursor forma parte de una instrucción compuesta por varias líneas y ejecuta todas ellas.
+
+Para añadir comentarios en un script, se utiliza el carácter \texttt{\#}: Al ejecutar una línea de código, todo el texto escrito después del carácter \texttt{\#} será ignorado. Puedes escribir por ejemplo
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\# calcular raíces }
+\NormalTok{sqrt(3)}
+\end{Highlighting}
+\end{Shaded}
+
+o
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sqrt(3) \# calcular la raíz de 3}
+\NormalTok{sqrt(5) \# calcular la raíz de 5}
+\end{Highlighting}
+\end{Shaded}
+
+Crea ahora una carpeta, de nombre\texttt{IntroR}, para guardar el script que acabas de escribir y otros documentos que generaremos a lo largo de la práctica.
+
+Para guardar el script que acabas de escribir, presiona \texttt{Ctrl\ +\ S} (o utiliza el correspondiente icono en la barra de herramientas del archivo).
+
+Si aparece un cuadro de diálogo preguntando por la codificación del archivo, selecciona la codificación que aparezca listada en primer lugar como defecto para tu sistema operativo (verás el texto (System default) al lado de su nombre).
+
+En el selector de archivos que se abrirá a continuación, navega hasta la carpeta \texttt{IntroR} que has creado antes e indica \texttt{script} como nombre del archivo. Verás entonces que la etiqueta de la pestaña del script en el panel de RStudio cambia de \texttt{Untitled1} a \texttt{script.R}.
+
+\hypertarget{documentos-r-markdown}{%
+\subsection{Documentos R Markdown}\label{documentos-r-markdown}}
+
+Nuestra elección para realizar las prácticas y tareas de esta asignatura será utilizar documentos R Markdown. En un documento R Markdown podremos escribir tanto código \textsf{R} como texto. Y al compilarlo obtendremos un documento que incluirá el código, la salida resultante de ejecutar el código, y el texto explicativo.
+
+\begin{itemize}
+\tightlist
+\item
+  En el texto podremos utilizar la sintaxis propia del lenguaje de marcado \href{https://es.wikipedia.org/wiki/Markdown}{Markdown} (independiente de \textsf{R}). Por ejemplo:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{El resultado anterior permite extraer una conclusión muy **importante**.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Y el código de \textsf{R} se incluirá en unos bloques especiales, que tendrán la estructura
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r [etiqueta], [opciones]\}}
+\InformationTok{\textless{}código R\textgreater{}}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{creaciuxf3n}{%
+\subsubsection{Creación}\label{creaciuxf3n}}
+
+Para crear tu primer documento R Markdown utiliza el menú
+
+\begin{menu}
+File \textgreater{} New File \textgreater{} R Markdown \ldots{}
+
+\end{menu}
+
+Aparecerá un cuadro de diálogo de nombre \textbf{New R Markdown}.
+
+\begin{center}\includegraphics[width=1\linewidth]{images/new-r-markdown} \end{center}
+
+Rellena `Introducción a R y RStudio' en el campo \textbf{Title} y tu nombre en el campo \textbf{Author}. Para el campo \textbf{Default output format}, conserva la elección `HTML' que aparece por defecto.
+
+Al presionar el botón \textbf{OK} se abrirá una nueva pestaña en el panel de \textsf{RStudio} con el nuevo documento R Markdown. Presiona \texttt{Ctrl\ +\ S} para guardarlo, en la carpeta \texttt{IntroR} que creaste antes para la práctica, con el nombre \texttt{intro-r}. Verifica que la etiqueta de la pestaña del documentocambia de \texttt{Untitled1} a \texttt{intro-r.Rmd}.
+
+Las primeras líneas del archivo (1 a 6), delimitadas por tres guiones (\texttt{-\/-\/-})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{{-}{-}{-}}
+\AnnotationTok{title:}\CommentTok{ "Introducción a R y RStudio"}
+\AnnotationTok{author:}\CommentTok{ "Eva"}
+\AnnotationTok{date:}\CommentTok{ "19/4/2021"}
+\AnnotationTok{output:}\CommentTok{ html\_document}
+\CommentTok{{-}{-}{-}}
+\end{Highlighting}
+\end{Shaded}
+
+conforman la llamada cabecera YAML del documento. Incluye metadatos como el título, el autor y la fecha y el formato de salida del documento que se generará al compilar.
+
+Las líneas siguientes (8 a 10)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r setup, include=FALSE\}}
+\InformationTok{knitr::opts\_chunk$set(echo = TRUE)}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+las incluiremos en todos nuestros documentos R Markdown, y establecen la opción de mostrar el código que incluyamos en el cuerpo de nuestro documento \texttt{.Rmd} en el formato de salida.
+
+El resto de líneas (12 en adelante), son los contenidos propiamente dichos del documento. Se trata de unos contenidos de muestra, que enseguida reemplazaremos por nuestros contenidos propios. Pero antes de borrar estos contenidos de muestra, compilaremos el documento para ver el resultado inicial.
+
+\hypertarget{compilaciuxf3n}{%
+\subsubsection{Compilación}\label{compilaciuxf3n}}
+
+Para compilar el documento presiona el botón \textbf{Knit} en la barra de herramientas de la pestaña del archivo.
+
+\begin{center}\includegraphics[width=1\linewidth]{images/knit} \end{center}
+
+El documento compilado aparecerá en el panel \textbf{Viewer}, en la ventana de la zona derecha inferior.
+Si el documento no se abre en este panel, sino en una ventana emergente, cierra esa ventana y modifica este comportamiento siguiendo los siguientes pasos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Selecciona el menú
+  ::: \{.menu data-latex=""\}
+  Tools \textgreater{} Global Options
+  :::
+\item
+  Se abrirá una ventana de nombre \textbf{Options}. Selecciona la sección \textbf{R Markdown} en el menú lateral e indica
+\end{enumerate}
+
+\begin{menu}
+Show output preview in: Viewer Pane
+
+\end{menu}
+
+como indica la imagen siguiente:
+
+\begin{center}\includegraphics[width=1\linewidth]{images/options-r-markdown} \end{center}
+
+Si miras los contenidos de la carpeta \texttt{IntroR} (puedes hacerlo desde el panel \textbf{Files} de \textsf{RStudio}) verás que, como resultado de la compilación del archivo fuente \texttt{intro-r.Rmd}, se ha creado el archivo de salida \texttt{intro-r.html}. Éste es el archivo que estamos visualizando en el visor de documentos. También podríamos abrirlo en el navegador web, pudiendolo hacer desde el propio visor, presionando el icono resaltado en la siguiente imagen:
+
+\begin{center}\includegraphics[width=1\linewidth]{images/open-in-new-window} \end{center}
+
+A continuación compararemos el documento fuente \texttt{intro-r.Rmd} con el documento \texttt{intro-r.html} en el visor, para entender cómo se traducen los contenidos que escribimos en un archivo R Markdown en el formato de salida HTML. Nos fíjaremos en particular en los siguientes elementos: encabezados y bloques de código.
+
+\hypertarget{encabezados}{%
+\subsubsection{Encabezados}\label{encabezados}}
+
+Las líneas 21
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\#\# R Markdown }
+\end{Highlighting}
+\end{Shaded}
+
+y 31
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\#\# Including Plots}
+\end{Highlighting}
+\end{Shaded}
+
+se traducen en la salida como encabezados de secciones. Si inspeccionas el código del archivo \texttt{intro-r.html} verás que se crean elementos de tipo \texttt{\textless{}h2\textgreater{}}. En general,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\# Título}
+\end{Highlighting}
+\end{Shaded}
+
+produce un encabezado de nivel 1,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\#\# Título}
+\end{Highlighting}
+\end{Shaded}
+
+un encabezado de nivel 2, y así sucesivamente.
+
+Hay que indicar que es una casualidad la coincidencia del símbolo \texttt{\#} para encabezados en el lenguaje Markdown (independiente de \textsf{R} ) y para comentarios en código \textsf{R}.
+
+\hypertarget{bloques-de-cuxf3digo}{%
+\subsubsection{Bloques de código}\label{bloques-de-cuxf3digo}}
+
+Los elementos más importantes del documento son los bloques de código \textsf{R} (\emph{code chunks}). En el documento de muestra encontramos dos bloques de código: El primero en las líneas 27-29
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r cars\}}
+\InformationTok{summary(cars)}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+y el segundo en las líneas 35-37
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r pressure, echo=FALSE\}}
+\InformationTok{plot(pressure)}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+Si miras el documento compilado, verás que, para el primer bloque se muestra el código y a continuación la salida o resultado de su ejecución; mientras que para el segundo, se muestra solo la salida, y no el código debido a la opción \texttt{echo=FALSE}.
+
+Como se indicó al principio de la sección, la sintaxis general para incluir un bloque de código \textsf{R} en un documento R Markdown es la siguiente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r [etiqueta], [lista de opciones]\}}
+\InformationTok{\textless{}código R\textgreater{}}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+Las etiquetas de los dos bloques de código del documento de muestra son \texttt{cars} y \texttt{presure}. La etiqueta de un bloque de código sirve para identificarlo, podemos interpretarlo como su nombre, pero es opcional y puede omitirse.
+
+El primer bloque de código no tiene ninguna opción. Y el segundo tiene la opción \texttt{echo=TRUE}, que como hemos dicho antes inhibe la impresión del código en el documento compilado.
+
+Puesto que la etiqueta y la lista de opciones son opcionales, el esqueleto básico de un bloque de código \textsf{R} incluido en un documento R Markdown es
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}}
+\InformationTok{\textless{}código R\textgreater{}}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+En el cuerpo del bloque podemos escribir instrucciones de \textsf{R} igual que si estuvieramos escribiendo en un script (incluidos comentarios precedidos por el carácter \texttt{\#}).
+
+Notar el cambio de enfoque al escribir en un documento R Markdown respecto a escribir en un script:
+
+\begin{itemize}
+\item
+  En un script, se espera que escribamos código \textsf{R}, y para escribir texto ordinario hemos de usar comentario utilizando el carácter \texttt{\#}
+\item
+  Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código \textsf{R} hemos de incluirlo en un bloque especial delimitado por \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}} y \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}}.
+\end{itemize}
+
+\hypertarget{plantilla-de-r-markdown}{%
+\section{Plantilla de R Markdown}\label{plantilla-de-r-markdown}}
+
+Ahora vamos a reemplazar los contenidos de muestra del archivo de R Markdown que hemos creado por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque código y dejaremos el documento preparado para practicar el código de \textsf{R} que se presenta en los siguientes capítulos.
+
+\hypertarget{primeros-contenidos}{%
+\subsection{Primeros contenidos}\label{primeros-contenidos}}
+
+Borra los contenidos de muestra (línea 15 en adelante) y añade la siguiente línea para crear un encabezado de nivel 1:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\# Bloques de código}
+\end{Highlighting}
+\end{Shaded}
+
+Ahora vamos a crear un primer bloque de código. Para escribir su esqueleto usa el atajo
+
+\begin{menu}
+\texttt{Ctrl\ +\ Alt\ +\ I}
+
+\end{menu}
+
+(\texttt{I} de \emph{Insert}) o, alternativamente, el menú
+
+\begin{menu}
+Insert \textgreater{} R
+
+\end{menu}
+
+en la barra de herramientas de la pestaña del documento, que se muestra en la siguiente imagen:
+
+\begin{center}\includegraphics[width=1\linewidth]{images/insert-r} \end{center}
+
+En el bloque de código que acabas de crear añade las instrucciones
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sqrt(8)}
+\NormalTok{sqrt(10)}
+\end{Highlighting}
+\end{Shaded}
+
+de forma que los contenidos añadidos queden:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\# Bloques de código}
+
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}}
+\InformationTok{sqrt(8)}
+\InformationTok{sqrt(10)}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+Compila para ver el resultado.
+
+\hypertarget{algunas-opciones}{%
+\subsection{Algunas opciones}\label{algunas-opciones}}
+
+Tras compilar el documento, verás que en el documento HTML generado aparecen:
+
+\begin{itemize}
+\tightlist
+\item
+  El código de la primera instrucción \texttt{sqrt(8)}
+\item
+  Su salida 2.8284271
+\item
+  El código de la segunda instrucción \texttt{sqrt(10)}
+\item
+  Su salida 3.1622777
+\end{itemize}
+
+Si prefieres que se muestre primero el código para las dos instrucciones y a continuación las dos salidas, añade la opción \texttt{results=\textquotesingle{}hold\textquotesingle{}}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r, results=\textquotesingle{}hold\textquotesingle{}\}}
+\InformationTok{sqrt(8)}
+\InformationTok{sqrt(10)}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+y vuelve a compilar para ver el resultado.
+
+Si quieres omitir los caracteres \texttt{\#\#} al comienzo de las líneas de la salida, añade la opción \texttt{comment\ =\ \textquotesingle{}\textquotesingle{}}.
+
+\hypertarget{opciones-globales}{%
+\subsection{Opciones globales}\label{opciones-globales}}
+
+Al comienzo de nuestro documento, hemos conservado el bloque de código
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r setup, include=FALSE\}}
+\InformationTok{knitr::opts\_chunk$set(echo = TRUE)}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+que estaba incluido en el documento de muestra.
+
+Las opciones especificadas en el argumento de \texttt{knitr::opts\_chunk\$set} aplicarán a todos los bloques de código que se incluyan en el documento.
+
+Si se desea aplicar las opciones \texttt{results=\textquotesingle{}hold\textquotesingle{}} y \texttt{comment\ =\ \textquotesingle{}\textquotesingle{}} que se explicaron antes, a todos los bloques de código del documento, las añadiremos al argumento de la función \texttt{knitr::opts\_chunk\$set}, de forma que quede:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::opts\_chunk$set(}
+\NormalTok{    echo = TRUE,}
+\NormalTok{    results=\textquotesingle{}hold\textquotesingle{},}
+\NormalTok{    comment = \textquotesingle{}\textquotesingle{}}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+En tal caso, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, y puedes borrarlas del bloque de código que creaste antes.
+
+\hypertarget{ejecuciuxf3n-individual-de-un-bloque-de-cuxf3digo}{%
+\subsection{Ejecución individual de un bloque de código}\label{ejecuciuxf3n-individual-de-un-bloque-de-cuxf3digo}}
+
+Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, para cada bloque, el código y la salida (si no hay opciones como \texttt{echo=FALSE} que inhiban la impresión del código y/o de la salida).
+
+Pero también podemos ejecutar determinadas instrucciones en un bloque de código de forma individual, sin necesidad de compilar el documento completo.
+Para ello, podemos proceder exactamente igual que en el caso de los scripts, es decir:
+
+\begin{itemize}
+\item
+  Para ejecutar una sola instrucción, situamos el cursor en cualquiera de las líneas que compongan la instrucción y presionamos \texttt{Ctrl\ +\ Enter}.
+\item
+  Para ejecutar varias instrucciones, seleccionamos las correspondientes líneas y presionamos \texttt{Ctrl\ +\ Enter}.
+\end{itemize}
+
+La salida se mostrará en la consola, y también incrustada en el propio documento, justo debajo del bloque de código. Para esto último ha de estar marcada la opción \textbf{Show output inline for all R Markdown documents} en las opciones para R Markdown, como muestra la siguiente imagen:
+
+\begin{center}\includegraphics[width=1\linewidth]{images/options-r-markdown-b} \end{center}
+
+Además, podemos ejecutar todas las instrucciones que componen un bloque de código utilizando el botón a la derecha del comienzo del bloque que se resalta en la siguiente imagen:
+
+\begin{center}\includegraphics[width=0.8\linewidth]{images/run} \end{center}
+
+\hypertarget{tabla-de-contenidos-flotante}{%
+\subsection{Tabla de contenidos flotante}\label{tabla-de-contenidos-flotante}}
+
+Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante y para numerar los capítulos.
+
+Para ello modificamos la línea
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AnnotationTok{output:}\CommentTok{ html\_document}
+\end{Highlighting}
+\end{Shaded}
+
+en la cabecera YAML por
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AnnotationTok{output:}\CommentTok{ }
+\CommentTok{    html\_document:}
+\CommentTok{        toc: true}
+\CommentTok{        toc\_float: true}
+\CommentTok{        number\_sections: true}
+\end{Highlighting}
+\end{Shaded}
+
+Asegúrate de indentar las líneas conforme se indica, porque el indentado es fundamental para que los campos anidados se lean correctamente en el proceso de compilación.
+
+Para que nuestra tabla de contenidos tenga más de una entrada, añade al final del documento un segundo capítulo, con el título del siguiente capítulo de esta práctica:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\# Paquetes}
+\end{Highlighting}
+\end{Shaded}
+
+Compila de nuevo y abre el resultado en el navegador. Verás la tabla de contenidos con los títulos de los capítulos numerados.
+
+Hasta que el documento no tenga la extensión suficiente para ocupar la pantalla completa y que aparezca la barra de \emph{scroll} para recorrerlo, no se apreciará la funcionalidad completa de la tabla de contenidos flotante.
+
+\hypertarget{resumen}{%
+\subsection{Resumen}\label{resumen}}
+
+Después de los cambios que hemos ido haciendo en el documento de muestra, ha debido quedarte así:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{{-}{-}{-}}
+\AnnotationTok{title:}\CommentTok{ "Introducción a R y RStudio"}
+\AnnotationTok{author:}\CommentTok{ "Eva"}
+\AnnotationTok{date:}\CommentTok{ "19/4/2021"}
+\AnnotationTok{output:}\CommentTok{ }
+\CommentTok{    html\_document:}
+\CommentTok{        toc: true}
+\CommentTok{        toc\_float: true}
+\CommentTok{        number\_sections: true}
+\CommentTok{{-}{-}{-}}
+
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r setup, include=FALSE\}}
+\InformationTok{knitr::opts\_chunk$set(}
+\InformationTok{    echo = TRUE,}
+\InformationTok{    results=\textquotesingle{}hold\textquotesingle{},}
+\InformationTok{    comment = \textquotesingle{}\textquotesingle{}}
+\InformationTok{)}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+
+\FunctionTok{\# Bloques de código}
+
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}}
+\InformationTok{sqrt(8)}
+\InformationTok{sqrt(10)}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+
+\FunctionTok{\# Paquetes }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{flujo-de-trabajo}{%
+\subsection{Flujo de trabajo}\label{flujo-de-trabajo}}
+
+La idea es que, conforme vayas estudiando el resto de capítulos de esta práctica, continúes escribiendo en el documento R Markdown que tienes ahora.
+
+La idea es que crees un nuevo capítulo por cada capítulo de la práctica, e incluyas bloques de código para practicar el código de \textsf{R} que vayas encontrando en la práctica, así como el texto que creas oportuno para documentar el código y entenderlo cuando releas el documento. Experimenta, escribiendo el código que te apetezca para probar las ideas que te vayan surgiendo y escribiendo el texto que consideres para explicarlas.
+
+Puedes ir compilando cada bloque o instrucción de forma individual, para ver su salida \emph{inline} y compilar el documento cada cierto tiempo.
+
+\hypertarget{packages}{%
+\section{Paquetes}\label{packages}}
+
+TODO
+
+\hypertarget{objects}{%
+\section{Tipos de objetos en R}\label{objects}}
+
+TODO
+
+\hypertarget{plots}{%
+\section{Gráficos}\label{plots}}
+
+TODO
+
+% After Body
+
+\end{document}

@@ -1,0 +1,13 @@
+---
+params:
+    chapter_name: "documents"
+knit: (function(input, ...) {
+    rmarkdown::render(
+        input,
+        output_format = "bookdown::html_document2"
+    )
+    })
+---
+
+```{r,child=c("preamble.Rmd", paste0(params$chapter_name,".Rmd"))}
+```
