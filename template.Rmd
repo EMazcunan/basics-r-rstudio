@@ -1,19 +1,29 @@
 # Plantilla de R Markdown
 
-Ahora vamos a reemplazar los contenidos de muestra del archivo de R Markdown que hemos creado por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque código y dejaremos el documento preparado para practicar el código de `r R()` que se presenta en los siguientes capítulos. 
+En el capítulo anterior hemos explorado los contenidos de muestra del archivo de R Markdown que hemos creado, y conocemos los dos elementos principales a incluir en este tipo de documentos: 
+
+* los **encabezados**, para estructurar nuestro documento en capítulos, secciones, subsecciones ... 
+
+* y los **bloques de código**, para incluir instrucciones de `r R()`.  
+
+Ahora vamos a reemplazar los contenidos de muestra por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque código, y personalizaremos algunas opciones.
+
+Al final de este capítulo tendremos una plantilla para los documentos R Markdown que usaremos en las prácticas y tareas a lo largo del curso. 
+
+Y nuestro documento `intro-r.Rmd` quedará preparado para practicar el código de `r R()` que se presenta en los siguientes capítulos de esta práctica. 
 
 ## Primeros contenidos
 
-Borra los contenidos de muestra (línea 15 en adelante) y añade la siguiente línea para crear un encabezado de nivel 1:
+Borra los contenidos de muestra (línea 12 en adelante) y añade la siguiente línea para crear un primer capítulo (encabezado de nivel 1) de título "Bloques de código":
 
 
 ```md
 # Bloques de código
 ```
 
-Ahora vamos a crear un primer bloque de código. Para escribir su esqueleto usa el atajo 
+Ahora vamos a crear el primer bloque de código. Para escribir su esqueleto usa el atajo 
 
-::: {.menu data-latex=""}
+::: {.center data-latex=""}
 `Ctrl + Alt + I` 
 :::
 
@@ -50,26 +60,29 @@ Compila para ver el resultado.
 
 ## Algunas opciones
 
-Tras compilar el documento, verás que en el documento HTML generado aparecen:
+Tras compilar el documento con los contenidos añadidos en la sección anterior, verás que en el documento HTML generado aparecen:
 
 * El código de la primera instrucción `sqrt(8)`
 * Su salida `r sqrt(8)`
 * El código de la segunda instrucción `sqrt(10)`
 * Su salida `r sqrt(10)`
 
-Si prefieres que se muestre primero el código para las dos instrucciones y a continuación las dos salidas, añade la opción `results='hold'`:
+
+Para que se muestre primero el código para las dos instrucciones y a continuación las dos salidas, añade la opción `results='hold'`. 
+
+Y para omitir los caracteres `##` al comienzo de las líneas de la salida, añade la opción `comment = ''`. Nuestro bloque de código con estas dos opciones quedaría:
 
 ````md
-```{r, results='hold'}`r ''`
+```{r, results='hold', comment = ''}`r ''`
 sqrt(8)
 sqrt(10)
 ```
 ````
-y vuelve a compilar para ver el resultado. 
+Vuelve a compilar y observa el resultado. 
 
-Si quieres omitir los caracteres `##` al comienzo de las líneas de la salida, añade la opción `comment = ''`. 
+ 
 
-## Opciones globales
+## Opciones globales {#global-options}
 
 Al comienzo de nuestro documento, hemos conservado el bloque de código 
 ```` md
@@ -77,12 +90,15 @@ Al comienzo de nuestro documento, hemos conservado el bloque de código
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ````
-que estaba incluido en el documento de muestra.
+que estaba incluido en el documento de muestra. Este bloque se identifica con la etiqueta `setup` y tiene la opción `include=FALSE`, que hace que, al compilar el documento, si bien se ejecutará la instrucción que contiene, no se incluirá en el formato HTML de salida.
 
-Las opciones especificadas en el argumento de  `knitr::opts_chunk$set` aplicarán a todos los bloques de código que se incluyan en el documento. 
+Se explica a continuación el significado de la instrucción `knitr::opts_chunk$set(echo = TRUE)`: Las opciones especificadas como argumentos de  `knitr::opts_chunk$set` (por ahora `echo=TRUE`) aplicarán a todos los bloques de código que se incluyan en el documento. 
 
 
-Si se desea aplicar  las opciones `results='hold'` y `comment = ''` que se explicaron antes, a todos los bloques de código del documento, las añadiremos al argumento de la función `knitr::opts_chunk$set`, de forma que quede:
+Las opciones `results='hold'` y `comment = ''` que hemos aplicado antes a nuestro bloque de código tendrían un efecto local, es decir, aplicarían solo al bloque en el que se han especificado, y si queremos usarlas en los nuevos bloques que creemos, habría que escribirlas de nuevo en todos ellos. 
+
+
+Para aplicar  las opciones `results='hold'` y `comment = ''`  a todos los bloques de código del documento, las añadiremos como argumentos de  `knitr::opts_chunk$set`, de forma que quede:
 ````md
 knitr::opts_chunk$set(
     echo = TRUE,
@@ -90,13 +106,13 @@ knitr::opts_chunk$set(
     comment = ''
 )
 ````
-En tal caso, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, y puedes borrarlas del bloque de código que creaste antes. 
+Ahora, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, así que puedes borrarlas del bloque de código que creaste antes. 
 
-## Ejecución individual de un bloque de código
+## Ejecución de instrucciones individuales
 
-Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, para cada bloque, el código y la salida (si no hay opciones como `echo=FALSE` que inhiban la impresión del código y/o de la salida).
+Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, tanto el código como la salida o resultado (siempre que no hay opciones como `echo=FALSE` o `include=FALSE` que inhiban la impresión del código y/o de la salida).
 
-Pero también podemos ejecutar determinadas instrucciones en un bloque de código de forma individual, sin necesidad de compilar el documento completo. 
+Pero también podemos ejecutar determinadas instrucciones de forma individual, sin necesidad de compilar el documento completo. 
 Para ello, podemos proceder exactamente igual que en el caso de los scripts, es decir:
 
 * Para ejecutar una sola instrucción, situamos el cursor en cualquiera de las  líneas que compongan la instrucción y presionamos `Ctrl + Enter`. 
@@ -104,8 +120,13 @@ Para ello, podemos proceder exactamente igual que en el caso de los scripts, es 
 * Para ejecutar varias instrucciones, seleccionamos las correspondientes líneas y presionamos `Ctrl + Enter`.
 
 
+La salida se mostrará en la consola, y también  incrustada en el propio documento, justo debajo del correspondiente bloque de código. Para esto último ha de estar marcada la opción **Show output inline for all R Markdown documents** en las opciones para R Markdown en el menú 
 
-La salida se mostrará en la consola, y también  incrustada en el propio documento, justo debajo del bloque de código. Para esto último ha de estar marcada la opción **Show output inline for all R Markdown documents** en las opciones para R Markdown, como muestra la siguiente imagen:
+::: {.menu data-latex=""}
+Tools > Global options ... > R Markdown
+:::
+
+como muestra la siguiente imagen:
 ```{r, echo=FALSE}
 knitr::include_graphics("images/options-r-markdown-b.png")
 ```
@@ -119,14 +140,15 @@ knitr::include_graphics("images/run.png")
 
 ## Tabla de contenidos flotante 
 
-Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante y para numerar los capítulos. 
+Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante. 
 
-Para ello modificamos la línea
+Para ello sustituimos la línea
 
 ```md
 output: html_document
 ```
 en la cabecera YAML por 
+
 ```md
 output: 
     html_document:
@@ -135,18 +157,31 @@ output:
         number_sections: true
 ```
 
-Asegúrate de indentar las líneas conforme se indica, porque el indentado es fundamental para que los campos anidados se lean correctamente en el proceso de compilación. 
+Asegúrate de indentar las líneas conforme se indica, porque el indentado es fundamental para que los campos anidados se lean e interpreten correctamente en el proceso de compilación. 
 
-Para que nuestra tabla de contenidos tenga más de una entrada, añade al final del documento un segundo capítulo, con el título del siguiente capítulo de esta práctica: 
+Para que nuestra tabla de contenidos tenga más de una entrada, añade al final del documento un segundo capítulo, con el título de otro capítulo de esta práctica: 
+
 ````md
 # Paquetes
 ````
 
-Compila de nuevo y abre el resultado en el navegador. Verás la tabla de contenidos con los títulos de los capítulos numerados.
+Compila de nuevo y abre el resultado en el navegador. Verás la tabla de contenidos flotante a la izquierda del cuerpo del documento (o encima del título en pantallas de dimensiones reducidas).
 
-Hasta que el documento no tenga la extensión suficiente para ocupar la pantalla completa y que aparezca la barra de *scroll* para recorrerlo, no se apreciará la funcionalidad completa de la tabla de contenidos flotante. 
+Para apreciar la funcionalidad de la tabla de contenidos flotante, reduce la altura de la ventana del navegador hasta que sea inferior a los contenidos en el cuerpo del documento y aparezca la barra de *scroll* para recorrerlo. Verás que las entradas de la tabla de contenidos actúan como enlaces al inicio de cada capítulo.  
 
-## Resumen
+## Secciones numeradas
+
+Para numerar los capítulos añade `number_sections: true` como opción para el formato de salida:
+
+```md
+output: 
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: true
+```
+
+## Plantilla final
 
 Después de los cambios que hemos ido haciendo en el documento de muestra, ha debido quedarte así:
 
@@ -179,10 +214,5 @@ sqrt(10)
 
 # Paquetes 
 ````
-## Flujo de trabajo
 
-La idea es que, conforme vayas estudiando el resto de capítulos de esta práctica, continúes escribiendo en el documento R Markdown que tienes ahora. 
-
-La idea es que crees un nuevo capítulo por cada capítulo de la práctica, e incluyas  bloques de código para practicar el código de `r R()` que vayas encontrando en la práctica, así como el texto que creas oportuno para documentar el código y entenderlo cuando releas el documento. Experimenta, escribiendo el código que te apetezca para probar las ideas que te vayan surgiendo y escribiendo el texto que consideres para explicarlas.
-
-Puedes ir compilando cada bloque o instrucción de forma individual, para ver su salida *inline* y compilar el documento cada cierto tiempo. 
+La primera parte del documento, con la cabecera YAML y el bloque de nombre `setup` con las opciones de configuración globales para los bloques de código, la repetiremos en todos los documentos R Markdown a lo largo del curso. 

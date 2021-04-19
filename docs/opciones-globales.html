@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html"><i class="fa fa-check"></i><b>3.7</b> Flujo de trabajo</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>4</b> Paquetes</a></li>
-<li class="chapter" data-level="5" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>5</b> Tipos de objetos en R</a></li>
+<li class="chapter" data-level="5" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>5</b> Crear nuevos objetos en R</a></li>
 <li class="chapter" data-level="6" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>6</b> Gráficos</a></li>
 <li class="divider"></li>
 <li><ul>
@@ -198,13 +198,14 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <span id="cb24-3"><a href="opciones-globales.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>que estaba incluido en el documento de muestra.</p>
 <p>Las opciones especificadas en el argumento de <code>knitr::opts_chunk$set</code> aplicarán a todos los bloques de código que se incluyan en el documento.</p>
-<p>Si se desea aplicar las opciones <code>results='hold'</code> y <code>comment = ''</code> que se explicaron antes, a todos los bloques de código del documento, las añadiremos al argumento de la función <code>knitr::opts_chunk$set</code>, de forma que quede:</p>
+<p>Las opciones <code>results='hold'</code> y <code>comment = ''</code> que hemos aplicado antes a nuestro bloque de código tendrían un efecto local, es decir, aplicarían solo al bloque en el que se han especificado, y si queremos usarlas en los nuevos bloques que creemos, habría que escribirlas de nuevo en todos ellos.</p>
+<p>Para aplicar las opciones <code>results='hold'</code> y <code>comment = ''</code> a todos los bloques de código del documento, las añadiremos al argumento de la función <code>knitr::opts_chunk$set</code>, de forma que quede:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb25-1"><a href="opciones-globales.html#cb25-1" aria-hidden="true" tabindex="-1"></a>knitr::opts_chunk$set(</span>
 <span id="cb25-2"><a href="opciones-globales.html#cb25-2" aria-hidden="true" tabindex="-1"></a>    echo = TRUE,</span>
 <span id="cb25-3"><a href="opciones-globales.html#cb25-3" aria-hidden="true" tabindex="-1"></a>    results=&#39;hold&#39;,</span>
 <span id="cb25-4"><a href="opciones-globales.html#cb25-4" aria-hidden="true" tabindex="-1"></a>    comment = &#39;&#39;</span>
 <span id="cb25-5"><a href="opciones-globales.html#cb25-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>En tal caso, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, y puedes borrarlas del bloque de código que creaste antes.</p>
+<p>Ahora, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, así que puedes borrarlas del bloque de código que creaste antes.</p>
 </div>
             </section>
 

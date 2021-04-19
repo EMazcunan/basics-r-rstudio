@@ -265,7 +265,7 @@ Las líneas siguientes (8 a 10)
 \end{Highlighting}
 \end{Shaded}
 
-las incluiremos en todos nuestros documentos R Markdown, y establecen la opción de mostrar el código que incluyamos en el cuerpo de nuestro documento \texttt{.Rmd} en el formato de salida.
+las analizaremos con más detalle en la sección \ref{label}.
 
 El resto de líneas (12 en adelante), son los contenidos propiamente dichos del documento. Se trata de unos contenidos de muestra, que enseguida reemplazaremos por nuestros contenidos propios. Pero antes de borrar estos contenidos de muestra, compilaremos el documento para ver el resultado inicial.
 
@@ -281,11 +281,20 @@ Si el documento no se abre en este panel, sino en una ventana emergente, cierra 
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   Selecciona el menú
-  ::: \{.menu data-latex=""\}
-  Tools \textgreater{} Global Options
-  :::
+\end{enumerate}
+
+\begin{menu}
+Tools \textgreater{} Global Options
+
+\end{menu}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
 \item
   Se abrirá una ventana de nombre \textbf{Options}. Selecciona la sección \textbf{R Markdown} en el menú lateral e indica
 \end{enumerate}
@@ -303,12 +312,12 @@ Si miras los contenidos de la carpeta \texttt{IntroR} (puedes hacerlo desde el p
 
 \begin{center}\includegraphics[width=1\linewidth]{images/open-in-new-window} \end{center}
 
-A continuación compararemos el documento fuente \texttt{intro-r.Rmd} con el documento \texttt{intro-r.html} en el visor, para entender cómo se traducen los contenidos que escribimos en un archivo R Markdown en el formato de salida HTML. Nos fíjaremos en particular en los siguientes elementos: encabezados y bloques de código.
+A continuación compararemos el documento fuente \texttt{intro-r.Rmd} con el documento \texttt{intro-r.html} en el visor, para entender cómo se traducen los contenidos que escribimos en un archivo R Markdown en el formato de salida HTML. Nos fíjaremos en particular en los siguientes elementos: encabezados y bloques de código, que se describen en los dos siguientes apartados.
 
 \hypertarget{encabezados}{%
 \subsubsection{Encabezados}\label{encabezados}}
 
-Las líneas 21
+Las líneas 12
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -316,7 +325,7 @@ Las líneas 21
 \end{Highlighting}
 \end{Shaded}
 
-y 31
+y 22
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -347,7 +356,7 @@ Hay que indicar que es una casualidad la coincidencia del símbolo \texttt{\#} p
 \hypertarget{bloques-de-cuxf3digo}{%
 \subsubsection{Bloques de código}\label{bloques-de-cuxf3digo}}
 
-Los elementos más importantes del documento son los bloques de código \textsf{R} (\emph{code chunks}). En el documento de muestra encontramos dos bloques de código: El primero en las líneas 27-29
+Los elementos protagonistas del documento son los bloques de código \textsf{R} (\emph{code chunks}). En el documento de muestra encontramos dos bloques de código: El primero en las líneas 18-20
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -357,7 +366,7 @@ Los elementos más importantes del documento son los bloques de código \textsf{
 \end{Highlighting}
 \end{Shaded}
 
-y el segundo en las líneas 35-37
+y el segundo en las líneas 26-28
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -367,7 +376,7 @@ y el segundo en las líneas 35-37
 \end{Highlighting}
 \end{Shaded}
 
-Si miras el documento compilado, verás que, para el primer bloque se muestra el código y a continuación la salida o resultado de su ejecución; mientras que para el segundo, se muestra solo la salida, y no el código debido a la opción \texttt{echo=FALSE}.
+Si miras el documento compilado, verás que, para el primer bloque se muestra el código y a continuación la salida o resultado de su ejecución; mientras que para el segundo, se muestra solo la salida, y no el código. Esto es debido a la opción \texttt{echo=FALSE}.
 
 Como se indicó al principio de la sección, la sintaxis general para incluir un bloque de código \textsf{R} en un documento R Markdown es la siguiente:
 
@@ -381,7 +390,7 @@ Como se indicó al principio de la sección, la sintaxis general para incluir un
 
 Las etiquetas de los dos bloques de código del documento de muestra son \texttt{cars} y \texttt{presure}. La etiqueta de un bloque de código sirve para identificarlo, podemos interpretarlo como su nombre, pero es opcional y puede omitirse.
 
-El primer bloque de código no tiene ninguna opción. Y el segundo tiene la opción \texttt{echo=TRUE}, que como hemos dicho antes inhibe la impresión del código en el documento compilado.
+El primer bloque de código no tiene ninguna opción. Y el segundo tiene la opción \texttt{echo=TRUE}, que como acabamos de decir inhibe la impresión del código en el documento compilado.
 
 Puesto que la etiqueta y la lista de opciones son opcionales, el esqueleto básico de un bloque de código \textsf{R} incluido en un documento R Markdown es
 
@@ -399,20 +408,33 @@ Notar el cambio de enfoque al escribir en un documento R Markdown respecto a esc
 
 \begin{itemize}
 \item
-  En un script, se espera que escribamos código \textsf{R}, y para escribir texto ordinario hemos de usar comentario utilizando el carácter \texttt{\#}
+  En un script, se espera que escribamos código \textsf{R}, y para escribir texto ordinario hemos de usar comentarios utilizando el carácter \texttt{\#}
 \item
-  Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código \textsf{R} hemos de incluirlo en un bloque especial delimitado por \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}} y \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}}.
+  Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código \textsf{R} hemos de incluirlo en un bloque especial delimitado por la línea \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}} al comienzo y la línea \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}} al final.
 \end{itemize}
 
 \hypertarget{plantilla-de-r-markdown}{%
 \section{Plantilla de R Markdown}\label{plantilla-de-r-markdown}}
 
-Ahora vamos a reemplazar los contenidos de muestra del archivo de R Markdown que hemos creado por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque código y dejaremos el documento preparado para practicar el código de \textsf{R} que se presenta en los siguientes capítulos.
+En el capítulo anterior hemos explorado los contenidos de muestra del archivo de R Markdown que hemos creado, y conocemos los dos elementos principales a incluir en este tipo de documentos:
+
+\begin{itemize}
+\item
+  los \textbf{encabezados}, para estructurar nuestro documento en capítulos, secciones, subsecciones \ldots{}
+\item
+  y los \textbf{bloques de código}, para incluir instrucciones de \textsf{R}.
+\end{itemize}
+
+Ahora vamos a reemplazar los contenidos de muestra por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque código, y personalizaremos algunas opciones.
+
+Al final de este capítulo tendremos una plantilla para los documentos R Markdown que usaremos en las prácticas y tareas a lo largo del curso.
+
+Y nuestro documento \texttt{intro-r.Rmd} quedará preparado para practicar el código de \textsf{R} que se presenta en los siguientes capítulos de esta práctica.
 
 \hypertarget{primeros-contenidos}{%
 \subsection{Primeros contenidos}\label{primeros-contenidos}}
 
-Borra los contenidos de muestra (línea 15 en adelante) y añade la siguiente línea para crear un encabezado de nivel 1:
+Borra los contenidos de muestra (línea 12 en adelante) y añade la siguiente línea para crear un primer capítulo (encabezado de nivel 1) de título ``Bloques de código'':
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -420,12 +442,12 @@ Borra los contenidos de muestra (línea 15 en adelante) y añade la siguiente l�
 \end{Highlighting}
 \end{Shaded}
 
-Ahora vamos a crear un primer bloque de código. Para escribir su esqueleto usa el atajo
+Ahora vamos a crear el primer bloque de código. Para escribir su esqueleto usa el atajo
 
-\begin{menu}
+\begin{center}
 \texttt{Ctrl\ +\ Alt\ +\ I}
 
-\end{menu}
+\end{center}
 
 (\texttt{I} de \emph{Insert}) o, alternativamente, el menú
 
@@ -465,7 +487,7 @@ Compila para ver el resultado.
 \hypertarget{algunas-opciones}{%
 \subsection{Algunas opciones}\label{algunas-opciones}}
 
-Tras compilar el documento, verás que en el documento HTML generado aparecen:
+Tras compilar el documento con los contenidos añadidos en la sección anterior, verás que en el documento HTML generado aparecen:
 
 \begin{itemize}
 \tightlist
@@ -479,23 +501,23 @@ Tras compilar el documento, verás que en el documento HTML generado aparecen:
   Su salida 3.1622777
 \end{itemize}
 
-Si prefieres que se muestre primero el código para las dos instrucciones y a continuación las dos salidas, añade la opción \texttt{results=\textquotesingle{}hold\textquotesingle{}}:
+Para que se muestre primero el código para las dos instrucciones y a continuación las dos salidas, añade la opción \texttt{results=\textquotesingle{}hold\textquotesingle{}}.
+
+Y para omitir los caracteres \texttt{\#\#} al comienzo de las líneas de la salida, añade la opción \texttt{comment\ =\ \textquotesingle{}\textquotesingle{}}. Nuestro bloque de código con estas dos opciones quedaría:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r, results=\textquotesingle{}hold\textquotesingle{}\}}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r, results=\textquotesingle{}hold\textquotesingle{}, comment = \textquotesingle{}\textquotesingle{}\}}
 \InformationTok{sqrt(8)}
 \InformationTok{sqrt(10)}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
 \end{Highlighting}
 \end{Shaded}
 
-y vuelve a compilar para ver el resultado.
+Vuelve a compilar y observa el resultado.
 
-Si quieres omitir los caracteres \texttt{\#\#} al comienzo de las líneas de la salida, añade la opción \texttt{comment\ =\ \textquotesingle{}\textquotesingle{}}.
-
-\hypertarget{opciones-globales}{%
-\subsection{Opciones globales}\label{opciones-globales}}
+\hypertarget{global-options}{%
+\subsection{Opciones globales}\label{global-options}}
 
 Al comienzo de nuestro documento, hemos conservado el bloque de código
 
@@ -507,11 +529,13 @@ Al comienzo de nuestro documento, hemos conservado el bloque de código
 \end{Highlighting}
 \end{Shaded}
 
-que estaba incluido en el documento de muestra.
+que estaba incluido en el documento de muestra. Este bloque se identifica con la etiqueta \texttt{setup} y tiene la opción \texttt{include=FALSE}, que hace que, al compilar el documento, si bien se ejecutará la instrucción que contiene, no se incluirá en el formato HTML de salida.
 
-Las opciones especificadas en el argumento de \texttt{knitr::opts\_chunk\$set} aplicarán a todos los bloques de código que se incluyan en el documento.
+Se explica a continuación el significado de la instrucción \texttt{knitr::opts\_chunk\$set(echo\ =\ TRUE)}: Las opciones especificadas como argumentos de \texttt{knitr::opts\_chunk\$set} (por ahora \texttt{echo=TRUE}) aplicarán a todos los bloques de código que se incluyan en el documento.
 
-Si se desea aplicar las opciones \texttt{results=\textquotesingle{}hold\textquotesingle{}} y \texttt{comment\ =\ \textquotesingle{}\textquotesingle{}} que se explicaron antes, a todos los bloques de código del documento, las añadiremos al argumento de la función \texttt{knitr::opts\_chunk\$set}, de forma que quede:
+Las opciones \texttt{results=\textquotesingle{}hold\textquotesingle{}} y \texttt{comment\ =\ \textquotesingle{}\textquotesingle{}} que hemos aplicado antes a nuestro bloque de código tendrían un efecto local, es decir, aplicarían solo al bloque en el que se han especificado, y si queremos usarlas en los nuevos bloques que creemos, habría que escribirlas de nuevo en todos ellos.
+
+Para aplicar las opciones \texttt{results=\textquotesingle{}hold\textquotesingle{}} y \texttt{comment\ =\ \textquotesingle{}\textquotesingle{}} a todos los bloques de código del documento, las añadiremos como argumentos de \texttt{knitr::opts\_chunk\$set}, de forma que quede:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -523,14 +547,14 @@ Si se desea aplicar las opciones \texttt{results=\textquotesingle{}hold\textquot
 \end{Highlighting}
 \end{Shaded}
 
-En tal caso, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, y puedes borrarlas del bloque de código que creaste antes.
+Ahora, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, así que puedes borrarlas del bloque de código que creaste antes.
 
-\hypertarget{ejecuciuxf3n-individual-de-un-bloque-de-cuxf3digo}{%
-\subsection{Ejecución individual de un bloque de código}\label{ejecuciuxf3n-individual-de-un-bloque-de-cuxf3digo}}
+\hypertarget{ejecuciuxf3n-de-instrucciones-individuales}{%
+\subsection{Ejecución de instrucciones individuales}\label{ejecuciuxf3n-de-instrucciones-individuales}}
 
-Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, para cada bloque, el código y la salida (si no hay opciones como \texttt{echo=FALSE} que inhiban la impresión del código y/o de la salida).
+Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, tanto el código como la salida o resultado (siempre que no hay opciones como \texttt{echo=FALSE} o \texttt{include=FALSE} que inhiban la impresión del código y/o de la salida).
 
-Pero también podemos ejecutar determinadas instrucciones en un bloque de código de forma individual, sin necesidad de compilar el documento completo.
+Pero también podemos ejecutar determinadas instrucciones de forma individual, sin necesidad de compilar el documento completo.
 Para ello, podemos proceder exactamente igual que en el caso de los scripts, es decir:
 
 \begin{itemize}
@@ -540,7 +564,14 @@ Para ello, podemos proceder exactamente igual que en el caso de los scripts, es 
   Para ejecutar varias instrucciones, seleccionamos las correspondientes líneas y presionamos \texttt{Ctrl\ +\ Enter}.
 \end{itemize}
 
-La salida se mostrará en la consola, y también incrustada en el propio documento, justo debajo del bloque de código. Para esto último ha de estar marcada la opción \textbf{Show output inline for all R Markdown documents} en las opciones para R Markdown, como muestra la siguiente imagen:
+La salida se mostrará en la consola, y también incrustada en el propio documento, justo debajo del correspondiente bloque de código. Para esto último ha de estar marcada la opción \textbf{Show output inline for all R Markdown documents} en las opciones para R Markdown en el menú
+
+\begin{menu}
+Tools \textgreater{} Global options \ldots{} \textgreater{} R Markdown
+
+\end{menu}
+
+como muestra la siguiente imagen:
 
 \begin{center}\includegraphics[width=1\linewidth]{images/options-r-markdown-b} \end{center}
 
@@ -551,9 +582,9 @@ Además, podemos ejecutar todas las instrucciones que componen un bloque de cód
 \hypertarget{tabla-de-contenidos-flotante}{%
 \subsection{Tabla de contenidos flotante}\label{tabla-de-contenidos-flotante}}
 
-Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante y para numerar los capítulos.
+Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante.
 
-Para ello modificamos la línea
+Para ello sustituimos la línea
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -573,9 +604,9 @@ en la cabecera YAML por
 \end{Highlighting}
 \end{Shaded}
 
-Asegúrate de indentar las líneas conforme se indica, porque el indentado es fundamental para que los campos anidados se lean correctamente en el proceso de compilación.
+Asegúrate de indentar las líneas conforme se indica, porque el indentado es fundamental para que los campos anidados se lean e interpreten correctamente en el proceso de compilación.
 
-Para que nuestra tabla de contenidos tenga más de una entrada, añade al final del documento un segundo capítulo, con el título del siguiente capítulo de esta práctica:
+Para que nuestra tabla de contenidos tenga más de una entrada, añade al final del documento un segundo capítulo, con el título de otro capítulo de esta práctica:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -583,12 +614,27 @@ Para que nuestra tabla de contenidos tenga más de una entrada, añade al final 
 \end{Highlighting}
 \end{Shaded}
 
-Compila de nuevo y abre el resultado en el navegador. Verás la tabla de contenidos con los títulos de los capítulos numerados.
+Compila de nuevo y abre el resultado en el navegador. Verás la tabla de contenidos flotante a la izquierda del cuerpo del documento (o encima del título en pantallas de dimensiones reducidas).
 
-Hasta que el documento no tenga la extensión suficiente para ocupar la pantalla completa y que aparezca la barra de \emph{scroll} para recorrerlo, no se apreciará la funcionalidad completa de la tabla de contenidos flotante.
+Para apreciar la funcionalidad de la tabla de contenidos flotante, reduce la altura de la ventana del navegador hasta que sea inferior a los contenidos en el cuerpo del documento y aparezca la barra de \emph{scroll} para recorrerlo. Verás que las entradas de la tabla de contenidos actúan como enlaces al inicio de cada capítulo.
 
-\hypertarget{resumen}{%
-\subsection{Resumen}\label{resumen}}
+\hypertarget{secciones-numeradas}{%
+\subsection{Secciones numeradas}\label{secciones-numeradas}}
+
+Para numerar los capítulos añade \texttt{number\_sections:\ true} como opción para el formato de salida:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AnnotationTok{output:}\CommentTok{ }
+\CommentTok{    html\_document:}
+\CommentTok{        toc: true}
+\CommentTok{        toc\_float: true}
+\CommentTok{        number\_sections: true}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{plantilla-final}{%
+\subsection{Plantilla final}\label{plantilla-final}}
 
 Después de los cambios que hemos ido haciendo en el documento de muestra, ha debido quedarte así:
 
@@ -624,29 +670,25 @@ Después de los cambios que hemos ido haciendo en el documento de muestra, ha de
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{flujo-de-trabajo}{%
-\subsection{Flujo de trabajo}\label{flujo-de-trabajo}}
+La primera parte del documento, con la cabecera YAML y el bloque de nombre \texttt{setup} con las opciones de configuración globales para los bloques de código, la repetiremos en todos los documentos R Markdown a lo largo del curso.
 
-La idea es que, conforme vayas estudiando el resto de capítulos de esta práctica, continúes escribiendo en el documento R Markdown que tienes ahora.
+\hypertarget{flow}{%
+\section{Flujo de trabajo}\label{flow}}
 
-La idea es que crees un nuevo capítulo por cada capítulo de la práctica, e incluyas bloques de código para practicar el código de \textsf{R} que vayas encontrando en la práctica, así como el texto que creas oportuno para documentar el código y entenderlo cuando releas el documento. Experimenta, escribiendo el código que te apetezca para probar las ideas que te vayan surgiendo y escribiendo el texto que consideres para explicarlas.
+La idea es que, conforme vayas estudiando el resto de la práctica, continúes escribiendo en el documento R Markdown que tienes ahora, después de leer el capítulo anterior.
 
-Puedes ir compilando cada bloque o instrucción de forma individual, para ver su salida \emph{inline} y compilar el documento cada cierto tiempo.
+Así, al terminar de estudiar la práctica, tendrás un informe o resumen de la misma, incluyendo las instrucciones de \textsf{R} que hayas aprendido, los resultados obtenidos, y los comentarios explicativos que hayas añadido.
 
-\hypertarget{packages}{%
-\section{Paquetes}\label{packages}}
+Incluye bloques de código para practicar el código de \textsf{R} que vayas encontrando en la práctica, así como el texto que creas oportuno para documentar el código que has escrito, de forma que puedas entenderlo cuando releas el documento. En cuanto al seccionado del documento, puedes crear un nuevo capítulo por cada capítulo de la práctica.
 
-TODO
+Experimenta, escribiendo el código que te apetezca para probar las ideas que te vayan surgiendo y escribiendo el texto que consideres para explicarlas.
 
-\hypertarget{objects}{%
-\section{Tipos de objetos en R}\label{objects}}
+Puedes ir compilando cada bloque o instrucción de forma individual, para ver su salida \emph{inline}, y compilar el documento completo cada cierto tiempo.
 
-TODO
+\hypertarget{tbc}{%
+\section{Continuará}\label{tbc}}
 
-\hypertarget{plots}{%
-\section{Gráficos}\label{plots}}
-
-TODO
+\ldots{}
 
 % After Body
 

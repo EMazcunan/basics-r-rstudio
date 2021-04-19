@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Paquetes | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <title>3.4 Ejecución de instrucciones individuales | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="3.4 Ejecución de instrucciones individuales | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="3.4 Ejecución de instrucciones individuales | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="3.4 Ejecución de instrucciones individuales | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flow.html"/>
-<link rel="next" href="objects.html"/>
+<link rel="prev" href="global-options.html"/>
+<link rel="next" href="tabla-de-contenidos-flotante.html"/>
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -162,9 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
-<li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a></li>
-<li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Crear nuevos objetos en R</a></li>
-<li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
+<li class="chapter" data-level="5" data-path="tbc.html"><a href="tbc.html"><i class="fa fa-check"></i><b>5</b> Continuará</a></li>
 <li class="divider"></li>
 <li><ul>
 <li style="margin: 10px 0;">
@@ -191,18 +189,31 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="packages" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Paquetes</h1>
-<p>TODO</p>
-
+<div id="ejecución-de-instrucciones-individuales" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Ejecución de instrucciones individuales</h2>
+<p>Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, tanto el código como la salida o resultado (siempre que no hay opciones como <code>echo=FALSE</code> o <code>include=FALSE</code> que inhiban la impresión del código y/o de la salida).</p>
+<p>Pero también podemos ejecutar determinadas instrucciones de forma individual, sin necesidad de compilar el documento completo.
+Para ello, podemos proceder exactamente igual que en el caso de los scripts, es decir:</p>
+<ul>
+<li><p>Para ejecutar una sola instrucción, situamos el cursor en cualquiera de las líneas que compongan la instrucción y presionamos <code>Ctrl + Enter</code>.</p></li>
+<li><p>Para ejecutar varias instrucciones, seleccionamos las correspondientes líneas y presionamos <code>Ctrl + Enter</code>.</p></li>
+</ul>
+<p>La salida se mostrará en la consola, y también incrustada en el propio documento, justo debajo del correspondiente bloque de código. Para esto último ha de estar marcada la opción <strong>Show output inline for all R Markdown documents</strong> en las opciones para R Markdown en el menú</p>
+<div class="menu">
+<p>Tools &gt; Global options … &gt; R Markdown</p>
+</div>
+<p>como muestra la siguiente imagen:
+<img src="images/options-r-markdown-b.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Además, podemos ejecutar todas las instrucciones que componen un bloque de código utilizando el botón a la derecha del comienzo del bloque que se resalta en la siguiente imagen:</p>
+<p><img src="images/run.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="flow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="objects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="global-options.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tabla-de-contenidos-flotante.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

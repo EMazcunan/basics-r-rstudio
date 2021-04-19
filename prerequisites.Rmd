@@ -2,4 +2,4 @@
 
 Para realizar esta práctica tienes que instalar `r textsf("R")` y `r textsf("RStudio")` en tu equipo. 
 
-En el documento [Instalación de R y RStudio](https://emazcunan.github.io/install-r-rstudio) encontrarás las instrucciones para hacerlo.
+En el documento [Instalación de R y RStudio](https://emazcunan.github.io/install-r-rstudio){target="_blank"} encontrarás las instrucciones para hacerlo.

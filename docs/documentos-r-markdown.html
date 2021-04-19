@@ -155,15 +155,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="primeros-contenidos.html"><a href="primeros-contenidos.html"><i class="fa fa-check"></i><b>3.1</b> Primeros contenidos</a></li>
 <li class="chapter" data-level="3.2" data-path="algunas-opciones.html"><a href="algunas-opciones.html"><i class="fa fa-check"></i><b>3.2</b> Algunas opciones</a></li>
-<li class="chapter" data-level="3.3" data-path="opciones-globales.html"><a href="opciones-globales.html"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
-<li class="chapter" data-level="3.4" data-path="ejecución-individual-de-un-bloque-de-código.html"><a href="ejecución-individual-de-un-bloque-de-código.html"><i class="fa fa-check"></i><b>3.4</b> Ejecución individual de un bloque de código</a></li>
+<li class="chapter" data-level="3.3" data-path="global-options.html"><a href="global-options.html"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
+<li class="chapter" data-level="3.4" data-path="ejecución-de-instrucciones-individuales.html"><a href="ejecución-de-instrucciones-individuales.html"><i class="fa fa-check"></i><b>3.4</b> Ejecución de instrucciones individuales</a></li>
 <li class="chapter" data-level="3.5" data-path="tabla-de-contenidos-flotante.html"><a href="tabla-de-contenidos-flotante.html"><i class="fa fa-check"></i><b>3.5</b> Tabla de contenidos flotante</a></li>
-<li class="chapter" data-level="3.6" data-path="resumen.html"><a href="resumen.html"><i class="fa fa-check"></i><b>3.6</b> Resumen</a></li>
-<li class="chapter" data-level="3.7" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html"><i class="fa fa-check"></i><b>3.7</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="3.6" data-path="secciones-numeradas.html"><a href="secciones-numeradas.html"><i class="fa fa-check"></i><b>3.6</b> Secciones numeradas</a></li>
+<li class="chapter" data-level="3.7" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>4</b> Paquetes</a></li>
-<li class="chapter" data-level="5" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>5</b> Tipos de objetos en R</a></li>
-<li class="chapter" data-level="6" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>6</b> Gráficos</a></li>
+<li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="5" data-path="tbc.html"><a href="tbc.html"><i class="fa fa-check"></i><b>5</b> Continuará</a></li>
 <li class="divider"></li>
 <li><ul>
 <li style="margin: 10px 0;">
@@ -194,7 +193,7 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <h2><span class="header-section-number">2.3</span> Documentos R Markdown</h2>
 <p>Nuestra elección para realizar las prácticas y tareas de esta asignatura será utilizar documentos R Markdown. En un documento R Markdown podremos escribir tanto código <span class="textbf">R</span> como texto. Y al compilarlo obtendremos un documento que incluirá el código, la salida resultante de ejecutar el código, y el texto explicativo.</p>
 <ul>
-<li>En el texto podremos utilizar la sintaxis propia del lenguaje de marcado <a href="https://es.wikipedia.org/wiki/Markdown">Markdown</a> (independiente de <span class="textbf">R</span>). Por ejemplo:</li>
+<li>En el texto podremos utilizar la sintaxis propia del lenguaje de marcado <a href="https://es.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a> (independiente de <span class="textbf">R</span>). Por ejemplo:</li>
 </ul>
 <div class="sourceCode" id="cb8"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb8-1"><a href="documentos-r-markdown.html#cb8-1" aria-hidden="true" tabindex="-1"></a>El resultado anterior permite extraer una conclusión muy **importante**.</span></code></pre></div>
 <ul>
@@ -225,7 +224,7 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <div class="sourceCode" id="cb11"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb11-1"><a href="documentos-r-markdown.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
 <span id="cb11-2"><a href="documentos-r-markdown.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = TRUE)</span></span>
 <span id="cb11-3"><a href="documentos-r-markdown.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
-<p>las incluiremos en todos nuestros documentos R Markdown, y establecen la opción de mostrar el código que incluyamos en el cuerpo de nuestro documento <code>.Rmd</code> en el formato de salida.</p>
+<p>las analizaremos con más detalle en la sección <a href="#label"><strong>??</strong></a>.</p>
 <p>El resto de líneas (12 en adelante), son los contenidos propiamente dichos del documento. Se trata de unos contenidos de muestra, que enseguida reemplazaremos por nuestros contenidos propios. Pero antes de borrar estos contenidos de muestra, compilaremos el documento para ver el resultado inicial.</p>
 </div>
 <div id="compilación" class="section level3" number="2.3.2">
@@ -235,11 +234,13 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <p>El documento compilado aparecerá en el panel <strong>Viewer</strong>, en la ventana de la zona derecha inferior.
 Si el documento no se abre en este panel, sino en una ventana emergente, cierra esa ventana y modifica este comportamiento siguiendo los siguientes pasos:</p>
 <ol style="list-style-type: decimal">
-<li><p>Selecciona el menú
-::: {.menu data-latex=""}
-Tools &gt; Global Options
-:::</p></li>
-<li><p>Se abrirá una ventana de nombre <strong>Options</strong>. Selecciona la sección <strong>R Markdown</strong> en el menú lateral e indica</p></li>
+<li>Selecciona el menú</li>
+</ol>
+<div class="menu">
+<p>Tools &gt; Global Options</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Se abrirá una ventana de nombre <strong>Options</strong>. Selecciona la sección <strong>R Markdown</strong> en el menú lateral e indica</li>
 </ol>
 <div class="menu">
 <p>Show output preview in: Viewer Pane</p>
@@ -248,13 +249,13 @@ Tools &gt; Global Options
 <img src="images/options-r-markdown.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Si miras los contenidos de la carpeta <code>IntroR</code> (puedes hacerlo desde el panel <strong>Files</strong> de <span class="textbf">RStudio</span>) verás que, como resultado de la compilación del archivo fuente <code>intro-r.Rmd</code>, se ha creado el archivo de salida <code>intro-r.html</code>. Éste es el archivo que estamos visualizando en el visor de documentos. También podríamos abrirlo en el navegador web, pudiendolo hacer desde el propio visor, presionando el icono resaltado en la siguiente imagen:</p>
 <p><img src="images/open-in-new-window.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>A continuación compararemos el documento fuente <code>intro-r.Rmd</code> con el documento <code>intro-r.html</code> en el visor, para entender cómo se traducen los contenidos que escribimos en un archivo R Markdown en el formato de salida HTML. Nos fíjaremos en particular en los siguientes elementos: encabezados y bloques de código.</p>
+<p>A continuación compararemos el documento fuente <code>intro-r.Rmd</code> con el documento <code>intro-r.html</code> en el visor, para entender cómo se traducen los contenidos que escribimos en un archivo R Markdown en el formato de salida HTML. Nos fíjaremos en particular en los siguientes elementos: encabezados y bloques de código, que se describen en los dos siguientes apartados.</p>
 </div>
 <div id="encabezados" class="section level3" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> Encabezados</h3>
-<p>Las líneas 21</p>
+<p>Las líneas 12</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb12-1"><a href="documentos-r-markdown.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## R Markdown </span></span></code></pre></div>
-<p>y 31</p>
+<p>y 22</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb13-1"><a href="documentos-r-markdown.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Including Plots</span></span></code></pre></div>
 <p>se traducen en la salida como encabezados de secciones. Si inspeccionas el código del archivo <code>intro-r.html</code> verás que se crean elementos de tipo <code>&lt;h2&gt;</code>. En general,</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb14-1"><a href="documentos-r-markdown.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Título</span></span></code></pre></div>
@@ -265,21 +266,21 @@ Tools &gt; Global Options
 </div>
 <div id="bloques-de-código" class="section level3" number="2.3.4">
 <h3><span class="header-section-number">2.3.4</span> Bloques de código</h3>
-<p>Los elementos más importantes del documento son los bloques de código <span class="textbf">R</span> (<em>code chunks</em>). En el documento de muestra encontramos dos bloques de código: El primero en las líneas 27-29</p>
+<p>Los elementos protagonistas del documento son los bloques de código <span class="textbf">R</span> (<em>code chunks</em>). En el documento de muestra encontramos dos bloques de código: El primero en las líneas 18-20</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb16-1"><a href="documentos-r-markdown.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r cars}</span></span>
 <span id="cb16-2"><a href="documentos-r-markdown.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="in">summary(cars)</span></span>
 <span id="cb16-3"><a href="documentos-r-markdown.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
-<p>y el segundo en las líneas 35-37</p>
+<p>y el segundo en las líneas 26-28</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb17-1"><a href="documentos-r-markdown.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pressure, echo=FALSE}</span></span>
 <span id="cb17-2"><a href="documentos-r-markdown.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="in">plot(pressure)</span></span>
 <span id="cb17-3"><a href="documentos-r-markdown.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
-<p>Si miras el documento compilado, verás que, para el primer bloque se muestra el código y a continuación la salida o resultado de su ejecución; mientras que para el segundo, se muestra solo la salida, y no el código debido a la opción <code>echo=FALSE</code>.</p>
+<p>Si miras el documento compilado, verás que, para el primer bloque se muestra el código y a continuación la salida o resultado de su ejecución; mientras que para el segundo, se muestra solo la salida, y no el código. Esto es debido a la opción <code>echo=FALSE</code>.</p>
 <p>Como se indicó al principio de la sección, la sintaxis general para incluir un bloque de código <span class="textbf">R</span> en un documento R Markdown es la siguiente:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb18-1"><a href="documentos-r-markdown.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r [etiqueta], [lista de opciones]}</span></span>
 <span id="cb18-2"><a href="documentos-r-markdown.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;código R&gt;</span></span>
 <span id="cb18-3"><a href="documentos-r-markdown.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>Las etiquetas de los dos bloques de código del documento de muestra son <code>cars</code> y <code>presure</code>. La etiqueta de un bloque de código sirve para identificarlo, podemos interpretarlo como su nombre, pero es opcional y puede omitirse.</p>
-<p>El primer bloque de código no tiene ninguna opción. Y el segundo tiene la opción <code>echo=TRUE</code>, que como hemos dicho antes inhibe la impresión del código en el documento compilado.</p>
+<p>El primer bloque de código no tiene ninguna opción. Y el segundo tiene la opción <code>echo=TRUE</code>, que como acabamos de decir inhibe la impresión del código en el documento compilado.</p>
 <p>Puesto que la etiqueta y la lista de opciones son opcionales, el esqueleto básico de un bloque de código <span class="textbf">R</span> incluido en un documento R Markdown es</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb19-1"><a href="documentos-r-markdown.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb19-2"><a href="documentos-r-markdown.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;código R&gt;</span></span>
@@ -287,8 +288,8 @@ Tools &gt; Global Options
 <p>En el cuerpo del bloque podemos escribir instrucciones de <span class="textbf">R</span> igual que si estuvieramos escribiendo en un script (incluidos comentarios precedidos por el carácter <code>#</code>).</p>
 <p>Notar el cambio de enfoque al escribir en un documento R Markdown respecto a escribir en un script:</p>
 <ul>
-<li><p>En un script, se espera que escribamos código <span class="textbf">R</span>, y para escribir texto ordinario hemos de usar comentario utilizando el carácter <code>#</code></p></li>
-<li><p>Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código <span class="textbf">R</span> hemos de incluirlo en un bloque especial delimitado por <code>```{r}</code> y <code>```</code>.</p></li>
+<li><p>En un script, se espera que escribamos código <span class="textbf">R</span>, y para escribir texto ordinario hemos de usar comentarios utilizando el carácter <code>#</code></p></li>
+<li><p>Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código <span class="textbf">R</span> hemos de incluirlo en un bloque especial delimitado por la línea <code>```{r}</code> al comienzo y la línea <code>```</code> al final.</p></li>
 </ul>
 <!-- ## Proyectos -->
 

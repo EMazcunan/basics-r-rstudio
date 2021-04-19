@@ -104,7 +104,7 @@ En el selector de archivos que se abrirá a continuación, navega hasta la carpe
 
 Nuestra elección para realizar las prácticas y tareas de esta asignatura será utilizar documentos R Markdown.  En un documento R Markdown podremos escribir tanto código `r R()` como texto. Y al compilarlo obtendremos un documento que incluirá el código, la salida resultante de ejecutar el código, y el texto explicativo. 
 
-* En el texto podremos utilizar la sintaxis propia del lenguaje de marcado [Markdown](https://es.wikipedia.org/wiki/Markdown) (independiente de `r R()`). Por ejemplo: 
+* En el texto podremos utilizar la sintaxis propia del lenguaje de marcado [Markdown](https://es.wikipedia.org/wiki/Markdown){target="_blank"} (independiente de `r R()`). Por ejemplo: 
 ```md
 El resultado anterior permite extraer una conclusión muy **importante**.
 ```
@@ -152,7 +152,7 @@ Las líneas siguientes (8 a 10)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ````
-las incluiremos en todos nuestros documentos R Markdown, y establecen la opción de mostrar el código que incluyamos en el cuerpo de nuestro documento `.Rmd` en el formato de salida. 
+las analizaremos con más detalle en la sección \@ref(label). 
 
 
 El resto de líneas (12 en adelante), son los contenidos propiamente dichos del documento. Se trata de unos contenidos de muestra, que enseguida reemplazaremos por nuestros contenidos propios. Pero antes de borrar estos contenidos de muestra, compilaremos el documento para ver el resultado inicial. 
@@ -169,6 +169,7 @@ El documento compilado aparecerá en el panel **Viewer**, en la ventana de la zo
 Si el documento no se abre en este panel, sino en una ventana emergente, cierra esa ventana y modifica este comportamiento siguiendo los siguientes pasos:
 
 1. Selecciona el menú 
+
 ::: {.menu data-latex=""}
 Tools > Global Options
 :::
@@ -189,17 +190,17 @@ Si miras los contenidos de la carpeta `IntroR` (puedes hacerlo desde el panel **
 knitr::include_graphics("images/open-in-new-window.png")
 ```
 
-A continuación compararemos el documento fuente `intro-r.Rmd` con el documento `intro-r.html` en el visor, para entender cómo se traducen los contenidos que escribimos en un archivo R Markdown en el formato de salida HTML. Nos fíjaremos en particular en los siguientes elementos: encabezados y bloques de código.
+A continuación compararemos el documento fuente `intro-r.Rmd` con el documento `intro-r.html` en el visor, para entender cómo se traducen los contenidos que escribimos en un archivo R Markdown en el formato de salida HTML. Nos fíjaremos en particular en los siguientes elementos: encabezados y bloques de código, que se describen en los dos siguientes apartados.
 
 
 
 ### Encabezados
 
-Las líneas 21 
+Las líneas 12
 ```md
 ## R Markdown 
 ```
-y 31
+y 22
 ```md
 ## Including Plots
 ```
@@ -218,20 +219,20 @@ Hay que indicar que es una casualidad la coincidencia del símbolo `#` para enca
 
 ### Bloques de código
 
-Los elementos más importantes del documento son los bloques de código `r R()` (*code chunks*). En el documento de muestra encontramos dos bloques de código: El primero en las líneas 27-29
+Los elementos protagonistas del documento son los bloques de código `r R()` (*code chunks*). En el documento de muestra encontramos dos bloques de código: El primero en las líneas 18-20
 ````md
 ```{r cars}`r ''`
 summary(cars)
 ```
 ````
-y el segundo en las líneas 35-37
+y el segundo en las líneas 26-28
 ````md
 ```{r pressure, echo=FALSE}`r ''`
 plot(pressure)
 ```
 ````
 
-Si miras el documento compilado, verás que, para el primer bloque se muestra el código y a continuación la salida o resultado de su ejecución; mientras que para el segundo, se muestra solo la salida, y no el código debido a la opción `echo=FALSE`. 
+Si miras el documento compilado, verás que, para el primer bloque se muestra el código y a continuación la salida o resultado de su ejecución; mientras que para el segundo, se muestra solo la salida, y no el código. Esto es debido a la opción `echo=FALSE`. 
 
 
 Como se indicó al principio de la sección, la sintaxis general para incluir un bloque de código `r R()` en un documento R Markdown es la siguiente:
@@ -243,7 +244,7 @@ Como se indicó al principio de la sección, la sintaxis general para incluir un
 
 Las etiquetas de los dos bloques de código del documento de muestra son `cars` y `presure`. La etiqueta de un bloque de código sirve para identificarlo, podemos interpretarlo como su nombre, pero es opcional y puede omitirse.
 
-El primer bloque de código no tiene ninguna opción. Y el segundo tiene la opción `echo=TRUE`, que como hemos dicho antes inhibe la impresión del código en el documento compilado.
+El primer bloque de código no tiene ninguna opción. Y el segundo tiene la opción `echo=TRUE`, que como acabamos de decir inhibe la impresión del código en el documento compilado.
 
 Puesto que la etiqueta y la lista de opciones son opcionales, el esqueleto básico de un bloque de código `r R()` incluido en un documento R Markdown es
 ````md
@@ -255,9 +256,9 @@ En el cuerpo del bloque podemos escribir instrucciones de `r R()` igual que si e
 
 Notar el cambio de enfoque al escribir en un documento R Markdown respecto a escribir en un script:
 
-* En un script, se espera que escribamos código `r R()`, y para escribir texto ordinario hemos de usar comentario utilizando el carácter `#`
+* En un script, se espera que escribamos código `r R()`, y para escribir texto ordinario hemos de usar comentarios utilizando el carácter `#`
 
-* Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código `r R()` hemos de incluirlo en un bloque especial delimitado por `  ```{r}  ` y ` ``` `.
+* Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código `r R()` hemos de incluirlo en un bloque especial delimitado por la línea ` ```{r} ` al comienzo  y la línea  ` ``` ` al final.
 
 
 

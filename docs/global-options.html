@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Paquetes | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <title>3.3 Opciones globales | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="3.3 Opciones globales | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="3.3 Opciones globales | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="3.3 Opciones globales | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flow.html"/>
-<link rel="next" href="objects.html"/>
+<link rel="prev" href="algunas-opciones.html"/>
+<link rel="next" href="ejecución-de-instrucciones-individuales.html"/>
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -162,9 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
-<li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a></li>
-<li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Crear nuevos objetos en R</a></li>
-<li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
+<li class="chapter" data-level="5" data-path="tbc.html"><a href="tbc.html"><i class="fa fa-check"></i><b>5</b> Continuará</a></li>
 <li class="divider"></li>
 <li><ul>
 <li style="margin: 10px 0;">
@@ -191,18 +189,30 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="packages" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Paquetes</h1>
-<p>TODO</p>
-
+<div id="global-options" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Opciones globales</h2>
+<p>Al comienzo de nuestro documento, hemos conservado el bloque de código</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb24-1"><a href="global-options.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb24-2"><a href="global-options.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = TRUE)</span></span>
+<span id="cb24-3"><a href="global-options.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>que estaba incluido en el documento de muestra. Este bloque se identifica con la etiqueta <code>setup</code> y tiene la opción <code>include=FALSE</code>, que hace que, al compilar el documento, si bien se ejecutará la instrucción que contiene, no se incluirá en el formato HTML de salida.</p>
+<p>Se explica a continuación el significado de la instrucción <code>knitr::opts_chunk$set(echo = TRUE)</code>: Las opciones especificadas como argumentos de <code>knitr::opts_chunk$set</code> (por ahora <code>echo=TRUE</code>) aplicarán a todos los bloques de código que se incluyan en el documento.</p>
+<p>Las opciones <code>results='hold'</code> y <code>comment = ''</code> que hemos aplicado antes a nuestro bloque de código tendrían un efecto local, es decir, aplicarían solo al bloque en el que se han especificado, y si queremos usarlas en los nuevos bloques que creemos, habría que escribirlas de nuevo en todos ellos.</p>
+<p>Para aplicar las opciones <code>results='hold'</code> y <code>comment = ''</code> a todos los bloques de código del documento, las añadiremos como argumentos de <code>knitr::opts_chunk$set</code>, de forma que quede:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb25-1"><a href="global-options.html#cb25-1" aria-hidden="true" tabindex="-1"></a>knitr::opts_chunk$set(</span>
+<span id="cb25-2"><a href="global-options.html#cb25-2" aria-hidden="true" tabindex="-1"></a>    echo = TRUE,</span>
+<span id="cb25-3"><a href="global-options.html#cb25-3" aria-hidden="true" tabindex="-1"></a>    results=&#39;hold&#39;,</span>
+<span id="cb25-4"><a href="global-options.html#cb25-4" aria-hidden="true" tabindex="-1"></a>    comment = &#39;&#39;</span>
+<span id="cb25-5"><a href="global-options.html#cb25-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Ahora, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, así que puedes borrarlas del bloque de código que creaste antes.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="flow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="objects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="algunas-opciones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ejecución-de-instrucciones-individuales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

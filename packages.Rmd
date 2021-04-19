@@ -1,3 +1,27 @@
 # Paquetes {#packages}
 
-TODO
+Existen multitud de paquetes de `R`, que añaden funciones  para propósitos específicos. 
+                  
+Uno de los paquetes que utilizaremos es el paquete `ggplot2` que amplía las capacidades de `R` para realizar gráficos. 
+
+## Instalar un paquete {#install}
+Para instalar un paquete nuevo se utiliza la función `install.packages`. El paquete `ggplot2` se instalaría ejecutando la siguiente instrucción:
+
+```{r, eval=FALSE}
+install.packages("ggplot2")
+```
+La instalación de un paquete puede llevar unos minutos (hay que esperar hasta ver en la consola de `RStudio` que se ha completado el proceso).
+                  
+## Cargar un paquete                  
+                  
+Para cargar un paquete previamente instalado hay que usar la función `library`. Por ejemplo, para cargar el paquete `ggplot2` se ejecuta
+```{r}
+library("ggplot2")
+```
+
+Si el paquete está instalado, la instrucción anterior lo cargará y podremos hacer uso de sus funciones. 
+
+En caso de no estar instalado, recibiremos un mensaje de error indicando que no existe el paquete solicitado, y habrá que instalarlo primero, como se explicó en el apartado anterior.   
+
+
+La instalación de un paquete (con `install.packages`) se realiza una sóla vez, mientras que la carga (con `library`) es necesaria en cada sesión en la que queramos usar funciones del paquete.

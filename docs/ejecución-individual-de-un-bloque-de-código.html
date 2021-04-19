@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="opciones-globales.html"/>
+<link rel="prev" href="global-options.html"/>
 <link rel="next" href="tabla-de-contenidos-flotante.html"/>
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -155,15 +155,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="primeros-contenidos.html"><a href="primeros-contenidos.html"><i class="fa fa-check"></i><b>3.1</b> Primeros contenidos</a></li>
 <li class="chapter" data-level="3.2" data-path="algunas-opciones.html"><a href="algunas-opciones.html"><i class="fa fa-check"></i><b>3.2</b> Algunas opciones</a></li>
-<li class="chapter" data-level="3.3" data-path="opciones-globales.html"><a href="opciones-globales.html"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
+<li class="chapter" data-level="3.3" data-path="global-options.html"><a href="global-options.html"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
 <li class="chapter" data-level="3.4" data-path="ejecución-individual-de-un-bloque-de-código.html"><a href="ejecución-individual-de-un-bloque-de-código.html"><i class="fa fa-check"></i><b>3.4</b> Ejecución individual de un bloque de código</a></li>
 <li class="chapter" data-level="3.5" data-path="tabla-de-contenidos-flotante.html"><a href="tabla-de-contenidos-flotante.html"><i class="fa fa-check"></i><b>3.5</b> Tabla de contenidos flotante</a></li>
-<li class="chapter" data-level="3.6" data-path="resumen.html"><a href="resumen.html"><i class="fa fa-check"></i><b>3.6</b> Resumen</a></li>
-<li class="chapter" data-level="3.7" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html"><i class="fa fa-check"></i><b>3.7</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="3.6" data-path="secciones-numeradas.html"><a href="secciones-numeradas.html"><i class="fa fa-check"></i><b>3.6</b> Secciones numeradas</a></li>
+<li class="chapter" data-level="3.7" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>4</b> Paquetes</a></li>
-<li class="chapter" data-level="5" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>5</b> Tipos de objetos en R</a></li>
-<li class="chapter" data-level="6" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>6</b> Gráficos</a></li>
+<li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a></li>
+<li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Crear nuevos objetos en R</a></li>
+<li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
 <li class="divider"></li>
 <li><ul>
 <li style="margin: 10px 0;">
@@ -192,14 +193,18 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
             <section class="normal" id="section-">
 <div id="ejecución-individual-de-un-bloque-de-código" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Ejecución individual de un bloque de código</h2>
-<p>Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, para cada bloque, el código y la salida (si no hay opciones como <code>echo=FALSE</code> que inhiban la impresión del código y/o de la salida).</p>
+<p>Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, para cada bloque, tanto el código como la salida o resultado (siempre que no hay opciones como <code>echo=FALSE</code> o <code>include=FALSE</code> que inhiban la impresión del código y/o de la salida).</p>
 <p>Pero también podemos ejecutar determinadas instrucciones en un bloque de código de forma individual, sin necesidad de compilar el documento completo.
 Para ello, podemos proceder exactamente igual que en el caso de los scripts, es decir:</p>
 <ul>
 <li><p>Para ejecutar una sola instrucción, situamos el cursor en cualquiera de las líneas que compongan la instrucción y presionamos <code>Ctrl + Enter</code>.</p></li>
 <li><p>Para ejecutar varias instrucciones, seleccionamos las correspondientes líneas y presionamos <code>Ctrl + Enter</code>.</p></li>
 </ul>
-<p>La salida se mostrará en la consola, y también incrustada en el propio documento, justo debajo del bloque de código. Para esto último ha de estar marcada la opción <strong>Show output inline for all R Markdown documents</strong> en las opciones para R Markdown, como muestra la siguiente imagen:
+<p>La salida se mostrará en la consola, y también incrustada en el propio documento, justo debajo del bloque de código. Para esto último ha de estar marcada la opción <strong>Show output inline for all R Markdown documents</strong> en las opciones para R Markdown en el menú</p>
+<div class="menu">
+<p>Tools &gt; Global options … &gt; R Markdown</p>
+</div>
+<p>como muestra la siguiente imagen:
 <img src="images/options-r-markdown-b.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Además, podemos ejecutar todas las instrucciones que componen un bloque de código utilizando el botón a la derecha del comienzo del bloque que se resalta en la siguiente imagen:</p>
 <p><img src="images/run.png" width="80%" style="display: block; margin: auto;" /></p>
@@ -209,7 +214,7 @@ Para ello, podemos proceder exactamente igual que en el caso de los scripts, es 
           </div>
         </div>
       </div>
-<a href="opciones-globales.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="global-options.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="tabla-de-contenidos-flotante.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

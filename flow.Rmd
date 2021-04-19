@@ -1,0 +1,11 @@
+# Flujo de trabajo {#flow}
+
+La idea es que, conforme vayas estudiando el resto de la práctica, continúes escribiendo en el documento R Markdown que tienes ahora, después de leer el capítulo anterior.
+
+Así, al terminar de estudiar la práctica, tendrás un informe o resumen de la misma, incluyendo las instrucciones de `r R()` que hayas aprendido, los resultados obtenidos, y los comentarios  explicativos que hayas añadido.  
+
+Incluye bloques de código para practicar el código de `r R()` que vayas encontrando en la práctica, así como el texto que creas oportuno para documentar el código que has escrito, de forma que puedas entenderlo cuando releas el documento. En cuanto al seccionado del documento, puedes crear un nuevo capítulo por cada capítulo de la práctica. 
+
+Experimenta, escribiendo el código que te apetezca para probar las ideas que te vayan surgiendo y escribiendo el texto que consideres para explicarlas.
+
+Puedes ir compilando cada bloque o instrucción de forma individual, para ver su salida *inline*, y compilar el documento completo cada cierto tiempo. 

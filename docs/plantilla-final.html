@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Paquetes | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <title>3.7 Plantilla final | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="3.7 Plantilla final | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="3.7 Plantilla final | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Paquetes | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="3.7 Plantilla final | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flow.html"/>
-<link rel="next" href="objects.html"/>
+<link rel="prev" href="secciones-numeradas.html"/>
+<link rel="next" href="flow.html"/>
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -162,9 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
-<li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a></li>
-<li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Crear nuevos objetos en R</a></li>
-<li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Gráficos</a></li>
+<li class="chapter" data-level="5" data-path="tbc.html"><a href="tbc.html"><i class="fa fa-check"></i><b>5</b> Continuará</a></li>
 <li class="divider"></li>
 <li><ul>
 <li style="margin: 10px 0;">
@@ -191,18 +189,47 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="packages" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Paquetes</h1>
-<p>TODO</p>
+<div id="plantilla-final" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Plantilla final</h2>
+<p>Después de los cambios que hemos ido haciendo en el documento de muestra, ha debido quedarte así:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb30-1"><a href="plantilla-final.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb30-2"><a href="plantilla-final.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Introducción a R y RStudio&quot;</span></span>
+<span id="cb30-3"><a href="plantilla-final.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Eva&quot;</span></span>
+<span id="cb30-4"><a href="plantilla-final.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> &quot;19/4/2021&quot;</span></span>
+<span id="cb30-5"><a href="plantilla-final.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> </span></span>
+<span id="cb30-6"><a href="plantilla-final.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">    html_document:</span></span>
+<span id="cb30-7"><a href="plantilla-final.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">        toc: true</span></span>
+<span id="cb30-8"><a href="plantilla-final.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">        toc_float: true</span></span>
+<span id="cb30-9"><a href="plantilla-final.html#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">        number_sections: true</span></span>
+<span id="cb30-10"><a href="plantilla-final.html#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb30-11"><a href="plantilla-final.html#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="plantilla-final.html#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb30-13"><a href="plantilla-final.html#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(</span></span>
+<span id="cb30-14"><a href="plantilla-final.html#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="in">    echo = TRUE,</span></span>
+<span id="cb30-15"><a href="plantilla-final.html#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="in">    results=&#39;hold&#39;,</span></span>
+<span id="cb30-16"><a href="plantilla-final.html#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="in">    comment = &#39;&#39;</span></span>
+<span id="cb30-17"><a href="plantilla-final.html#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb30-18"><a href="plantilla-final.html#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-19"><a href="plantilla-final.html#cb30-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-20"><a href="plantilla-final.html#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="fu"># Bloques de código</span></span>
+<span id="cb30-21"><a href="plantilla-final.html#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-22"><a href="plantilla-final.html#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-23"><a href="plantilla-final.html#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="in">sqrt(8)</span></span>
+<span id="cb30-24"><a href="plantilla-final.html#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="in">sqrt(10)</span></span>
+<span id="cb30-25"><a href="plantilla-final.html#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-26"><a href="plantilla-final.html#cb30-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-27"><a href="plantilla-final.html#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># Paquetes </span></span></code></pre></div>
+<p>La primera parte del documento, con la cabecera YAML y el bloque de nombre <code>setup</code> con las opciones de configuración globales para los bloques de código, la repetiremos en todos los documentos R Markdown a lo largo del curso.</p>
 
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="flow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="objects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="secciones-numeradas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="flow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

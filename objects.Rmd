@@ -1,3 +1,29 @@
-# Tipos de objetos en R {#objects}
+# Crear nuevos objetos de R {#objects}
+
 
 TODO
+
+La instrucción 
+
+```{r}
+x <- 2
+```
+crea una variable u objeto de nombre `x` y le asigna el valor $2$. 
+El operador de asignación en `R` es `<-` (compuesto por el símbolo menor `<` y un guión central `-`).
+
+Una vez definida el objeto o variable `x` podremos referenciarlo en cálculos posteriores. Por ejemplo, al ejecutar la instrucción
+
+```{r}
+x^2-3
+```
+obtendremos la salida $1$ (resultado de $x^2-3 = 2^2-3 = 1$).
+
+Cuando se ejecuta una instrucción en la que se realiza un cálculo y se almacena en un objeto, la salida no muestra el valor almacenado:
+```{r}
+y <- x^2-3 # no muestra el valor de y
+```
+La instrucción anterior crea el objeto `y` y le asigna el valor del cálculo `x^2-3`, pero no se muestra dicho valor en la salida. Para ver el valor almacenado en una variable hay que consultarlo explícitamente, utilizando la función `print` o simplemente escribiendo su nombre:
+```{r}
+print(y) # muestra el valor de y
+y 
+```
