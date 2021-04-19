@@ -3,38 +3,6 @@
 TODO
 
 
-Para terminar haremos un gráfico de las temperaturas máximas y mínimas. Solo copia y ejecuta el código a continuación, para hacerte una idea de las capacidades gráficas de R, no hace falta que analices el código con detalle.
-
-```{r}
-library(ggplot2)
-library(scales)
-```
-
-```{r}
-# convertir fechas
-temps$Fecha <- as.Date(temps$Fecha, format = "%d/%m/%Y")
-View(temps)
-```
-
-```{r, out.width="100%"}
-# gráfico temperaturas máximas y mínimas
-ggplot(data = temps, aes(x = Fecha)) + 
-  geom_line(aes(y = Tmax), colour="red") + 
-  geom_line(aes(y = Tmin), colour="blue") + 
-  scale_x_date(
-    expand=c(0,0),
-    breaks = date_breaks("1 day"), 
-    labels = date_format("%d")
-  ) +
-  scale_y_continuous(breaks = seq(-5,35,5)) + 
-  ggtitle ("Temperaturas máximas y mínimas en abril del 2018") + 
-  xlab("Día") +  
-  ylab ("Temperatura ( ºC )") 
-```
-
-
-
-
 ```{r}
 data(mpg)
 ```

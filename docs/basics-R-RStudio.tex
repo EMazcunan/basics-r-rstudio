@@ -685,6 +685,49 @@ Experimenta, escribiendo el código que te apetezca para probar las ideas que te
 
 Puedes ir compilando cada bloque o instrucción de forma individual, para ver su salida \emph{inline}, y compilar el documento completo cada cierto tiempo.
 
+\hypertarget{packages}{%
+\section{Paquetes}\label{packages}}
+
+Cuando instalamos \textsf{R} por primera vez estamos instalando el software \textsf{base R}, que contiene las funciones básicas que se usan regularmente en la mayoría de análisis estadísticos.
+
+Un \textbf{paquete} de R es una colección de funciones, datos y documentación, que extiende las capacidades iniciales de la base de \textsf{R}. Existen multitud de paquetes de \textsf{R}, desarrollados por la comunidad de usuarios de \textsf{R}, que añaden funciones para propósitos específicos.
+
+\href{https://www.tidyverse.org/}{\texttt{tidyverse}} es una colección de paquetes para ciencia de datos que comparten una filosofía común y están diseñados para funcionar juntos de forma natural.
+La mayoría de paquetes que usaremos a lo largo del curso forman parte de \texttt{tidyverse}, de forma que instalando este \emph{meta-paquete} tendrás acceso a todos ellos.
+
+\hypertarget{install}{%
+\subsection{Instalar un paquete}\label{install}}
+
+Al instalar un paquete descargamos el código que compone dicho paquete en nuestro equipo.
+Para instalar un paquete nuevo se utiliza la función \texttt{install.packages}. La instalación de un paquete se realiza una sola vez, así que la usaremos desde la consola. El paquete \texttt{tidyverse} se instalaría ejecutando la siguiente instrucción:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+La instalación de este paquete puede llevar unos minutos (hay que esperar hasta ver en la consola de \textsf{RStudio} que se ha completado el proceso).
+
+\hypertarget{cargar-un-paquete}{%
+\subsection{Cargar un paquete}\label{cargar-un-paquete}}
+
+Para cargar un paquete previamente instalado hay que usar la función \texttt{library}. Por ejemplo, para cargar el paquete \texttt{tidyverse} escribimos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Puedes ignorar los conflictos que se listan en el mensaje que se muestra al cargar \texttt{tidyverse}, no tendrán efectos negativos sobre nuestro código.
+
+Si el paquete está instalado, la instrucción anterior lo cargará y podremos hacer uso de sus funciones.
+
+En caso de no estar instalado, recibiremos un mensaje de error indicando que no existe el paquete solicitado, y habrá que instalarlo primero, como se explicó en el apartado anterior.
+
+Si bien instalación de un paquete (con \texttt{install.packages}) se realiza una sóla vez, la carga (con \texttt{library}) es necesaria en cada sesión en la que queramos usar funciones del paquete.
+
 \hypertarget{tbc}{%
 \section{Continuará}\label{tbc}}
 

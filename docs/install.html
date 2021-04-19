@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.5 Tabla de contenidos flotante | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="3.5 Tabla de contenidos flotante | Primeros pasos con R y RStudio" />
+  <title>5.1 Instalar un paquete | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="5.1 Instalar un paquete | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.5 Tabla de contenidos flotante | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="5.1 Instalar un paquete | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.5 Tabla de contenidos flotante | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="5.1 Instalar un paquete | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ejecución-de-instrucciones-individuales.html"/>
-<link rel="next" href="secciones-numeradas.html"/>
+<link rel="prev" href="packages.html"/>
+<link rel="next" href="cargar-un-paquete.html"/>
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -194,30 +194,20 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tabla-de-contenidos-flotante" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Tabla de contenidos flotante</h2>
-<p>Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante.</p>
-<p>Para ello sustituimos la línea</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb26-1"><a href="tabla-de-contenidos-flotante.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> html_document</span></span></code></pre></div>
-<p>en la cabecera YAML por</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb27-1"><a href="tabla-de-contenidos-flotante.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> </span></span>
-<span id="cb27-2"><a href="tabla-de-contenidos-flotante.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">    html_document:</span></span>
-<span id="cb27-3"><a href="tabla-de-contenidos-flotante.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">        toc: true</span></span>
-<span id="cb27-4"><a href="tabla-de-contenidos-flotante.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">        toc_float: true</span></span>
-<span id="cb27-5"><a href="tabla-de-contenidos-flotante.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">        number_sections: true</span></span></code></pre></div>
-<p>Asegúrate de indentar las líneas conforme se indica, porque el indentado es fundamental para que los campos anidados se lean e interpreten correctamente en el proceso de compilación.</p>
-<p>Para que nuestra tabla de contenidos tenga más de una entrada, añade al final del documento un segundo capítulo, con el título de otro capítulo de esta práctica:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb28-1"><a href="tabla-de-contenidos-flotante.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Paquetes</span></span></code></pre></div>
-<p>Compila de nuevo y abre el resultado en el navegador. Verás la tabla de contenidos flotante a la izquierda del cuerpo del documento (o encima del título en pantallas de dimensiones reducidas).</p>
-<p>Para apreciar la funcionalidad de la tabla de contenidos flotante, reduce la altura de la ventana del navegador hasta que sea inferior a los contenidos en el cuerpo del documento y aparezca la barra de <em>scroll</em> para recorrerlo. Verás que las entradas de la tabla de contenidos actúan como enlaces al inicio de cada capítulo.</p>
+<div id="install" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Instalar un paquete</h2>
+<p>Al instalar un paquete descargamos el código que compone dicho paquete en nuestro equipo.
+Para instalar un paquete nuevo se utiliza la función <code>install.packages</code>. La instalación de un paquete se realiza una sola vez, así que la usaremos desde la consola. El paquete <code>tidyverse</code> se instalaría ejecutando la siguiente instrucción:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="install.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>La instalación de este paquete puede llevar unos minutos (hay que esperar hasta ver en la consola de <span class="textbf">RStudio</span> que se ha completado el proceso).</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ejecución-de-instrucciones-individuales.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="secciones-numeradas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cargar-un-paquete.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
