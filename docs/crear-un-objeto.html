@@ -52,6 +52,11 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+/* Material Icons
+ * https://fonts.google.com/icons
+ * https://developers.google.com/fonts/docs/material_icons
+ */
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
 <style type="text/css">
@@ -120,6 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
+<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/style.css" type="text/css" />
@@ -174,7 +181,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="hojas-de-datos.html"><a href="hojas-de-datos.html"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Visualización de datos</a></li>
-<li class="chapter" data-level="8" data-path="tbc.html"><a href="tbc.html"><i class="fa fa-check"></i><b>8</b> Continuará</a></li>
+<li class="chapter" data-level="8" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>8</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="los-datos.html"><a href="los-datos.html"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
+<li class="chapter" data-level="8.2" data-path="archivos-locales.html"><a href="archivos-locales.html"><i class="fa fa-check"></i><b>8.2</b> Archivos locales</a></li>
+<li class="chapter" data-level="8.3" data-path="archivos-en-red.html"><a href="archivos-en-red.html"><i class="fa fa-check"></i><b>8.3</b> Archivos en red</a></li>
+<li class="chapter" data-level="8.4" data-path="usar.html"><a href="usar.html"><i class="fa fa-check"></i><b>8.4</b> Usar</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><ul>
 <li style="margin: 10px 0;">
@@ -204,16 +217,16 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <div id="crear-un-objeto" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Crear un objeto</h2>
 <p>La instrucción</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="crear-un-objeto.html#cb33-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="crear-un-objeto.html#cb35-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span></code></pre></div>
 <p>crea una variable u objeto de nombre <code>x</code> y le asigna el valor <span class="math inline">\(2\)</span>.
 El operador de asignación en <code>R</code> es <code>&lt;-</code> (compuesto por el símbolo menor <code>&lt;</code> y un guión central <code>-</code>).</p>
 <p>Puedes comprobar que el objeto <code>x</code> aparece listado en el panel <em>Environment</em> de la ventana superior derecha de <span class="textbf">RStudio</span>. En este panel podemos ver todos los objetos definidos en nuestro entorno o espacio de trabajo (<em>workspace</em>).</p>
 <p>Cuando se ejecuta una instrucción como la anterior, en la que se asigna un valor u expresión a un objeto, la salida no muestra el valor asignado. Para verlo tenemos que <em>imprimir</em> el objeto en cuestión, simplemente escribiendo su nombre:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="crear-un-objeto.html#cb34-1" aria-hidden="true" tabindex="-1"></a>x <span class="co"># muestra el valor actual de x</span></span></code></pre></div>
-<pre class="custom-output"><code>[1] 2</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="crear-un-objeto.html#cb36-1" aria-hidden="true" tabindex="-1"></a>x <span class="co"># muestra el valor actual de x</span></span></code></pre></div>
+<pre class="egitbook-output"><code>[1] 2</code></pre>
 <p>Una vez definida el objeto o variable <code>x</code> podremos referenciarlo en cálculos posteriores. Por ejemplo, al ejecutar la instrucción</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="crear-un-objeto.html#cb36-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2-3</span></span></code></pre></div>
-<pre class="custom-output"><code>[1] 1</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="crear-un-objeto.html#cb38-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2-3</span></span></code></pre></div>
+<pre class="egitbook-output"><code>[1] 1</code></pre>
 <p>obtendremos la salida <span class="math inline">\(1\)</span> (resultado de <span class="math inline">\(2^2-3 = 1\)</span>).</p>
 </div>
             </section>

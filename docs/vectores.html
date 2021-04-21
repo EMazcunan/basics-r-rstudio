@@ -52,6 +52,11 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+/* Material Icons
+ * https://fonts.google.com/icons
+ * https://developers.google.com/fonts/docs/material_icons
+ */
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
 <style type="text/css">
@@ -120,6 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
+<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/style.css" type="text/css" />
@@ -174,7 +181,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="hojas-de-datos.html"><a href="hojas-de-datos.html"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Visualización de datos</a></li>
-<li class="chapter" data-level="8" data-path="tbc.html"><a href="tbc.html"><i class="fa fa-check"></i><b>8</b> Continuará</a></li>
+<li class="chapter" data-level="8" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>8</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="los-datos.html"><a href="los-datos.html"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
+<li class="chapter" data-level="8.2" data-path="archivos-locales.html"><a href="archivos-locales.html"><i class="fa fa-check"></i><b>8.2</b> Archivos locales</a></li>
+<li class="chapter" data-level="8.3" data-path="archivos-en-red.html"><a href="archivos-en-red.html"><i class="fa fa-check"></i><b>8.3</b> Archivos en red</a></li>
+<li class="chapter" data-level="8.4" data-path="usar.html"><a href="usar.html"><i class="fa fa-check"></i><b>8.4</b> Usar</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><ul>
 <li style="margin: 10px 0;">
@@ -204,14 +217,14 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <div id="vectores" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Vectores</h2>
 <p>Para crear <strong>vectores</strong> en <span class="textbf">R</span> usamos la función <code>c</code> (inicial de <em>concatenate</em> o <em>combine</em>). La instrucción</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="vectores.html#cb38-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="vectores.html#cb40-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span></code></pre></div>
 <p>crea un vector de nombre <code>v</code> formado por los primeros <span class="math inline">\(5\)</span> números impares. Observa la entrada que se ha creado para <code>v</code> en el panel Environment.</p>
 <p>Para acceder al elemento número <code>i</code> del vector <code>v</code> se escribe <code>v[i]</code>. Por, ejemplo para extraer el segundo elemento de <code>v</code> escribimos</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="vectores.html#cb39-1" aria-hidden="true" tabindex="-1"></a>v[<span class="dv">2</span>]</span></code></pre></div>
-<pre class="custom-output"><code>[1] 3</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="vectores.html#cb41-1" aria-hidden="true" tabindex="-1"></a>v[<span class="dv">2</span>]</span></code></pre></div>
+<pre class="egitbook-output"><code>[1] 3</code></pre>
 <p>La instrucción</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="vectores.html#cb41-1" aria-hidden="true" tabindex="-1"></a>v<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
-<pre class="custom-output"><code>[1]  1  9 25 49 81</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="vectores.html#cb43-1" aria-hidden="true" tabindex="-1"></a>v<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre class="egitbook-output"><code>[1]  1  9 25 49 81</code></pre>
 <p>devuelve el vector cuyos elementos son los cuadrados de los elementos de <code>v</code>.
 La mayoría de funciones de <span class="textbf">R</span> que reciben argumentos numéricos aplicadas a un vector numérico operan sobre cada elemento del vector (se dice que están vectorizadas).</p>
 </div>

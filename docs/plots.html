@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="hojas-de-datos.html"/>
-<link rel="next" href="tbc.html"/>
+<link rel="next" href="import.html"/>
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,11 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+/* Material Icons
+ * https://fonts.google.com/icons
+ * https://developers.google.com/fonts/docs/material_icons
+ */
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
 <style type="text/css">
@@ -120,6 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
+<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/style.css" type="text/css" />
@@ -174,7 +181,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="hojas-de-datos.html"><a href="hojas-de-datos.html"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Visualización de datos</a></li>
-<li class="chapter" data-level="8" data-path="tbc.html"><a href="tbc.html"><i class="fa fa-check"></i><b>8</b> Continuará</a></li>
+<li class="chapter" data-level="8" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>8</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="los-datos.html"><a href="los-datos.html"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
+<li class="chapter" data-level="8.2" data-path="archivos-locales.html"><a href="archivos-locales.html"><i class="fa fa-check"></i><b>8.2</b> Archivos locales</a></li>
+<li class="chapter" data-level="8.3" data-path="archivos-en-red.html"><a href="archivos-en-red.html"><i class="fa fa-check"></i><b>8.3</b> Archivos en red</a></li>
+<li class="chapter" data-level="8.4" data-path="usar.html"><a href="usar.html"><i class="fa fa-check"></i><b>8.4</b> Usar</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><ul>
 <li style="margin: 10px 0;">
@@ -203,16 +216,38 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
             <section class="normal" id="section-">
 <div id="plots" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> Visualización de datos</h1>
-<p>En este capítulo seguimos trabajando con la hoja de datos <code>mpg</code> que presentamos antes. Vamos a realizar un gráfico para explorar la relación entre las variables <code>displ</code> (cilindrada) y <code>hyw</code> (millas por galón de combustible).
+<p>En este capítulo seguimos trabajando con la hoja de datos <code>mpg</code> que presentamos antes.
 Nos planteamos en concreto si los coches con motor más grande (mayor <code>displ</code>) tienen mayor consumo de combustible (menor <code>hyw</code>).</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="plots.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
-<span id="cb46-2"><a href="plots.html#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb46-3"><a href="plots.html#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb46-4"><a href="plots.html#cb46-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Relación entre el tamaño del motor y el consumo de combustible&quot;</span>, </span>
-<span id="cb46-5"><a href="plots.html#cb46-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Cilindrada (litros)&quot;</span>,</span>
-<span id="cb46-6"><a href="plots.html#cb46-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Rendimiento combustible (millas/galón)&quot;</span></span>
-<span id="cb46-7"><a href="plots.html#cb46-7" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-21-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Para responder a la pregunta anterior, vamos a realizar un gráfico de puntos para explorar la relación entre las variables <code>displ</code> (cilindrada) y <code>hyw</code> (millas por galón de combustible):</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="plots.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb48-2"><a href="plots.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) </span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-23-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Todos los gráficos se inicializan con la función <code>ggplot()</code>. En el código anterior, la línea</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="plots.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg)</span></code></pre></div>
+<p>simplemente indica que en nuestro gráfico usaremos variables de la hoja de datos <code>mpg</code> y crea un gráfico vacío, al que podemos añadir capas utilizando funciones como <code>geom_point()</code>, que añadirá una capa de puntos. A lo largo del curso veremos otras funciones como <code>geom_bar()</code>, <code>geom_hist()</code> y <code>geom_line()</code> que añaden capas con otros objetos geométricos (barras, líneas …).</p>
+<p>Cada función para añadir un objeto geométrico como <code>geom_line()</code> necesita un argumento de la forma</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="plots.html#cb50-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="ot">=</span> <span class="fu">aes</span>(...)</span></code></pre></div>
+<p>En nuestro ejemplo, ese argumento para la función <code>geom_line()</code> es</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="plots.html#cb51-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="ot">=</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)</span></code></pre></div>
+<p>que especifica que, para cada punto en nuestro gráfico, su coordenada <span class="math inline">\(x\)</span> vendrá definida por el valor de la variable <code>displ</code>, y su coordenada <span class="math inline">\(y\)</span> se corresponderá con la variable <code>hwy</code>.</p>
+<p>En general, en el argumento de la función <code>aes()</code> se especifica una lista de <strong>correspondencias</strong> (<em>mapping</em>) entre cada <strong>estética</strong> (<em>aesthetic</em>) o propiedad visual de los objetos geométricos a dibujar y las variables de nuestra hoja de datos.</p>
+<hr />
+<p>Ahora vamos a incluir más información en nuestro gráfico estableciendo una correspondencia entre el color de los puntos (otra propiedad estética) y la variable <code>class</code>, que indica el tipo de coche.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="plots.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb52-2"><a href="plots.html#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))  </span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-27-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Notar que la inclusión de la correspondencia <code>color = class</code> ha hecho que <code>ggplot2</code> asigne un color diferente (nivel diferente de la estética <code>color</code>) a cada tipo de coche (valor diferente de la variable <code>class</code>), e incluya una leyenda explicando qué color corresponde a qué tipo de coche.</p>
+<hr />
+<p>Acabamos personalizando los rótulos de nuestro gráfico con <code>labs()</code>:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="plots.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb53-2"><a href="plots.html#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
+<span id="cb53-3"><a href="plots.html#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb53-4"><a href="plots.html#cb53-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Relación entre el tamaño del motor y el consumo de combustible&quot;</span>, </span>
+<span id="cb53-5"><a href="plots.html#cb53-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Cilindrada (litros)&quot;</span>,</span>
+<span id="cb53-6"><a href="plots.html#cb53-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Rendimiento combustible (millas/galón)&quot;</span>,</span>
+<span id="cb53-7"><a href="plots.html#cb53-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">&quot;Tipo de coche&quot;</span></span>
+<span id="cb53-8"><a href="plots.html#cb53-8" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-28-1.png" width="100%" style="display: block; margin: auto;" /></p>
 
 </div>
             </section>
@@ -221,7 +256,7 @@ Nos planteamos en concreto si los coches con motor más grande (mayor <code>disp
         </div>
       </div>
 <a href="hojas-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tbc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="import.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

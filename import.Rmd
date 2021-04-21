@@ -1,55 +1,120 @@
 # Importar datos {#import}
 
-En este capítulo veremos cómo crear una hoja de datos importando los datos contenidos en un archivo de extensión CSV (*comma separated values*).
-
-Haz click en el enlace a continuación para descargar en tu equivo el archivo CSV con el que trabajaremos, y guárdalo en la misma carpeta donde hayas guardado el script con el que estés trabajando: \href{https://drive.google.com//uc?export=download&amp;id=1xDIvAcQSS4_dFoSIO2hcprhqnbXJqx9r}{temperaturas.csv}
-
-El archivo `temperaturas.csv` contiene las temperaturas máximas y mínimas registradas en el observatorio de la Virgen del Camino para todos los días del mes de abril del año 2018.
-No tienes que abrirlo con ninguna aplicación de hojas de cálculo, sino importarlo en `R`  usando la función `read.csv` conforme se explica a continuación.
+Hasta ahora hemos trabajado con hojas de datos proporcionadas por paquetes de `r R()`, como `mpg` (de `ggplot2`). La colección de hojas de datos proporcionada por los diferentes paquetes de `r R()` es un buen recurso para enseñar y aprender diferentes tópicos. Pero en la práctica es necesario trabajar con nuestros propios datos o datos extraídos de diversas fuentes.  
 
 
-Antes de nada, vamos a hacer que el directorio donde están el script y el archivo de datos sea nuestro directorio de trabajo. Los archivos ubicados en el directorio de trabajo son encontrados por  `R` sin necesidad de especificar su ruta completa.
-Para fijar el directorio de trabajo selecciona el menú de  `RStudio` la
-\begin{center}
-\texttt{Session > Set Working Directory > To Source File Location}.
-\end{center}
-Esto fijará como directorio de trabajo la carpeta del script que estas ejecutando, en la que también debe estar el archivo de datos `temperaturas.csv`.
+En este capítulo veremos cómo importar datos en `r R()` desde un fichero externo con el paquete `readr`.  En concreto, veremos cómo importar los datos contenidos en un archivo CSV (*comma separated values*) con la función  `read_csv()`.
 
 
-Ya estamos listos para importar el archivo `temperaturas.csv`. La siguiente instrucción lee los contenidos del archivo y los almacena en una hoja de datos de nombre `temps`:
+
+El paquete `readr` forma parte de `tidyverse` de forma que no es necesario cargarlo individualmente si ya has cargado `tidyverse`.
+
+## Los datos 
+
+Trabajaremos con un archivo de nombre `temperaturas.csv`, que contiene las temperaturas máximas y mínimas registradas en el observatorio de la Virgen del Camino para todos los días del mes de abril del año 2018.
+
+Está disponible en la siguiente URL: <https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv>.
+
+Descárgalo usando el enlace anterior y  guárdalo en una carpeta de nombre `data` en el directorio del archivo R Markdown con el que estés trabajando.
+
+
+## Archivos locales
+
+Teniendo el archivo descargado en nuestro equipo, podemos importarlo especificando, como primer argumento de la función `read_csv()`,  la ruta del archivo, que puede ser local respecto al directorio  de trabajo actual. 
+
+Con la siguiente instrucción leemos el archivo que hemos descargado y lo almacenamos en un objeto de nombre `temps`.
+
 ```{r}
-temps <- read.csv("data/temperaturas.csv")
+temps <- read_csv("data/temperaturas.csv")
 ```
 
-## Trabajar con una hoja de datos
 
-Para visualizar el contenido de la hoja de datos `temps` que acabamos de crear puede usarse la función `View`:
-```{r, eval=FALSE}
-View(temps)
-```
+::: {.infobox}
+Si obtienes algún error indicando que no se encuentra el archivo, puede deberse a que el directorio de trabajo no es el correcto. 
 
-Al ejecutar la instrucción anterior se abrirá una nueva pestaña en el panel de scripts en la que se muestra la hoja de datos como una hoja de cálculo o matriz.
+* Puedes saber cuál es el directorio de trabajo actual con `getwd()`. 
+
+* Para establecer que el directorio de trabajo sea aquel que contiene a tu archivo R Markdown, selecciona la pestaña de tu archivo .Rmd y utiliza el menú:
+
+::: {.menu}
+Session > Set Working Directory > To Source File Location 
+:::
+:::
+
+
+Si todo ha ido bien, el objeto `temps` aparecerá en el panel **Environment** y podrás visualízarlo. 
+
 Verás que hay $30$ filas, una por cada día del mes, y $3$ columnas con las variables:
 
-- `Fecha`: fecha del día en formato día/mes/año
+- `Fecha`: fecha del día, en formato año-mes-día
 - `Tmax`: temperatura máxima del día
 - `Tmin`: temperatura mínima del día
 
-En general, los contenidos de una hoja de datos están organizados en forma de matriz u hoja de cálculo, de manera que cada fila representa una unidad experimental o  observación (en este caso un día del mes), y cada columna una característica o variable de interés.
+## Archivos en red
 
-Para extraer una de las variables de una hoja de datos se utiliza el formato `<nombre hoja>$<nombre variable>`. Por ejemplo, para extraer las temperaturas máximas (variable `Tmax`) de nuestra hoja de datos utilizamos la instrucción siguiente:
+Antes hemos realizado la descarga del archivo de datos de forma manual. Conociendo su URL, también, podríamos haberlo hecho  desde `r R()`, con la función `download.file()`:
+
+
 ```{r}
-temps$Tmax
+download.file(
+    url = "https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv",
+    destfile = "data/temperaturas2.csv"
+)
 ```
-que mostrará en consola el vector con las $30$ temperaturas máximas.
+Comprueba que se ha creado el archivo `temperaturas2.csv` en la carpeta `data`.
+De hecho, el argumento para especificar el archivo en la función `read_csv`, admite una URL. Así que los dos pasos que hemos seguido antes, descargar e importar, pueden hacerse con una sola instrucción: 
 
-En el siguiente fragmento de código se almacenan,  en un vector de nombre `maximas`, los  $30$ valores de las temperaturas máximas en nuestra hoja de datos. Y después se calculan la media de las temperaturas máximas y la más alta de las temperaturas máximas, con las funciones `mean` y  `max` respectivamente (las dos líneas precedidas por `##` después del código son la salida que obtendrás por consola, no tienes que copiarlas en tu script).
-
-```{r, results='markup'}
-# vector de temperaturas máximas
-maximas <- temps$Tmax
-# media de las temperaturas máximas
-mean(maximas)
-# máxima de las temperaturas máximas
-max(maximas)
+```{r}
+temps2 <- read_csv("https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv")
 ```
+Después de ejecutar la instrucción anterior, puedes verificar que los objetos  `temps` y `temps2` son idénticos.
+
+
+## Usar
+
+Una vez que hemos importado los datos de un fichero y los hemos almacenado en un objeto, podemos utilizar dicho objeto como si se tratara de una de las hojas de datos predefinidas en `r R()`.
+Podemos 
+
+
+```{r}
+ggplot(data = temps) + 
+    geom_line(mapping = aes(x = Fecha, y = Tmin, group  = 1)) + 
+    geom_line(mapping = aes(x = Fecha, y = Tmax, group  = 1)) 
+```
+
+
+La función `geom_line()` actúa primero como si se dibujara un gráfico de puntos con `geom_point()` y luego conecta los puntos conforme indique el valor del argumento `group`. En el caso de nuestros dos diagramas de líneas, queremos que todos los puntos estén conectados, y lo indicamos usando `group=1`. Cuando hay más variables, la agrupación para las líneas suele hacerse por variable. Si por ejemplo tuvierámos cada día mediciones en varias ciudades, podríamos agrupar para la variable especificando la ciudad.
+
+
+Cuando varias capas de un gráfico comparten estéticas, esas estéticas comunes pueden especificarse en el argumento de `ggplot()`. El ejemplo anterior puede acortarse a:
+
+```{r, eval = FALSE}
+ggplot(data = temps, mapping = aes(x = Fecha, group  = 1)) + 
+    geom_line(mapping = aes(y = Tmin)) + 
+    geom_line(mapping = aes(y = Tmax)) 
+```
+
+
+
+
+A continuación tenemos una versión un poco más elaborada del gráfico anterior. Utiliza el paquete `scales`, que ha de instalarse con `install.packages("scales")`. 
+
+```{r}
+library(scales)
+
+ggplot(data = temps, aes(x = Fecha, group = 1)) + 
+    geom_line(aes(y = Tmax), color="red") + 
+    geom_line(aes(y = Tmin), color="blue") + 
+    scale_x_date(
+        expand=c(0,0),
+        breaks = date_breaks("1 day"), 
+        labels = date_format("%d")
+    ) +
+    scale_y_continuous(breaks = seq(-5,35,5)) + 
+    labs(
+        title = "Temperaturas máximas y mínimas en abril de 2018",
+        x = "Día",
+        y = "Temperatura ( ºC )"
+    )
+```
+

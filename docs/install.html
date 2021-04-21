@@ -52,6 +52,11 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+/* Material Icons
+ * https://fonts.google.com/icons
+ * https://developers.google.com/fonts/docs/material_icons
+ */
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
 <style type="text/css">
@@ -120,6 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
+<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/style.css" type="text/css" />
@@ -174,7 +181,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="hojas-de-datos.html"><a href="hojas-de-datos.html"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Visualización de datos</a></li>
-<li class="chapter" data-level="8" data-path="tbc.html"><a href="tbc.html"><i class="fa fa-check"></i><b>8</b> Continuará</a></li>
+<li class="chapter" data-level="8" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>8</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="los-datos.html"><a href="los-datos.html"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
+<li class="chapter" data-level="8.2" data-path="archivos-locales.html"><a href="archivos-locales.html"><i class="fa fa-check"></i><b>8.2</b> Archivos locales</a></li>
+<li class="chapter" data-level="8.3" data-path="archivos-en-red.html"><a href="archivos-en-red.html"><i class="fa fa-check"></i><b>8.3</b> Archivos en red</a></li>
+<li class="chapter" data-level="8.4" data-path="usar.html"><a href="usar.html"><i class="fa fa-check"></i><b>8.4</b> Usar</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><ul>
 <li style="margin: 10px 0;">
@@ -207,6 +220,21 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 Para instalar un paquete nuevo se utiliza la función <code>install.packages</code>. La instalación de un paquete se realiza una sola vez, así que la usaremos desde la consola. El paquete <code>tidyverse</code> se instalaría ejecutando la siguiente instrucción:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="install.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
 <p>La instalación de este paquete puede llevar unos minutos (hay que esperar hasta ver en la consola de <span class="textbf">RStudio</span> que se ha completado el proceso).</p>
+<div class="infobox">
+<p><strong>Nota para Ubuntu:</strong> Si obtienes error al intentar instalar <code>tidyverse</code> en Ubuntu, y el mensaje de la salida contiene la siguiente línea:</p>
+<div class="center">
+<p><code>Package libcurl was not found in the pkg-config search path.</code></p>
+</div>
+<p>puedes solucionarlo siguiendo los siguientes pasos:</p>
+<ol style="list-style-type: decimal">
+<li>Abre la terminal de Ubuntu y ejecuta</li>
+</ol>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="install.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install libcurl4-openssl-dev libssl-dev libxml2-dev</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>En la consola de <span class="textbf">RStudio</span> vuelve a solicitar la instalación de <code>tidyverse</code> ejecutando</li>
+</ol>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="install.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+</div>
 </div>
             </section>
 

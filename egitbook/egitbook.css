@@ -1,0 +1,71 @@
+/* Estilo personalizado para output de los bloques de código R
+ * ------------------------------------------------------------
+ *
+ * Aplicará a todos los bloques de código del documento
+ * porque el preámbulo de index.Rmd incluye
+ * knitr::opts_chunk$set(class.output = 'egitbook-output')
+ *
+ *  Idea de: https://stackoverflow.com/questions/65495605/in-r-bookdown-how-do-i-set-the-default-code-output-background-color
+ */
+pre.egitbook-output {
+    background: transparent !important;
+    border: 1px solid lightgray !important;
+}
+
+
+/* Estilo personalizado para source y ouptut de bloques de código R
+ * que simula el aspecto de la consola de RStudio
+ * ------------------------------------------------------------
+ *
+ * Para aplicarlo a un bloque de código incluir las opciones
+ * class.source = 'console-source', class.output = 'console-output'
+ *
+ * Y para conseguir el aspecto completo de la consola añadir además
+ * comment="", prompt=TRUE, highlight=FALSE
+ *
+ * Ejemplo:
+ * ```{r, class.source='console-source', class.output='console-output', comment="", prompt=TRUE, highlight=FALSE}
+ * sqrt(2)
+ * ```
+ */
+pre.console-source {
+    color: blue !important;
+    background: red !important;
+    background-color: transparent !important;
+    padding: 0 0 0 3ex !important;
+    border: none !important;
+}
+pre.console-output {
+    background-color: transparent !important;
+    padding: 0 0 0 3ex !important;
+    border: none !important;
+}
+
+.infobox, .warningbox {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  display: inline-block;
+  position: relative;
+}
+
+.infobox::before {
+  font-family: "Material Icons";
+  font-size: 2em;
+  color: #7AA3E5;
+  content: "\e88e";
+  display: inline;
+  position: absolute;
+  transform: translate(-1.5em,0);
+}
+
+.warningbox::before {
+  font-family: "Material Icons";
+  font-size: 2em;
+  color: #F3856E;
+  content: "\e002";
+  display: inline;
+  position: absolute;
+  transform: translate(-1.5em,0);
+}
+

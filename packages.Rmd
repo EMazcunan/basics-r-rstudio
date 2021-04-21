@@ -19,7 +19,27 @@ install.packages("tidyverse")
 
 
 La instalación de este paquete puede llevar unos minutos (hay que esperar hasta ver en la consola de `r RStudio()` que se ha completado el proceso).
-                  
+
+:::{.infobox data-latex=""} 
+**Nota para Ubuntu:** Si obtienes error al intentar instalar `tidyverse` en Ubuntu, y el mensaje de la salida contiene la siguiente línea:
+
+:::{.center} 
+`Package libcurl was not found in the pkg-config search path.`
+:::
+puedes solucionarlo siguiendo los siguientes pasos:
+
+1. Abre la terminal de Ubuntu y ejecuta
+
+```{bash, eval=FALSE}
+sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
+```
+
+2. En la consola de `r RStudio()` vuelve a solicitar la instalación de `tidyverse` ejecutando  
+```{r, eval=FALSE}
+install.packages("tidyverse")
+```
+:::
+
 ## Cargar un paquete                  
                   
 Para cargar un paquete previamente instalado hay que usar la función `library`. Por ejemplo, para cargar el paquete `tidyverse` escribimos

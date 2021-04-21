@@ -6,17 +6,39 @@
 
 
 \usepackage{booktabs}
-\usepackage{emargintag}
+\usepackage{fontawesome5}
 
-\newenvironment{menu}{
-    \begin{center}
-    \sffamily\bfseries
-}{
-    \end{center}
-}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+\newenvironment{menu}{%
+    \begin{center}%
+    \sffamily\bfseries%
+}{%
+    \end{center}
+}
+
+
+
+\newenvironment{xxxbox}[1]{
+    \begin{itemize}
+    \renewcommand{\labelitemi}{%
+        \raisebox{-.7\height}[0pt][0pt]{#1}%
+    }
+    \item
+}{%
+    \end{itemize}%
+}
+
+\definecolor{infocolor}{HTML}{7AA3E5}
+\newenvironment{infobox}{\xxxbox{\LARGE\color{infocolor}\faInfoCircle}}{\endxxxbox}
+
+
+\definecolor{warningcolor}{HTML}{F3856E}
+\newenvironment{warningbox}{\xxxbox{\LARGE\color{warningcolor}\faExclamationTriangle}}{\endxxxbox}
+
 
 
 \addbibresource{book.bib}
@@ -265,7 +287,7 @@ Las líneas siguientes (8 a 10)
 \end{Highlighting}
 \end{Shaded}
 
-las analizaremos con más detalle en la sección \ref{label}.
+las analizaremos con más detalle en la sección \ref{global-options}.
 
 El resto de líneas (12 en adelante), son los contenidos propiamente dichos del documento. Se trata de unos contenidos de muestra, que enseguida reemplazaremos por nuestros contenidos propios. Pero antes de borrar estos contenidos de muestra, compilaremos el documento para ver el resultado inicial.
 
@@ -709,6 +731,43 @@ Para instalar un paquete nuevo se utiliza la función \texttt{install.packages}.
 
 La instalación de este paquete puede llevar unos minutos (hay que esperar hasta ver en la consola de \textsf{RStudio} que se ha completado el proceso).
 
+\begin{infobox}
+
+\textbf{Nota para Ubuntu:} Si obtienes error al intentar instalar \texttt{tidyverse} en Ubuntu, y el mensaje de la salida contiene la siguiente línea:
+
+\texttt{Package\ libcurl\ was\ not\ found\ in\ the\ pkg-config\ search\ path.}
+
+puedes solucionarlo siguiendo los siguientes pasos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Abre la terminal de Ubuntu y ejecuta
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt install libcurl4{-}openssl{-}dev libssl{-}dev libxml2{-}dev}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  En la consola de \textsf{RStudio} vuelve a solicitar la instalación de \texttt{tidyverse} ejecutando
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{infobox}
+
 \hypertarget{cargar-un-paquete}{%
 \subsection{Cargar un paquete}\label{cargar-un-paquete}}
 
@@ -882,27 +941,217 @@ que mostrará el vector con las cilindradas de los \(234\) coches.
 \hypertarget{plots}{%
 \section{Visualización de datos}\label{plots}}
 
-En este capítulo seguimos trabajando con la hoja de datos \texttt{mpg} que presentamos antes. Vamos a realizar un gráfico para explorar la relación entre las variables \texttt{displ} (cilindrada) y \texttt{hyw} (millas por galón de combustible).
+En este capítulo seguimos trabajando con la hoja de datos \texttt{mpg} que presentamos antes.
 Nos planteamos en concreto si los coches con motor más grande (mayor \texttt{displ}) tienen mayor consumo de combustible (menor \texttt{hyw}).
+
+Para responder a la pregunta anterior, vamos a realizar un gráfico de puntos para explorar la relación entre las variables \texttt{displ} (cilindrada) y \texttt{hyw} (millas por galón de combustible):
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping=}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)) }\SpecialCharTok{+}
+    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping=}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-23-1} \end{center}
+
+Todos los gráficos se inicializan con la función \texttt{ggplot()}. En el código anterior, la línea
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg)}
+\end{Highlighting}
+\end{Shaded}
+
+simplemente indica que en nuestro gráfico usaremos variables de la hoja de datos \texttt{mpg} y crea un gráfico vacío, al que podemos añadir capas utilizando funciones como \texttt{geom\_point()}, que añadirá una capa de puntos. A lo largo del curso veremos otras funciones como \texttt{geom\_bar()}, \texttt{geom\_hist()} y \texttt{geom\_line()} que añaden capas con otros objetos geométricos (barras, líneas \ldots).
+
+Cada función para añadir un objeto geométrico como \texttt{geom\_line()} necesita un argumento de la forma
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mapping }\OtherTok{=} \FunctionTok{aes}\NormalTok{(...)}
+\end{Highlighting}
+\end{Shaded}
+
+En nuestro ejemplo, ese argumento para la función \texttt{geom\_line()} es
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mapping }\OtherTok{=} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)}
+\end{Highlighting}
+\end{Shaded}
+
+que especifica que, para cada punto en nuestro gráfico, su coordenada \(x\) vendrá definida por el valor de la variable \texttt{displ}, y su coordenada \(y\) se corresponderá con la variable \texttt{hwy}.
+
+En general, en el argumento de la función \texttt{aes()} se especifica una lista de \textbf{correspondencias} (\emph{mapping}) entre cada \textbf{estética} (\emph{aesthetic}) o propiedad visual de los objetos geométricos a dibujar y las variables de nuestra hoja de datos.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Ahora vamos a incluir más información en nuestro gráfico estableciendo una correspondencia entre el color de los puntos (otra propiedad estética) y la variable \texttt{class}, que indica el tipo de coche.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping=}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy, }\AttributeTok{color =}\NormalTok{ class))  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-27-1} \end{center}
+
+Notar que la inclusión de la correspondencia \texttt{color\ =\ class} ha hecho que \texttt{ggplot2} asigne un color diferente (nivel diferente de la estética \texttt{color}) a cada tipo de coche (valor diferente de la variable \texttt{class}), e incluya una leyenda explicando qué color corresponde a qué tipo de coche.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Acabamos personalizando los rótulos de nuestro gráfico con \texttt{labs()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping=}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy, }\AttributeTok{color =}\NormalTok{ class)) }\SpecialCharTok{+}
     \FunctionTok{labs}\NormalTok{(}
         \AttributeTok{title =} \StringTok{"Relación entre el tamaño del motor y el consumo de combustible"}\NormalTok{, }
         \AttributeTok{x =} \StringTok{"Cilindrada (litros)"}\NormalTok{,}
-        \AttributeTok{y =} \StringTok{"Rendimiento combustible (millas/galón)"}
+        \AttributeTok{y =} \StringTok{"Rendimiento combustible (millas/galón)"}\NormalTok{,}
+        \AttributeTok{color =} \StringTok{"Tipo de coche"}
 \NormalTok{     )}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-21-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-28-1} \end{center}
 
-\hypertarget{tbc}{%
-\section{Continuará}\label{tbc}}
+\hypertarget{import}{%
+\section{Importar datos}\label{import}}
 
-\ldots{}
+Hasta ahora hemos trabajado con hojas de datos proporcionadas por paquetes de \textsf{R}, como \texttt{mpg} (de \texttt{ggplot2}). La colección de hojas de datos proporcionada por los diferentes paquetes de \textsf{R} es un buen recurso para enseñar y aprender diferentes tópicos. Pero en la práctica es necesario trabajar con nuestros propios datos o datos extraídos de diversas fuentes.
+
+En este capítulo veremos cómo importar datos en \textsf{R} desde un fichero externo con el paquete \texttt{readr}. En concreto, veremos cómo importar los datos contenidos en un archivo CSV (\emph{comma separated values}) con la función \texttt{read\_csv()}.
+
+El paquete \texttt{readr} forma parte de \texttt{tidyverse} de forma que no es necesario cargarlo individualmente si ya has cargado \texttt{tidyverse}.
+
+\hypertarget{los-datos}{%
+\subsection{Los datos}\label{los-datos}}
+
+Trabajaremos con un archivo de nombre \texttt{temperaturas.csv}, que contiene las temperaturas máximas y mínimas registradas en el observatorio de la Virgen del Camino para todos los días del mes de abril del año 2018.
+
+Está disponible en la siguiente URL: \url{https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv}.
+
+Descárgalo usando el enlace anterior y guárdalo en una carpeta de nombre \texttt{data} en el directorio del archivo R Markdown con el que estés trabajando.
+
+\hypertarget{archivos-locales}{%
+\subsection{Archivos locales}\label{archivos-locales}}
+
+Teniendo el archivo descargado en nuestro equipo, podemos importarlo especificando, como primer argumento de la función \texttt{read\_csv()}, la ruta del archivo, que puede ser local respecto al directorio de trabajo actual.
+
+Con la siguiente instrucción leemos el archivo que hemos descargado y lo almacenamos en un objeto de nombre \texttt{temps}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{temps }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"data/temperaturas.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Si obtienes algún error indicando que no se encuentra el archivo, puede deberse a que el directorio de trabajo no es el correcto.
+
+\begin{itemize}
+\item
+  Puedes saber cuál es el directorio de trabajo actual con \texttt{getwd()}.
+\item
+  Para establecer que el directorio de trabajo sea aquel que contiene a tu archivo R Markdown, selecciona la pestaña de tu archivo .Rmd y utiliza el menú:
+\end{itemize}
+
+Session \textgreater{} Set Working Directory \textgreater{} To Source File Location
+
+Si todo ha ido bien, el objeto \texttt{temps} aparecerá en el panel \textbf{Environment} y podrás visualízarlo.
+
+Verás que hay \(30\) filas, una por cada día del mes, y \(3\) columnas con las variables:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Fecha}: fecha del día, en formato año-mes-día
+\item
+  \texttt{Tmax}: temperatura máxima del día
+\item
+  \texttt{Tmin}: temperatura mínima del día
+\end{itemize}
+
+\hypertarget{archivos-en-red}{%
+\subsection{Archivos en red}\label{archivos-en-red}}
+
+Antes hemos realizado la descarga del archivo de datos de forma manual. Conociendo su URL, también, podríamos haberlo hecho desde \textsf{R}, con la función \texttt{download.file()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{download.file}\NormalTok{(}
+    \AttributeTok{url =} \StringTok{"https://raw.githubusercontent.com/EMazcunan/basics{-}r{-}rstudio/master/data/temperaturas.csv"}\NormalTok{,}
+    \AttributeTok{destfile =} \StringTok{"data/temperaturas2.csv"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Comprueba que se ha creado el archivo \texttt{temperaturas2.csv} en la carpeta \texttt{data}.
+De hecho, el argumento para especificar el archivo en la función \texttt{read\_csv}, admite una URL. Así que los dos pasos que hemos seguido antes, descargar e importar, pueden hacerse con una sola instrucción:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{temps2 }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/EMazcunan/basics{-}r{-}rstudio/master/data/temperaturas.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Después de ejecutar la instrucción anterior, puedes verificar que los objetos \texttt{temps} y \texttt{temps2} son idénticos.
+
+\hypertarget{usar}{%
+\subsection{Usar}\label{usar}}
+
+Una vez que hemos importado los datos de un fichero y los hemos almacenado en un objeto, podemos utilizar dicho objeto como si se tratara de una de las hojas de datos predefinidas en \textsf{R}.
+Podemos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{y =}\NormalTok{ Tmin, }\AttributeTok{group  =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{y =}\NormalTok{ Tmax, }\AttributeTok{group  =} \DecValTok{1}\NormalTok{)) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-32-1} \end{center}
+
+La función \texttt{geom\_line()} actúa primero como si se dibujara un gráfico de puntos con \texttt{geom\_point()} y luego conecta los puntos conforme indique el valor del argumento \texttt{group}. En el caso de nuestros dos diagramas de líneas, queremos que todos los puntos estén conectados, y lo indicamos usando \texttt{group=1}. Cuando hay más variables, la agrupación para las líneas suele hacerse por variable. Si por ejemplo tuvierámos cada día mediciones en varias ciudades, podríamos agrupar para la variable especificando la ciudad.
+
+Cuando varias capas de un gráfico comparten estéticas, esas estéticas comunes pueden especificarse en el argumento de \texttt{ggplot()}. El ejemplo anterior puede acortarse a:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{group  =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmin)) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmax)) }
+\end{Highlighting}
+\end{Shaded}
+
+A continuación tenemos una versión un poco más elaborada del gráfico anterior. Utiliza el paquete \texttt{scales}, que ha de instalarse con \texttt{install.packages("scales")}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(scales)}
+
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmax), }\AttributeTok{color=}\StringTok{"red"}\NormalTok{) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmin), }\AttributeTok{color=}\StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+} 
+    \FunctionTok{scale\_x\_date}\NormalTok{(}
+        \AttributeTok{expand=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{),}
+        \AttributeTok{breaks =} \FunctionTok{date\_breaks}\NormalTok{(}\StringTok{"1 day"}\NormalTok{), }
+        \AttributeTok{labels =} \FunctionTok{date\_format}\NormalTok{(}\StringTok{"\%d"}\NormalTok{)}
+\NormalTok{    ) }\SpecialCharTok{+}
+    \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{,}\DecValTok{35}\NormalTok{,}\DecValTok{5}\NormalTok{)) }\SpecialCharTok{+} 
+    \FunctionTok{labs}\NormalTok{(}
+        \AttributeTok{title =} \StringTok{"Temperaturas máximas y mínimas en abril de 2018"}\NormalTok{,}
+        \AttributeTok{x =} \StringTok{"Día"}\NormalTok{,}
+        \AttributeTok{y =} \StringTok{"Temperatura ( ºC )"}
+\NormalTok{    )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-34-1} \end{center}
 
 % After Body
 

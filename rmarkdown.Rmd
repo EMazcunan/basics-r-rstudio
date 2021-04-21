@@ -152,7 +152,7 @@ Las líneas siguientes (8 a 10)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ````
-las analizaremos con más detalle en la sección \@ref(label). 
+las analizaremos con más detalle en la sección \@ref(global-options). 
 
 
 El resto de líneas (12 en adelante), son los contenidos propiamente dichos del documento. Se trata de unos contenidos de muestra, que enseguida reemplazaremos por nuestros contenidos propios. Pero antes de borrar estos contenidos de muestra, compilaremos el documento para ver el resultado inicial. 
