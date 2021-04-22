@@ -61,6 +61,8 @@ download.file(
 )
 ```
 Comprueba que se ha creado el archivo `temperaturas2.csv` en la carpeta `data`.
+
+
 De hecho, el argumento para especificar el archivo en la función `read_csv`, admite una URL. Así que los dos pasos que hemos seguido antes, descargar e importar, pueden hacerse con una sola instrucción: 
 
 ```{r}

@@ -221,8 +221,8 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <span id="cb55-2"><a href="importar-desde-url.html#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="st">&quot;https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv&quot;</span>,</span>
 <span id="cb55-3"><a href="importar-desde-url.html#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">destfile =</span> <span class="st">&quot;data/temperaturas2.csv&quot;</span></span>
 <span id="cb55-4"><a href="importar-desde-url.html#cb55-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>Comprueba que se ha creado el archivo <code>temperaturas2.csv</code> en la carpeta <code>data</code>.
-De hecho, el argumento para especificar el archivo en la función <code>read_csv</code>, admite una URL. Así que los dos pasos que hemos seguido antes, descargar e importar, pueden hacerse con una sola instrucción:</p>
+<p>Comprueba que se ha creado el archivo <code>temperaturas2.csv</code> en la carpeta <code>data</code>.</p>
+<p>De hecho, el argumento para especificar el archivo en la función <code>read_csv</code>, admite una URL. Así que los dos pasos que hemos seguido antes, descargar e importar, pueden hacerse con una sola instrucción:</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="importar-desde-url.html#cb56-1" aria-hidden="true" tabindex="-1"></a>temps2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv&quot;</span>)</span></code></pre></div>
 <p>Después de ejecutar la instrucción anterior, puedes verificar que los objetos <code>temps</code> y <code>temps2</code> son idénticos.</p>
 </div>
