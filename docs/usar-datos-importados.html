@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Objetos en R | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="6 Objetos en R | Primeros pasos con R y RStudio" />
+  <title>8.4 Usar datos importados | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="8.4 Usar datos importados | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Objetos en R | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="8.4 Usar datos importados | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Objetos en R | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="8.4 Usar datos importados | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="cargar-un-paquete.html"/>
-<link rel="next" href="crear-un-objeto.html"/>
+<link rel="prev" href="importar-desde-url.html"/>
+
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -214,17 +214,47 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="objects" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Objetos en R</h1>
-<p>En este capítulo veremos cómo crear un objeto en <span class="textbf">R</span> y estudiaremos dos tipos de objetos destacados en <span class="textbf">R</span>: los <strong>vectores</strong> y las <strong>hojas de datos</strong>.</p>
+<div id="usar-datos-importados" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Usar datos importados</h2>
+<p>Una vez que hemos importado los datos de un fichero y los hemos almacenado en un objeto, podemos utilizar dicho objeto como si se tratara de una de las hojas de datos predefinidas en <span class="textbf">R</span>.</p>
+<p>Podemos por ejemplo representar la evolución de las temperaturas mínimas y máximas a lo largo de los días:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="usar-datos-importados.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temps) <span class="sc">+</span> </span>
+<span id="cb57-2"><a href="usar-datos-importados.html#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Tmin, <span class="at">group  =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb57-3"><a href="usar-datos-importados.html#cb57-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Tmax, <span class="at">group  =</span> <span class="dv">1</span>)) </span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-32-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>La función <code>geom_line()</code> actúa primero como si se dibujara un gráfico de puntos con <code>geom_point()</code> y luego conecta los puntos conforme indique el valor del argumento <code>group</code>. En el caso de nuestros dos diagramas de líneas, queremos que todos los puntos estén conectados, y lo indicamos usando <code>group=1</code>. Cuando hay más variables, la agrupación para las líneas suele hacerse por variable. Si por ejemplo tuvierámos cada día mediciones en varias ciudades, podríamos agrupar para la variable especificando la ciudad.</p>
+<p>Cuando varias capas de un gráfico comparten estéticas, esas estéticas comunes pueden especificarse en el argumento de <code>ggplot()</code>. El ejemplo anterior puede acortarse a:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="usar-datos-importados.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temps, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">group  =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb58-2"><a href="usar-datos-importados.html#cb58-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> Tmin)) <span class="sc">+</span> </span>
+<span id="cb58-3"><a href="usar-datos-importados.html#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> Tmax)) </span></code></pre></div>
+<p>A continuación tenemos una versión un poco más elaborada del gráfico anterior. Utiliza el paquete <code>scales</code>, que ha de instalarse con <code>install.packages("scales")</code>.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="usar-datos-importados.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb59-2"><a href="usar-datos-importados.html#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="usar-datos-importados.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temps, <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb59-4"><a href="usar-datos-importados.html#cb59-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Tmax), <span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb59-5"><a href="usar-datos-importados.html#cb59-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Tmin), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb59-6"><a href="usar-datos-importados.html#cb59-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_date</span>(</span>
+<span id="cb59-7"><a href="usar-datos-importados.html#cb59-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">expand=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb59-8"><a href="usar-datos-importados.html#cb59-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">breaks =</span> <span class="fu">date_breaks</span>(<span class="st">&quot;1 day&quot;</span>), </span>
+<span id="cb59-9"><a href="usar-datos-importados.html#cb59-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">labels =</span> <span class="fu">date_format</span>(<span class="st">&quot;%d&quot;</span>)</span>
+<span id="cb59-10"><a href="usar-datos-importados.html#cb59-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb59-11"><a href="usar-datos-importados.html#cb59-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">30</span>,<span class="dv">5</span>)) <span class="sc">+</span> </span>
+<span id="cb59-12"><a href="usar-datos-importados.html#cb59-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb59-13"><a href="usar-datos-importados.html#cb59-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Temperaturas máximas y mínimas en abril de 2018&quot;</span>,</span>
+<span id="cb59-14"><a href="usar-datos-importados.html#cb59-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Día&quot;</span>,</span>
+<span id="cb59-15"><a href="usar-datos-importados.html#cb59-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Temperatura ( ºC )&quot;</span></span>
+<span id="cb59-16"><a href="usar-datos-importados.html#cb59-16" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-34-1.png" width="100%" style="display: block; margin: auto;" /></p>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="cargar-un-paquete.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="crear-un-objeto.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="importar-desde-url.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

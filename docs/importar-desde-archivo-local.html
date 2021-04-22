@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Objetos en R | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="6 Objetos en R | Primeros pasos con R y RStudio" />
+  <title>8.2 Importar desde archivo local | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="8.2 Importar desde archivo local | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Objetos en R | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="8.2 Importar desde archivo local | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Objetos en R | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="8.2 Importar desde archivo local | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="cargar-un-paquete.html"/>
-<link rel="next" href="crear-un-objeto.html"/>
+<link rel="prev" href="los-datos.html"/>
+<link rel="next" href="importar-desde-url.html"/>
 <script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -214,17 +214,36 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="objects" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Objetos en R</h1>
-<p>En este capítulo veremos cómo crear un objeto en <span class="textbf">R</span> y estudiaremos dos tipos de objetos destacados en <span class="textbf">R</span>: los <strong>vectores</strong> y las <strong>hojas de datos</strong>.</p>
+<div id="importar-desde-archivo-local" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Importar desde archivo local</h2>
+<p>Teniendo el archivo descargado en nuestro equipo, podemos importarlo especificando, como primer argumento de la función <code>read_csv()</code>, la ruta del archivo, que puede ser local respecto al directorio de trabajo actual.</p>
+<p>Con la siguiente instrucción leemos el archivo que hemos descargado y lo almacenamos en un objeto de nombre <code>temps</code>.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="importar-desde-archivo-local.html#cb54-1" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/temperaturas.csv&quot;</span>)</span></code></pre></div>
+<div class="infobox">
+<p>Si obtienes algún error indicando que no se encuentra el archivo, puede deberse a que el directorio de trabajo no es el correcto.</p>
+<ul>
+<li><p>Puedes saber cuál es el directorio de trabajo actual con <code>getwd()</code>.</p></li>
+<li><p>Para establecer que el directorio de trabajo sea aquel que contiene a tu archivo R Markdown, selecciona la pestaña de tu archivo .Rmd y utiliza el menú:</p></li>
+</ul>
+<div class="menu">
+<p>Session &gt; Set Working Directory &gt; To Source File Location</p>
+</div>
+</div>
+<p>Si todo ha ido bien, el objeto <code>temps</code> aparecerá en el panel <strong>Environment</strong> y podrás visualízarlo.</p>
+<p>Verás que hay <span class="math inline">\(30\)</span> filas, una por cada día del mes, y <span class="math inline">\(3\)</span> columnas con las variables:</p>
+<ul>
+<li><code>Fecha</code>: fecha del día, en formato año-mes-día</li>
+<li><code>Tmax</code>: temperatura máxima del día</li>
+<li><code>Tmin</code>: temperatura mínima del día</li>
+</ul>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="cargar-un-paquete.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="crear-un-objeto.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="los-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importar-desde-url.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

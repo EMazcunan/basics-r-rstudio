@@ -721,7 +721,7 @@ La mayoría de paquetes que usaremos a lo largo del curso forman parte de \textt
 \subsection{Instalar un paquete}\label{install}}
 
 Al instalar un paquete descargamos el código que compone dicho paquete en nuestro equipo.
-Para instalar un paquete nuevo se utiliza la función \texttt{install.packages}. La instalación de un paquete se realiza una sola vez, así que la usaremos desde la consola. El paquete \texttt{tidyverse} se instalaría ejecutando la siguiente instrucción:
+Para instalar un paquete nuevo se utiliza la función \texttt{install.packages()}. La instalación de un paquete se realiza una sola vez, así que la usaremos desde la consola. El paquete \texttt{tidyverse} se instalaría ejecutando la siguiente instrucción:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -771,7 +771,7 @@ puedes solucionarlo siguiendo los siguientes pasos:
 \hypertarget{cargar-un-paquete}{%
 \subsection{Cargar un paquete}\label{cargar-un-paquete}}
 
-Para cargar un paquete previamente instalado hay que usar la función \texttt{library}. Por ejemplo, para cargar el paquete \texttt{tidyverse} escribimos
+Para cargar un paquete previamente instalado hay que usar la función \texttt{library()}. Por ejemplo, para cargar el paquete \texttt{tidyverse} escribimos
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1033,12 +1033,10 @@ El paquete \texttt{readr} forma parte de \texttt{tidyverse} de forma que no es n
 
 Trabajaremos con un archivo de nombre \texttt{temperaturas.csv}, que contiene las temperaturas máximas y mínimas registradas en el observatorio de la Virgen del Camino para todos los días del mes de abril del año 2018.
 
-Está disponible en la siguiente URL: \url{https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv}.
+Descárgalo pinchando \href{https://drive.google.com/uc?export=download\&id=1xDIvAcQSS4_dFoSIO2hcprhqnbXJqx9r}{aquí} y guárdalo en una carpeta de nombre \texttt{data} en el directorio del archivo R Markdown con el que estés trabajando.
 
-Descárgalo usando el enlace anterior y guárdalo en una carpeta de nombre \texttt{data} en el directorio del archivo R Markdown con el que estés trabajando.
-
-\hypertarget{archivos-locales}{%
-\subsection{Archivos locales}\label{archivos-locales}}
+\hypertarget{importar-desde-archivo-local}{%
+\subsection{Importar desde archivo local}\label{importar-desde-archivo-local}}
 
 Teniendo el archivo descargado en nuestro equipo, podemos importarlo especificando, como primer argumento de la función \texttt{read\_csv()}, la ruta del archivo, que puede ser local respecto al directorio de trabajo actual.
 
@@ -1075,10 +1073,10 @@ Verás que hay \(30\) filas, una por cada día del mes, y \(3\) columnas con las
   \texttt{Tmin}: temperatura mínima del día
 \end{itemize}
 
-\hypertarget{archivos-en-red}{%
-\subsection{Archivos en red}\label{archivos-en-red}}
+\hypertarget{importar-desde-url}{%
+\subsection{Importar desde URL}\label{importar-desde-url}}
 
-Antes hemos realizado la descarga del archivo de datos de forma manual. Conociendo su URL, también, podríamos haberlo hecho desde \textsf{R}, con la función \texttt{download.file()}:
+Antes hemos realizado la descarga del archivo de datos de forma manual. También podríamos haberlo hecho desde \textsf{R}, con la función \texttt{download.file()}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1100,11 +1098,12 @@ De hecho, el argumento para especificar el archivo en la función \texttt{read\_
 
 Después de ejecutar la instrucción anterior, puedes verificar que los objetos \texttt{temps} y \texttt{temps2} son idénticos.
 
-\hypertarget{usar}{%
-\subsection{Usar}\label{usar}}
+\hypertarget{usar-datos-importados}{%
+\subsection{Usar datos importados}\label{usar-datos-importados}}
 
 Una vez que hemos importado los datos de un fichero y los hemos almacenado en un objeto, podemos utilizar dicho objeto como si se tratara de una de las hojas de datos predefinidas en \textsf{R}.
-Podemos
+
+Podemos por ejemplo representar la evolución de las temperaturas mínimas y máximas a lo largo de los días:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1142,7 +1141,7 @@ A continuación tenemos una versión un poco más elaborada del gráfico anterio
         \AttributeTok{breaks =} \FunctionTok{date\_breaks}\NormalTok{(}\StringTok{"1 day"}\NormalTok{), }
         \AttributeTok{labels =} \FunctionTok{date\_format}\NormalTok{(}\StringTok{"\%d"}\NormalTok{)}
 \NormalTok{    ) }\SpecialCharTok{+}
-    \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{,}\DecValTok{35}\NormalTok{,}\DecValTok{5}\NormalTok{)) }\SpecialCharTok{+} 
+    \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{5}\NormalTok{)) }\SpecialCharTok{+} 
     \FunctionTok{labs}\NormalTok{(}
         \AttributeTok{title =} \StringTok{"Temperaturas máximas y mínimas en abril de 2018"}\NormalTok{,}
         \AttributeTok{x =} \StringTok{"Día"}\NormalTok{,}

@@ -11,7 +11,7 @@ La mayoría de paquetes que usaremos a lo largo del curso forman parte de `tidyv
 ## Instalar un paquete {#install}
 
 Al instalar un paquete descargamos el código que compone dicho paquete en nuestro equipo. 
-Para instalar un paquete nuevo se utiliza la función `install.packages`. La instalación de un paquete se realiza una sola vez, así que la usaremos desde la consola.  El paquete `tidyverse` se instalaría ejecutando la siguiente instrucción:
+Para instalar un paquete nuevo se utiliza la función `install.packages()`. La instalación de un paquete se realiza una sola vez, así que la usaremos desde la consola.  El paquete `tidyverse` se instalaría ejecutando la siguiente instrucción:
 
 ```{r, eval=FALSE}
 install.packages("tidyverse")
@@ -42,7 +42,7 @@ install.packages("tidyverse")
 
 ## Cargar un paquete                  
                   
-Para cargar un paquete previamente instalado hay que usar la función `library`. Por ejemplo, para cargar el paquete `tidyverse` escribimos
+Para cargar un paquete previamente instalado hay que usar la función `library()`. Por ejemplo, para cargar el paquete `tidyverse` escribimos
 ```{r}
 library("tidyverse")
 ```

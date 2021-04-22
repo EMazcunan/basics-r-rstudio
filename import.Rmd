@@ -13,12 +13,11 @@ El paquete `readr` forma parte de `tidyverse` de forma que no es necesario carga
 
 Trabajaremos con un archivo de nombre `temperaturas.csv`, que contiene las temperaturas máximas y mínimas registradas en el observatorio de la Virgen del Camino para todos los días del mes de abril del año 2018.
 
-Está disponible en la siguiente URL: <https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv>.
 
-Descárgalo usando el enlace anterior y  guárdalo en una carpeta de nombre `data` en el directorio del archivo R Markdown con el que estés trabajando.
+Descárgalo pinchando [aquí](https://drive.google.com/uc?export=download&id=1xDIvAcQSS4_dFoSIO2hcprhqnbXJqx9r) y  guárdalo en una carpeta de nombre `data` en el directorio del archivo R Markdown con el que estés trabajando.
 
 
-## Archivos locales
+## Importar desde archivo local
 
 Teniendo el archivo descargado en nuestro equipo, podemos importarlo especificando, como primer argumento de la función `read_csv()`,  la ruta del archivo, que puede ser local respecto al directorio  de trabajo actual. 
 
@@ -50,9 +49,9 @@ Verás que hay $30$ filas, una por cada día del mes, y $3$ columnas con las var
 - `Tmax`: temperatura máxima del día
 - `Tmin`: temperatura mínima del día
 
-## Archivos en red
+## Importar desde URL
 
-Antes hemos realizado la descarga del archivo de datos de forma manual. Conociendo su URL, también, podríamos haberlo hecho  desde `r R()`, con la función `download.file()`:
+Antes hemos realizado la descarga del archivo de datos de forma manual. También podríamos haberlo hecho  desde `r R()`, con la función `download.file()`:
 
 
 ```{r}
@@ -70,10 +69,11 @@ temps2 <- read_csv("https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio
 Después de ejecutar la instrucción anterior, puedes verificar que los objetos  `temps` y `temps2` son idénticos.
 
 
-## Usar
+## Usar datos importados
 
 Una vez que hemos importado los datos de un fichero y los hemos almacenado en un objeto, podemos utilizar dicho objeto como si se tratara de una de las hojas de datos predefinidas en `r R()`.
-Podemos 
+
+Podemos por ejemplo representar la evolución de las temperaturas mínimas y máximas a lo largo de los días:
 
 
 ```{r}
@@ -110,7 +110,7 @@ ggplot(data = temps, aes(x = Fecha, group = 1)) +
         breaks = date_breaks("1 day"), 
         labels = date_format("%d")
     ) +
-    scale_y_continuous(breaks = seq(-5,35,5)) + 
+    scale_y_continuous(breaks = seq(-5,30,5)) + 
     labs(
         title = "Temperaturas máximas y mínimas en abril de 2018",
         x = "Día",
