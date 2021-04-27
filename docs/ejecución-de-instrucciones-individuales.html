@@ -52,11 +52,21 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-/* Material Icons
- * https://fonts.google.com/icons
- * https://developers.google.com/fonts/docs/material_icons
- */
+<!--
+Material Icons
+https://fonts.google.com/icons
+https://developers.google.com/fonts/docs/material_icons
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<span class="math inline" style="display: none;">
+    \(\newcommand{\ve}{\varepsilon}\)
+</span>
+<!--
+Mathjax
+-->
+<span class="math inline" style="display:none;">
+    \(\newcommand{\foo}{}\)
+</span>
 
 
 <style type="text/css">
@@ -125,12 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
 <body>
@@ -214,6 +226,7 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
+
 <div id="ejecución-de-instrucciones-individuales" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Ejecución de instrucciones individuales</h2>
 <p>Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, tanto el código como la salida o resultado (siempre que no hay opciones como <code>echo=FALSE</code> o <code>include=FALSE</code> que inhiban la impresión del código y/o de la salida).</p>
@@ -232,6 +245,7 @@ Para ello, podemos proceder exactamente igual que en el caso de los scripts, es 
 <p>Además, podemos ejecutar todas las instrucciones que componen un bloque de código utilizando el botón a la derecha del comienzo del bloque que se resalta en la siguiente imagen:</p>
 <p><img src="images/run.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
+
             </section>
 
           </div>

@@ -52,11 +52,21 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-/* Material Icons
- * https://fonts.google.com/icons
- * https://developers.google.com/fonts/docs/material_icons
- */
+<!--
+Material Icons
+https://fonts.google.com/icons
+https://developers.google.com/fonts/docs/material_icons
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<span class="math inline" style="display: none;">
+    \(\newcommand{\ve}{\varepsilon}\)
+</span>
+<!--
+Mathjax
+-->
+<span class="math inline" style="display:none;">
+    \(\newcommand{\foo}{}\)
+</span>
 
 
 <style type="text/css">
@@ -125,12 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
 <body>
@@ -214,14 +226,16 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
+
 <div id="rmarkdown" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Escribir y ejecutar código de R</h1>
-<p>Para escribir y ejecutar código de <span class="textbf">R</span> desde <span class="textbf">RStudio</span> podremos utilizar bien la consola o bien escribir nuestro código en un archivo.</p>
+<p>Para escribir y ejecutar código de <span class="textsf">R</span> desde <span class="textsf">RStudio</span> podremos utilizar bien la consola o bien escribir nuestro código en un archivo.</p>
 <p>La <strong>consola</strong> se utiliza para ejecutar instrucciones sueltas, que no tenemos interés en conservar, por ejemplo para realizar cálculos auxiliares o para instalar paquetes.</p>
 <p>Cuando el código que queremos escribir sea un conjunto de instrucciones que queramos conservar, de forma que podamos reutilizarlo posteriormente o compartirlo con otras personas, escribiremos nuestro código en un archivo.
-Entre los tipos de archivos que podemos crear desde <span class="textbf">RStudio</span> para escribir y ejecutar código <span class="textbf">R</span> están los <strong>scripts</strong> y los documentos <strong>R Markdown</strong>.</p>
-<!-- Además, podremos organizar nuestro trabajo usando los proyectos de <span class="textbf">RStudio</span>. -->
+Entre los tipos de archivos que podemos crear desde <span class="textsf">RStudio</span> para escribir y ejecutar código <span class="textsf">R</span> están los <strong>scripts</strong> y los documentos <strong>R Markdown</strong>.</p>
+<!-- Además, podremos organizar nuestro trabajo usando los proyectos de <span class="textsf">RStudio</span>. -->
 </div>
+
             </section>
 
           </div>

@@ -52,11 +52,21 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-/* Material Icons
- * https://fonts.google.com/icons
- * https://developers.google.com/fonts/docs/material_icons
- */
+<!--
+Material Icons
+https://fonts.google.com/icons
+https://developers.google.com/fonts/docs/material_icons
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<span class="math inline" style="display: none;">
+    \(\newcommand{\ve}{\varepsilon}\)
+</span>
+<!--
+Mathjax
+-->
+<span class="math inline" style="display:none;">
+    \(\newcommand{\foo}{}\)
+</span>
 
 
 <style type="text/css">
@@ -125,12 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
 <body>
@@ -214,9 +226,10 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
+
 <div id="usar-datos-importados" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> Usar datos importados</h2>
-<p>Una vez que hemos importado los datos de un fichero y los hemos almacenado en un objeto, podemos utilizar dicho objeto como si se tratara de una de las hojas de datos predefinidas en <span class="textbf">R</span>.</p>
+<p>Una vez que hemos importado los datos de un fichero y los hemos almacenado en un objeto, podemos utilizar dicho objeto como si se tratara de una de las hojas de datos predefinidas en <span class="textsf">R</span>.</p>
 <p>Podemos por ejemplo representar la evolución de las temperaturas mínimas y máximas a lo largo de los días:</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="usar-datos-importados.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temps) <span class="sc">+</span> </span>
 <span id="cb57-2"><a href="usar-datos-importados.html#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Tmin, <span class="at">group  =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
@@ -245,9 +258,11 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <span id="cb59-15"><a href="usar-datos-importados.html#cb59-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Temperatura ( ºC )&quot;</span></span>
 <span id="cb59-16"><a href="usar-datos-importados.html#cb59-16" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-34-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<!-- Cuando se usa `color` se puede suprimir `group` -->
 
 </div>
 <!-- </div> -->
+
             </section>
 
           </div>

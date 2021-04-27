@@ -52,11 +52,21 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-/* Material Icons
- * https://fonts.google.com/icons
- * https://developers.google.com/fonts/docs/material_icons
- */
+<!--
+Material Icons
+https://fonts.google.com/icons
+https://developers.google.com/fonts/docs/material_icons
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<span class="math inline" style="display: none;">
+    \(\newcommand{\ve}{\varepsilon}\)
+</span>
+<!--
+Mathjax
+-->
+<span class="math inline" style="display:none;">
+    \(\newcommand{\foo}{}\)
+</span>
 
 
 <style type="text/css">
@@ -125,12 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
 <body>
@@ -214,6 +226,7 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
+
 <div id="importar-desde-archivo-local" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Importar desde archivo local</h2>
 <p>Teniendo el archivo descargado en nuestro equipo, podemos importarlo especificando, como primer argumento de la función <code>read_csv()</code>, la ruta del archivo, que puede ser local respecto al directorio de trabajo actual.</p>
@@ -237,6 +250,7 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <li><code>Tmin</code>: temperatura mínima del día</li>
 </ul>
 </div>
+
             </section>
 
           </div>

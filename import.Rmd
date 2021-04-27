@@ -14,7 +14,7 @@ El paquete `readr` forma parte de `tidyverse` de forma que no es necesario carga
 Trabajaremos con un archivo de nombre `temperaturas.csv`, que contiene las temperaturas máximas y mínimas registradas en el observatorio de la Virgen del Camino para todos los días del mes de abril del año 2018.
 
 
-Descárgalo pinchando [aquí](https://drive.google.com/uc?export=download&id=1xDIvAcQSS4_dFoSIO2hcprhqnbXJqx9r) y  guárdalo en una carpeta de nombre `data` en el directorio del archivo R Markdown con el que estés trabajando.
+Descárgalo pinchando [aquí](https://drive.google.com/uc?export=download&id=1xDIvAcQSS4_dFoSIO2hcprhqnbXJqx9r){target="_blank"} y  guárdalo en una carpeta de nombre `data` en el directorio del archivo R Markdown con el que estés trabajando.
 
 
 ## Importar desde archivo local
@@ -120,3 +120,4 @@ ggplot(data = temps, aes(x = Fecha, group = 1)) +
     )
 ```
 
+<!-- Cuando se usa `color` se puede suprimir `group` -->

@@ -1,8 +1,5 @@
 # Hojas de datos {#dfs}
 
-TODO
-
-
 Las hojas de datos (en inglés *data frames*) son la clase de objetos que se usan en `R` para almacenar los datos obtenidos en un experimento y poder analizarlos. 
 
 Pueden crearse desde `R`, o importando los datos almacenados en un archivo con la estructura adecuada. 

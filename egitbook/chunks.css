@@ -40,32 +40,3 @@ pre.console-output {
     padding: 0 0 0 3ex !important;
     border: none !important;
 }
-
-.infobox, .warningbox {
-  padding: 1em 1em 1em 4em;
-  margin-bottom: 10px;
-  border: 1px solid lightgray;
-  display: inline-block;
-  position: relative;
-}
-
-.infobox::before {
-  font-family: "Material Icons";
-  font-size: 2em;
-  color: #7AA3E5;
-  content: "\e88e";
-  display: inline;
-  position: absolute;
-  transform: translate(-1.5em,0);
-}
-
-.warningbox::before {
-  font-family: "Material Icons";
-  font-size: 2em;
-  color: #F3856E;
-  content: "\e002";
-  display: inline;
-  position: absolute;
-  transform: translate(-1.5em,0);
-}
-

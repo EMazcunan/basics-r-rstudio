@@ -52,11 +52,21 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-/* Material Icons
- * https://fonts.google.com/icons
- * https://developers.google.com/fonts/docs/material_icons
- */
+<!--
+Material Icons
+https://fonts.google.com/icons
+https://developers.google.com/fonts/docs/material_icons
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<span class="math inline" style="display: none;">
+    \(\newcommand{\ve}{\varepsilon}\)
+</span>
+<!--
+Mathjax
+-->
+<span class="math inline" style="display:none;">
+    \(\newcommand{\foo}{}\)
+</span>
 
 
 <style type="text/css">
@@ -125,12 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
 <body>
@@ -214,11 +226,12 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
+
 <div id="hojas-de-datos" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Hojas de datos</h2>
-<p>Las hojas de datos (en inglés <em>data frames</em>) son la clase de objetos que se usan en <span class="textbf">R</span> para almacenar los datos obtenidos en un experimento y poder analizarlos.</p>
+<p>Las hojas de datos (en inglés <em>data frames</em>) son la clase de objetos que se usan en <span class="textsf">R</span> para almacenar los datos obtenidos en un experimento y poder analizarlos.</p>
 <p>Empezaremos explorando la hoja de datos de nombre <code>mpg</code> (<strong>m</strong>iles <strong>p</strong>er <strong>g</strong>allon), proporcionada por el paquete <code>ggplot2</code>(que ya hemos cargado al cargar el paquete <code>tidyverse</code>). Esta hoja de datos trata sobre el consumo de combustible de diferentes modelos de coches.</p>
-<p>Para obtener una descripción de la hoja de datos, escribe <code>mpg</code> en el campo de búsqueda del panel <strong>Help</strong> de <span class="textbf">RStudio</span>. También puedes escribir <code>?mpg</code> o <code>help(mpg)</code> en la consola. La página de ayuda explica que la hoja de datos tiene <span class="math inline">\(234\)</span> filas, donde cada fila representa un coche, y <span class="math inline">\(11\)</span> variables, que describen diferentes características de los coches. Nos vamos a centrar en las variables <code>displ</code> y <code>hwy</code>, que nos describen como:</p>
+<p>Para obtener una descripción de la hoja de datos, escribe <code>mpg</code> en el campo de búsqueda del panel <strong>Help</strong> de <span class="textsf">RStudio</span>. También puedes escribir <code>?mpg</code> o <code>help(mpg)</code> en la consola. La página de ayuda explica que la hoja de datos tiene <span class="math inline">\(234\)</span> filas, donde cada fila representa un coche, y <span class="math inline">\(11\)</span> variables, que describen diferentes características de los coches. Nos vamos a centrar en las variables <code>displ</code> y <code>hwy</code>, que nos describen como:</p>
 <ul>
 <li><code>displ</code>: <em>engine displacemente, in litres</em> (cilindrada)</li>
 <li><code>hwy</code>: <em>higway miles per gallon</em> (millas recorridas por galón de combustible en conducción por autopista)</li>
@@ -251,6 +264,7 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 
 </div>
 <!-- </div> -->
+
             </section>
 
           </div>

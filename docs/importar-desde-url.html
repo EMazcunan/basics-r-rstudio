@@ -52,11 +52,21 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-/* Material Icons
- * https://fonts.google.com/icons
- * https://developers.google.com/fonts/docs/material_icons
- */
+<!--
+Material Icons
+https://fonts.google.com/icons
+https://developers.google.com/fonts/docs/material_icons
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<span class="math inline" style="display: none;">
+    \(\newcommand{\ve}{\varepsilon}\)
+</span>
+<!--
+Mathjax
+-->
+<span class="math inline" style="display:none;">
+    \(\newcommand{\foo}{}\)
+</span>
 
 
 <style type="text/css">
@@ -125,12 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
 <body>
@@ -214,9 +226,10 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
+
 <div id="importar-desde-url" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Importar desde URL</h2>
-<p>Antes hemos realizado la descarga del archivo de datos de forma manual. También podríamos haberlo hecho desde <span class="textbf">R</span>, con la función <code>download.file()</code>:</p>
+<p>Antes hemos realizado la descarga del archivo de datos de forma manual. También podríamos haberlo hecho desde <span class="textsf">R</span>, con la función <code>download.file()</code>:</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="importar-desde-url.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(</span>
 <span id="cb55-2"><a href="importar-desde-url.html#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="st">&quot;https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv&quot;</span>,</span>
 <span id="cb55-3"><a href="importar-desde-url.html#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">destfile =</span> <span class="st">&quot;data/temperaturas2.csv&quot;</span></span>
@@ -226,6 +239,7 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="importar-desde-url.html#cb56-1" aria-hidden="true" tabindex="-1"></a>temps2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv&quot;</span>)</span></code></pre></div>
 <p>Después de ejecutar la instrucción anterior, puedes verificar que los objetos <code>temps</code> y <code>temps2</code> son idénticos.</p>
 </div>
+
             </section>
 
           </div>

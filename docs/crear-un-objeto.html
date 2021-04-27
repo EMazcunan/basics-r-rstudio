@@ -52,11 +52,21 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-/* Material Icons
- * https://fonts.google.com/icons
- * https://developers.google.com/fonts/docs/material_icons
- */
+<!--
+Material Icons
+https://fonts.google.com/icons
+https://developers.google.com/fonts/docs/material_icons
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<span class="math inline" style="display: none;">
+    \(\newcommand{\ve}{\varepsilon}\)
+</span>
+<!--
+Mathjax
+-->
+<span class="math inline" style="display:none;">
+    \(\newcommand{\foo}{}\)
+</span>
 
 
 <style type="text/css">
@@ -125,12 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
 <body>
@@ -214,13 +226,14 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
+
 <div id="crear-un-objeto" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Crear un objeto</h2>
 <p>La instrucción</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="crear-un-objeto.html#cb35-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span></code></pre></div>
 <p>crea una variable u objeto de nombre <code>x</code> y le asigna el valor <span class="math inline">\(2\)</span>.
 El operador de asignación en <code>R</code> es <code>&lt;-</code> (compuesto por el símbolo menor <code>&lt;</code> y un guión central <code>-</code>).</p>
-<p>Puedes comprobar que el objeto <code>x</code> aparece listado en el panel <em>Environment</em> de la ventana superior derecha de <span class="textbf">RStudio</span>. En este panel podemos ver todos los objetos definidos en nuestro entorno o espacio de trabajo (<em>workspace</em>).</p>
+<p>Puedes comprobar que el objeto <code>x</code> aparece listado en el panel <em>Environment</em> de la ventana superior derecha de <span class="textsf">RStudio</span>. En este panel podemos ver todos los objetos definidos en nuestro entorno o espacio de trabajo (<em>workspace</em>).</p>
 <p>Cuando se ejecuta una instrucción como la anterior, en la que se asigna un valor u expresión a un objeto, la salida no muestra el valor asignado. Para verlo tenemos que <em>imprimir</em> el objeto en cuestión, simplemente escribiendo su nombre:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="crear-un-objeto.html#cb36-1" aria-hidden="true" tabindex="-1"></a>x <span class="co"># muestra el valor actual de x</span></span></code></pre></div>
 <pre class="egitbook-output"><code>[1] 2</code></pre>
@@ -229,6 +242,7 @@ El operador de asignación en <code>R</code> es <code>&lt;-</code> (compuesto po
 <pre class="egitbook-output"><code>[1] 1</code></pre>
 <p>obtendremos la salida <span class="math inline">\(1\)</span> (resultado de <span class="math inline">\(2^2-3 = 1\)</span>).</p>
 </div>
+
             </section>
 
           </div>

@@ -52,11 +52,21 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-/* Material Icons
- * https://fonts.google.com/icons
- * https://developers.google.com/fonts/docs/material_icons
- */
+<!--
+Material Icons
+https://fonts.google.com/icons
+https://developers.google.com/fonts/docs/material_icons
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<span class="math inline" style="display: none;">
+    \(\newcommand{\ve}{\varepsilon}\)
+</span>
+<!--
+Mathjax
+-->
+<span class="math inline" style="display:none;">
+    \(\newcommand{\foo}{}\)
+</span>
 
 
 <style type="text/css">
@@ -125,12 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
 <body>
@@ -214,9 +226,10 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
+
 <div id="vectores" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Vectores</h2>
-<p>Para crear <strong>vectores</strong> en <span class="textbf">R</span> usamos la función <code>c</code> (inicial de <em>concatenate</em> o <em>combine</em>). La instrucción</p>
+<p>Para crear <strong>vectores</strong> en <span class="textsf">R</span> usamos la función <code>c</code> (inicial de <em>concatenate</em> o <em>combine</em>). La instrucción</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="vectores.html#cb40-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span></code></pre></div>
 <p>crea un vector de nombre <code>v</code> formado por los primeros <span class="math inline">\(5\)</span> números impares. Observa la entrada que se ha creado para <code>v</code> en el panel Environment.</p>
 <p>Para acceder al elemento número <code>i</code> del vector <code>v</code> se escribe <code>v[i]</code>. Por, ejemplo para extraer el segundo elemento de <code>v</code> escribimos</p>
@@ -226,8 +239,9 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="vectores.html#cb43-1" aria-hidden="true" tabindex="-1"></a>v<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre class="egitbook-output"><code>[1]  1  9 25 49 81</code></pre>
 <p>devuelve el vector cuyos elementos son los cuadrados de los elementos de <code>v</code>.
-La mayoría de funciones de <span class="textbf">R</span> que reciben argumentos numéricos aplicadas a un vector numérico operan sobre cada elemento del vector (se dice que están vectorizadas).</p>
+La mayoría de funciones de <span class="textsf">R</span> que reciben argumentos numéricos aplicadas a un vector numérico operan sobre cada elemento del vector (se dice que están vectorizadas).</p>
 </div>
+
             </section>
 
           </div>

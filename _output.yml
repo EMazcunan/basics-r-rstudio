@@ -1,6 +1,4 @@
-ebookdown::egitbook:
-  split_by: "section"
-  css: [egitbook/emargintag.css]
+ehtml::egitbook: default
 epdf::epdf_book:
   classoption:
     - title=normal

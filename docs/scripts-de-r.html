@@ -52,11 +52,21 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-/* Material Icons
- * https://fonts.google.com/icons
- * https://developers.google.com/fonts/docs/material_icons
- */
+<!--
+Material Icons
+https://fonts.google.com/icons
+https://developers.google.com/fonts/docs/material_icons
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<span class="math inline" style="display: none;">
+    \(\newcommand{\ve}{\varepsilon}\)
+</span>
+<!--
+Mathjax
+-->
+<span class="math inline" style="display:none;">
+    \(\newcommand{\foo}{}\)
+</span>
 
 
 <style type="text/css">
@@ -125,12 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
 <body>
@@ -214,9 +226,10 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
+
 <div id="scripts-de-r" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Scripts de R</h2>
-<p>Los scripts de R son el tipo de archivo más simple para escribir y ejecutar código de <span class="textbf">R</span>.</p>
+<p>Los scripts de R son el tipo de archivo más simple para escribir y ejecutar código de <span class="textsf">R</span>.</p>
 <p>Para crear un script, utiliza el menú</p>
 <div class="menu">
 <p>File &gt; New File &gt; R Script</p>
@@ -236,7 +249,7 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <span id="cb5-3"><a href="scripts-de-r.html#cb5-3" aria-hidden="true" tabindex="-1"></a>sqrt(</span>
 <span id="cb5-4"><a href="scripts-de-r.html#cb5-4" aria-hidden="true" tabindex="-1"></a>    5</span>
 <span id="cb5-5"><a href="scripts-de-r.html#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>Notar que si situamos el cursor sobre cualquiera de las tres líneas que componen la segunda instrucción para calcular la raíz de <span class="math inline">\(5\)</span> y presionamos <code>Ctrl + Enter</code>, <span class="textbf">RStudio</span> reconoce que la línea en la que tenemos el cursor forma parte de una instrucción compuesta por varias líneas y ejecuta todas ellas.</p>
+<p>Notar que si situamos el cursor sobre cualquiera de las tres líneas que componen la segunda instrucción para calcular la raíz de <span class="math inline">\(5\)</span> y presionamos <code>Ctrl + Enter</code>, <span class="textsf">RStudio</span> reconoce que la línea en la que tenemos el cursor forma parte de una instrucción compuesta por varias líneas y ejecuta todas ellas.</p>
 <p>Para añadir comentarios en un script, se utiliza el carácter <code>#</code>: Al ejecutar una línea de código, todo el texto escrito después del carácter <code>#</code> será ignorado. Puedes escribir por ejemplo</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb6-1"><a href="scripts-de-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># calcular raíces </span></span>
 <span id="cb6-2"><a href="scripts-de-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a>sqrt(3)</span></code></pre></div>
@@ -248,6 +261,7 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <p>Si aparece un cuadro de diálogo preguntando por la codificación del archivo, selecciona la codificación que aparezca listada en primer lugar como defecto para tu sistema operativo (verás el texto (System default) al lado de su nombre).</p>
 <p>En el selector de archivos que se abrirá a continuación, navega hasta la carpeta <code>IntroR</code> que has creado antes e indica <code>script</code> como nombre del archivo. Verás entonces que la etiqueta de la pestaña del script en el panel de RStudio cambia de <code>Untitled1</code> a <code>script.R</code>.</p>
 </div>
+
             </section>
 
           </div>

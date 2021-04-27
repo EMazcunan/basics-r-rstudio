@@ -1,7 +1,10 @@
 ```{r, include=FALSE}
 library(latex)
+library(enotation)
+library(emargintag)
 library(webshot)
 #library(linguisticsdown)
+library(formatR)
 ```
 
 
@@ -15,9 +18,19 @@ knitr::opts_chunk$set(
     message=FALSE,
     warning=FALSE,
     error=FALSE,
-    results = 'hold',
-    comment = ''
+    results = 'hold'
+    #,
+    # https://bookdown.org/yihui/rmarkdown-cookbook/opts-tidy.html
+    #tidy=TRUE, 
+    #tidy.opts=list(width.cutoff=60)
 )
+
+if(knitr::is_html_output()){
+    knitr::opts_chunk$set(comment = '')    
+}
+if(knitr::is_latex_output()){
+    knitr::opts_chunk$set(comment = '##')    
+}
 
 # -shell-escape
 # https://stackoverflow.com/questions/55459948/latex-shell-escape-options-in-yaml-header-dont-use?noredirect=1#comment97651281_55459948
@@ -42,13 +55,6 @@ knitr::write_bib(
     ), 
     'packages.bib'
 )
-```
-
-
-
-```{r, include = FALSE}
-R <- function(){textsf("R")}
-RStudio <- function(){textsf("RStudio")}
 ```
 
 

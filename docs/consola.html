@@ -52,11 +52,21 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-/* Material Icons
- * https://fonts.google.com/icons
- * https://developers.google.com/fonts/docs/material_icons
- */
+<!--
+Material Icons
+https://fonts.google.com/icons
+https://developers.google.com/fonts/docs/material_icons
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<span class="math inline" style="display: none;">
+    \(\newcommand{\ve}{\varepsilon}\)
+</span>
+<!--
+Mathjax
+-->
+<span class="math inline" style="display:none;">
+    \(\newcommand{\foo}{}\)
+</span>
 
 
 <style type="text/css">
@@ -125,12 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="egitbook/egitbook.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
 <body>
@@ -214,9 +226,10 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           <div class="page-inner">
 
             <section class="normal" id="section-">
+
 <div id="consola" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Consola</h2>
-<p>En <span class="textbf">RStudio</span> encontrarás la consola en el panel de nombre <span class="textbf">Console</span> en la ventana a la izquierda de la pantalla.</p>
+<p>En <span class="textsf">RStudio</span> encontrarás la consola en el panel de nombre <span class="textsf">Console</span> en la ventana a la izquierda de la pantalla.</p>
 <p>Para calcular <span class="math inline">\(\sqrt{2}\)</span> desde la consola, sitúa el cursor al lado del símbolo <code>&gt;</code> en la consola, escribe la instrucción <code>sqrt(2)</code> y presiona <code>Enter</code>. Verás la salida debajo:</p>
 <!-- ```{r, echo=FALSE} -->
 <!-- if (knitr:::is_latex_output()) { -->
@@ -230,6 +243,7 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
 <pre class="text console-source"><code>&gt; sqrt(2)</code></pre>
 <pre class="console-output"><code>[1] 1.414214</code></pre>
 </div>
+
             </section>
 
           </div>
