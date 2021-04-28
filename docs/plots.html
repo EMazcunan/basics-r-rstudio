@@ -61,9 +61,7 @@ https://developers.google.com/fonts/docs/material_icons
 <span class="math inline" style="display: none;">
     \(\newcommand{\ve}{\varepsilon}\)
 </span>
-<!--
-Mathjax
--->
+<!-- Mathjax -->
 <span class="math inline" style="display:none;">
     \(\newcommand{\foo}{}\)
 </span>
@@ -238,7 +236,7 @@ Nos planteamos en concreto si los coches con motor más grande (mayor <code>disp
 <p>Todos los gráficos se inicializan con la función <code>ggplot()</code>. En el código anterior, la línea</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="plots.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg)</span></code></pre></div>
 <p>simplemente indica que en nuestro gráfico usaremos variables de la hoja de datos <code>mpg</code> y crea un gráfico vacío, al que podemos añadir capas utilizando funciones como <code>geom_point()</code>, que añadirá una capa de puntos. A lo largo del curso veremos otras funciones como <code>geom_bar()</code>, <code>geom_hist()</code> y <code>geom_line()</code> que añaden capas con otros objetos geométricos (barras, líneas …).</p>
-<p>Cada función para añadir un objeto geométrico como <code>geom_line()</code> necesita un argumento de la forma</p>
+<p>Cada función para añadir un objeto geométrico como <code>geom_point()</code> necesita un argumento de la forma</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="plots.html#cb50-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="ot">=</span> <span class="fu">aes</span>(...)</span></code></pre></div>
 <p>En nuestro ejemplo, ese argumento para la función <code>geom_line()</code> es</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="plots.html#cb51-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="ot">=</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)</span></code></pre></div>

@@ -18,7 +18,7 @@ ggplot(data = mpg)
 ```
 simplemente indica que en nuestro gráfico usaremos variables de la hoja de datos  `mpg` y crea un gráfico vacío, al que podemos añadir capas utilizando funciones como `geom_point()`, que añadirá una capa de puntos. A lo largo del curso veremos otras funciones como `geom_bar()`, `geom_hist()` y `geom_line()` que añaden capas con otros objetos geométricos (barras, líneas ...).
 
-Cada función para añadir un objeto geométrico como `geom_line()` necesita un argumento de la forma
+Cada función para añadir un objeto geométrico como `geom_point()` necesita un argumento de la forma
 ```{r, eval = FALSE}
 mapping = aes(...)
 ```
