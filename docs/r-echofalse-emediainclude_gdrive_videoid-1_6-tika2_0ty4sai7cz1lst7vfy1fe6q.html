@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Visualización de datos | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="8 Visualización de datos | Primeros pasos con R y RStudio" />
+  <title>2 {r, echo=FALSE} # emedia::include_gdrive_video(id = "1_6-TIKa2_0Ty4sAI7cZ1lSt7vfY1FE6q") # | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="2 {r, echo=FALSE} # emedia::include_gdrive_video(id = "1_6-TIKa2_0Ty4sAI7cZ1lSt7vfY1FE6q") # | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Visualización de datos | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="2 {r, echo=FALSE} # emedia::include_gdrive_video(id = "1_6-TIKa2_0Ty4sAI7cZ1lSt7vfY1FE6q") # | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Visualización de datos | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="2 {r, echo=FALSE} # emedia::include_gdrive_video(id = "1_6-TIKa2_0Ty4sAI7cZ1lSt7vfY1FE6q") # | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="objects.html"/>
-<link rel="next" href="import.html"/>
+<link rel="prev" href="prerequisites.html"/>
+<link rel="next" href="rmarkdown.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -234,40 +234,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 
-<div id="plots" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> Visualización de datos<a href="plots.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>En este capítulo seguimos trabajando con la hoja de datos <code>mpg</code> que presentamos antes.
-Nos planteamos en concreto si los coches con motor más grande (mayor <code>displ</code>) tienen mayor consumo de combustible (menor <code>hyw</code>).</p>
-<p>Para responder a la pregunta anterior, vamos a realizar un gráfico de puntos para explorar la relación entre las variables <code>displ</code> (cilindrada) y <code>hyw</code> (millas por galón de combustible):</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="plots.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
-<span id="cb48-2"><a href="plots.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) </span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-23-1.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>Todos los gráficos se inicializan con la función <code>ggplot()</code>. En el código anterior, la línea</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="plots.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg)</span></code></pre></div>
-<p>simplemente indica que en nuestro gráfico usaremos variables de la hoja de datos <code>mpg</code> y crea un gráfico vacío, al que podemos añadir capas utilizando funciones como <code>geom_point()</code>, que añadirá una capa de puntos. A lo largo del curso veremos otras funciones como <code>geom_bar()</code>, <code>geom_hist()</code> y <code>geom_line()</code> que añaden capas con otros objetos geométricos (barras, líneas …).</p>
-<p>Cada función para añadir un objeto geométrico como <code>geom_point()</code> necesita un argumento de la forma</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="plots.html#cb50-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="ot">=</span> <span class="fu">aes</span>(...)</span></code></pre></div>
-<p>En nuestro ejemplo, ese argumento para la función <code>geom_line()</code> es</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="plots.html#cb51-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="ot">=</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)</span></code></pre></div>
-<p>que especifica que, para cada punto en nuestro gráfico, su coordenada <span class="math inline">\(x\)</span> vendrá definida por el valor de la variable <code>displ</code>, y su coordenada <span class="math inline">\(y\)</span> se corresponderá con la variable <code>hwy</code>.</p>
-<p>En general, en el argumento de la función <code>aes()</code> se especifica una lista de <strong>correspondencias</strong> (<em>mapping</em>) entre cada <strong>estética</strong> (<em>aesthetic</em>) o propiedad visual de los objetos geométricos a dibujar y las variables de nuestra hoja de datos.</p>
-<hr />
-<p>Ahora vamos a incluir más información en nuestro gráfico estableciendo una correspondencia entre el color de los puntos (otra propiedad estética) y la variable <code>class</code>, que indica el tipo de coche.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="plots.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
-<span id="cb52-2"><a href="plots.html#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))  </span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-27-1.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>Notar que la inclusión de la correspondencia <code>color = class</code> ha hecho que <code>ggplot2</code> asigne un color diferente (nivel diferente de la estética <code>color</code>) a cada tipo de coche (valor diferente de la variable <code>class</code>), e incluya una leyenda explicando qué color corresponde a qué tipo de coche.</p>
-<hr />
-<p>Acabamos personalizando los rótulos de nuestro gráfico con <code>labs()</code>:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="plots.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
-<span id="cb53-2"><a href="plots.html#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
-<span id="cb53-3"><a href="plots.html#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb53-4"><a href="plots.html#cb53-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Relación entre el tamaño del motor y el consumo de combustible&quot;</span>, </span>
-<span id="cb53-5"><a href="plots.html#cb53-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Cilindrada (litros)&quot;</span>,</span>
-<span id="cb53-6"><a href="plots.html#cb53-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Rendimiento combustible (millas/galón)&quot;</span>,</span>
-<span id="cb53-7"><a href="plots.html#cb53-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">&quot;Tipo de coche&quot;</span></span>
-<span id="cb53-8"><a href="plots.html#cb53-8" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-28-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<div id="r-echofalse-emediainclude_gdrive_videoid-1_6-tika2_0ty4sai7cz1lst7vfy1fe6q" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> <code>{r, echo=FALSE} # emedia::include_gdrive_video(id = "1_6-TIKa2_0Ty4sAI7cZ1lSt7vfY1FE6q") #</code><a href="r-echofalse-emediainclude_gdrive_videoid-1_6-tika2_0ty4sai7cz1lst7vfy1fe6q.html#r-echofalse-emediainclude_gdrive_videoid-1_6-tika2_0ty4sai7cz1lst7vfy1fe6q" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- knitr -->
+<!-- ```{r, out.width="100%"} -->
+<!-- knitr::include_url(url = "https://drive.google.com/uc?id=1zFZPpcq1nM2RGDyEEj0PvxOAB8S55I8z&export=view") -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- knitr::include_url(url = "https://drive.google.com/uc?id=1_6-TIKa2_0Ty4sAI7cZ1lSt7vfY1FE6q") -->
+<!-- ``` -->
 
 </div>
 
@@ -276,8 +251,8 @@ Nos planteamos en concreto si los coches con motor más grande (mayor <code>disp
           </div>
         </div>
       </div>
-<a href="objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="import.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prerequisites.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
