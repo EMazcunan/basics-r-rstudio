@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="" xml:lang="" >
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Visualización de datos | Primeros pasos con R y RStudio</title>
   <meta name="description" content="7 Visualización de datos | Primeros pasos con R y RStudio" />
-  <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Visualización de datos | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
@@ -30,10 +30,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="hojas-de-datos.html"/>
+<link rel="prev" href="objects.html"/>
 <link rel="next" href="import.html"/>
-<script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!--
 Material Icons
 https://fonts.google.com/icons
@@ -61,9 +61,8 @@ https://developers.google.com/fonts/docs/material_icons
 <span class="math inline" style="display: none;">
     \(\newcommand{\ve}{\varepsilon}\)
 </span>
-<!-- Mathjax -->
-<span class="math inline" style="display:none;">
-    \(\newcommand{\foo}{}\)
+<span class="math inline", style="display: none;">
+\(\newcommand{\foo}{}\)
 </span>
 
 
@@ -134,82 +133,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/header.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
-<body>
-
-
+<body onload="document.querySelector('.page-inner').removeAttribute('style');">
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
+      <div class="book-summary-header">
+          <a href="index.html">
+<div class="book-summary-title">Primeros pasos con R y RStudio</div>
+        </a>
+      </div>
+      <div class="summary-header">
+<div> CONTENIDOS </div>
+      </div>
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Primeros pasos con R y RStudio</a></li>
+<li class="chapter" style="display:none;padding:0!important;">
+    <a style="display:none;padding:0!important;" href="index.html"></a>
+</li>
+
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>1</b> Requisitos previos</a></li>
 <li class="chapter" data-level="2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2</b> Escribir y ejecutar código de R</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="consola.html"><a href="consola.html"><i class="fa fa-check"></i><b>2.1</b> Consola</a></li>
-<li class="chapter" data-level="2.2" data-path="scripts-de-r.html"><a href="scripts-de-r.html"><i class="fa fa-check"></i><b>2.2</b> Scripts de R</a></li>
-<li class="chapter" data-level="2.3" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html"><i class="fa fa-check"></i><b>2.3</b> Documentos R Markdown</a>
+<li class="chapter" data-level="2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#consola"><i class="fa fa-check"></i><b>2.1</b> Consola</a></li>
+<li class="chapter" data-level="2.2" data-path="rmarkdown.html"><a href="rmarkdown.html#scripts-de-r"><i class="fa fa-check"></i><b>2.2</b> Scripts de R</a></li>
+<li class="chapter" data-level="2.3" data-path="rmarkdown.html"><a href="rmarkdown.html#documentos-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Documentos R Markdown</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#creación"><i class="fa fa-check"></i><b>2.3.1</b> Creación</a></li>
-<li class="chapter" data-level="2.3.2" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#compilación"><i class="fa fa-check"></i><b>2.3.2</b> Compilación</a></li>
-<li class="chapter" data-level="2.3.3" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#encabezados"><i class="fa fa-check"></i><b>2.3.3</b> Encabezados</a></li>
-<li class="chapter" data-level="2.3.4" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#bloques-de-código"><i class="fa fa-check"></i><b>2.3.4</b> Bloques de código</a></li>
+<li class="chapter" data-level="2.3.1" data-path="rmarkdown.html"><a href="rmarkdown.html#creación"><i class="fa fa-check"></i><b>2.3.1</b> Creación</a></li>
+<li class="chapter" data-level="2.3.2" data-path="rmarkdown.html"><a href="rmarkdown.html#compilación"><i class="fa fa-check"></i><b>2.3.2</b> Compilación</a></li>
+<li class="chapter" data-level="2.3.3" data-path="rmarkdown.html"><a href="rmarkdown.html#encabezados"><i class="fa fa-check"></i><b>2.3.3</b> Encabezados</a></li>
+<li class="chapter" data-level="2.3.4" data-path="rmarkdown.html"><a href="rmarkdown.html#bloques-de-código"><i class="fa fa-check"></i><b>2.3.4</b> Bloques de código</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Plantilla de R Markdown</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="primeros-contenidos.html"><a href="primeros-contenidos.html"><i class="fa fa-check"></i><b>3.1</b> Primeros contenidos</a></li>
-<li class="chapter" data-level="3.2" data-path="algunas-opciones.html"><a href="algunas-opciones.html"><i class="fa fa-check"></i><b>3.2</b> Algunas opciones</a></li>
-<li class="chapter" data-level="3.3" data-path="global-options.html"><a href="global-options.html"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
-<li class="chapter" data-level="3.4" data-path="ejecución-de-instrucciones-individuales.html"><a href="ejecución-de-instrucciones-individuales.html"><i class="fa fa-check"></i><b>3.4</b> Ejecución de instrucciones individuales</a></li>
-<li class="chapter" data-level="3.5" data-path="tabla-de-contenidos-flotante.html"><a href="tabla-de-contenidos-flotante.html"><i class="fa fa-check"></i><b>3.5</b> Tabla de contenidos flotante</a></li>
-<li class="chapter" data-level="3.6" data-path="secciones-numeradas.html"><a href="secciones-numeradas.html"><i class="fa fa-check"></i><b>3.6</b> Secciones numeradas</a></li>
-<li class="chapter" data-level="3.7" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
+<li class="chapter" data-level="3.1" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#primeros-contenidos"><i class="fa fa-check"></i><b>3.1</b> Primeros contenidos</a></li>
+<li class="chapter" data-level="3.2" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#algunas-opciones"><i class="fa fa-check"></i><b>3.2</b> Algunas opciones</a></li>
+<li class="chapter" data-level="3.3" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#global-options"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
+<li class="chapter" data-level="3.4" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#ejecución-de-instrucciones-individuales"><i class="fa fa-check"></i><b>3.4</b> Ejecución de instrucciones individuales</a></li>
+<li class="chapter" data-level="3.5" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#tabla-de-contenidos-flotante"><i class="fa fa-check"></i><b>3.5</b> Tabla de contenidos flotante</a></li>
+<li class="chapter" data-level="3.6" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#secciones-numeradas"><i class="fa fa-check"></i><b>3.6</b> Secciones numeradas</a></li>
+<li class="chapter" data-level="3.7" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#plantilla-final"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
 <li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>5.1</b> Instalar un paquete</a></li>
-<li class="chapter" data-level="5.2" data-path="cargar-un-paquete.html"><a href="cargar-un-paquete.html"><i class="fa fa-check"></i><b>5.2</b> Cargar un paquete</a></li>
+<li class="chapter" data-level="5.1" data-path="packages.html"><a href="packages.html#install"><i class="fa fa-check"></i><b>5.1</b> Instalar un paquete</a></li>
+<li class="chapter" data-level="5.2" data-path="packages.html"><a href="packages.html#cargar-un-paquete"><i class="fa fa-check"></i><b>5.2</b> Cargar un paquete</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Objetos en R</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="crear-un-objeto.html"><a href="crear-un-objeto.html"><i class="fa fa-check"></i><b>6.1</b> Crear un objeto</a></li>
-<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6.2</b> Vectores</a></li>
-<li class="chapter" data-level="6.3" data-path="hojas-de-datos.html"><a href="hojas-de-datos.html"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
+<li class="chapter" data-level="6.1" data-path="objects.html"><a href="objects.html#crear-un-objeto"><i class="fa fa-check"></i><b>6.1</b> Crear un objeto</a></li>
+<li class="chapter" data-level="6.2" data-path="objects.html"><a href="objects.html#vectores"><i class="fa fa-check"></i><b>6.2</b> Vectores</a></li>
+<li class="chapter" data-level="6.3" data-path="objects.html"><a href="objects.html#hojas-de-datos"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Visualización de datos</a></li>
 <li class="chapter" data-level="8" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>8</b> Importar datos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="los-datos.html"><a href="los-datos.html"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
-<li class="chapter" data-level="8.2" data-path="importar-desde-archivo-local.html"><a href="importar-desde-archivo-local.html"><i class="fa fa-check"></i><b>8.2</b> Importar desde archivo local</a></li>
-<li class="chapter" data-level="8.3" data-path="importar-desde-url.html"><a href="importar-desde-url.html"><i class="fa fa-check"></i><b>8.3</b> Importar desde URL</a></li>
-<li class="chapter" data-level="8.4" data-path="usar-datos-importados.html"><a href="usar-datos-importados.html"><i class="fa fa-check"></i><b>8.4</b> Usar datos importados</a></li>
+<li class="chapter" data-level="8.1" data-path="import.html"><a href="import.html#los-datos"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
+<li class="chapter" data-level="8.2" data-path="import.html"><a href="import.html#importar-desde-archivo-local"><i class="fa fa-check"></i><b>8.2</b> Importar desde archivo local</a></li>
+<li class="chapter" data-level="8.3" data-path="import.html"><a href="import.html#importar-desde-url"><i class="fa fa-check"></i><b>8.3</b> Importar desde URL</a></li>
+<li class="chapter" data-level="8.4" data-path="import.html"><a href="import.html#usar-datos-importados"><i class="fa fa-check"></i><b>8.4</b> Usar datos importados</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><ul>
-<li style="margin: 10px 0;">
-Creado con <a style="display:inline;padding-left:0px;padding-right:0px;" href="https://bookdown.org/yihui/bookdown/" target="blank">bookdown</a>
-</li>
-<li style="margin: 10px 0;">
-Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.com/bookdown/" target="blank">GitHub Pages</a>
-</li>
-</ul></li>
 </ul>
 
       </nav>
+      <div class="book-summary-foot">
+<p>
+    Creado con <a href="https://bookdown.org/yihui/bookdown/" target="blank">bookdown</a>
+</p>
+<p>
+    Publicado con <a href="https://pages.github.com/" target="blank">GitHub Pages</a>
+</p>
+      </div>
     </div>
 
     <div class="book-body">
@@ -219,20 +228,19 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
             <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Primeros pasos con R y RStudio</a>
           </h1>
         </div>
-
         <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
+          <div style="opacity:0;" class="page-inner">
 
             <section class="normal" id="section-">
 
-<div id="plots" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Visualización de datos</h1>
+<div id="plots" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Visualización de datos<a href="plots.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En este capítulo seguimos trabajando con la hoja de datos <code>mpg</code> que presentamos antes.
 Nos planteamos en concreto si los coches con motor más grande (mayor <code>displ</code>) tienen mayor consumo de combustible (menor <code>hyw</code>).</p>
 <p>Para responder a la pregunta anterior, vamos a realizar un gráfico de puntos para explorar la relación entre las variables <code>displ</code> (cilindrada) y <code>hyw</code> (millas por galón de combustible):</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="plots.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
-<span id="cb48-2"><a href="plots.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) </span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-23-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<span id="cb48-2"><a href="plots.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) </span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-24-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Todos los gráficos se inicializan con la función <code>ggplot()</code>. En el código anterior, la línea</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="plots.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg)</span></code></pre></div>
 <p>simplemente indica que en nuestro gráfico usaremos variables de la hoja de datos <code>mpg</code> y crea un gráfico vacío, al que podemos añadir capas utilizando funciones como <code>geom_point()</code>, que añadirá una capa de puntos. A lo largo del curso veremos otras funciones como <code>geom_bar()</code>, <code>geom_hist()</code> y <code>geom_line()</code> que añaden capas con otros objetos geométricos (barras, líneas …).</p>
@@ -246,7 +254,7 @@ Nos planteamos en concreto si los coches con motor más grande (mayor <code>disp
 <p>Ahora vamos a incluir más información en nuestro gráfico estableciendo una correspondencia entre el color de los puntos (otra propiedad estética) y la variable <code>class</code>, que indica el tipo de coche.</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="plots.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
 <span id="cb52-2"><a href="plots.html#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))  </span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-27-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-28-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Notar que la inclusión de la correspondencia <code>color = class</code> ha hecho que <code>ggplot2</code> asigne un color diferente (nivel diferente de la estética <code>color</code>) a cada tipo de coche (valor diferente de la variable <code>class</code>), e incluya una leyenda explicando qué color corresponde a qué tipo de coche.</p>
 <hr />
 <p>Acabamos personalizando los rótulos de nuestro gráfico con <code>labs()</code>:</p>
@@ -258,7 +266,7 @@ Nos planteamos en concreto si los coches con motor más grande (mayor <code>disp
 <span id="cb53-6"><a href="plots.html#cb53-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Rendimiento combustible (millas/galón)&quot;</span>,</span>
 <span id="cb53-7"><a href="plots.html#cb53-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">&quot;Tipo de coche&quot;</span></span>
 <span id="cb53-8"><a href="plots.html#cb53-8" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-28-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-29-1.png" width="100%" style="display: block; margin: auto;" /></p>
 
 </div>
 
@@ -267,12 +275,11 @@ Nos planteamos en concreto si los coches con motor más grande (mayor <code>disp
           </div>
         </div>
       </div>
-<a href="hojas-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="import.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -291,13 +298,10 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": null
 },
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
+"fontsettings": null,
 "edit": {
 "link": null,
 "text": null
@@ -311,9 +315,14 @@ gitbook.start({
 "text": null
 },
 "download": ["basics-R-RStudio.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
-}
+},
+"info": false
 });
 });
 </script>
@@ -332,6 +341,8 @@ gitbook.start({
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+
+
 </body>
 
 </html>

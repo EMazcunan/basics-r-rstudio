@@ -1,21 +1,24 @@
 ---
 documentclass: "mnye"
-github-repo: "EMazcunan/basics-r-rstudio"
+degree: "Grado en Ingeniería Informática/Mecánica"
+term: "2021-2022"
+author: "Eva María Mazcuñán Navarro"
 title: "Primeros pasos con R y RStudio"
-degree: "mecinf"
-term: "2020-2021"
-bibliography: [book.bib, packages.bib]
-biblio-style: alphabetic
+github-repo: "EMazcunan/basics-r-rstudio"
 link-citations: yes
-site: "bookdown::bookdown_site"
+bibliography: [book.bib, packages.bib]
+site: bookdown::bookdown_site
+classoption: [title=normal, notoc, bib=normal]
 ---
+
 
 #  {.unlisted .unnumbered}
 
 ```{r,child="preamble.Rmd"}
 ```
 
-En este documento se da una breve introducción al lenguaje de programación `r R()` y a la interfaz gráfica `r RStudio()`.
+
+En este documento se da una breve introducción al lenguaje de programación `r R()` y a la IDE (\textit{Integrated Development Environment}) `r RStudio()`.
 
 Se trata de una práctica introductoria, en la que no hay que entregar ningún material, y no hay ninguna tarea evaluable asociada. Pero es necesario
 que estudies este material como previo a la realización de las siguientes prácticas y  tareas.

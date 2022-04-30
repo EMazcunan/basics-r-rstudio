@@ -1,6 +1,2 @@
 ehtml::egitbook: default
-epdf::epdf_book:
-  classoption:
-    - title=normal
-    - toc=normal
-    - bib=normal
+epdf::epdf_book: default

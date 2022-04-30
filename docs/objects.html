@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="" xml:lang="" >
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Objetos en R | Primeros pasos con R y RStudio</title>
   <meta name="description" content="6 Objetos en R | Primeros pasos con R y RStudio" />
-  <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Objetos en R | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
@@ -30,10 +30,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="cargar-un-paquete.html"/>
-<link rel="next" href="crear-un-objeto.html"/>
-<script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="packages.html"/>
+<link rel="next" href="plots.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!--
 Material Icons
 https://fonts.google.com/icons
@@ -61,9 +61,8 @@ https://developers.google.com/fonts/docs/material_icons
 <span class="math inline" style="display: none;">
     \(\newcommand{\ve}{\varepsilon}\)
 </span>
-<!-- Mathjax -->
-<span class="math inline" style="display:none;">
-    \(\newcommand{\foo}{}\)
+<span class="math inline", style="display: none;">
+\(\newcommand{\foo}{}\)
 </span>
 
 
@@ -134,82 +133,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/header.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
-<body>
-
-
+<body onload="document.querySelector('.page-inner').removeAttribute('style');">
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
+      <div class="book-summary-header">
+          <a href="index.html">
+<div class="book-summary-title">Primeros pasos con R y RStudio</div>
+        </a>
+      </div>
+      <div class="summary-header">
+<div> CONTENIDOS </div>
+      </div>
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Primeros pasos con R y RStudio</a></li>
+<li class="chapter" style="display:none;padding:0!important;">
+    <a style="display:none;padding:0!important;" href="index.html"></a>
+</li>
+
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>1</b> Requisitos previos</a></li>
 <li class="chapter" data-level="2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2</b> Escribir y ejecutar código de R</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="consola.html"><a href="consola.html"><i class="fa fa-check"></i><b>2.1</b> Consola</a></li>
-<li class="chapter" data-level="2.2" data-path="scripts-de-r.html"><a href="scripts-de-r.html"><i class="fa fa-check"></i><b>2.2</b> Scripts de R</a></li>
-<li class="chapter" data-level="2.3" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html"><i class="fa fa-check"></i><b>2.3</b> Documentos R Markdown</a>
+<li class="chapter" data-level="2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#consola"><i class="fa fa-check"></i><b>2.1</b> Consola</a></li>
+<li class="chapter" data-level="2.2" data-path="rmarkdown.html"><a href="rmarkdown.html#scripts-de-r"><i class="fa fa-check"></i><b>2.2</b> Scripts de R</a></li>
+<li class="chapter" data-level="2.3" data-path="rmarkdown.html"><a href="rmarkdown.html#documentos-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Documentos R Markdown</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#creación"><i class="fa fa-check"></i><b>2.3.1</b> Creación</a></li>
-<li class="chapter" data-level="2.3.2" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#compilación"><i class="fa fa-check"></i><b>2.3.2</b> Compilación</a></li>
-<li class="chapter" data-level="2.3.3" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#encabezados"><i class="fa fa-check"></i><b>2.3.3</b> Encabezados</a></li>
-<li class="chapter" data-level="2.3.4" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#bloques-de-código"><i class="fa fa-check"></i><b>2.3.4</b> Bloques de código</a></li>
+<li class="chapter" data-level="2.3.1" data-path="rmarkdown.html"><a href="rmarkdown.html#creación"><i class="fa fa-check"></i><b>2.3.1</b> Creación</a></li>
+<li class="chapter" data-level="2.3.2" data-path="rmarkdown.html"><a href="rmarkdown.html#compilación"><i class="fa fa-check"></i><b>2.3.2</b> Compilación</a></li>
+<li class="chapter" data-level="2.3.3" data-path="rmarkdown.html"><a href="rmarkdown.html#encabezados"><i class="fa fa-check"></i><b>2.3.3</b> Encabezados</a></li>
+<li class="chapter" data-level="2.3.4" data-path="rmarkdown.html"><a href="rmarkdown.html#bloques-de-código"><i class="fa fa-check"></i><b>2.3.4</b> Bloques de código</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Plantilla de R Markdown</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="primeros-contenidos.html"><a href="primeros-contenidos.html"><i class="fa fa-check"></i><b>3.1</b> Primeros contenidos</a></li>
-<li class="chapter" data-level="3.2" data-path="algunas-opciones.html"><a href="algunas-opciones.html"><i class="fa fa-check"></i><b>3.2</b> Algunas opciones</a></li>
-<li class="chapter" data-level="3.3" data-path="global-options.html"><a href="global-options.html"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
-<li class="chapter" data-level="3.4" data-path="ejecución-de-instrucciones-individuales.html"><a href="ejecución-de-instrucciones-individuales.html"><i class="fa fa-check"></i><b>3.4</b> Ejecución de instrucciones individuales</a></li>
-<li class="chapter" data-level="3.5" data-path="tabla-de-contenidos-flotante.html"><a href="tabla-de-contenidos-flotante.html"><i class="fa fa-check"></i><b>3.5</b> Tabla de contenidos flotante</a></li>
-<li class="chapter" data-level="3.6" data-path="secciones-numeradas.html"><a href="secciones-numeradas.html"><i class="fa fa-check"></i><b>3.6</b> Secciones numeradas</a></li>
-<li class="chapter" data-level="3.7" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
+<li class="chapter" data-level="3.1" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#primeros-contenidos"><i class="fa fa-check"></i><b>3.1</b> Primeros contenidos</a></li>
+<li class="chapter" data-level="3.2" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#algunas-opciones"><i class="fa fa-check"></i><b>3.2</b> Algunas opciones</a></li>
+<li class="chapter" data-level="3.3" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#global-options"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
+<li class="chapter" data-level="3.4" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#ejecución-de-instrucciones-individuales"><i class="fa fa-check"></i><b>3.4</b> Ejecución de instrucciones individuales</a></li>
+<li class="chapter" data-level="3.5" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#tabla-de-contenidos-flotante"><i class="fa fa-check"></i><b>3.5</b> Tabla de contenidos flotante</a></li>
+<li class="chapter" data-level="3.6" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#secciones-numeradas"><i class="fa fa-check"></i><b>3.6</b> Secciones numeradas</a></li>
+<li class="chapter" data-level="3.7" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#plantilla-final"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
 <li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>5.1</b> Instalar un paquete</a></li>
-<li class="chapter" data-level="5.2" data-path="cargar-un-paquete.html"><a href="cargar-un-paquete.html"><i class="fa fa-check"></i><b>5.2</b> Cargar un paquete</a></li>
+<li class="chapter" data-level="5.1" data-path="packages.html"><a href="packages.html#install"><i class="fa fa-check"></i><b>5.1</b> Instalar un paquete</a></li>
+<li class="chapter" data-level="5.2" data-path="packages.html"><a href="packages.html#cargar-un-paquete"><i class="fa fa-check"></i><b>5.2</b> Cargar un paquete</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Objetos en R</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="crear-un-objeto.html"><a href="crear-un-objeto.html"><i class="fa fa-check"></i><b>6.1</b> Crear un objeto</a></li>
-<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6.2</b> Vectores</a></li>
-<li class="chapter" data-level="6.3" data-path="hojas-de-datos.html"><a href="hojas-de-datos.html"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
+<li class="chapter" data-level="6.1" data-path="objects.html"><a href="objects.html#crear-un-objeto"><i class="fa fa-check"></i><b>6.1</b> Crear un objeto</a></li>
+<li class="chapter" data-level="6.2" data-path="objects.html"><a href="objects.html#vectores"><i class="fa fa-check"></i><b>6.2</b> Vectores</a></li>
+<li class="chapter" data-level="6.3" data-path="objects.html"><a href="objects.html#hojas-de-datos"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Visualización de datos</a></li>
 <li class="chapter" data-level="8" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>8</b> Importar datos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="los-datos.html"><a href="los-datos.html"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
-<li class="chapter" data-level="8.2" data-path="importar-desde-archivo-local.html"><a href="importar-desde-archivo-local.html"><i class="fa fa-check"></i><b>8.2</b> Importar desde archivo local</a></li>
-<li class="chapter" data-level="8.3" data-path="importar-desde-url.html"><a href="importar-desde-url.html"><i class="fa fa-check"></i><b>8.3</b> Importar desde URL</a></li>
-<li class="chapter" data-level="8.4" data-path="usar-datos-importados.html"><a href="usar-datos-importados.html"><i class="fa fa-check"></i><b>8.4</b> Usar datos importados</a></li>
+<li class="chapter" data-level="8.1" data-path="import.html"><a href="import.html#los-datos"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
+<li class="chapter" data-level="8.2" data-path="import.html"><a href="import.html#importar-desde-archivo-local"><i class="fa fa-check"></i><b>8.2</b> Importar desde archivo local</a></li>
+<li class="chapter" data-level="8.3" data-path="import.html"><a href="import.html#importar-desde-url"><i class="fa fa-check"></i><b>8.3</b> Importar desde URL</a></li>
+<li class="chapter" data-level="8.4" data-path="import.html"><a href="import.html#usar-datos-importados"><i class="fa fa-check"></i><b>8.4</b> Usar datos importados</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><ul>
-<li style="margin: 10px 0;">
-Creado con <a style="display:inline;padding-left:0px;padding-right:0px;" href="https://bookdown.org/yihui/bookdown/" target="blank">bookdown</a>
-</li>
-<li style="margin: 10px 0;">
-Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.com/bookdown/" target="blank">GitHub Pages</a>
-</li>
-</ul></li>
 </ul>
 
       </nav>
+      <div class="book-summary-foot">
+<p>
+    Creado con <a href="https://bookdown.org/yihui/bookdown/" target="blank">bookdown</a>
+</p>
+<p>
+    Publicado con <a href="https://pages.github.com/" target="blank">GitHub Pages</a>
+</p>
+      </div>
     </div>
 
     <div class="book-body">
@@ -219,15 +228,79 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
             <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Primeros pasos con R y RStudio</a>
           </h1>
         </div>
-
         <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
+          <div style="opacity:0;" class="page-inner">
 
             <section class="normal" id="section-">
 
-<div id="objects" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Objetos en R</h1>
+<div id="objects" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Objetos en R<a href="objects.html#objects" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En este capítulo veremos cómo crear un objeto en <span class="textsf">R</span> y estudiaremos dos tipos de objetos destacados en <span class="textsf">R</span>: los <strong>vectores</strong> y las <strong>hojas de datos</strong>.</p>
+<div id="crear-un-objeto" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Crear un objeto<a href="objects.html#crear-un-objeto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La instrucción</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="objects.html#cb35-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span></code></pre></div>
+<p>crea una variable u objeto de nombre <code>x</code> y le asigna el valor <span class="math inline">\(2\)</span>.
+El operador de asignación en <code>R</code> es <code>&lt;-</code> (compuesto por el símbolo menor <code>&lt;</code> y un guión central <code>-</code>).</p>
+<p>Puedes comprobar que el objeto <code>x</code> aparece listado en el panel <em>Environment</em> de la ventana superior derecha de <span class="textsf">RStudio</span>. En este panel podemos ver todos los objetos definidos en nuestro entorno o espacio de trabajo (<em>workspace</em>).</p>
+<p>Cuando se ejecuta una instrucción como la anterior, en la que se asigna un valor u expresión a un objeto, la salida no muestra el valor asignado. Para verlo tenemos que <em>imprimir</em> el objeto en cuestión, simplemente escribiendo su nombre:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="objects.html#cb36-1" aria-hidden="true" tabindex="-1"></a>x <span class="co"># muestra el valor actual de x</span></span></code></pre></div>
+<pre class="egitbook-output"><code>[1] 2</code></pre>
+<p>Una vez definida el objeto o variable <code>x</code> podremos referenciarlo en cálculos posteriores. Por ejemplo, al ejecutar la instrucción</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="objects.html#cb38-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2-3</span></span></code></pre></div>
+<pre class="egitbook-output"><code>[1] 1</code></pre>
+<p>obtendremos la salida <span class="math inline">\(1\)</span> (resultado de <span class="math inline">\(2^2-3 = 1\)</span>).</p>
+</div>
+<div id="vectores" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Vectores<a href="objects.html#vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para crear <strong>vectores</strong> en <span class="textsf">R</span> usamos la función <code>c</code> (inicial de <em>concatenate</em> o <em>combine</em>). La instrucción</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="objects.html#cb40-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span></code></pre></div>
+<p>crea un vector de nombre <code>v</code> formado por los primeros <span class="math inline">\(5\)</span> números impares. Observa la entrada que se ha creado para <code>v</code> en el panel Environment.</p>
+<p>Para acceder al elemento número <code>i</code> del vector <code>v</code> se escribe <code>v[i]</code> (ojo, que el primer índice es <code>1</code>, no <code>0</code>). Por, ejemplo para extraer el segundo elemento de <code>v</code> escribimos</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="objects.html#cb41-1" aria-hidden="true" tabindex="-1"></a>v[<span class="dv">2</span>]</span></code></pre></div>
+<pre class="egitbook-output"><code>[1] 3</code></pre>
+<p>La instrucción</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="objects.html#cb43-1" aria-hidden="true" tabindex="-1"></a>v<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre class="egitbook-output"><code>[1]  1  9 25 49 81</code></pre>
+<p>devuelve el vector cuyos elementos son los cuadrados de los elementos de <code>v</code>.
+La mayoría de funciones de <span class="textsf">R</span> que reciben argumentos numéricos aplicadas a un vector numérico operan sobre cada elemento del vector (se dice que están vectorizadas).</p>
+</div>
+<div id="hojas-de-datos" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Hojas de datos<a href="objects.html#hojas-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Las hojas de datos (en inglés <em>data frames</em>) son la clase de objetos que se usan en <span class="textsf">R</span> para almacenar los datos obtenidos en un experimento y poder analizarlos.</p>
+<p>Empezaremos explorando la hoja de datos de nombre <code>mpg</code> (<strong>m</strong>iles <strong>p</strong>er <strong>g</strong>allon), proporcionada por el paquete <code>ggplot2</code>(que ya hemos cargado al cargar el paquete <code>tidyverse</code>). Esta hoja de datos trata sobre el consumo de combustible de diferentes modelos de coches.</p>
+<p>Para cargar la hoja de datos <code>mpg</code> en tu espacio de trabajo escribe</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="objects.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mpg&quot;</span>)</span></code></pre></div>
+<p>Verás que <code>mpg</code> aparece listada en el panel Environment. Inicialmente está catalogada como <code>&lt;Promise&gt;</code>, pero en cuanto hagamos click en esa celda (o escribamos el nombre de la variable para usarla en nuestro código), se completará la carga y podremos leer que tiene <span class="math inline">\(234\)</span> observaciones de <span class="math inline">\(11\)</span> variables. Utilizando los iconos que se resaltan en la imagen siguiente, obtenemos más información sobre la hoja de datos.</p>
+<p><img src="images/df.png" width="60%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><p>Presionando el icono de la izquierda, vemos los nombres de las 11 variables y sus valores para las primeras observaciones.</p></li>
+<li><p>Presionando el icono de la derecha, podremos visualizar la hoja de datos completa. El dato en la celda correspondiente a la fila <span class="math inline">\(i\)</span> y la columna <span class="math inline">\(j\)</span> es el valor observado para el coche número <span class="math inline">\(i\)</span> de la variable número <span class="math inline">\(j\)</span>.</p></li>
+</ul>
+<p>En general, una hoja de datos es una especie de matriz u hoja de cálculo, donde las filas representan unidades experimentales, casos u observaciones (en nuestro ejemplo coches) y las columnas representan variables que describen características de interés de las unidades experimentales (en nuestro caso fabricante, modelo, cilindrada, consumo de combustible …). Las celdas contienen los valores observados para cada variable en cada unidad experimental.</p>
+<p>Para obtener una descripción de la hoja de datos, escribe <code>mpg</code> en el campo de búsqueda del panel <strong>Help</strong> de <span class="textsf">RStudio</span>. También puedes escribir <code>?mpg</code> o <code>help(mpg)</code> en la consola. La página de ayuda explica que la hoja de datos tiene <span class="math inline">\(234\)</span> filas, donde cada fila representa un coche, y <span class="math inline">\(11\)</span> variables, que describen diferentes características de los coches. Nos vamos a centrar en las variables <code>displ</code> y <code>hwy</code>, que nos describen como:</p>
+<ul>
+<li><code>displ</code>: <em>engine displacemente, in litres</em> (cilindrada)</li>
+<li><code>hwy</code>: <em>higway miles per gallon</em> (millas recorridas por galón de combustible en conducción por autopista)</li>
+</ul>
+<p>Para extraer una de las variables de una hoja de datos se utiliza el formato <code>&lt;nombre hoja&gt;$&lt;nombre variable&gt;</code>. Por ejemplo, para extraer las cilindradas (variable <code>displ</code>) de la hoja de datos <code>mpg</code> utilizamos la instrucción siguiente:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="objects.html#cb46-1" aria-hidden="true" tabindex="-1"></a>mpg<span class="sc">$</span>displ</span></code></pre></div>
+<pre class="egitbook-output"><code>  [1] 1.8 1.8 2.0 2.0 2.8 2.8 3.1 1.8 1.8 2.0 2.0 2.8 2.8 3.1 3.1 2.8 3.1 4.2
+ [19] 5.3 5.3 5.3 5.7 6.0 5.7 5.7 6.2 6.2 7.0 5.3 5.3 5.7 6.5 2.4 2.4 3.1 3.5
+ [37] 3.6 2.4 3.0 3.3 3.3 3.3 3.3 3.3 3.8 3.8 3.8 4.0 3.7 3.7 3.9 3.9 4.7 4.7
+ [55] 4.7 5.2 5.2 3.9 4.7 4.7 4.7 5.2 5.7 5.9 4.7 4.7 4.7 4.7 4.7 4.7 5.2 5.2
+ [73] 5.7 5.9 4.6 5.4 5.4 4.0 4.0 4.0 4.0 4.6 5.0 4.2 4.2 4.6 4.6 4.6 5.4 5.4
+ [91] 3.8 3.8 4.0 4.0 4.6 4.6 4.6 4.6 5.4 1.6 1.6 1.6 1.6 1.6 1.8 1.8 1.8 2.0
+[109] 2.4 2.4 2.4 2.4 2.5 2.5 3.3 2.0 2.0 2.0 2.0 2.7 2.7 2.7 3.0 3.7 4.0 4.7
+[127] 4.7 4.7 5.7 6.1 4.0 4.2 4.4 4.6 5.4 5.4 5.4 4.0 4.0 4.6 5.0 2.4 2.4 2.5
+[145] 2.5 3.5 3.5 3.0 3.0 3.5 3.3 3.3 4.0 5.6 3.1 3.8 3.8 3.8 5.3 2.5 2.5 2.5
+[163] 2.5 2.5 2.5 2.2 2.2 2.5 2.5 2.5 2.5 2.5 2.5 2.7 2.7 3.4 3.4 4.0 4.7 2.2
+[181] 2.2 2.4 2.4 3.0 3.0 3.5 2.2 2.2 2.4 2.4 3.0 3.0 3.3 1.8 1.8 1.8 1.8 1.8
+[199] 4.7 5.7 2.7 2.7 2.7 3.4 3.4 4.0 4.0 2.0 2.0 2.0 2.0 2.8 1.9 2.0 2.0 2.0
+[217] 2.0 2.5 2.5 2.8 2.8 1.9 1.9 2.0 2.0 2.5 2.5 1.8 1.8 2.0 2.0 2.8 2.8 3.6</code></pre>
+<p>que mostrará el vector con las cilindradas de los <span class="math inline">\(234\)</span> coches.</p>
+
+</div>
 </div>
 
             </section>
@@ -235,12 +308,11 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           </div>
         </div>
       </div>
-<a href="cargar-un-paquete.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="crear-un-objeto.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -259,13 +331,10 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": null
 },
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
+"fontsettings": null,
 "edit": {
 "link": null,
 "text": null
@@ -279,9 +348,14 @@ gitbook.start({
 "text": null
 },
 "download": ["basics-R-RStudio.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
-}
+},
+"info": false
 });
 });
 </script>
@@ -300,6 +374,8 @@ gitbook.start({
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+
+
 </body>
 
 </html>

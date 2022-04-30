@@ -6,7 +6,7 @@ En el capítulo anterior hemos explorado los contenidos de muestra del archivo d
 
 * y los **bloques de código**, para incluir instrucciones de `r R()`.  
 
-Ahora vamos a reemplazar los contenidos de muestra por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque código, y personalizaremos algunas opciones.
+Ahora vamos a reemplazar los contenidos de muestra por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque de código, y personalizaremos algunas opciones.
 
 Al final de este capítulo tendremos una plantilla para los documentos R Markdown que usaremos en las prácticas y tareas a lo largo del curso. 
 
@@ -140,7 +140,7 @@ knitr::include_graphics("images/run.png")
 
 ## Tabla de contenidos flotante 
 
-Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante. 
+Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante con las secciones numeradas. 
 
 Para ello sustituimos la línea
 

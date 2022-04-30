@@ -2,7 +2,7 @@
 
 Cuando instalamos `r R()` por primera vez estamos instalando el software `r textsf("base R")`, que contiene las funciones básicas que se usan regularmente en la mayoría de análisis estadísticos.
 
-Un **paquete** de R es una colección de funciones, datos y documentación, que extiende las capacidades iniciales de la base de `r R()`. Existen multitud de paquetes de `r R()`, desarrollados por la comunidad de usuarios de `r R()`, que añaden funciones  para propósitos específicos. 
+Un **paquete** de R es una colección de funciones, datos y documentación, que extiende las capacidades iniciales de la base de `r R()`. Existen multitud de paquetes de `r R()`, en su mayoría desarrollados por la comunidad de usuarios de `r R()`, que añaden funciones  para propósitos específicos. 
                   
 [`tidyverse`](https://www.tidyverse.org/){target="_blank"} es una colección de paquetes para ciencia de datos que comparten una filosofía común y están diseñados para funcionar juntos de forma natural.
 La mayoría de paquetes que usaremos a lo largo del curso forman parte de `tidyverse`, de forma que instalando este *meta-paquete* tendrás acceso a todos ellos.                   
@@ -18,7 +18,7 @@ install.packages("tidyverse")
 ```
 
 
-La instalación de este paquete puede llevar unos minutos (hay que esperar hasta ver en la consola de `r RStudio()` que se ha completado el proceso).
+La instalación de este paquete puede llevar unos 5-10 minutos, hay que esperar hasta ver en la consola de `r RStudio()` que se ha completado el proceso.
 
 :::{.infobox data-latex=""} 
 **Nota para Ubuntu:** Si obtienes error al intentar instalar `tidyverse` en Ubuntu, y el mensaje de la salida contiene la siguiente línea:
@@ -44,7 +44,7 @@ install.packages("tidyverse")
                   
 Para cargar un paquete previamente instalado hay que usar la función `library()`. Por ejemplo, para cargar el paquete `tidyverse` escribimos
 ```{r}
-library("tidyverse")
+library(tidyverse)
 ```
 
 Puedes ignorar los conflictos que se listan en el mensaje que se muestra al cargar `tidyverse`, no tendrán efectos negativos sobre nuestro código.
@@ -53,5 +53,5 @@ Si el paquete está instalado, la instrucción anterior lo cargará y podremos h
 
 En caso de no estar instalado, recibiremos un mensaje de error indicando que no existe el paquete solicitado, y habrá que instalarlo primero, como se explicó en el apartado anterior.   
 
-Si bien instalación de un paquete (con `install.packages`) se realiza una sóla vez, la carga (con `library`) es necesaria en cada sesión en la que queramos usar funciones del paquete. 
+Si bien instalación de un paquete (con `install.packages()`) se realiza una sóla vez, la carga (con `library()`) es necesaria en cada sesión en la que queramos usar funciones del paquete. 
 

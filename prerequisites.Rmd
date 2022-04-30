@@ -1,5 +1,20 @@
 # Requisitos previos  {#prerequisites}
 
-Para realizar esta práctica tienes que instalar `r textsf("R")` y `r textsf("RStudio")` en tu equipo. 
+Antes de realizar esta práctica tienes que instalar `r R()` y `r RStudio()` en tu equipo. 
 
 En el documento [Instalación de R y RStudio](https://emazcunan.github.io/install-r-rstudio){target="_blank"} encontrarás las instrucciones para hacerlo.
+
+
+```{r, echo=FALSE}
+emedia::include_gdrive_video(id = "1_6-TIKa2_0Ty4sAI7cZ1lSt7vfY1FE6q")
+```
+
+
+<!-- knitr -->
+<!-- ```{r, out.width="100%"} -->
+<!-- knitr::include_url(url = "https://drive.google.com/uc?id=1zFZPpcq1nM2RGDyEEj0PvxOAB8S55I8z&export=view") -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- knitr::include_url(url = "https://drive.google.com/uc?id=1_6-TIKa2_0Ty4sAI7cZ1lSt7vfY1FE6q") -->
+<!-- ``` -->

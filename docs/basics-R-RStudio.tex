@@ -1,25 +1,53 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
 \documentclass[
-  degree=mecinf,
   title=normal,
-  toc=normal,
+  notoc,
   bib=normal]{mnye}
-
-\usepackage{booktabs}
-\usepackage{ebox}
-\usepackage{enotation}
-\usepackage{emargintag}
-\usepackage{emedia}
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-
-
-
-
-\addbibresource{book.bib}
-\addbibresource{packages.bib}
-
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Primeros pasos con R y RStudio},
+  pdfauthor={Eva María Mazcuñán Navarro},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -60,22 +88,73 @@
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{ehyperref}
+\colorlet{etoccolor}{greenlink}
+% This file is created the first time epdf_document is invoked
+% but will not be overwriten afterwards.
+%
+% Preamble
 
+\usepackage{ebox}
+\usepackage{enotation}
+\usepackage{fontawesome}
 
-
+\pgfplotsset{compat=1.18}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{biblatex}
+\addbibresource{book.bib}
+\addbibresource{packages.bib}
 
 \title{Primeros pasos con R y RStudio}
-
-\term{2020-2021}
+\author{Eva María Mazcuñán Navarro}
+\date{}
 
 \begin{document}
+\maketitle
 
+% This file is created the first time epdf_document is invoked
+% but will not be overwriten afterwards.
+%
 % Before Body
 
+{
+\hypersetup{linkcolor=etoccolor}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
 \hypertarget{section}{%
 \section*{}\label{section}}
 
-En este documento se da una breve introducción al lenguaje de programación \textsf{R} y a la interfaz gráfica \textsf{RStudio}.
+En este documento se da una breve introducción al lenguaje de programación \textsf{R} y a la IDE (\textit{Integrated Development Environment}) \textsf{RStudio}.
 
 Se trata de una práctica introductoria, en la que no hay que entregar ningún material, y no hay ninguna tarea evaluable asociada. Pero es necesario
 que estudies este material como previo a la realización de las siguientes prácticas y tareas.
@@ -83,9 +162,11 @@ que estudies este material como previo a la realización de las siguientes prác
 \hypertarget{prerequisites}{%
 \section{Requisitos previos}\label{prerequisites}}
 
-Para realizar esta práctica tienes que instalar \textsf{R} y \textsf{RStudio} en tu equipo.
+Antes de realizar esta práctica tienes que instalar \textsf{R} y \textsf{RStudio} en tu equipo.
 
 En el documento \href{https://emazcunan.github.io/install-r-rstudio}{Instalación de R y RStudio} encontrarás las instrucciones para hacerlo.
+
+\href{https://drive.google.com/uc?id=1_6-TIKa2_0Ty4sAI7cZ1lSt7vfY1FE6q&export=view}{\faVideoCamera}
 
 \hypertarget{rmarkdown}{%
 \section{Escribir y ejecutar código de R}\label{rmarkdown}}
@@ -104,13 +185,17 @@ En \textsf{RStudio} encontrarás la consola en el panel de nombre \textsf{Consol
 
 Para calcular \(\sqrt{2}\) desde la consola, sitúa el cursor al lado del símbolo \texttt{\textgreater{}} en la consola, escribe la instrucción \texttt{sqrt(2)} y presiona \texttt{Enter}. Verás la salida debajo:
 
-\begin{verbatim}
-> sqrt(2)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textgreater{} sqrt(2)}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{verbatim}
-[1] 1.414214
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[1] 1.414214}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{scripts-de-r}{%
 \subsection{Scripts de R}\label{scripts-de-r}}
@@ -197,7 +282,7 @@ Nuestra elección para realizar las prácticas y tareas de esta asignatura será
 \begin{itemize}
 \tightlist
 \item
-  En el texto podremos utilizar la sintaxis propia del lenguaje de marcado \href{https://es.wikipedia.org/wiki/Markdown}{Markdown} (independiente de \textsf{R}). Por ejemplo:
+  En el texto podremos utilizar la sintaxis propia del lenguaje de marcado \href{https://es.wikipedia.org/wiki/Markdown}{Markdown} (independiente de \textsf{R}). Por ejempl, para escribir texto negrita se escribe \texttt{**} al comienzo y al final del texto en cuestión:
 \end{itemize}
 
 \begin{Shaded}
@@ -236,7 +321,7 @@ Aparecerá un cuadro de diálogo de nombre \textbf{New R Markdown}.
 
 Rellena `Introducción a R y RStudio' en el campo \textbf{Title} y tu nombre en el campo \textbf{Author}. Para el campo \textbf{Default output format}, conserva la elección `HTML' que aparece por defecto.
 
-Al presionar el botón \textbf{OK} se abrirá una nueva pestaña en el panel de \textsf{RStudio} con el nuevo documento R Markdown. Presiona \texttt{Ctrl\ +\ S} para guardarlo, en la carpeta \texttt{IntroR} que creaste antes para la práctica, con el nombre \texttt{intro-r}. Verifica que la etiqueta de la pestaña del documentocambia de \texttt{Untitled1} a \texttt{intro-r.Rmd}.
+Al presionar el botón \textbf{OK} se abrirá una nueva pestaña en el panel de \textsf{RStudio} con el nuevo documento R Markdown. Presiona \texttt{Ctrl\ +\ S} para guardarlo, en la carpeta \texttt{IntroR} que creaste antes para la práctica, con el nombre \texttt{intro-r}. Verifica que la etiqueta de la pestaña del documento cambia de \texttt{Untitled1} a \texttt{intro-r.Rmd}.
 
 Las primeras líneas del archivo (1 a 6), delimitadas por tres guiones (\texttt{-\/-\/-})
 
@@ -406,7 +491,7 @@ Notar el cambio de enfoque al escribir en un documento R Markdown respecto a esc
 
 \begin{itemize}
 \item
-  En un script, se espera que escribamos código \textsf{R}, y para escribir texto ordinario hemos de usar comentarios utilizando el carácter \texttt{\#}
+  En un script, se espera que escribamos código \textsf{R}, y para escribir texto ordinario hemos de usar comentarios utilizando el carácter \texttt{\#}.
 \item
   Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código \textsf{R} hemos de incluirlo en un bloque especial delimitado por la línea \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}} al comienzo y la línea \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}} al final.
 \end{itemize}
@@ -423,7 +508,7 @@ En el capítulo anterior hemos explorado los contenidos de muestra del archivo d
   y los \textbf{bloques de código}, para incluir instrucciones de \textsf{R}.
 \end{itemize}
 
-Ahora vamos a reemplazar los contenidos de muestra por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque código, y personalizaremos algunas opciones.
+Ahora vamos a reemplazar los contenidos de muestra por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque de código, y personalizaremos algunas opciones.
 
 Al final de este capítulo tendremos una plantilla para los documentos R Markdown que usaremos en las prácticas y tareas a lo largo del curso.
 
@@ -580,7 +665,7 @@ Además, podemos ejecutar todas las instrucciones que componen un bloque de cód
 \hypertarget{tabla-de-contenidos-flotante}{%
 \subsection{Tabla de contenidos flotante}\label{tabla-de-contenidos-flotante}}
 
-Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante.
+Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante con las secciones numeradas.
 
 Para ello sustituimos la línea
 
@@ -688,7 +773,7 @@ Puedes ir compilando cada bloque o instrucción de forma individual, para ver su
 
 Cuando instalamos \textsf{R} por primera vez estamos instalando el software \textsf{base R}, que contiene las funciones básicas que se usan regularmente en la mayoría de análisis estadísticos.
 
-Un \textbf{paquete} de R es una colección de funciones, datos y documentación, que extiende las capacidades iniciales de la base de \textsf{R}. Existen multitud de paquetes de \textsf{R}, desarrollados por la comunidad de usuarios de \textsf{R}, que añaden funciones para propósitos específicos.
+Un \textbf{paquete} de R es una colección de funciones, datos y documentación, que extiende las capacidades iniciales de la base de \textsf{R}. Existen multitud de paquetes de \textsf{R}, en su mayoría desarrollados por la comunidad de usuarios de \textsf{R}, que añaden funciones para propósitos específicos.
 
 \href{https://www.tidyverse.org/}{\texttt{tidyverse}} es una colección de paquetes para ciencia de datos que comparten una filosofía común y están diseñados para funcionar juntos de forma natural.
 La mayoría de paquetes que usaremos a lo largo del curso forman parte de \texttt{tidyverse}, de forma que instalando este \emph{meta-paquete} tendrás acceso a todos ellos.
@@ -705,7 +790,7 @@ Para instalar un paquete nuevo se utiliza la función \texttt{install.packages()
 \end{Highlighting}
 \end{Shaded}
 
-La instalación de este paquete puede llevar unos minutos (hay que esperar hasta ver en la consola de \textsf{RStudio} que se ha completado el proceso).
+La instalación de este paquete puede llevar unos 5-10 minutos, hay que esperar hasta ver en la consola de \textsf{RStudio} que se ha completado el proceso.
 
 \begin{infobox}
 
@@ -751,7 +836,7 @@ Para cargar un paquete previamente instalado hay que usar la función \texttt{li
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -761,7 +846,7 @@ Si el paquete está instalado, la instrucción anterior lo cargará y podremos h
 
 En caso de no estar instalado, recibiremos un mensaje de error indicando que no existe el paquete solicitado, y habrá que instalarlo primero, como se explicó en el apartado anterior.
 
-Si bien instalación de un paquete (con \texttt{install.packages}) se realiza una sóla vez, la carga (con \texttt{library}) es necesaria en cada sesión en la que queramos usar funciones del paquete.
+Si bien instalación de un paquete (con \texttt{install.packages()}) se realiza una sóla vez, la carga (con \texttt{library()}) es necesaria en cada sesión en la que queramos usar funciones del paquete.
 
 \hypertarget{objects}{%
 \section{Objetos en R}\label{objects}}
@@ -792,9 +877,11 @@ Cuando se ejecuta una instrucción como la anterior, en la que se asigna un valo
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## [1] 2
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\# [1] 2}
+\end{Highlighting}
+\end{Shaded}
 
 Una vez definida el objeto o variable \texttt{x} podremos referenciarlo en cálculos posteriores. Por ejemplo, al ejecutar la instrucción
 
@@ -804,9 +891,11 @@ Una vez definida el objeto o variable \texttt{x} podremos referenciarlo en cálc
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## [1] 1
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\# [1] 1}
+\end{Highlighting}
+\end{Shaded}
 
 obtendremos la salida \(1\) (resultado de \(2^2-3 = 1\)).
 
@@ -823,7 +912,7 @@ Para crear \textbf{vectores} en \textsf{R} usamos la función \texttt{c} (inicia
 
 crea un vector de nombre \texttt{v} formado por los primeros \(5\) números impares. Observa la entrada que se ha creado para \texttt{v} en el panel Environment.
 
-Para acceder al elemento número \texttt{i} del vector \texttt{v} se escribe \texttt{v{[}i{]}}. Por, ejemplo para extraer el segundo elemento de \texttt{v} escribimos
+Para acceder al elemento número \texttt{i} del vector \texttt{v} se escribe \texttt{v{[}i{]}} (ojo, que el primer índice es \texttt{1}, no \texttt{0}). Por, ejemplo para extraer el segundo elemento de \texttt{v} escribimos
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -831,9 +920,11 @@ Para acceder al elemento número \texttt{i} del vector \texttt{v} se escribe \te
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## [1] 3
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\# [1] 3}
+\end{Highlighting}
+\end{Shaded}
 
 La instrucción
 
@@ -843,9 +934,11 @@ La instrucción
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## [1]  1  9 25 49 81
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\# [1]  1  9 25 49 81}
+\end{Highlighting}
+\end{Shaded}
 
 devuelve el vector cuyos elementos son los cuadrados de los elementos de \texttt{v}.
 La mayoría de funciones de \textsf{R} que reciben argumentos numéricos aplicadas a un vector numérico operan sobre cada elemento del vector (se dice que están vectorizadas).
@@ -856,16 +949,6 @@ La mayoría de funciones de \textsf{R} que reciben argumentos numéricos aplicad
 Las hojas de datos (en inglés \emph{data frames}) son la clase de objetos que se usan en \textsf{R} para almacenar los datos obtenidos en un experimento y poder analizarlos.
 
 Empezaremos explorando la hoja de datos de nombre \texttt{mpg} (\textbf{m}iles \textbf{p}er \textbf{g}allon), proporcionada por el paquete \texttt{ggplot2}(que ya hemos cargado al cargar el paquete \texttt{tidyverse}). Esta hoja de datos trata sobre el consumo de combustible de diferentes modelos de coches.
-
-Para obtener una descripción de la hoja de datos, escribe \texttt{mpg} en el campo de búsqueda del panel \textbf{Help} de \textsf{RStudio}. También puedes escribir \texttt{?mpg} o \texttt{help(mpg)} en la consola. La página de ayuda explica que la hoja de datos tiene \(234\) filas, donde cada fila representa un coche, y \(11\) variables, que describen diferentes características de los coches. Nos vamos a centrar en las variables \texttt{displ} y \texttt{hwy}, que nos describen como:
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{displ}: \emph{engine displacemente, in litres} (cilindrada)
-\item
-  \texttt{hwy}: \emph{higway miles per gallon} (millas recorridas por galón de combustible en conducción por autopista)
-\end{itemize}
 
 Para cargar la hoja de datos \texttt{mpg} en tu espacio de trabajo escribe
 
@@ -888,6 +971,16 @@ Verás que \texttt{mpg} aparece listada en el panel Environment. Inicialmente es
 
 En general, una hoja de datos es una especie de matriz u hoja de cálculo, donde las filas representan unidades experimentales, casos u observaciones (en nuestro ejemplo coches) y las columnas representan variables que describen características de interés de las unidades experimentales (en nuestro caso fabricante, modelo, cilindrada, consumo de combustible \ldots). Las celdas contienen los valores observados para cada variable en cada unidad experimental.
 
+Para obtener una descripción de la hoja de datos, escribe \texttt{mpg} en el campo de búsqueda del panel \textbf{Help} de \textsf{RStudio}. También puedes escribir \texttt{?mpg} o \texttt{help(mpg)} en la consola. La página de ayuda explica que la hoja de datos tiene \(234\) filas, donde cada fila representa un coche, y \(11\) variables, que describen diferentes características de los coches. Nos vamos a centrar en las variables \texttt{displ} y \texttt{hwy}, que nos describen como:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{displ}: \emph{engine displacemente, in litres} (cilindrada)
+\item
+  \texttt{hwy}: \emph{higway miles per gallon} (millas recorridas por galón de combustible en conducción por autopista)
+\end{itemize}
+
 Para extraer una de las variables de una hoja de datos se utiliza el formato \texttt{\textless{}nombre\ hoja\textgreater{}\$\textless{}nombre\ variable\textgreater{}}. Por ejemplo, para extraer las cilindradas (variable \texttt{displ}) de la hoja de datos \texttt{mpg} utilizamos la instrucción siguiente:
 
 \begin{Shaded}
@@ -896,21 +989,23 @@ Para extraer una de las variables de una hoja de datos se utiliza el formato \te
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-##   [1] 1.8 1.8 2.0 2.0 2.8 2.8 3.1 1.8 1.8 2.0 2.0 2.8 2.8 3.1 3.1 2.8 3.1 4.2
-##  [19] 5.3 5.3 5.3 5.7 6.0 5.7 5.7 6.2 6.2 7.0 5.3 5.3 5.7 6.5 2.4 2.4 3.1 3.5
-##  [37] 3.6 2.4 3.0 3.3 3.3 3.3 3.3 3.3 3.8 3.8 3.8 4.0 3.7 3.7 3.9 3.9 4.7 4.7
-##  [55] 4.7 5.2 5.2 3.9 4.7 4.7 4.7 5.2 5.7 5.9 4.7 4.7 4.7 4.7 4.7 4.7 5.2 5.2
-##  [73] 5.7 5.9 4.6 5.4 5.4 4.0 4.0 4.0 4.0 4.6 5.0 4.2 4.2 4.6 4.6 4.6 5.4 5.4
-##  [91] 3.8 3.8 4.0 4.0 4.6 4.6 4.6 4.6 5.4 1.6 1.6 1.6 1.6 1.6 1.8 1.8 1.8 2.0
-## [109] 2.4 2.4 2.4 2.4 2.5 2.5 3.3 2.0 2.0 2.0 2.0 2.7 2.7 2.7 3.0 3.7 4.0 4.7
-## [127] 4.7 4.7 5.7 6.1 4.0 4.2 4.4 4.6 5.4 5.4 5.4 4.0 4.0 4.6 5.0 2.4 2.4 2.5
-## [145] 2.5 3.5 3.5 3.0 3.0 3.5 3.3 3.3 4.0 5.6 3.1 3.8 3.8 3.8 5.3 2.5 2.5 2.5
-## [163] 2.5 2.5 2.5 2.2 2.2 2.5 2.5 2.5 2.5 2.5 2.5 2.7 2.7 3.4 3.4 4.0 4.7 2.2
-## [181] 2.2 2.4 2.4 3.0 3.0 3.5 2.2 2.2 2.4 2.4 3.0 3.0 3.3 1.8 1.8 1.8 1.8 1.8
-## [199] 4.7 5.7 2.7 2.7 2.7 3.4 3.4 4.0 4.0 2.0 2.0 2.0 2.0 2.8 1.9 2.0 2.0 2.0
-## [217] 2.0 2.5 2.5 2.8 2.8 1.9 1.9 2.0 2.0 2.5 2.5 1.8 1.8 2.0 2.0 2.8 2.8 3.6
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\#   [1] 1.8 1.8 2.0 2.0 2.8 2.8 3.1 1.8 1.8 2.0 2.0 2.8 2.8 3.1 3.1 2.8 3.1 4.2}
+\NormalTok{\#\#  [19] 5.3 5.3 5.3 5.7 6.0 5.7 5.7 6.2 6.2 7.0 5.3 5.3 5.7 6.5 2.4 2.4 3.1 3.5}
+\NormalTok{\#\#  [37] 3.6 2.4 3.0 3.3 3.3 3.3 3.3 3.3 3.8 3.8 3.8 4.0 3.7 3.7 3.9 3.9 4.7 4.7}
+\NormalTok{\#\#  [55] 4.7 5.2 5.2 3.9 4.7 4.7 4.7 5.2 5.7 5.9 4.7 4.7 4.7 4.7 4.7 4.7 5.2 5.2}
+\NormalTok{\#\#  [73] 5.7 5.9 4.6 5.4 5.4 4.0 4.0 4.0 4.0 4.6 5.0 4.2 4.2 4.6 4.6 4.6 5.4 5.4}
+\NormalTok{\#\#  [91] 3.8 3.8 4.0 4.0 4.6 4.6 4.6 4.6 5.4 1.6 1.6 1.6 1.6 1.6 1.8 1.8 1.8 2.0}
+\NormalTok{\#\# [109] 2.4 2.4 2.4 2.4 2.5 2.5 3.3 2.0 2.0 2.0 2.0 2.7 2.7 2.7 3.0 3.7 4.0 4.7}
+\NormalTok{\#\# [127] 4.7 4.7 5.7 6.1 4.0 4.2 4.4 4.6 5.4 5.4 5.4 4.0 4.0 4.6 5.0 2.4 2.4 2.5}
+\NormalTok{\#\# [145] 2.5 3.5 3.5 3.0 3.0 3.5 3.3 3.3 4.0 5.6 3.1 3.8 3.8 3.8 5.3 2.5 2.5 2.5}
+\NormalTok{\#\# [163] 2.5 2.5 2.5 2.2 2.2 2.5 2.5 2.5 2.5 2.5 2.5 2.7 2.7 3.4 3.4 4.0 4.7 2.2}
+\NormalTok{\#\# [181] 2.2 2.4 2.4 3.0 3.0 3.5 2.2 2.2 2.4 2.4 3.0 3.0 3.3 1.8 1.8 1.8 1.8 1.8}
+\NormalTok{\#\# [199] 4.7 5.7 2.7 2.7 2.7 3.4 3.4 4.0 4.0 2.0 2.0 2.0 2.0 2.8 1.9 2.0 2.0 2.0}
+\NormalTok{\#\# [217] 2.0 2.5 2.5 2.8 2.8 1.9 1.9 2.0 2.0 2.5 2.5 1.8 1.8 2.0 2.0 2.8 2.8 3.6}
+\end{Highlighting}
+\end{Shaded}
 
 que mostrará el vector con las cilindradas de los \(234\) coches.
 
@@ -925,11 +1020,11 @@ Para responder a la pregunta anterior, vamos a realizar un gráfico de puntos pa
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping=}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)) }
+    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)) }
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-23-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-24-1} \end{center}
 
 Todos los gráficos se inicializan con la función \texttt{ggplot()}. En el código anterior, la línea
 
@@ -972,7 +1067,7 @@ Ahora vamos a incluir más información en nuestro gráfico estableciendo una co
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-27-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-28-1} \end{center}
 
 Notar que la inclusión de la correspondencia \texttt{color\ =\ class} ha hecho que \texttt{ggplot2} asigne un color diferente (nivel diferente de la estética \texttt{color}) a cada tipo de coche (valor diferente de la variable \texttt{class}), e incluya una leyenda explicando qué color corresponde a qué tipo de coche.
 
@@ -993,16 +1088,14 @@ Acabamos personalizando los rótulos de nuestro gráfico con \texttt{labs()}:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-28-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-29-1} \end{center}
 
 \hypertarget{import}{%
 \section{Importar datos}\label{import}}
 
 Hasta ahora hemos trabajado con hojas de datos proporcionadas por paquetes de \textsf{R}, como \texttt{mpg} (de \texttt{ggplot2}). La colección de hojas de datos proporcionada por los diferentes paquetes de \textsf{R} es un buen recurso para enseñar y aprender diferentes tópicos. Pero en la práctica es necesario trabajar con nuestros propios datos o datos extraídos de diversas fuentes.
 
-En este capítulo veremos cómo importar datos en \textsf{R} desde un fichero externo con el paquete \texttt{readr}. En concreto, veremos cómo importar los datos contenidos en un archivo CSV (\emph{comma separated values}) con la función \texttt{read\_csv()}.
-
-El paquete \texttt{readr} forma parte de \texttt{tidyverse} de forma que no es necesario cargarlo individualmente si ya has cargado \texttt{tidyverse}.
+En este capítulo veremos cómo importar datos en \textsf{R} desde un fichero externo con el paquete \texttt{readr}. El paquete \texttt{readr} forma parte de \texttt{tidyverse} de forma que no es necesario cargarlo individualmente si ya has cargado \texttt{tidyverse}. En concreto, veremos cómo importar los datos contenidos en un archivo CSV (\emph{comma separated values}) con la función \texttt{read\_csv()}.
 
 \hypertarget{los-datos}{%
 \subsection{Los datos}\label{los-datos}}
@@ -1090,7 +1183,7 @@ Podemos por ejemplo representar la evolución de las temperaturas mínimas y má
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-32-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-33-1} \end{center}
 
 La función \texttt{geom\_line()} actúa primero como si se dibujara un gráfico de puntos con \texttt{geom\_point()} y luego conecta los puntos conforme indique el valor del argumento \texttt{group}. En el caso de nuestros dos diagramas de líneas, queremos que todos los puntos estén conectados, y lo indicamos usando \texttt{group=1}. Cuando hay más variables, la agrupación para las líneas suele hacerse por variable. Si por ejemplo tuvierámos cada día mediciones en varias ciudades, podríamos agrupar para la variable especificando la ciudad.
 
@@ -1098,7 +1191,7 @@ Cuando varias capas de un gráfico comparten estéticas, esas estéticas comunes
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{group  =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} 
     \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmin)) }\SpecialCharTok{+} 
     \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmax)) }
 \end{Highlighting}
@@ -1114,11 +1207,11 @@ A continuación tenemos una versión un poco más elaborada del gráfico anterio
     \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmax), }\AttributeTok{color=}\StringTok{"red"}\NormalTok{) }\SpecialCharTok{+} 
     \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmin), }\AttributeTok{color=}\StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+} 
     \FunctionTok{scale\_x\_date}\NormalTok{(}
-        \AttributeTok{expand=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{),}
+        \AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{),}
         \AttributeTok{breaks =} \FunctionTok{date\_breaks}\NormalTok{(}\StringTok{"1 day"}\NormalTok{), }
         \AttributeTok{labels =} \FunctionTok{date\_format}\NormalTok{(}\StringTok{"\%d"}\NormalTok{)}
 \NormalTok{    ) }\SpecialCharTok{+}
-    \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{5}\NormalTok{)) }\SpecialCharTok{+} 
+    \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{5}\NormalTok{)) }\SpecialCharTok{+} 
     \FunctionTok{labs}\NormalTok{(}
         \AttributeTok{title =} \StringTok{"Temperaturas máximas y mínimas en abril de 2018"}\NormalTok{,}
         \AttributeTok{x =} \StringTok{"Día"}\NormalTok{,}
@@ -1127,8 +1220,13 @@ A continuación tenemos una versión un poco más elaborada del gráfico anterio
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-34-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-35-1} \end{center}
 
+\printbibliography
+
+% This file is created the first time epdf_document is invoked
+% but will not be overwriten afterwards.
+%
 % After Body
 
 \end{document}

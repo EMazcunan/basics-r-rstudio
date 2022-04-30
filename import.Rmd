@@ -3,11 +3,11 @@
 Hasta ahora hemos trabajado con hojas de datos proporcionadas por paquetes de `r R()`, como `mpg` (de `ggplot2`). La colección de hojas de datos proporcionada por los diferentes paquetes de `r R()` es un buen recurso para enseñar y aprender diferentes tópicos. Pero en la práctica es necesario trabajar con nuestros propios datos o datos extraídos de diversas fuentes.  
 
 
-En este capítulo veremos cómo importar datos en `r R()` desde un fichero externo con el paquete `readr`.  En concreto, veremos cómo importar los datos contenidos en un archivo CSV (*comma separated values*) con la función  `read_csv()`.
+En este capítulo veremos cómo importar datos en `r R()` desde un fichero externo con el paquete `readr`. El paquete `readr` forma parte de `tidyverse` de forma que no es necesario cargarlo individualmente si ya has cargado `tidyverse`.  En concreto, veremos cómo importar los datos contenidos en un archivo CSV (*comma separated values*) con la función  `read_csv()`.
 
 
 
-El paquete `readr` forma parte de `tidyverse` de forma que no es necesario cargarlo individualmente si ya has cargado `tidyverse`.
+
 
 ## Los datos 
 
@@ -91,7 +91,7 @@ La función `geom_line()` actúa primero como si se dibujara un gráfico de punt
 Cuando varias capas de un gráfico comparten estéticas, esas estéticas comunes pueden especificarse en el argumento de `ggplot()`. El ejemplo anterior puede acortarse a:
 
 ```{r, eval = FALSE}
-ggplot(data = temps, mapping = aes(x = Fecha, group  = 1)) + 
+ggplot(data = temps, mapping = aes(x = Fecha, group = 1)) + 
     geom_line(mapping = aes(y = Tmin)) + 
     geom_line(mapping = aes(y = Tmax)) 
 ```
@@ -108,11 +108,11 @@ ggplot(data = temps, aes(x = Fecha, group = 1)) +
     geom_line(aes(y = Tmax), color="red") + 
     geom_line(aes(y = Tmin), color="blue") + 
     scale_x_date(
-        expand=c(0,0),
+        expand = c(0, 0),
         breaks = date_breaks("1 day"), 
         labels = date_format("%d")
     ) +
-    scale_y_continuous(breaks = seq(-5,30,5)) + 
+    scale_y_continuous(breaks = seq(-5, 30, 5)) + 
     labs(
         title = "Temperaturas máximas y mínimas en abril de 2018",
         x = "Día",

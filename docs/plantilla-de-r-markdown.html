@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="" xml:lang="" >
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Plantilla de R Markdown | Primeros pasos con R y RStudio</title>
   <meta name="description" content="3 Plantilla de R Markdown | Primeros pasos con R y RStudio" />
-  <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Plantilla de R Markdown | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
@@ -30,10 +30,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="documentos-r-markdown.html"/>
-<link rel="next" href="primeros-contenidos.html"/>
-<script src="libs/header-attrs-2.7.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="rmarkdown.html"/>
+<link rel="next" href="flow.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!--
 Material Icons
 https://fonts.google.com/icons
@@ -61,9 +61,8 @@ https://developers.google.com/fonts/docs/material_icons
 <span class="math inline" style="display: none;">
     \(\newcommand{\ve}{\varepsilon}\)
 </span>
-<!-- Mathjax -->
-<span class="math inline" style="display:none;">
-    \(\newcommand{\foo}{}\)
+<span class="math inline", style="display: none;">
+\(\newcommand{\foo}{}\)
 </span>
 
 
@@ -134,82 +133,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="egitbook/chunks.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/header.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/latex.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/enotation.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/ebox.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emargintag.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/emedia.css" type="text/css" />
-<link rel="stylesheet" href="egitbook/mnye.css" type="text/css" />
+<link rel="stylesheet" href="egitbook/ln.css" type="text/css" />
 <link rel="stylesheet" href="egitbook/style.css" type="text/css" />
 </head>
 
-<body>
-
-
+<body onload="document.querySelector('.page-inner').removeAttribute('style');">
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
+      <div class="book-summary-header">
+          <a href="index.html">
+<div class="book-summary-title">Primeros pasos con R y RStudio</div>
+        </a>
+      </div>
+      <div class="summary-header">
+<div> CONTENIDOS </div>
+      </div>
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Primeros pasos con R y RStudio</a></li>
+<li class="chapter" style="display:none;padding:0!important;">
+    <a style="display:none;padding:0!important;" href="index.html"></a>
+</li>
+
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>1</b> Requisitos previos</a></li>
 <li class="chapter" data-level="2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2</b> Escribir y ejecutar código de R</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="consola.html"><a href="consola.html"><i class="fa fa-check"></i><b>2.1</b> Consola</a></li>
-<li class="chapter" data-level="2.2" data-path="scripts-de-r.html"><a href="scripts-de-r.html"><i class="fa fa-check"></i><b>2.2</b> Scripts de R</a></li>
-<li class="chapter" data-level="2.3" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html"><i class="fa fa-check"></i><b>2.3</b> Documentos R Markdown</a>
+<li class="chapter" data-level="2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#consola"><i class="fa fa-check"></i><b>2.1</b> Consola</a></li>
+<li class="chapter" data-level="2.2" data-path="rmarkdown.html"><a href="rmarkdown.html#scripts-de-r"><i class="fa fa-check"></i><b>2.2</b> Scripts de R</a></li>
+<li class="chapter" data-level="2.3" data-path="rmarkdown.html"><a href="rmarkdown.html#documentos-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Documentos R Markdown</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#creación"><i class="fa fa-check"></i><b>2.3.1</b> Creación</a></li>
-<li class="chapter" data-level="2.3.2" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#compilación"><i class="fa fa-check"></i><b>2.3.2</b> Compilación</a></li>
-<li class="chapter" data-level="2.3.3" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#encabezados"><i class="fa fa-check"></i><b>2.3.3</b> Encabezados</a></li>
-<li class="chapter" data-level="2.3.4" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#bloques-de-código"><i class="fa fa-check"></i><b>2.3.4</b> Bloques de código</a></li>
+<li class="chapter" data-level="2.3.1" data-path="rmarkdown.html"><a href="rmarkdown.html#creación"><i class="fa fa-check"></i><b>2.3.1</b> Creación</a></li>
+<li class="chapter" data-level="2.3.2" data-path="rmarkdown.html"><a href="rmarkdown.html#compilación"><i class="fa fa-check"></i><b>2.3.2</b> Compilación</a></li>
+<li class="chapter" data-level="2.3.3" data-path="rmarkdown.html"><a href="rmarkdown.html#encabezados"><i class="fa fa-check"></i><b>2.3.3</b> Encabezados</a></li>
+<li class="chapter" data-level="2.3.4" data-path="rmarkdown.html"><a href="rmarkdown.html#bloques-de-código"><i class="fa fa-check"></i><b>2.3.4</b> Bloques de código</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Plantilla de R Markdown</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="primeros-contenidos.html"><a href="primeros-contenidos.html"><i class="fa fa-check"></i><b>3.1</b> Primeros contenidos</a></li>
-<li class="chapter" data-level="3.2" data-path="algunas-opciones.html"><a href="algunas-opciones.html"><i class="fa fa-check"></i><b>3.2</b> Algunas opciones</a></li>
-<li class="chapter" data-level="3.3" data-path="global-options.html"><a href="global-options.html"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
-<li class="chapter" data-level="3.4" data-path="ejecución-de-instrucciones-individuales.html"><a href="ejecución-de-instrucciones-individuales.html"><i class="fa fa-check"></i><b>3.4</b> Ejecución de instrucciones individuales</a></li>
-<li class="chapter" data-level="3.5" data-path="tabla-de-contenidos-flotante.html"><a href="tabla-de-contenidos-flotante.html"><i class="fa fa-check"></i><b>3.5</b> Tabla de contenidos flotante</a></li>
-<li class="chapter" data-level="3.6" data-path="secciones-numeradas.html"><a href="secciones-numeradas.html"><i class="fa fa-check"></i><b>3.6</b> Secciones numeradas</a></li>
-<li class="chapter" data-level="3.7" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
+<li class="chapter" data-level="3.1" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#primeros-contenidos"><i class="fa fa-check"></i><b>3.1</b> Primeros contenidos</a></li>
+<li class="chapter" data-level="3.2" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#algunas-opciones"><i class="fa fa-check"></i><b>3.2</b> Algunas opciones</a></li>
+<li class="chapter" data-level="3.3" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#global-options"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
+<li class="chapter" data-level="3.4" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#ejecución-de-instrucciones-individuales"><i class="fa fa-check"></i><b>3.4</b> Ejecución de instrucciones individuales</a></li>
+<li class="chapter" data-level="3.5" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#tabla-de-contenidos-flotante"><i class="fa fa-check"></i><b>3.5</b> Tabla de contenidos flotante</a></li>
+<li class="chapter" data-level="3.6" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#secciones-numeradas"><i class="fa fa-check"></i><b>3.6</b> Secciones numeradas</a></li>
+<li class="chapter" data-level="3.7" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#plantilla-final"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
 <li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>5.1</b> Instalar un paquete</a></li>
-<li class="chapter" data-level="5.2" data-path="cargar-un-paquete.html"><a href="cargar-un-paquete.html"><i class="fa fa-check"></i><b>5.2</b> Cargar un paquete</a></li>
+<li class="chapter" data-level="5.1" data-path="packages.html"><a href="packages.html#install"><i class="fa fa-check"></i><b>5.1</b> Instalar un paquete</a></li>
+<li class="chapter" data-level="5.2" data-path="packages.html"><a href="packages.html#cargar-un-paquete"><i class="fa fa-check"></i><b>5.2</b> Cargar un paquete</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Objetos en R</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="crear-un-objeto.html"><a href="crear-un-objeto.html"><i class="fa fa-check"></i><b>6.1</b> Crear un objeto</a></li>
-<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6.2</b> Vectores</a></li>
-<li class="chapter" data-level="6.3" data-path="hojas-de-datos.html"><a href="hojas-de-datos.html"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
+<li class="chapter" data-level="6.1" data-path="objects.html"><a href="objects.html#crear-un-objeto"><i class="fa fa-check"></i><b>6.1</b> Crear un objeto</a></li>
+<li class="chapter" data-level="6.2" data-path="objects.html"><a href="objects.html#vectores"><i class="fa fa-check"></i><b>6.2</b> Vectores</a></li>
+<li class="chapter" data-level="6.3" data-path="objects.html"><a href="objects.html#hojas-de-datos"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Visualización de datos</a></li>
 <li class="chapter" data-level="8" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>8</b> Importar datos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="los-datos.html"><a href="los-datos.html"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
-<li class="chapter" data-level="8.2" data-path="importar-desde-archivo-local.html"><a href="importar-desde-archivo-local.html"><i class="fa fa-check"></i><b>8.2</b> Importar desde archivo local</a></li>
-<li class="chapter" data-level="8.3" data-path="importar-desde-url.html"><a href="importar-desde-url.html"><i class="fa fa-check"></i><b>8.3</b> Importar desde URL</a></li>
-<li class="chapter" data-level="8.4" data-path="usar-datos-importados.html"><a href="usar-datos-importados.html"><i class="fa fa-check"></i><b>8.4</b> Usar datos importados</a></li>
+<li class="chapter" data-level="8.1" data-path="import.html"><a href="import.html#los-datos"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
+<li class="chapter" data-level="8.2" data-path="import.html"><a href="import.html#importar-desde-archivo-local"><i class="fa fa-check"></i><b>8.2</b> Importar desde archivo local</a></li>
+<li class="chapter" data-level="8.3" data-path="import.html"><a href="import.html#importar-desde-url"><i class="fa fa-check"></i><b>8.3</b> Importar desde URL</a></li>
+<li class="chapter" data-level="8.4" data-path="import.html"><a href="import.html#usar-datos-importados"><i class="fa fa-check"></i><b>8.4</b> Usar datos importados</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><ul>
-<li style="margin: 10px 0;">
-Creado con <a style="display:inline;padding-left:0px;padding-right:0px;" href="https://bookdown.org/yihui/bookdown/" target="blank">bookdown</a>
-</li>
-<li style="margin: 10px 0;">
-Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.com/bookdown/" target="blank">GitHub Pages</a>
-</li>
-</ul></li>
 </ul>
 
       </nav>
+      <div class="book-summary-foot">
+<p>
+    Creado con <a href="https://bookdown.org/yihui/bookdown/" target="blank">bookdown</a>
+</p>
+<p>
+    Publicado con <a href="https://pages.github.com/" target="blank">GitHub Pages</a>
+</p>
+      </div>
     </div>
 
     <div class="book-body">
@@ -219,22 +228,158 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
             <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Primeros pasos con R y RStudio</a>
           </h1>
         </div>
-
         <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
+          <div style="opacity:0;" class="page-inner">
 
             <section class="normal" id="section-">
 
-<div id="plantilla-de-r-markdown" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Plantilla de R Markdown</h1>
+<div id="plantilla-de-r-markdown" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Plantilla de R Markdown<a href="plantilla-de-r-markdown.html#plantilla-de-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En el capítulo anterior hemos explorado los contenidos de muestra del archivo de R Markdown que hemos creado, y conocemos los dos elementos principales a incluir en este tipo de documentos:</p>
 <ul>
 <li><p>los <strong>encabezados</strong>, para estructurar nuestro documento en capítulos, secciones, subsecciones …</p></li>
 <li><p>y los <strong>bloques de código</strong>, para incluir instrucciones de <span class="textsf">R</span>.</p></li>
 </ul>
-<p>Ahora vamos a reemplazar los contenidos de muestra por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque código, y personalizaremos algunas opciones.</p>
+<p>Ahora vamos a reemplazar los contenidos de muestra por nuestros propios contenidos. Crearemos un primer capítulo con un primer bloque de código, y personalizaremos algunas opciones.</p>
 <p>Al final de este capítulo tendremos una plantilla para los documentos R Markdown que usaremos en las prácticas y tareas a lo largo del curso.</p>
 <p>Y nuestro documento <code>intro-r.Rmd</code> quedará preparado para practicar el código de <span class="textsf">R</span> que se presenta en los siguientes capítulos de esta práctica.</p>
+<div id="primeros-contenidos" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Primeros contenidos<a href="plantilla-de-r-markdown.html#primeros-contenidos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Borra los contenidos de muestra (línea 12 en adelante) y añade la siguiente línea para crear un primer capítulo (encabezado de nivel 1) de título “Bloques de código”:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb20-1"><a href="plantilla-de-r-markdown.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Bloques de código</span></span></code></pre></div>
+<p>Ahora vamos a crear el primer bloque de código. Para escribir su esqueleto usa el atajo</p>
+<div class="center">
+<p><code>Ctrl + Alt + I</code></p>
+</div>
+<p>(<code>I</code> de <em>Insert</em>) o, alternativamente, el menú</p>
+<div class="menu">
+<p>Insert &gt; R</p>
+</div>
+<p>en la barra de herramientas de la pestaña del documento, que se muestra en la siguiente imagen:</p>
+<p><img src="images/insert-r.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>En el bloque de código que acabas de crear añade las instrucciones</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb21-1"><a href="plantilla-de-r-markdown.html#cb21-1" aria-hidden="true" tabindex="-1"></a>sqrt(8)</span>
+<span id="cb21-2"><a href="plantilla-de-r-markdown.html#cb21-2" aria-hidden="true" tabindex="-1"></a>sqrt(10)</span></code></pre></div>
+<p>de forma que los contenidos añadidos queden:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb22-1"><a href="plantilla-de-r-markdown.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Bloques de código</span></span>
+<span id="cb22-2"><a href="plantilla-de-r-markdown.html#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="plantilla-de-r-markdown.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-4"><a href="plantilla-de-r-markdown.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="in">sqrt(8)</span></span>
+<span id="cb22-5"><a href="plantilla-de-r-markdown.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="in">sqrt(10)</span></span>
+<span id="cb22-6"><a href="plantilla-de-r-markdown.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>Compila para ver el resultado.</p>
+</div>
+<div id="algunas-opciones" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Algunas opciones<a href="plantilla-de-r-markdown.html#algunas-opciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Tras compilar el documento con los contenidos añadidos en la sección anterior, verás que en el documento HTML generado aparecen:</p>
+<ul>
+<li>El código de la primera instrucción <code>sqrt(8)</code></li>
+<li>Su salida 2.8284271</li>
+<li>El código de la segunda instrucción <code>sqrt(10)</code></li>
+<li>Su salida 3.1622777</li>
+</ul>
+<p>Para que se muestre primero el código para las dos instrucciones y a continuación las dos salidas, añade la opción <code>results='hold'</code>.</p>
+<p>Y para omitir los caracteres <code>##</code> al comienzo de las líneas de la salida, añade la opción <code>comment = ''</code>. Nuestro bloque de código con estas dos opciones quedaría:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb23-1"><a href="plantilla-de-r-markdown.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, results=&#39;hold&#39;, comment = &#39;&#39;}</span></span>
+<span id="cb23-2"><a href="plantilla-de-r-markdown.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="in">sqrt(8)</span></span>
+<span id="cb23-3"><a href="plantilla-de-r-markdown.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="in">sqrt(10)</span></span>
+<span id="cb23-4"><a href="plantilla-de-r-markdown.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>Vuelve a compilar y observa el resultado.</p>
+</div>
+<div id="global-options" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Opciones globales<a href="plantilla-de-r-markdown.html#global-options" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Al comienzo de nuestro documento, hemos conservado el bloque de código</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb24-1"><a href="plantilla-de-r-markdown.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb24-2"><a href="plantilla-de-r-markdown.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = TRUE)</span></span>
+<span id="cb24-3"><a href="plantilla-de-r-markdown.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>que estaba incluido en el documento de muestra. Este bloque se identifica con la etiqueta <code>setup</code> y tiene la opción <code>include=FALSE</code>, que hace que, al compilar el documento, si bien se ejecutará la instrucción que contiene, no se incluirá en el formato HTML de salida.</p>
+<p>Se explica a continuación el significado de la instrucción <code>knitr::opts_chunk$set(echo = TRUE)</code>: Las opciones especificadas como argumentos de <code>knitr::opts_chunk$set</code> (por ahora <code>echo=TRUE</code>) aplicarán a todos los bloques de código que se incluyan en el documento.</p>
+<p>Las opciones <code>results='hold'</code> y <code>comment = ''</code> que hemos aplicado antes a nuestro bloque de código tendrían un efecto local, es decir, aplicarían solo al bloque en el que se han especificado, y si queremos usarlas en los nuevos bloques que creemos, habría que escribirlas de nuevo en todos ellos.</p>
+<p>Para aplicar las opciones <code>results='hold'</code> y <code>comment = ''</code> a todos los bloques de código del documento, las añadiremos como argumentos de <code>knitr::opts_chunk$set</code>, de forma que quede:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb25-1"><a href="plantilla-de-r-markdown.html#cb25-1" aria-hidden="true" tabindex="-1"></a>knitr::opts_chunk$set(</span>
+<span id="cb25-2"><a href="plantilla-de-r-markdown.html#cb25-2" aria-hidden="true" tabindex="-1"></a>    echo = TRUE,</span>
+<span id="cb25-3"><a href="plantilla-de-r-markdown.html#cb25-3" aria-hidden="true" tabindex="-1"></a>    results=&#39;hold&#39;,</span>
+<span id="cb25-4"><a href="plantilla-de-r-markdown.html#cb25-4" aria-hidden="true" tabindex="-1"></a>    comment = &#39;&#39;</span>
+<span id="cb25-5"><a href="plantilla-de-r-markdown.html#cb25-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Ahora, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, así que puedes borrarlas del bloque de código que creaste antes.</p>
+</div>
+<div id="ejecución-de-instrucciones-individuales" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Ejecución de instrucciones individuales<a href="plantilla-de-r-markdown.html#ejecución-de-instrucciones-individuales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, tanto el código como la salida o resultado (siempre que no hay opciones como <code>echo=FALSE</code> o <code>include=FALSE</code> que inhiban la impresión del código y/o de la salida).</p>
+<p>Pero también podemos ejecutar determinadas instrucciones de forma individual, sin necesidad de compilar el documento completo.
+Para ello, podemos proceder exactamente igual que en el caso de los scripts, es decir:</p>
+<ul>
+<li><p>Para ejecutar una sola instrucción, situamos el cursor en cualquiera de las líneas que compongan la instrucción y presionamos <code>Ctrl + Enter</code>.</p></li>
+<li><p>Para ejecutar varias instrucciones, seleccionamos las correspondientes líneas y presionamos <code>Ctrl + Enter</code>.</p></li>
+</ul>
+<p>La salida se mostrará en la consola, y también incrustada en el propio documento, justo debajo del correspondiente bloque de código. Para esto último ha de estar marcada la opción <strong>Show output inline for all R Markdown documents</strong> en las opciones para R Markdown en el menú</p>
+<div class="menu">
+<p>Tools &gt; Global options … &gt; R Markdown</p>
+</div>
+<p>como muestra la siguiente imagen:
+<img src="images/options-r-markdown-b.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Además, podemos ejecutar todas las instrucciones que componen un bloque de código utilizando el botón a la derecha del comienzo del bloque que se resalta en la siguiente imagen:</p>
+<p><img src="images/run.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tabla-de-contenidos-flotante" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Tabla de contenidos flotante<a href="plantilla-de-r-markdown.html#tabla-de-contenidos-flotante" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ahora vamos a personalizar el formato de salida para que nuestro documento incluya una tabla de contenidos flotante con las secciones numeradas.</p>
+<p>Para ello sustituimos la línea</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb26-1"><a href="plantilla-de-r-markdown.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> html_document</span></span></code></pre></div>
+<p>en la cabecera YAML por</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb27-1"><a href="plantilla-de-r-markdown.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> </span></span>
+<span id="cb27-2"><a href="plantilla-de-r-markdown.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">    html_document:</span></span>
+<span id="cb27-3"><a href="plantilla-de-r-markdown.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">        toc: true</span></span>
+<span id="cb27-4"><a href="plantilla-de-r-markdown.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">        toc_float: true</span></span>
+<span id="cb27-5"><a href="plantilla-de-r-markdown.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">        number_sections: true</span></span></code></pre></div>
+<p>Asegúrate de indentar las líneas conforme se indica, porque el indentado es fundamental para que los campos anidados se lean e interpreten correctamente en el proceso de compilación.</p>
+<p>Para que nuestra tabla de contenidos tenga más de una entrada, añade al final del documento un segundo capítulo, con el título de otro capítulo de esta práctica:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb28-1"><a href="plantilla-de-r-markdown.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Paquetes</span></span></code></pre></div>
+<p>Compila de nuevo y abre el resultado en el navegador. Verás la tabla de contenidos flotante a la izquierda del cuerpo del documento (o encima del título en pantallas de dimensiones reducidas).</p>
+<p>Para apreciar la funcionalidad de la tabla de contenidos flotante, reduce la altura de la ventana del navegador hasta que sea inferior a los contenidos en el cuerpo del documento y aparezca la barra de <em>scroll</em> para recorrerlo. Verás que las entradas de la tabla de contenidos actúan como enlaces al inicio de cada capítulo.</p>
+</div>
+<div id="secciones-numeradas" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Secciones numeradas<a href="plantilla-de-r-markdown.html#secciones-numeradas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para numerar los capítulos añade <code>number_sections: true</code> como opción para el formato de salida:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb29-1"><a href="plantilla-de-r-markdown.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> </span></span>
+<span id="cb29-2"><a href="plantilla-de-r-markdown.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">    html_document:</span></span>
+<span id="cb29-3"><a href="plantilla-de-r-markdown.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">        toc: true</span></span>
+<span id="cb29-4"><a href="plantilla-de-r-markdown.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">        toc_float: true</span></span>
+<span id="cb29-5"><a href="plantilla-de-r-markdown.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">        number_sections: true</span></span></code></pre></div>
+</div>
+<div id="plantilla-final" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Plantilla final<a href="plantilla-de-r-markdown.html#plantilla-final" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Después de los cambios que hemos ido haciendo en el documento de muestra, ha debido quedarte así:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb30-1"><a href="plantilla-de-r-markdown.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb30-2"><a href="plantilla-de-r-markdown.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Introducción a R y RStudio&quot;</span></span>
+<span id="cb30-3"><a href="plantilla-de-r-markdown.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Eva&quot;</span></span>
+<span id="cb30-4"><a href="plantilla-de-r-markdown.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> &quot;19/4/2021&quot;</span></span>
+<span id="cb30-5"><a href="plantilla-de-r-markdown.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> </span></span>
+<span id="cb30-6"><a href="plantilla-de-r-markdown.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">    html_document:</span></span>
+<span id="cb30-7"><a href="plantilla-de-r-markdown.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">        toc: true</span></span>
+<span id="cb30-8"><a href="plantilla-de-r-markdown.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">        toc_float: true</span></span>
+<span id="cb30-9"><a href="plantilla-de-r-markdown.html#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">        number_sections: true</span></span>
+<span id="cb30-10"><a href="plantilla-de-r-markdown.html#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb30-11"><a href="plantilla-de-r-markdown.html#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="plantilla-de-r-markdown.html#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb30-13"><a href="plantilla-de-r-markdown.html#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(</span></span>
+<span id="cb30-14"><a href="plantilla-de-r-markdown.html#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="in">    echo = TRUE,</span></span>
+<span id="cb30-15"><a href="plantilla-de-r-markdown.html#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="in">    results=&#39;hold&#39;,</span></span>
+<span id="cb30-16"><a href="plantilla-de-r-markdown.html#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="in">    comment = &#39;&#39;</span></span>
+<span id="cb30-17"><a href="plantilla-de-r-markdown.html#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb30-18"><a href="plantilla-de-r-markdown.html#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-19"><a href="plantilla-de-r-markdown.html#cb30-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-20"><a href="plantilla-de-r-markdown.html#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="fu"># Bloques de código</span></span>
+<span id="cb30-21"><a href="plantilla-de-r-markdown.html#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-22"><a href="plantilla-de-r-markdown.html#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-23"><a href="plantilla-de-r-markdown.html#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="in">sqrt(8)</span></span>
+<span id="cb30-24"><a href="plantilla-de-r-markdown.html#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="in">sqrt(10)</span></span>
+<span id="cb30-25"><a href="plantilla-de-r-markdown.html#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-26"><a href="plantilla-de-r-markdown.html#cb30-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-27"><a href="plantilla-de-r-markdown.html#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># Paquetes </span></span></code></pre></div>
+<p>La primera parte del documento, con la cabecera YAML y el bloque de nombre <code>setup</code> con las opciones de configuración globales para los bloques de código, la repetiremos en todos los documentos R Markdown a lo largo del curso.</p>
+
+</div>
 </div>
 
             </section>
@@ -242,12 +387,11 @@ Publicado con <a style="display:inline;padding:0px;" href="https://pages.github.
           </div>
         </div>
       </div>
-<a href="documentos-r-markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="primeros-contenidos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="flow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -266,13 +410,10 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": null
 },
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
+"fontsettings": null,
 "edit": {
 "link": null,
 "text": null
@@ -286,9 +427,14 @@ gitbook.start({
 "text": null
 },
 "download": ["basics-R-RStudio.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
-}
+},
+"info": false
 });
 });
 </script>
@@ -307,6 +453,8 @@ gitbook.start({
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+
+
 </body>
 
 </html>

@@ -104,7 +104,7 @@ En el selector de archivos que se abrirá a continuación, navega hasta la carpe
 
 Nuestra elección para realizar las prácticas y tareas de esta asignatura será utilizar documentos R Markdown.  En un documento R Markdown podremos escribir tanto código `r R()` como texto. Y al compilarlo obtendremos un documento que incluirá el código, la salida resultante de ejecutar el código, y el texto explicativo. 
 
-* En el texto podremos utilizar la sintaxis propia del lenguaje de marcado [Markdown](https://es.wikipedia.org/wiki/Markdown){target="_blank"} (independiente de `r R()`). Por ejemplo: 
+* En el texto podremos utilizar la sintaxis propia del lenguaje de marcado [Markdown](https://es.wikipedia.org/wiki/Markdown){target="_blank"} (independiente de `r R()`). Por ejempl, para escribir texto negrita se escribe `**` al comienzo y al final del texto en cuestión: 
 ```md
 El resultado anterior permite extraer una conclusión muy **importante**.
 ```
@@ -132,7 +132,7 @@ knitr::include_graphics("images/new-r-markdown.png")
 
 Rellena 'Introducción a R y RStudio' en el campo **Title** y tu nombre en el campo **Author**. Para el campo **Default output format**, conserva la elección 'HTML' que aparece por defecto. 
 
-Al presionar el botón **OK** se abrirá una nueva pestaña en el panel de `r RStudio()` con el nuevo documento R Markdown. Presiona `Ctrl + S` para guardarlo, en la carpeta `IntroR` que creaste antes para la práctica, con el nombre `intro-r`. Verifica que la etiqueta de la pestaña del documentocambia de `Untitled1` a `intro-r.Rmd`.
+Al presionar el botón **OK** se abrirá una nueva pestaña en el panel de `r RStudio()` con el nuevo documento R Markdown. Presiona `Ctrl + S` para guardarlo, en la carpeta `IntroR` que creaste antes para la práctica, con el nombre `intro-r`. Verifica que la etiqueta de la pestaña del documento cambia de `Untitled1` a `intro-r.Rmd`.
 
 Las primeras líneas del archivo (1 a 6), delimitadas por tres guiones (`---`) 
 
@@ -256,7 +256,7 @@ En el cuerpo del bloque podemos escribir instrucciones de `r R()` igual que si e
 
 Notar el cambio de enfoque al escribir en un documento R Markdown respecto a escribir en un script:
 
-* En un script, se espera que escribamos código `r R()`, y para escribir texto ordinario hemos de usar comentarios utilizando el carácter `#`
+* En un script, se espera que escribamos código `r R()`, y para escribir texto ordinario hemos de usar comentarios utilizando el carácter `#`.
 
 * Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código `r R()` hemos de incluirlo en un bloque especial delimitado por la línea ` ```{r} ` al comienzo  y la línea  ` ``` ` al final.
 

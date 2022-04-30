@@ -1,4 +1,6 @@
-/*https://fonts.google.com/icons*/
+/*
+ * https://fonts.google.com/icons
+ */
 
 .infobox, .warningbox, .tipbox {
   padding: 1em 1em 1em 4em;
@@ -36,4 +38,11 @@
   display: inline;
   position: absolute;
   transform: translate(-1.5em,0);
+}
+
+.ebox {
+  padding: 1em 1em 1em 1em;
+  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  display: inline-block;
 }

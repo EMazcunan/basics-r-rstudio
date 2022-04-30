@@ -35,7 +35,7 @@ v <- c(1, 3, 5, 7, 9)
 ```
 crea un vector de nombre `v` formado por los primeros  $5$ números impares. Observa la entrada que se ha creado para `v` en el panel Environment.
 
-Para acceder al elemento número `i` del vector `v` se escribe `v[i]`. Por, ejemplo para extraer el segundo elemento de `v` escribimos 
+Para acceder al elemento número `i` del vector `v` se escribe `v[i]` (ojo, que el primer índice es `1`, no `0`). Por, ejemplo para extraer el segundo elemento de `v` escribimos 
 ```{r}
 v[2]
 ```
@@ -55,11 +55,6 @@ Las hojas de datos (en inglés *data frames*) son la clase de objetos que se usa
 
 Empezaremos explorando la hoja de datos de nombre `mpg` (**m**iles **p**er **g**allon), proporcionada por el paquete `ggplot2`(que ya hemos cargado al cargar el paquete `tidyverse`). Esta hoja de datos trata sobre el consumo de combustible de diferentes modelos de coches.
 
-Para obtener una descripción de la hoja de datos, escribe `mpg` en el campo de búsqueda del panel **Help** de `r RStudio()`. También puedes escribir `?mpg` o `help(mpg)` en la consola. La página de ayuda explica que la hoja de datos tiene  $234$ filas, donde cada fila representa un coche, y $11$ variables, que describen diferentes características de los coches. Nos vamos a centrar en las  variables `displ` y `hwy`, que nos describen como:
-
-* `displ`: *engine displacemente, in litres* (cilindrada)
-* `hwy`: *higway miles per gallon* (millas recorridas por galón de combustible en conducción por autopista)
-
 
 Para cargar la hoja de datos `mpg` en tu espacio de trabajo escribe
 ```{r}
@@ -78,6 +73,10 @@ knitr::include_graphics("images/df.png")
 
 En general, una hoja de datos es una especie de matriz u hoja de cálculo, donde las filas representan unidades experimentales, casos u observaciones (en nuestro ejemplo coches) y las columnas representan variables que describen características de interés de las unidades experimentales (en nuestro caso fabricante, modelo, cilindrada, consumo de combustible ...). Las celdas contienen los valores observados para cada variable en cada unidad experimental. 
 
+Para obtener una descripción de la hoja de datos, escribe `mpg` en el campo de búsqueda del panel **Help** de `r RStudio()`. También puedes escribir `?mpg` o `help(mpg)` en la consola. La página de ayuda explica que la hoja de datos tiene  $234$ filas, donde cada fila representa un coche, y $11$ variables, que describen diferentes características de los coches. Nos vamos a centrar en las  variables `displ` y `hwy`, que nos describen como:
+
+* `displ`: *engine displacemente, in litres* (cilindrada)
+* `hwy`: *higway miles per gallon* (millas recorridas por galón de combustible en conducción por autopista)
 
 Para extraer una de las variables de una hoja de datos se utiliza el formato `<nombre hoja>$<nombre variable>`. Por ejemplo, para extraer las cilindradas (variable `displ`) de la hoja de datos `mpg` utilizamos la instrucción siguiente:
 ```{r}
