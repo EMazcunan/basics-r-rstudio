@@ -1,5 +1,4 @@
 prerequisites
-r-echofalse-emediainclude_gdrive_videoid-1_6-tika2_0ty4sai7cz1lst7vfy1fe6q
 rmarkdown
 consola
 scripts-de-r
