@@ -1,4 +1,4 @@
-# Interfaz de `r RStudio()` {#rstudio}
+# Interfaz de RStudio {#rstudio}
 Al abrir `r RStudio()` verás una pantalla como la de la imagen a continuación. 
 
 ```{r, echo=FALSE, fig.cap="Interfaz de RStudio", out.extra={if(knitr::is_html_output()){'style="border:1px solid gray;"'}}}
