@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Visualización de datos | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="7 Visualización de datos | Primeros pasos con R y RStudio" />
+  <title>8 Visualización de datos | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="8 Visualización de datos | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Visualización de datos | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="8 Visualización de datos | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Visualización de datos | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="8 Visualización de datos | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="objects.html"/>
-<link rel="next" href="import.html"/>
+<link rel="prev" href="funciones.html"/>
+<link rel="next" href="tibbles.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -165,47 +165,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>1</b> Requisitos previos</a></li>
-<li class="chapter" data-level="2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2</b> Escribir y ejecutar código de R</a>
+<li class="chapter" data-level="2" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2</b> Interfaz de <span class="textsf">RStudio</span></a></li>
+<li class="chapter" data-level="3" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>3</b> Escribir y ejecutar código de R</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#consola"><i class="fa fa-check"></i><b>2.1</b> Consola</a></li>
-<li class="chapter" data-level="2.2" data-path="rmarkdown.html"><a href="rmarkdown.html#scripts-de-r"><i class="fa fa-check"></i><b>2.2</b> Scripts de R</a></li>
-<li class="chapter" data-level="2.3" data-path="rmarkdown.html"><a href="rmarkdown.html#documentos-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Documentos R Markdown</a>
+<li class="chapter" data-level="3.1" data-path="consola.html"><a href="consola.html"><i class="fa fa-check"></i><b>3.1</b> Consola</a></li>
+<li class="chapter" data-level="3.2" data-path="scripts-de-r.html"><a href="scripts-de-r.html"><i class="fa fa-check"></i><b>3.2</b> Scripts de R</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="rmarkdown.html"><a href="rmarkdown.html#creación"><i class="fa fa-check"></i><b>2.3.1</b> Creación</a></li>
-<li class="chapter" data-level="2.3.2" data-path="rmarkdown.html"><a href="rmarkdown.html#compilación"><i class="fa fa-check"></i><b>2.3.2</b> Compilación</a></li>
-<li class="chapter" data-level="2.3.3" data-path="rmarkdown.html"><a href="rmarkdown.html#encabezados"><i class="fa fa-check"></i><b>2.3.3</b> Encabezados</a></li>
-<li class="chapter" data-level="2.3.4" data-path="rmarkdown.html"><a href="rmarkdown.html#bloques-de-código"><i class="fa fa-check"></i><b>2.3.4</b> Bloques de código</a></li>
+<li class="chapter" data-level="3.2.1" data-path="scripts-de-r.html"><a href="scripts-de-r.html#creación"><i class="fa fa-check"></i><b>3.2.1</b> Creación</a></li>
+<li class="chapter" data-level="3.2.2" data-path="scripts-de-r.html"><a href="scripts-de-r.html#ejecución"><i class="fa fa-check"></i><b>3.2.2</b> Ejecución</a></li>
+<li class="chapter" data-level="3.2.3" data-path="scripts-de-r.html"><a href="scripts-de-r.html#comentarios"><i class="fa fa-check"></i><b>3.2.3</b> Comentarios</a></li>
+<li class="chapter" data-level="3.2.4" data-path="scripts-de-r.html"><a href="scripts-de-r.html#guardado"><i class="fa fa-check"></i><b>3.2.4</b> Guardado</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html"><i class="fa fa-check"></i><b>3.3</b> Documentos R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#creación-1"><i class="fa fa-check"></i><b>3.3.1</b> Creación</a></li>
+<li class="chapter" data-level="3.3.2" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#guardado-1"><i class="fa fa-check"></i><b>3.3.2</b> Guardado</a></li>
+<li class="chapter" data-level="3.3.3" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#estructura"><i class="fa fa-check"></i><b>3.3.3</b> Estructura</a></li>
+<li class="chapter" data-level="3.3.4" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#compilación"><i class="fa fa-check"></i><b>3.3.4</b> Compilación</a></li>
+<li class="chapter" data-level="3.3.5" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#encabezados"><i class="fa fa-check"></i><b>3.3.5</b> Encabezados</a></li>
+<li class="chapter" data-level="3.3.6" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#bloques-de-código"><i class="fa fa-check"></i><b>3.3.6</b> Bloques de código</a></li>
+<li class="chapter" data-level="3.3.7" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#ejecución-de-instrucciones-individuales"><i class="fa fa-check"></i><b>3.3.7</b> Ejecución de instrucciones individuales</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Plantilla de R Markdown</a>
+<li class="chapter" data-level="4" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html"><i class="fa fa-check"></i><b>4</b> Plantilla de R Markdown</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#primeros-contenidos"><i class="fa fa-check"></i><b>3.1</b> Primeros contenidos</a></li>
-<li class="chapter" data-level="3.2" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#algunas-opciones"><i class="fa fa-check"></i><b>3.2</b> Algunas opciones</a></li>
-<li class="chapter" data-level="3.3" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#global-options"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
-<li class="chapter" data-level="3.4" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#ejecución-de-instrucciones-individuales"><i class="fa fa-check"></i><b>3.4</b> Ejecución de instrucciones individuales</a></li>
-<li class="chapter" data-level="3.5" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#tabla-de-contenidos-flotante"><i class="fa fa-check"></i><b>3.5</b> Tabla de contenidos flotante</a></li>
-<li class="chapter" data-level="3.6" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#secciones-numeradas"><i class="fa fa-check"></i><b>3.6</b> Secciones numeradas</a></li>
-<li class="chapter" data-level="3.7" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#plantilla-final"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
+<li class="chapter" data-level="4.1" data-path="primeros-contenidos.html"><a href="primeros-contenidos.html"><i class="fa fa-check"></i><b>4.1</b> Primeros contenidos</a></li>
+<li class="chapter" data-level="4.2" data-path="algunas-opciones.html"><a href="algunas-opciones.html"><i class="fa fa-check"></i><b>4.2</b> Algunas opciones</a></li>
+<li class="chapter" data-level="4.3" data-path="global-options.html"><a href="global-options.html"><i class="fa fa-check"></i><b>4.3</b> Opciones globales</a></li>
+<li class="chapter" data-level="4.4" data-path="tabla-de-contenidos-flotante.html"><a href="tabla-de-contenidos-flotante.html"><i class="fa fa-check"></i><b>4.4</b> Tabla de contenidos flotante</a></li>
+<li class="chapter" data-level="4.5" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>4.5</b> Plantilla final</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
-<li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a>
+<li class="chapter" data-level="5" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>5</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="6" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>6</b> Paquetes</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="packages.html"><a href="packages.html#install"><i class="fa fa-check"></i><b>5.1</b> Instalar un paquete</a></li>
-<li class="chapter" data-level="5.2" data-path="packages.html"><a href="packages.html#cargar-un-paquete"><i class="fa fa-check"></i><b>5.2</b> Cargar un paquete</a></li>
+<li class="chapter" data-level="6.1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>6.1</b> Instalar un paquete</a></li>
+<li class="chapter" data-level="6.2" data-path="cargar-un-paquete.html"><a href="cargar-un-paquete.html"><i class="fa fa-check"></i><b>6.2</b> Cargar un paquete</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Objetos en R</a>
+<li class="chapter" data-level="7" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>7</b> Objetos en R</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="objects.html"><a href="objects.html#crear-un-objeto"><i class="fa fa-check"></i><b>6.1</b> Crear un objeto</a></li>
-<li class="chapter" data-level="6.2" data-path="objects.html"><a href="objects.html#vectores"><i class="fa fa-check"></i><b>6.2</b> Vectores</a></li>
-<li class="chapter" data-level="6.3" data-path="objects.html"><a href="objects.html#hojas-de-datos"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
+<li class="chapter" data-level="7.1" data-path="crear-un-objeto.html"><a href="crear-un-objeto.html"><i class="fa fa-check"></i><b>7.1</b> Crear un objeto</a></li>
+<li class="chapter" data-level="7.2" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>7.2</b> Vectores</a></li>
+<li class="chapter" data-level="7.3" data-path="hojas-de-datos.html"><a href="hojas-de-datos.html"><i class="fa fa-check"></i><b>7.3</b> Hojas de datos</a></li>
+<li class="chapter" data-level="7.4" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i><b>7.4</b> Funciones</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Visualización de datos</a></li>
-<li class="chapter" data-level="8" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>8</b> Importar datos</a>
+<li class="chapter" data-level="8" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>8</b> Visualización de datos</a></li>
+<li class="chapter" data-level="9" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>9</b> Crear hojas de datos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="import.html"><a href="import.html#los-datos"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
-<li class="chapter" data-level="8.2" data-path="import.html"><a href="import.html#importar-desde-archivo-local"><i class="fa fa-check"></i><b>8.2</b> Importar desde archivo local</a></li>
-<li class="chapter" data-level="8.3" data-path="import.html"><a href="import.html#importar-desde-url"><i class="fa fa-check"></i><b>8.3</b> Importar desde URL</a></li>
-<li class="chapter" data-level="8.4" data-path="import.html"><a href="import.html#usar-datos-importados"><i class="fa fa-check"></i><b>8.4</b> Usar datos importados</a></li>
+<li class="chapter" data-level="9.1" data-path="la-función-tibble.html"><a href="la-función-tibble.html"><i class="fa fa-check"></i><b>9.1</b> La función <code>tibble()</code></a></li>
+<li class="chapter" data-level="9.2" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>9.2</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="import.html"><a href="import.html#los-datos"><i class="fa fa-check"></i><b>9.2.1</b> Los datos</a></li>
+<li class="chapter" data-level="9.2.2" data-path="import.html"><a href="import.html#importar-desde-archivo-local"><i class="fa fa-check"></i><b>9.2.2</b> Importar desde archivo local</a></li>
+<li class="chapter" data-level="9.2.3" data-path="import.html"><a href="import.html#importar-desde-url"><i class="fa fa-check"></i><b>9.2.3</b> Importar desde URL</a></li>
+<li class="chapter" data-level="9.2.4" data-path="import.html"><a href="import.html#usar-datos-importados"><i class="fa fa-check"></i><b>9.2.4</b> Usar datos importados</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 </ul>
@@ -233,40 +246,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 
-<div id="plots" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">7</span> Visualización de datos<a href="plots.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="plots" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Visualización de datos<a href="plots.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En este capítulo seguimos trabajando con la hoja de datos <code>mpg</code> que presentamos antes.
 Nos planteamos en concreto si los coches con motor más grande (mayor <code>displ</code>) tienen mayor consumo de combustible (menor <code>hyw</code>).</p>
 <p>Para responder a la pregunta anterior, vamos a realizar un gráfico de puntos para explorar la relación entre las variables <code>displ</code> (cilindrada) y <code>hyw</code> (millas por galón de combustible):</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="plots.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
-<span id="cb48-2"><a href="plots.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) </span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-23-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="plots.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb58-2"><a href="plots.html#cb58-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) </span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-37-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Todos los gráficos se inicializan con la función <code>ggplot()</code>. En el código anterior, la línea</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="plots.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="plots.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg)</span></code></pre></div>
 <p>simplemente indica que en nuestro gráfico usaremos variables de la hoja de datos <code>mpg</code> y crea un gráfico vacío, al que podemos añadir capas utilizando funciones como <code>geom_point()</code>, que añadirá una capa de puntos. A lo largo del curso veremos otras funciones como <code>geom_bar()</code>, <code>geom_hist()</code> y <code>geom_line()</code> que añaden capas con otros objetos geométricos (barras, líneas …).</p>
 <p>Cada función para añadir un objeto geométrico como <code>geom_point()</code> necesita un argumento de la forma</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="plots.html#cb50-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="ot">=</span> <span class="fu">aes</span>(...)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="plots.html#cb60-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="ot">=</span> <span class="fu">aes</span>(...)</span></code></pre></div>
 <p>En nuestro ejemplo, ese argumento para la función <code>geom_line()</code> es</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="plots.html#cb51-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="ot">=</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="plots.html#cb61-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="ot">=</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)</span></code></pre></div>
 <p>que especifica que, para cada punto en nuestro gráfico, su coordenada <span class="math inline">\(x\)</span> vendrá definida por el valor de la variable <code>displ</code>, y su coordenada <span class="math inline">\(y\)</span> se corresponderá con la variable <code>hwy</code>.</p>
 <p>En general, en el argumento de la función <code>aes()</code> se especifica una lista de <strong>correspondencias</strong> (<em>mapping</em>) entre cada <strong>estética</strong> (<em>aesthetic</em>) o propiedad visual de los objetos geométricos a dibujar y las variables de nuestra hoja de datos.</p>
 <hr />
 <p>Ahora vamos a incluir más información en nuestro gráfico estableciendo una correspondencia entre el color de los puntos (otra propiedad estética) y la variable <code>class</code>, que indica el tipo de coche.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="plots.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
-<span id="cb52-2"><a href="plots.html#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))  </span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-27-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="plots.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb62-2"><a href="plots.html#cb62-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))  </span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-41-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Notar que la inclusión de la correspondencia <code>color = class</code> ha hecho que <code>ggplot2</code> asigne un color diferente (nivel diferente de la estética <code>color</code>) a cada tipo de coche (valor diferente de la variable <code>class</code>), e incluya una leyenda explicando qué color corresponde a qué tipo de coche.</p>
 <hr />
 <p>Acabamos personalizando los rótulos de nuestro gráfico con <code>labs()</code>:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="plots.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
-<span id="cb53-2"><a href="plots.html#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
-<span id="cb53-3"><a href="plots.html#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb53-4"><a href="plots.html#cb53-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Relación entre el tamaño del motor y el consumo de combustible&quot;</span>, </span>
-<span id="cb53-5"><a href="plots.html#cb53-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Cilindrada (litros)&quot;</span>,</span>
-<span id="cb53-6"><a href="plots.html#cb53-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Rendimiento combustible (millas/galón)&quot;</span>,</span>
-<span id="cb53-7"><a href="plots.html#cb53-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">&quot;Tipo de coche&quot;</span></span>
-<span id="cb53-8"><a href="plots.html#cb53-8" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-28-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="plots.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb63-2"><a href="plots.html#cb63-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
+<span id="cb63-3"><a href="plots.html#cb63-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb63-4"><a href="plots.html#cb63-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Relación entre el tamaño del motor y el consumo de combustible&quot;</span>, </span>
+<span id="cb63-5"><a href="plots.html#cb63-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Cilindrada (litros)&quot;</span>,</span>
+<span id="cb63-6"><a href="plots.html#cb63-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Rendimiento combustible (millas/galón)&quot;</span>,</span>
+<span id="cb63-7"><a href="plots.html#cb63-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">&quot;Tipo de coche&quot;</span></span>
+<span id="cb63-8"><a href="plots.html#cb63-8" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-42-1.png" width="100%" style="display: block; margin: auto;" /></p>
 
 </div>
 
@@ -275,8 +288,8 @@ Nos planteamos en concreto si los coches con motor más grande (mayor <code>disp
           </div>
         </div>
       </div>
-<a href="objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="import.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="funciones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tibbles.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

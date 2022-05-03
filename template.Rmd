@@ -35,15 +35,16 @@ Insert > R
 
 en la barra de herramientas de la pestaña del documento, que se muestra en la siguiente imagen:
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.cap="Insertar bloque de código", out.extra={if(knitr::is_html_output()){'style="border:1px solid gray;"'}}}
 knitr::include_graphics("images/insert-r.png")
 ```
 
-En el bloque de código que acabas de crear añade las instrucciones 
+En el bloque de código que acabas de crear añade las misma instrucciones que habíamos incluido en el script:
 
 ````md
-sqrt(8)
-sqrt(10)
+sqrt(2)
+5^3
+exp(3)
 ````
 de forma que los contenidos añadidos queden:
 
@@ -51,8 +52,9 @@ de forma que los contenidos añadidos queden:
 # Bloques de código
 
 ```{r}`r ''`
-sqrt(8)
-sqrt(10)
+sqrt(2)
+5^3
+exp(3)
 ```
 ````
 
@@ -62,22 +64,25 @@ Compila para ver el resultado.
 
 Tras compilar el documento con los contenidos añadidos en la sección anterior, verás que en el documento HTML generado aparecen:
 
-* El código de la primera instrucción `sqrt(8)`
-* Su salida `r sqrt(8)`
-* El código de la segunda instrucción `sqrt(10)`
-* Su salida `r sqrt(10)`
+* El código de la primera instrucción `sqrt(2)`
+* Su salida `r sqrt(2)`
+* El código de la segunda instrucción `5^3`
+* Su salida `r 5^3`
+* El código de la tercera instrucción `exp(3)`
+* Su salida `r exp(3)`
 
-
-Para que se muestre primero el código para las dos instrucciones y a continuación las dos salidas, añade la opción `results='hold'`. 
+Para que se muestre primero el código para las tres instrucciones y a continuación las dos salidas, añade la opción `results='hold'`. 
 
 Y para omitir los caracteres `##` al comienzo de las líneas de la salida, añade la opción `comment = ''`. Nuestro bloque de código con estas dos opciones quedaría:
 
 ````md
 ```{r, results='hold', comment = ''}`r ''`
-sqrt(8)
-sqrt(10)
+sqrt(2)
+5^3
+exp(3)
 ```
 ````
+
 Vuelve a compilar y observa el resultado. 
 
  
@@ -92,7 +97,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ````
 que estaba incluido en el documento de muestra. Este bloque se identifica con la etiqueta `setup` y tiene la opción `include=FALSE`, que hace que, al compilar el documento, si bien se ejecutará la instrucción que contiene, no se incluirá en el formato HTML de salida.
 
-Se explica a continuación el significado de la instrucción `knitr::opts_chunk$set(echo = TRUE)`: Las opciones especificadas como argumentos de  `knitr::opts_chunk$set` (por ahora `echo=TRUE`) aplicarán a todos los bloques de código que se incluyan en el documento. 
+Se explica a continuación el significado de la instrucción `knitr::opts_chunk$set(echo = TRUE)` en este bloque de código: Las opciones especificadas como argumentos de  `knitr::opts_chunk$set` (por ahora `echo=TRUE`) aplicarán a todos los bloques de código que se incluyan en el documento. 
 
 
 Las opciones `results='hold'` y `comment = ''` que hemos aplicado antes a nuestro bloque de código tendrían un efecto local, es decir, aplicarían solo al bloque en el que se han especificado, y si queremos usarlas en los nuevos bloques que creemos, habría que escribirlas de nuevo en todos ellos. 
@@ -108,35 +113,7 @@ knitr::opts_chunk$set(
 ````
 Ahora, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, así que puedes borrarlas del bloque de código que creaste antes. 
 
-## Ejecución de instrucciones individuales
 
-Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, tanto el código como la salida o resultado (siempre que no hay opciones como `echo=FALSE` o `include=FALSE` que inhiban la impresión del código y/o de la salida).
-
-Pero también podemos ejecutar determinadas instrucciones de forma individual, sin necesidad de compilar el documento completo. 
-Para ello, podemos proceder exactamente igual que en el caso de los scripts, es decir:
-
-* Para ejecutar una sola instrucción, situamos el cursor en cualquiera de las  líneas que compongan la instrucción y presionamos `Ctrl + Enter`. 
-
-* Para ejecutar varias instrucciones, seleccionamos las correspondientes líneas y presionamos `Ctrl + Enter`.
-
-
-La salida se mostrará en la consola, y también  incrustada en el propio documento, justo debajo del correspondiente bloque de código. Para esto último ha de estar marcada la opción **Show output inline for all R Markdown documents** en las opciones para R Markdown en el menú 
-
-::: {.menu data-latex=""}
-Tools > Global options ... > R Markdown
-:::
-
-como muestra la siguiente imagen:
-```{r, echo=FALSE}
-knitr::include_graphics("images/options-r-markdown-b.png")
-```
-
-
-Además, podemos ejecutar todas las instrucciones que componen un bloque de código utilizando el botón a la derecha del comienzo del bloque que se resalta en la siguiente imagen:
-
-```{r, echo=FALSE, out.width="80%"}
-knitr::include_graphics("images/run.png")
-```
 
 ## Tabla de contenidos flotante 
 
@@ -169,17 +146,6 @@ Compila de nuevo y abre el resultado en el navegador. Verás la tabla de conteni
 
 Para apreciar la funcionalidad de la tabla de contenidos flotante, reduce la altura de la ventana del navegador hasta que sea inferior a los contenidos en el cuerpo del documento y aparezca la barra de *scroll* para recorrerlo. Verás que las entradas de la tabla de contenidos actúan como enlaces al inicio de cada capítulo.  
 
-## Secciones numeradas
-
-Para numerar los capítulos añade `number_sections: true` como opción para el formato de salida:
-
-```md
-output: 
-    html_document:
-        toc: true
-        toc_float: true
-        number_sections: true
-```
 
 ## Plantilla final
 

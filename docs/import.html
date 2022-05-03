@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Importar datos | Primeros pasos con R y RStudio</title>
-  <meta name="description" content="8 Importar datos | Primeros pasos con R y RStudio" />
+  <title>9.2 Importar datos | Primeros pasos con R y RStudio</title>
+  <meta name="description" content="9.2 Importar datos | Primeros pasos con R y RStudio" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Importar datos | Primeros pasos con R y RStudio" />
+  <meta property="og:title" content="9.2 Importar datos | Primeros pasos con R y RStudio" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="EMazcunan/basics-r-rstudio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Importar datos | Primeros pasos con R y RStudio" />
+  <meta name="twitter:title" content="9.2 Importar datos | Primeros pasos con R y RStudio" />
   
   
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="plots.html"/>
+<link rel="prev" href="la-función-tibble.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -165,47 +165,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>1</b> Requisitos previos</a></li>
-<li class="chapter" data-level="2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2</b> Escribir y ejecutar código de R</a>
+<li class="chapter" data-level="2" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2</b> Interfaz de <span class="textsf">RStudio</span></a></li>
+<li class="chapter" data-level="3" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>3</b> Escribir y ejecutar código de R</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#consola"><i class="fa fa-check"></i><b>2.1</b> Consola</a></li>
-<li class="chapter" data-level="2.2" data-path="rmarkdown.html"><a href="rmarkdown.html#scripts-de-r"><i class="fa fa-check"></i><b>2.2</b> Scripts de R</a></li>
-<li class="chapter" data-level="2.3" data-path="rmarkdown.html"><a href="rmarkdown.html#documentos-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Documentos R Markdown</a>
+<li class="chapter" data-level="3.1" data-path="consola.html"><a href="consola.html"><i class="fa fa-check"></i><b>3.1</b> Consola</a></li>
+<li class="chapter" data-level="3.2" data-path="scripts-de-r.html"><a href="scripts-de-r.html"><i class="fa fa-check"></i><b>3.2</b> Scripts de R</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="rmarkdown.html"><a href="rmarkdown.html#creación"><i class="fa fa-check"></i><b>2.3.1</b> Creación</a></li>
-<li class="chapter" data-level="2.3.2" data-path="rmarkdown.html"><a href="rmarkdown.html#compilación"><i class="fa fa-check"></i><b>2.3.2</b> Compilación</a></li>
-<li class="chapter" data-level="2.3.3" data-path="rmarkdown.html"><a href="rmarkdown.html#encabezados"><i class="fa fa-check"></i><b>2.3.3</b> Encabezados</a></li>
-<li class="chapter" data-level="2.3.4" data-path="rmarkdown.html"><a href="rmarkdown.html#bloques-de-código"><i class="fa fa-check"></i><b>2.3.4</b> Bloques de código</a></li>
+<li class="chapter" data-level="3.2.1" data-path="scripts-de-r.html"><a href="scripts-de-r.html#creación"><i class="fa fa-check"></i><b>3.2.1</b> Creación</a></li>
+<li class="chapter" data-level="3.2.2" data-path="scripts-de-r.html"><a href="scripts-de-r.html#ejecución"><i class="fa fa-check"></i><b>3.2.2</b> Ejecución</a></li>
+<li class="chapter" data-level="3.2.3" data-path="scripts-de-r.html"><a href="scripts-de-r.html#comentarios"><i class="fa fa-check"></i><b>3.2.3</b> Comentarios</a></li>
+<li class="chapter" data-level="3.2.4" data-path="scripts-de-r.html"><a href="scripts-de-r.html#guardado"><i class="fa fa-check"></i><b>3.2.4</b> Guardado</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html"><i class="fa fa-check"></i><b>3.3</b> Documentos R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#creación-1"><i class="fa fa-check"></i><b>3.3.1</b> Creación</a></li>
+<li class="chapter" data-level="3.3.2" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#guardado-1"><i class="fa fa-check"></i><b>3.3.2</b> Guardado</a></li>
+<li class="chapter" data-level="3.3.3" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#estructura"><i class="fa fa-check"></i><b>3.3.3</b> Estructura</a></li>
+<li class="chapter" data-level="3.3.4" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#compilación"><i class="fa fa-check"></i><b>3.3.4</b> Compilación</a></li>
+<li class="chapter" data-level="3.3.5" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#encabezados"><i class="fa fa-check"></i><b>3.3.5</b> Encabezados</a></li>
+<li class="chapter" data-level="3.3.6" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#bloques-de-código"><i class="fa fa-check"></i><b>3.3.6</b> Bloques de código</a></li>
+<li class="chapter" data-level="3.3.7" data-path="documentos-r-markdown.html"><a href="documentos-r-markdown.html#ejecución-de-instrucciones-individuales"><i class="fa fa-check"></i><b>3.3.7</b> Ejecución de instrucciones individuales</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Plantilla de R Markdown</a>
+<li class="chapter" data-level="4" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html"><i class="fa fa-check"></i><b>4</b> Plantilla de R Markdown</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#primeros-contenidos"><i class="fa fa-check"></i><b>3.1</b> Primeros contenidos</a></li>
-<li class="chapter" data-level="3.2" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#algunas-opciones"><i class="fa fa-check"></i><b>3.2</b> Algunas opciones</a></li>
-<li class="chapter" data-level="3.3" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#global-options"><i class="fa fa-check"></i><b>3.3</b> Opciones globales</a></li>
-<li class="chapter" data-level="3.4" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#ejecución-de-instrucciones-individuales"><i class="fa fa-check"></i><b>3.4</b> Ejecución de instrucciones individuales</a></li>
-<li class="chapter" data-level="3.5" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#tabla-de-contenidos-flotante"><i class="fa fa-check"></i><b>3.5</b> Tabla de contenidos flotante</a></li>
-<li class="chapter" data-level="3.6" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#secciones-numeradas"><i class="fa fa-check"></i><b>3.6</b> Secciones numeradas</a></li>
-<li class="chapter" data-level="3.7" data-path="plantilla-de-r-markdown.html"><a href="plantilla-de-r-markdown.html#plantilla-final"><i class="fa fa-check"></i><b>3.7</b> Plantilla final</a></li>
+<li class="chapter" data-level="4.1" data-path="primeros-contenidos.html"><a href="primeros-contenidos.html"><i class="fa fa-check"></i><b>4.1</b> Primeros contenidos</a></li>
+<li class="chapter" data-level="4.2" data-path="algunas-opciones.html"><a href="algunas-opciones.html"><i class="fa fa-check"></i><b>4.2</b> Algunas opciones</a></li>
+<li class="chapter" data-level="4.3" data-path="global-options.html"><a href="global-options.html"><i class="fa fa-check"></i><b>4.3</b> Opciones globales</a></li>
+<li class="chapter" data-level="4.4" data-path="tabla-de-contenidos-flotante.html"><a href="tabla-de-contenidos-flotante.html"><i class="fa fa-check"></i><b>4.4</b> Tabla de contenidos flotante</a></li>
+<li class="chapter" data-level="4.5" data-path="plantilla-final.html"><a href="plantilla-final.html"><i class="fa fa-check"></i><b>4.5</b> Plantilla final</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>4</b> Flujo de trabajo</a></li>
-<li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Paquetes</a>
+<li class="chapter" data-level="5" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>5</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="6" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>6</b> Paquetes</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="packages.html"><a href="packages.html#install"><i class="fa fa-check"></i><b>5.1</b> Instalar un paquete</a></li>
-<li class="chapter" data-level="5.2" data-path="packages.html"><a href="packages.html#cargar-un-paquete"><i class="fa fa-check"></i><b>5.2</b> Cargar un paquete</a></li>
+<li class="chapter" data-level="6.1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>6.1</b> Instalar un paquete</a></li>
+<li class="chapter" data-level="6.2" data-path="cargar-un-paquete.html"><a href="cargar-un-paquete.html"><i class="fa fa-check"></i><b>6.2</b> Cargar un paquete</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>6</b> Objetos en R</a>
+<li class="chapter" data-level="7" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>7</b> Objetos en R</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="objects.html"><a href="objects.html#crear-un-objeto"><i class="fa fa-check"></i><b>6.1</b> Crear un objeto</a></li>
-<li class="chapter" data-level="6.2" data-path="objects.html"><a href="objects.html#vectores"><i class="fa fa-check"></i><b>6.2</b> Vectores</a></li>
-<li class="chapter" data-level="6.3" data-path="objects.html"><a href="objects.html#hojas-de-datos"><i class="fa fa-check"></i><b>6.3</b> Hojas de datos</a></li>
+<li class="chapter" data-level="7.1" data-path="crear-un-objeto.html"><a href="crear-un-objeto.html"><i class="fa fa-check"></i><b>7.1</b> Crear un objeto</a></li>
+<li class="chapter" data-level="7.2" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>7.2</b> Vectores</a></li>
+<li class="chapter" data-level="7.3" data-path="hojas-de-datos.html"><a href="hojas-de-datos.html"><i class="fa fa-check"></i><b>7.3</b> Hojas de datos</a></li>
+<li class="chapter" data-level="7.4" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i><b>7.4</b> Funciones</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>7</b> Visualización de datos</a></li>
-<li class="chapter" data-level="8" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>8</b> Importar datos</a>
+<li class="chapter" data-level="8" data-path="plots.html"><a href="plots.html"><i class="fa fa-check"></i><b>8</b> Visualización de datos</a></li>
+<li class="chapter" data-level="9" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>9</b> Crear hojas de datos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="import.html"><a href="import.html#los-datos"><i class="fa fa-check"></i><b>8.1</b> Los datos</a></li>
-<li class="chapter" data-level="8.2" data-path="import.html"><a href="import.html#importar-desde-archivo-local"><i class="fa fa-check"></i><b>8.2</b> Importar desde archivo local</a></li>
-<li class="chapter" data-level="8.3" data-path="import.html"><a href="import.html#importar-desde-url"><i class="fa fa-check"></i><b>8.3</b> Importar desde URL</a></li>
-<li class="chapter" data-level="8.4" data-path="import.html"><a href="import.html#usar-datos-importados"><i class="fa fa-check"></i><b>8.4</b> Usar datos importados</a></li>
+<li class="chapter" data-level="9.1" data-path="la-función-tibble.html"><a href="la-función-tibble.html"><i class="fa fa-check"></i><b>9.1</b> La función <code>tibble()</code></a></li>
+<li class="chapter" data-level="9.2" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>9.2</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="import.html"><a href="import.html#los-datos"><i class="fa fa-check"></i><b>9.2.1</b> Los datos</a></li>
+<li class="chapter" data-level="9.2.2" data-path="import.html"><a href="import.html#importar-desde-archivo-local"><i class="fa fa-check"></i><b>9.2.2</b> Importar desde archivo local</a></li>
+<li class="chapter" data-level="9.2.3" data-path="import.html"><a href="import.html#importar-desde-url"><i class="fa fa-check"></i><b>9.2.3</b> Importar desde URL</a></li>
+<li class="chapter" data-level="9.2.4" data-path="import.html"><a href="import.html#usar-datos-importados"><i class="fa fa-check"></i><b>9.2.4</b> Usar datos importados</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 </ul>
@@ -233,20 +246,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 
-<div id="import" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> Importar datos<a href="import.html#import" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hasta ahora hemos trabajado con hojas de datos proporcionadas por paquetes de <span class="textsf">R</span>, como <code>mpg</code> (de <code>ggplot2</code>). La colección de hojas de datos proporcionada por los diferentes paquetes de <span class="textsf">R</span> es un buen recurso para enseñar y aprender diferentes tópicos. Pero en la práctica es necesario trabajar con nuestros propios datos o datos extraídos de diversas fuentes.</p>
-<p>En este capítulo veremos cómo importar datos en <span class="textsf">R</span> desde un fichero externo con el paquete <code>readr</code>. El paquete <code>readr</code> forma parte de <code>tidyverse</code> de forma que no es necesario cargarlo individualmente si ya has cargado <code>tidyverse</code>. En concreto, veremos cómo importar los datos contenidos en un archivo CSV (<em>comma separated values</em>) con la función <code>read_csv()</code>.</p>
-<div id="los-datos" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Los datos<a href="import.html#los-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="import" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Importar datos<a href="import.html#import" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En este apartado veremos cómo importar datos desde un fichero externo con el paquete <code>readr</code>. El paquete <code>readr</code> forma parte de <code>tidyverse</code> de forma que no es necesario cargarlo individualmente si ya has cargado <code>tidyverse</code>. En concreto, veremos cómo importar los datos contenidos en un archivo CSV (<em>comma separated values</em>) con la función <code>read_csv()</code>.</p>
+<div id="los-datos" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Los datos<a href="import.html#los-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Trabajaremos con un archivo de nombre <code>temperaturas.csv</code>, que contiene las temperaturas máximas y mínimas registradas en el observatorio de la Virgen del Camino para todos los días del mes de abril del año 2018.</p>
 <p>Descárgalo pinchando <a href="https://drive.google.com/uc?export=download&amp;id=1xDIvAcQSS4_dFoSIO2hcprhqnbXJqx9r" target="_blank">aquí</a> y guárdalo en una carpeta de nombre <code>data</code> en el directorio del archivo R Markdown con el que estés trabajando.</p>
 </div>
-<div id="importar-desde-archivo-local" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Importar desde archivo local<a href="import.html#importar-desde-archivo-local" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="importar-desde-archivo-local" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Importar desde archivo local<a href="import.html#importar-desde-archivo-local" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Teniendo el archivo descargado en nuestro equipo, podemos importarlo especificando, como primer argumento de la función <code>read_csv()</code>, la ruta del archivo, que puede ser local respecto al directorio de trabajo actual.</p>
 <p>Con la siguiente instrucción leemos el archivo que hemos descargado y lo almacenamos en un objeto de nombre <code>temps</code>.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="import.html#cb54-1" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/temperaturas.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="import.html#cb67-1" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/temperaturas.csv&quot;</span>)</span></code></pre></div>
 <div class="infobox">
 <p>Si obtienes algún error indicando que no se encuentra el archivo, puede deberse a que el directorio de trabajo no es el correcto.</p>
 <ul>
@@ -265,60 +277,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>Tmin</code>: temperatura mínima del día</li>
 </ul>
 </div>
-<div id="importar-desde-url" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Importar desde URL<a href="import.html#importar-desde-url" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="importar-desde-url" class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> Importar desde URL<a href="import.html#importar-desde-url" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Antes hemos realizado la descarga del archivo de datos de forma manual. También podríamos haberlo hecho desde <span class="textsf">R</span>, con la función <code>download.file()</code>:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="import.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(</span>
-<span id="cb55-2"><a href="import.html#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="st">&quot;https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv&quot;</span>,</span>
-<span id="cb55-3"><a href="import.html#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">destfile =</span> <span class="st">&quot;data/temperaturas2.csv&quot;</span></span>
-<span id="cb55-4"><a href="import.html#cb55-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="import.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(</span>
+<span id="cb68-2"><a href="import.html#cb68-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">url =</span> <span class="st">&quot;https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv&quot;</span>,</span>
+<span id="cb68-3"><a href="import.html#cb68-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">destfile =</span> <span class="st">&quot;data/temperaturas2.csv&quot;</span></span>
+<span id="cb68-4"><a href="import.html#cb68-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Comprueba que se ha creado el archivo <code>temperaturas2.csv</code> en la carpeta <code>data</code>.</p>
 <p>De hecho, el argumento para especificar el archivo en la función <code>read_csv</code>, admite una URL. Así que los dos pasos que hemos seguido antes, descargar e importar, pueden hacerse con una sola instrucción:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="import.html#cb56-1" aria-hidden="true" tabindex="-1"></a>temps2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="import.html#cb69-1" aria-hidden="true" tabindex="-1"></a>temps2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio/master/data/temperaturas.csv&quot;</span>)</span></code></pre></div>
 <p>Después de ejecutar la instrucción anterior, puedes verificar que los objetos <code>temps</code> y <code>temps2</code> son idénticos.</p>
 </div>
-<div id="usar-datos-importados" class="section level2 hasAnchor" number="8.4">
-<h2><span class="header-section-number">8.4</span> Usar datos importados<a href="import.html#usar-datos-importados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="usar-datos-importados" class="section level3 hasAnchor" number="9.2.4">
+<h3><span class="header-section-number">9.2.4</span> Usar datos importados<a href="import.html#usar-datos-importados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Una vez que hemos importado los datos de un fichero y los hemos almacenado en un objeto, podemos utilizar dicho objeto como si se tratara de una de las hojas de datos predefinidas en <span class="textsf">R</span>.</p>
 <p>Podemos por ejemplo representar la evolución de las temperaturas mínimas y máximas a lo largo de los días:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="import.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temps) <span class="sc">+</span> </span>
-<span id="cb57-2"><a href="import.html#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Tmin, <span class="at">group  =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb57-3"><a href="import.html#cb57-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Tmax, <span class="at">group  =</span> <span class="dv">1</span>)) </span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-32-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="import.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temps) <span class="sc">+</span> </span>
+<span id="cb70-2"><a href="import.html#cb70-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Tmin, <span class="at">group  =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb70-3"><a href="import.html#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">y =</span> Tmax, <span class="at">group  =</span> <span class="dv">1</span>)) </span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-48-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>La función <code>geom_line()</code> actúa primero como si se dibujara un gráfico de puntos con <code>geom_point()</code> y luego conecta los puntos conforme indique el valor del argumento <code>group</code>. En el caso de nuestros dos diagramas de líneas, queremos que todos los puntos estén conectados, y lo indicamos usando <code>group=1</code>. Cuando hay más variables, la agrupación para las líneas suele hacerse por variable. Si por ejemplo tuvierámos cada día mediciones en varias ciudades, podríamos agrupar para la variable especificando la ciudad.</p>
 <p>Cuando varias capas de un gráfico comparten estéticas, esas estéticas comunes pueden especificarse en el argumento de <code>ggplot()</code>. El ejemplo anterior puede acortarse a:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="import.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temps, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb58-2"><a href="import.html#cb58-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> Tmin)) <span class="sc">+</span> </span>
-<span id="cb58-3"><a href="import.html#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> Tmax)) </span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="import.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temps, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb71-2"><a href="import.html#cb71-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> Tmin)) <span class="sc">+</span> </span>
+<span id="cb71-3"><a href="import.html#cb71-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> Tmax)) </span></code></pre></div>
 <p>A continuación tenemos una versión un poco más elaborada del gráfico anterior. Utiliza el paquete <code>scales</code>, que ha de instalarse con <code>install.packages("scales")</code>.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="import.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb59-2"><a href="import.html#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-3"><a href="import.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temps, <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb59-4"><a href="import.html#cb59-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Tmax), <span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb59-5"><a href="import.html#cb59-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Tmin), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb59-6"><a href="import.html#cb59-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_date</span>(</span>
-<span id="cb59-7"><a href="import.html#cb59-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb59-8"><a href="import.html#cb59-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">breaks =</span> <span class="fu">date_breaks</span>(<span class="st">&quot;1 day&quot;</span>), </span>
-<span id="cb59-9"><a href="import.html#cb59-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">labels =</span> <span class="fu">date_format</span>(<span class="st">&quot;%d&quot;</span>)</span>
-<span id="cb59-10"><a href="import.html#cb59-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb59-11"><a href="import.html#cb59-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">30</span>, <span class="dv">5</span>)) <span class="sc">+</span> </span>
-<span id="cb59-12"><a href="import.html#cb59-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb59-13"><a href="import.html#cb59-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Temperaturas máximas y mínimas en abril de 2018&quot;</span>,</span>
-<span id="cb59-14"><a href="import.html#cb59-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Día&quot;</span>,</span>
-<span id="cb59-15"><a href="import.html#cb59-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Temperatura ( ºC )&quot;</span></span>
-<span id="cb59-16"><a href="import.html#cb59-16" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
-<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-34-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="import.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb72-2"><a href="import.html#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-3"><a href="import.html#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> temps, <span class="fu">aes</span>(<span class="at">x =</span> Fecha, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb72-4"><a href="import.html#cb72-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Tmax), <span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb72-5"><a href="import.html#cb72-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Tmin), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb72-6"><a href="import.html#cb72-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_date</span>(</span>
+<span id="cb72-7"><a href="import.html#cb72-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb72-8"><a href="import.html#cb72-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">breaks =</span> <span class="fu">date_breaks</span>(<span class="st">&quot;1 day&quot;</span>), </span>
+<span id="cb72-9"><a href="import.html#cb72-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">labels =</span> <span class="fu">date_format</span>(<span class="st">&quot;%d&quot;</span>)</span>
+<span id="cb72-10"><a href="import.html#cb72-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb72-11"><a href="import.html#cb72-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">30</span>, <span class="dv">5</span>)) <span class="sc">+</span> </span>
+<span id="cb72-12"><a href="import.html#cb72-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb72-13"><a href="import.html#cb72-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Temperaturas máximas y mínimas en abril de 2018&quot;</span>,</span>
+<span id="cb72-14"><a href="import.html#cb72-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">&quot;Día&quot;</span>,</span>
+<span id="cb72-15"><a href="import.html#cb72-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Temperatura ( ºC )&quot;</span></span>
+<span id="cb72-16"><a href="import.html#cb72-16" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<p><img src="basics-R-RStudio_files/figure-html/unnamed-chunk-50-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <!-- Cuando se usa `color` se puede suprimir `group` -->
 
 </div>
 </div>
+<!-- </div> -->
 
             </section>
 
           </div>
         </div>
       </div>
-<a href="plots.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="la-función-tibble.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

@@ -1,6 +1,6 @@
 rmd_files:
-    html: ["index.Rmd", "prerequisites.Rmd", "rmarkdown.Rmd", "template.Rmd", "flow.Rmd", "packages.Rmd", "objects.Rmd", "plots.Rmd", "import.Rmd"]
-    latex: ["index.Rmd", "prerequisites.Rmd", "rmarkdown.Rmd", "template.Rmd", "flow.Rmd", "packages.Rmd", "objects.Rmd", "plots.Rmd", "import.Rmd"]
+    html: ["index.Rmd", "prerequisites.Rmd", "rstudio.Rmd", "rmarkdown.Rmd", "template.Rmd", "flow.Rmd", "packages.Rmd", "objects.Rmd", "plots.Rmd", "tibbles.Rmd"]
+    latex: ["index.Rmd", "prerequisites.Rmd", "rstudio.Rmd", "rmarkdown.Rmd", "template.Rmd", "flow.Rmd", "packages.Rmd", "objects.Rmd", "plots.Rmd", "tibbles.Rmd"]
 book_filename: "basics-R-RStudio.Rmd"
 output_dir: "docs" # Para GitHub (por defecto es _book)
 delete_merged_file: true

@@ -2,6 +2,10 @@
 
 Antes de realizar esta práctica tienes que instalar `r R()` y `r RStudio()` en tu equipo. 
 
+```{r, echo=FALSE, fig.show="hold", out.width=c("14%", "10%" , "30%"),  fig.cap ={if(knitr::is_html_output()){' '}else{}}}
+knitr::include_graphics(c("images/r-logo.png", "images/sep.png", "images/rstudio-logo.png"))
+```
+
 En el documento [Instalación de R y RStudio](https://emazcunan.github.io/install-r-rstudio){target="_blank"} encontrarás las instrucciones para hacerlo.
 
 

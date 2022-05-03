@@ -1,15 +1,77 @@
-# Importar datos {#import}
+# Crear hojas de datos {#tibbles}
+
 
 Hasta ahora hemos trabajado con hojas de datos proporcionadas por paquetes de `r R()`, como `mpg` (de `ggplot2`). La colección de hojas de datos proporcionada por los diferentes paquetes de `r R()` es un buen recurso para enseñar y aprender diferentes tópicos. Pero en la práctica es necesario trabajar con nuestros propios datos o datos extraídos de diversas fuentes.  
 
 
-En este capítulo veremos cómo importar datos en `r R()` desde un fichero externo con el paquete `readr`. El paquete `readr` forma parte de `tidyverse` de forma que no es necesario cargarlo individualmente si ya has cargado `tidyverse`.  En concreto, veremos cómo importar los datos contenidos en un archivo CSV (*comma separated values*) con la función  `read_csv()`.
+En este capítulo veremos cómo crear hojas de datos en `r R()` y cómo  importar datos desde un fichero externo.
+
+## La función `tibble()`
+
+En este apartado veremos cómo crear hojas de datos en `r R()` con la función `tibble()`, del paquete del mismo nombre. El paquete `tibble` forma parte de `tidyverse` de forma que no es necesario cargarlo individualmente si ya has cargado `tidyverse`.  
+
+En el siguiente ejemplo se crea una hoja de datos sobre los [seis libros más vendidos de la historia](https://en.wikipedia.org/wiki/List_of_best-selling_books){target="_blank"} y se almacena en un objeto de nombre `best_sellers`. 
 
 
+```{r}
+best_sellers <- tibble(
+    title = c(
+        "A Tale of Two Cities", 
+        "The Little Prince",
+        "Harry Potter and the Philosopher's Stone",
+        "And Then There Were None",
+        "Dream of the Red Chamber",
+        "The Hobbit"
+    ),
+    author = c(
+        "Charles Dickens",
+        "Antoine de Saint-Exupéry",
+        "J. K. Rowling",
+        "Agatha Christie",
+        "Cao Xueqin",
+        "J. R. R. Tolkien"
+    ),
+    lang = c(
+        "English",
+        "French",
+        "English",
+        "English",
+        "Chinese",
+        "English"
+    ),
+    year = c(
+        1859,
+        1943,
+        1997,
+        1939,
+        1791,
+        1937
+    )
+)
+```
+
+Cada argumento de la función `tibble()` se corresponde con una variable en el formato `<nombre variable> = <vector de valores>.`
+
+Para ver sólo los títulos de los libros usaríamos
+```{r}
+best_sellers$title
+```
+
+ 
 
 
+::: {.infobox data-latex=""}
+La función usada tradicionalmente para crear hojas de datos en `r R()` es `data.frame()`. Las hojas de datos creadas con la función `tibble()` son una versión mejorada de las hojas de datos clásicas creadas con `data.frame()` y son el estandar actúal. La mayoría de funciones del \textit{tidyverse} trabajan con este tipo de hojas de datos, que a menudo se refieren como \textit{\textbf{tibbles}}. 
+:::
 
-## Los datos 
+
+## Importar datos {#import}
+
+
+En este apartado veremos cómo importar datos  desde un fichero externo con el paquete `readr`. El paquete `readr` forma parte de `tidyverse` de forma que no es necesario cargarlo individualmente si ya has cargado `tidyverse`.  En concreto, veremos cómo importar los datos contenidos en un archivo CSV (*comma separated values*) con la función  `read_csv()`.
+
+
+### Los datos 
 
 Trabajaremos con un archivo de nombre `temperaturas.csv`, que contiene las temperaturas máximas y mínimas registradas en el observatorio de la Virgen del Camino para todos los días del mes de abril del año 2018.
 
@@ -17,7 +79,7 @@ Trabajaremos con un archivo de nombre `temperaturas.csv`, que contiene las tempe
 Descárgalo pinchando [aquí](https://drive.google.com/uc?export=download&id=1xDIvAcQSS4_dFoSIO2hcprhqnbXJqx9r){target="_blank"} y  guárdalo en una carpeta de nombre `data` en el directorio del archivo R Markdown con el que estés trabajando.
 
 
-## Importar desde archivo local
+### Importar desde archivo local
 
 Teniendo el archivo descargado en nuestro equipo, podemos importarlo especificando, como primer argumento de la función `read_csv()`,  la ruta del archivo, que puede ser local respecto al directorio  de trabajo actual. 
 
@@ -49,7 +111,7 @@ Verás que hay $30$ filas, una por cada día del mes, y $3$ columnas con las var
 - `Tmax`: temperatura máxima del día
 - `Tmin`: temperatura mínima del día
 
-## Importar desde URL
+### Importar desde URL
 
 Antes hemos realizado la descarga del archivo de datos de forma manual. También podríamos haberlo hecho  desde `r R()`, con la función `download.file()`:
 
@@ -71,7 +133,7 @@ temps2 <- read_csv("https://raw.githubusercontent.com/EMazcunan/basics-r-rstudio
 Después de ejecutar la instrucción anterior, puedes verificar que los objetos  `temps` y `temps2` son idénticos.
 
 
-## Usar datos importados
+### Usar datos importados
 
 Una vez que hemos importado los datos de un fichero y los hemos almacenado en un objeto, podemos utilizar dicho objeto como si se tratara de una de las hojas de datos predefinidas en `r R()`.
 

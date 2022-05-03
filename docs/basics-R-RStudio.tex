@@ -164,24 +164,67 @@ que estudies este material como previo a la realización de las siguientes prác
 
 Antes de realizar esta práctica tienes que instalar \textsf{R} y \textsf{RStudio} en tu equipo.
 
+\begin{center}\includegraphics[width=0.14\linewidth]{images/r-logo} \includegraphics[width=0.1\linewidth]{images/sep} \includegraphics[width=0.3\linewidth]{images/rstudio-logo} \end{center}
+
 En el documento \href{https://emazcunan.github.io/install-r-rstudio}{Instalación de R y RStudio} encontrarás las instrucciones para hacerlo.
 
-\href{https://drive.google.com/uc?id=1_6-TIKa2_0Ty4sAI7cZ1lSt7vfY1FE6q&export=view}{\faVideoCamera}
+\hypertarget{rstudio}{%
+\section{\texorpdfstring{Interfaz de \textsf{RStudio}}{Interfaz de }}\label{rstudio}}
+
+Al abrir \textsf{RStudio} verás una pantalla como la de la imagen a continuación.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/rstudio-interface} 
+
+}
+
+\caption{Interfaz de RStudio}\label{fig:unnamed-chunk-3}
+\end{figure}
+
+La interfaz está dividida en varias regiones con varias pestañas o paneles. Empezaremos usando la consola, que es el panel en la parte izquierda de la pantalla de nombre \textbf{Console}. Más adelante exploraremos nuevos paneles y veremos su utilidad.
+
+\begin{infobox}
+La primera vez que abras \textsf{RStudio} aparecerá un cuadro de diálogo preguntando si deseas habilitar el envío automático de informes de fallos.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/rstudio-crash-reporting} 
+
+}
+
+\caption{Solicitud de envío automático de informes de fallos de RStudio}\label{fig:unnamed-chunk-4}
+\end{figure}
+
+Puedes realizar la elección que desees, teniendo en cuenta que no perderás ninguna funcionalidad si no lo habilitas.
+
+\end{infobox}
 
 \hypertarget{rmarkdown}{%
 \section{Escribir y ejecutar código de R}\label{rmarkdown}}
 
 Para escribir y ejecutar código de \textsf{R} desde \textsf{RStudio} podremos utilizar bien la consola o bien escribir nuestro código en un archivo.
 
-La \textbf{consola} se utiliza para ejecutar instrucciones sueltas, que no tenemos interés en conservar, por ejemplo para realizar cálculos auxiliares o para instalar paquetes.
+La \textbf{consola} se utiliza para ejecutar instrucciones sueltas, que no tenemos interés en conservar, por ejemplo para realizar cálculos auxiliares o acciones que se realizan una única vez como instalar un determinado paquete.
 
 Cuando el código que queremos escribir sea un conjunto de instrucciones que queramos conservar, de forma que podamos reutilizarlo posteriormente o compartirlo con otras personas, escribiremos nuestro código en un archivo.
 Entre los tipos de archivos que podemos crear desde \textsf{RStudio} para escribir y ejecutar código \textsf{R} están los \textbf{scripts} y los documentos \textbf{R Markdown}.
+
+En los siguientes apartados exploraremos las tres opciones presentadas para escribir código \textsf{R}: ejecutar instrucciones desde la consola, escribir código en un script, y elaborar documentos R Markdown. Nuestra elección final para realizar las prácticas y tareas de esta asignatura serán los documentos R Markdown.
 
 \hypertarget{consola}{%
 \subsection{Consola}\label{consola}}
 
 En \textsf{RStudio} encontrarás la consola en el panel de nombre \textsf{Console} en la ventana a la izquierda de la pantalla.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/rstudio-console} 
+
+}
+
+\caption{Consola de RStudio}\label{fig:unnamed-chunk-5}
+\end{figure}
 
 Para calcular \(\sqrt{2}\) desde la consola, sitúa el cursor al lado del símbolo \texttt{\textgreater{}} en la consola, escribe la instrucción \texttt{sqrt(2)} y presiona \texttt{Enter}. Verás la salida debajo:
 
@@ -197,10 +240,22 @@ Para calcular \(\sqrt{2}\) desde la consola, sitúa el cursor al lado del símbo
 \end{Highlighting}
 \end{Shaded}
 
+El símbolo \texttt{{[}1{]}} antes del valor 1.4142136 no es importante por ahora, simplemente indica que la salida de nuestra instrucción está compuesta por un único elemento.
+
+\href{https://drive.google.com/uc?id=19pAbIq8TgtW6IjycuPj9UT1J_8U_vMOO&export=view}{\faVideoCamera}
+
+\begin{infobox}
+Si quieres borrar las instrucciones de la consola, utiliza el botón con icono \includegraphics{images/clear.png} en la barra de título del panel (o el atajo \texttt{Ctrl\ +\ L}).
+
+\end{infobox}
+
 \hypertarget{scripts-de-r}{%
 \subsection{Scripts de R}\label{scripts-de-r}}
 
-Los scripts de R son el tipo de archivo más simple para escribir y ejecutar código de \textsf{R}.
+Los scripts son el tipo de archivo más simple para escribir y ejecutar código de \textsf{R}.
+
+\hypertarget{creaciuxf3n}{%
+\subsubsection{Creación}\label{creaciuxf3n}}
 
 Para crear un script, utiliza el menú
 
@@ -211,49 +266,71 @@ File \textgreater{} New File \textgreater{} R Script
 
 El script se abrirá en una pestaña de una nueva ventana sobre la ventana con el panel de la consola. Este script no es más que un archivo de texto, que se guardará con la extensión \texttt{.R}.
 
-Escribe en la primera línea del script la instrucción
+\hypertarget{ejecuciuxf3n}{%
+\subsubsection{Ejecución}\label{ejecuciuxf3n}}
+
+Escribe en la primera línea del script la misma instrucción que escribimos antes en consola para calcular \(\sqrt{2}\):
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{sqrt(3)}
+\NormalTok{sqrt(2)}
 \end{Highlighting}
 \end{Shaded}
 
 Para ejecutarla, sitúa el cursor sobre cualquier punto de la línea y presiona \texttt{Ctrl\ +\ Enter}. Verás la salida en la consola.
 
+\href{https://drive.google.com/uc?id=1_vTsqbZS28gqPeWG2QVgblgRgojwRuUK&export=view}{\faVideoCamera}
+
 Si en un script queremos incluir varias instrucciones, cada nueva instrucción debe comenzar en una nueva línea.
 
-Añade una nueva línea al script para calcular la raíz de \(5\), de forma que el contenido del script quede:
+Añade dos nuevas líneas al script: \texttt{5\^{}3} para calcular \(5^3\), y \texttt{exp(3)} para calcular \(e^3\),
+de forma que el contenido del script quede:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{sqrt(3)}
-\NormalTok{sqrt(5)}
+\NormalTok{sqrt(2)}
+\NormalTok{5\^{}3}
+\NormalTok{exp(3)}
 \end{Highlighting}
 \end{Shaded}
 
-Para ejecutar las dos instrucciones al mismo tiempo, selecciona las dos líneas y presiona de nuevo \texttt{Ctrl\ +\ Enter}. En la consola, verás las dos instrucciones y su salida correspondiente.
+\begin{infobox}
+Notar que para calcular \(5^3\) hemos escrito
+\texttt{5\^{}3} y que para calcular \(e^3\) hemos escrito \texttt{exp(3)}. Esto es así porque \textsf{R} no tiene predefinida una constante con el valor del número \(e\), pero sí la función exponencial \texttt{exp()}, que calcula \(e\) elevado a su argumento.
 
-Pueden dejarse tantas líneas en blanco como se quiera entre diferentes instrucciones, y también dividir el código de una misma instrucción en varías líneas. Por ejemplo:
+Si necesitamos el número \texttt{e} se obtendría con \texttt{exp(1)}. De hecho serían equivalentes \texttt{exp(3)} y \texttt{exp(1)\^{}3}.
+
+\end{infobox}
+
+Para ejecutar las tres instrucciones al mismo tiempo, selecciona las tres líneas y presiona de nuevo \texttt{Ctrl\ +\ Enter}. En la consola, verás las tres instrucciones y su salida correspondiente.
+
+\href{https://drive.google.com/uc?id=1KGhdm3zmBnbEDJJ3-AmS3TTmoeKranKw&export=view}{\faVideoCamera}
+
+Pueden dejarse tantas líneas en blanco como se quiera entre diferentes instrucciones, y también incluir espacios alrededor de los argumentos de una función e incluso separarlos en varías líneas (tiene sentido para funciones con más de un argumento). Por ejemplo:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{sqrt(3)}
-
 \NormalTok{sqrt(}
-\NormalTok{    5}
+\NormalTok{    2}
 \NormalTok{)}
+
+\NormalTok{5\^{}3}
+
+\NormalTok{exp( 3 )}
 \end{Highlighting}
 \end{Shaded}
 
-Notar que si situamos el cursor sobre cualquiera de las tres líneas que componen la segunda instrucción para calcular la raíz de \(5\) y presionamos \texttt{Ctrl\ +\ Enter}, \textsf{RStudio} reconoce que la línea en la que tenemos el cursor forma parte de una instrucción compuesta por varias líneas y ejecuta todas ellas.
+Notar que si situamos el cursor sobre cualquiera de las tres líneas que componen la primera instrucción para calcular la raíz de \(2\) y presionamos \texttt{Ctrl\ +\ Enter}, \textsf{RStudio} reconoce que la línea en la que tenemos el cursor forma parte de una instrucción compuesta por varias líneas y ejecuta todas ellas.
 
-Para añadir comentarios en un script, se utiliza el carácter \texttt{\#}: Al ejecutar una línea de código, todo el texto escrito después del carácter \texttt{\#} será ignorado. Puedes escribir por ejemplo
+\hypertarget{comentarios}{%
+\subsubsection{Comentarios}\label{comentarios}}
+
+Para añadir comentarios en un script, se utiliza el carácter \texttt{\#}: Al ejecutar una línea de código, todo el texto escrito en la línea después del carácter \texttt{\#} será ignorado. Puedes escribir por ejemplo
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{\# calcular raíces }
-\NormalTok{sqrt(3)}
+\NormalTok{sqrt(2)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -261,28 +338,50 @@ o
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{sqrt(3) \# calcular la raíz de 3}
-\NormalTok{sqrt(5) \# calcular la raíz de 5}
+\NormalTok{sqrt(2) \# calcular la raíz de }
+\NormalTok{5\^{}3     \# calcular 5 elevado al cubo}
+\NormalTok{exp(3)  \# calcular e elevado al cubo}
 \end{Highlighting}
 \end{Shaded}
 
+\begin{infobox}
+
+Para comentar varías líneas hay que comentar cada una de ellas añadiendo \texttt{\#} al principio de cada una (no hay sintaxis especial para comentar varias líneas).
+
+Ahora, en lugar de hacerlo manualmente línea por línea, puedes seleccionar las líneas que quieras comentar y usar el menú
+
+\begin{menu}
+Code \textgreater{} Comment/Uncomment Lines
+
+\end{menu}
+
+\end{infobox}
+
+\hypertarget{guardado}{%
+\subsubsection{Guardado}\label{guardado}}
+
 Crea ahora una carpeta, de nombre\texttt{IntroR}, para guardar el script que acabas de escribir y otros documentos que generaremos a lo largo de la práctica.
 
-Para guardar el script que acabas de escribir, presiona \texttt{Ctrl\ +\ S} (o utiliza el correspondiente icono en la barra de herramientas del archivo).
+Para guardar el script que acabas de escribir, presiona \texttt{Ctrl\ +\ S}. También puedes utilizar el icono \includegraphics{images/save.png} en la barra de herramientas del archivo o el menú
+
+\begin{menu}
+File \textgreater{} Save As \ldots{}
+
+\end{menu}
 
 Si aparece un cuadro de diálogo preguntando por la codificación del archivo, selecciona la codificación que aparezca listada en primer lugar como defecto para tu sistema operativo (verás el texto (System default) al lado de su nombre).
 
-En el selector de archivos que se abrirá a continuación, navega hasta la carpeta \texttt{IntroR} que has creado antes e indica \texttt{script} como nombre del archivo. Verás entonces que la etiqueta de la pestaña del script en el panel de RStudio cambia de \texttt{Untitled1} a \texttt{script.R}.
+En el selector de archivos que se abrirá a continuación, navega hasta la carpeta \texttt{IntroR} que has creado antes e indica \texttt{script} como nombre del archivo (la extensión \texttt{.R} se añadirá automáticamente). Verás entonces que la etiqueta de la pestaña del script en el panel de \textsf{RStudio} cambia de \texttt{Untitled1} a \texttt{script.R}.
 
 \hypertarget{documentos-r-markdown}{%
 \subsection{Documentos R Markdown}\label{documentos-r-markdown}}
 
-Nuestra elección para realizar las prácticas y tareas de esta asignatura será utilizar documentos R Markdown. En un documento R Markdown podremos escribir tanto código \textsf{R} como texto. Y al compilarlo obtendremos un documento que incluirá el código, la salida resultante de ejecutar el código, y el texto explicativo.
+Nuestra elección para realizar las prácticas y tareas de esta asignatura será utilizar documentos R Markdown. En un documento R Markdown podremos escribir tanto código \textsf{R} como texto. Y al compilarlo obtendremos un documento que incluirá el código, la salida resultante de ejecutar dicho código, y el texto explicativo que hayamos escrito.
 
 \begin{itemize}
 \tightlist
 \item
-  En el texto podremos utilizar la sintaxis propia del lenguaje de marcado \href{https://es.wikipedia.org/wiki/Markdown}{Markdown} (independiente de \textsf{R}). Por ejempl, para escribir texto negrita se escribe \texttt{**} al comienzo y al final del texto en cuestión:
+  En el texto podremos utilizar la sintaxis propia del lenguaje de marcado \href{https://es.wikipedia.org/wiki/Markdown}{Markdown} (independiente de \textsf{R}). Por ejemplo, para escribir texto negrita se escribe \texttt{**} al comienzo y al final del texto en cuestión:
 \end{itemize}
 
 \begin{Shaded}
@@ -294,19 +393,19 @@ Nuestra elección para realizar las prácticas y tareas de esta asignatura será
 \begin{itemize}
 \tightlist
 \item
-  Y el código de \textsf{R} se incluirá en unos bloques especiales, que tendrán la estructura
+  Y el código de \textsf{R} se incluirá en unos bloques especiales, que en su forma más simple tendrán la estructura
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r [etiqueta], [opciones]\}}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}}
 \InformationTok{\textless{}código R\textgreater{}}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{creaciuxf3n}{%
-\subsubsection{Creación}\label{creaciuxf3n}}
+\hypertarget{creaciuxf3n-1}{%
+\subsubsection{Creación}\label{creaciuxf3n-1}}
 
 Para crear tu primer documento R Markdown utiliza el menú
 
@@ -315,13 +414,45 @@ File \textgreater{} New File \textgreater{} R Markdown \ldots{}
 
 \end{menu}
 
-Aparecerá un cuadro de diálogo de nombre \textbf{New R Markdown}.
+\begin{infobox}
 
-\begin{center}\includegraphics[width=1\linewidth]{images/new-r-markdown} \end{center}
+Es probable que la primera vez que crees un documento R Markdown, aparezca una ventana como la de la siguiente imagen, solicitando permiso para instalar varios paquetes requeridos para usar este tipo de documentos.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{images/rmarkdown-required} 
+
+}
+
+\caption{Instalar paquetes requeridos para R Markdown}\label{fig:unnamed-chunk-10}
+\end{figure}
+
+Presiona el botón \textbf{Yes} para que se inicie el proceso de instalación de las dependencias indicadas y espera hasta que se complete la tarea. Tomará foco el panel de nombre \textbf{Jobs}, al lado de la consola y verás una barra indicando el progreso de la instalación.
+
+\end{infobox}
+
+Aparecerá entonces un cuadro de diálogo de nombre \textbf{New R Markdown}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/new-r-markdown} 
+
+}
+
+\caption{Nuevo documento R Markdown}\label{fig:unnamed-chunk-11}
+\end{figure}
 
 Rellena `Introducción a R y RStudio' en el campo \textbf{Title} y tu nombre en el campo \textbf{Author}. Para el campo \textbf{Default output format}, conserva la elección `HTML' que aparece por defecto.
 
-Al presionar el botón \textbf{OK} se abrirá una nueva pestaña en el panel de \textsf{RStudio} con el nuevo documento R Markdown. Presiona \texttt{Ctrl\ +\ S} para guardarlo, en la carpeta \texttt{IntroR} que creaste antes para la práctica, con el nombre \texttt{intro-r}. Verifica que la etiqueta de la pestaña del documento cambia de \texttt{Untitled1} a \texttt{intro-r.Rmd}.
+Al presionar el botón \textbf{OK} se abrirá una nueva pestaña en el panel de \textsf{RStudio} con el nuevo documento R Markdown.
+
+\hypertarget{guardado-1}{%
+\subsubsection{Guardado}\label{guardado-1}}
+
+Presiona \texttt{Ctrl\ +\ S} para guardarlo, en la carpeta \texttt{IntroR} que creaste antes para la práctica, con el nombre \texttt{intro-r}. Verifica que la etiqueta de la pestaña del documento cambia de \texttt{Untitled1} a \texttt{intro-r.Rmd}.
+
+\hypertarget{estructura}{%
+\subsubsection{Estructura}\label{estructura}}
 
 Las primeras líneas del archivo (1 a 6), delimitadas por tres guiones (\texttt{-\/-\/-})
 
@@ -336,7 +467,7 @@ Las primeras líneas del archivo (1 a 6), delimitadas por tres guiones (\texttt{
 \end{Highlighting}
 \end{Shaded}
 
-conforman la llamada cabecera YAML del documento. Incluye metadatos como el título, el autor y la fecha y el formato de salida del documento que se generará al compilar.
+conforman la llamada \textbf{cabecera YAML} del documento. Incluye metadatos como el título, el autor y la fecha y el formato de salida del documento que se generará al compilar.
 
 Las líneas siguientes (8 a 10)
 
@@ -348,7 +479,7 @@ Las líneas siguientes (8 a 10)
 \end{Highlighting}
 \end{Shaded}
 
-las analizaremos con más detalle en la sección \ref{global-options}.
+fijan opciones globales para los bloques de código de todo el documento. Las analizaremos con más detalle en la sección \ref{global-options}.
 
 El resto de líneas (12 en adelante), son los contenidos propiamente dichos del documento. Se trata de unos contenidos de muestra, que enseguida reemplazaremos por nuestros contenidos propios. Pero antes de borrar estos contenidos de muestra, compilaremos el documento para ver el resultado inicial.
 
@@ -357,10 +488,19 @@ El resto de líneas (12 en adelante), son los contenidos propiamente dichos del 
 
 Para compilar el documento presiona el botón \textbf{Knit} en la barra de herramientas de la pestaña del archivo.
 
-\begin{center}\includegraphics[width=1\linewidth]{images/knit} \end{center}
+\begin{figure}
 
-El documento compilado aparecerá en el panel \textbf{Viewer}, en la ventana de la zona derecha inferior.
-Si el documento no se abre en este panel, sino en una ventana emergente, cierra esa ventana y modifica este comportamiento siguiendo los siguientes pasos:
+{\centering \includegraphics[width=1\linewidth]{images/knit} 
+
+}
+
+\caption{Botón **Knit** para compilar un documento R Markdown}\label{fig:unnamed-chunk-12}
+\end{figure}
+
+Tomará foco el panel de nombre \textbf{Render}, en la misma ventana que la consola. Al terminar el proceso, el documento compilado aparecerá en el panel \textbf{Viewer}, en la ventana de la zona derecha inferior.
+
+\begin{infobox}
+Si al compilar el documento no se abre en el panel Viewer, sino en una ventana emergente, cierra esa ventana y modifica este comportamiento siguiendo los siguientes pasos:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -389,11 +529,29 @@ Show output preview in: Viewer Pane
 
 como indica la imagen siguiente:
 
-\begin{center}\includegraphics[width=1\linewidth]{images/options-r-markdown} \end{center}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/options-r-markdown} 
+
+}
+
+\caption{Ajuste para mostrar el documento compilado en el panel del visor}\label{fig:unnamed-chunk-13}
+\end{figure}
+
+Cierra el diálogo presionando \textbf{OK} y vuelve a compilar.
+
+\end{infobox}
 
 Si miras los contenidos de la carpeta \texttt{IntroR} (puedes hacerlo desde el panel \textbf{Files} de \textsf{RStudio}) verás que, como resultado de la compilación del archivo fuente \texttt{intro-r.Rmd}, se ha creado el archivo de salida \texttt{intro-r.html}. Éste es el archivo que estamos visualizando en el visor de documentos. También podríamos abrirlo en el navegador web, pudiendolo hacer desde el propio visor, presionando el icono resaltado en la siguiente imagen:
 
-\begin{center}\includegraphics[width=1\linewidth]{images/open-in-new-window} \end{center}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/open-in-new-window} 
+
+}
+
+\caption{Abrir documento en visor externo}\label{fig:unnamed-chunk-14}
+\end{figure}
 
 A continuación compararemos el documento fuente \texttt{intro-r.Rmd} con el documento \texttt{intro-r.html} en el visor, para entender cómo se traducen los contenidos que escribimos en un archivo R Markdown en el formato de salida HTML. Nos fíjaremos en particular en los siguientes elementos: encabezados y bloques de código, que se describen en los dos siguientes apartados.
 
@@ -434,7 +592,10 @@ produce un encabezado de nivel 1,
 
 un encabezado de nivel 2, y así sucesivamente.
 
+\begin{infobox}
 Hay que indicar que es una casualidad la coincidencia del símbolo \texttt{\#} para encabezados en el lenguaje Markdown (independiente de \textsf{R} ) y para comentarios en código \textsf{R}.
+
+\end{infobox}
 
 \hypertarget{bloques-de-cuxf3digo}{%
 \subsubsection{Bloques de código}\label{bloques-de-cuxf3digo}}
@@ -461,7 +622,7 @@ y el segundo en las líneas 26-28
 
 Si miras el documento compilado, verás que, para el primer bloque se muestra el código y a continuación la salida o resultado de su ejecución; mientras que para el segundo, se muestra solo la salida, y no el código. Esto es debido a la opción \texttt{echo=FALSE}.
 
-Como se indicó al principio de la sección, la sintaxis general para incluir un bloque de código \textsf{R} en un documento R Markdown es la siguiente:
+La sintaxis general para incluir un bloque de código \textsf{R} en un documento R Markdown es la siguiente:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -471,7 +632,7 @@ Como se indicó al principio de la sección, la sintaxis general para incluir un
 \end{Highlighting}
 \end{Shaded}
 
-Las etiquetas de los dos bloques de código del documento de muestra son \texttt{cars} y \texttt{presure}. La etiqueta de un bloque de código sirve para identificarlo, podemos interpretarlo como su nombre, pero es opcional y puede omitirse.
+Las etiquetas de los dos bloques de código del documento de muestra son \texttt{cars} y \texttt{pressure}. La etiqueta de un bloque de código sirve para identificarlo, podemos interpretarlo como su nombre, pero es opcional y puede omitirse.
 
 El primer bloque de código no tiene ninguna opción. Y el segundo tiene la opción \texttt{echo=TRUE}, que como acabamos de decir inhibe la impresión del código en el documento compilado.
 
@@ -487,6 +648,8 @@ Puesto que la etiqueta y la lista de opciones son opcionales, el esqueleto bási
 
 En el cuerpo del bloque podemos escribir instrucciones de \textsf{R} igual que si estuvieramos escribiendo en un script (incluidos comentarios precedidos por el carácter \texttt{\#}).
 
+\begin{infobox}
+
 Notar el cambio de enfoque al escribir en un documento R Markdown respecto a escribir en un script:
 
 \begin{itemize}
@@ -495,6 +658,52 @@ Notar el cambio de enfoque al escribir en un documento R Markdown respecto a esc
 \item
   Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código \textsf{R} hemos de incluirlo en un bloque especial delimitado por la línea \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}} al comienzo y la línea \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}} al final.
 \end{itemize}
+
+\end{infobox}
+
+\hypertarget{ejecuciuxf3n-de-instrucciones-individuales}{%
+\subsubsection{Ejecución de instrucciones individuales}\label{ejecuciuxf3n-de-instrucciones-individuales}}
+
+Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, tanto el código como la salida o resultado (siempre que no hay opciones como \texttt{echo=FALSE} o \texttt{include=FALSE} que inhiban la impresión del código y/o de la salida).
+
+Pero también podemos ejecutar determinadas instrucciones de forma individual, sin necesidad de compilar el documento completo.
+Para ello, podemos proceder exactamente igual que en el caso de los scripts, es decir:
+
+\begin{itemize}
+\item
+  Para ejecutar una sola instrucción, situamos el cursor en cualquiera de las líneas que compongan la instrucción y presionamos \texttt{Ctrl\ +\ Enter}.
+\item
+  Para ejecutar varias instrucciones, seleccionamos las correspondientes líneas y presionamos \texttt{Ctrl\ +\ Enter}.
+\end{itemize}
+
+Además, podemos ejecutar todas las instrucciones que componen un bloque de código utilizando el botón a la derecha del comienzo del bloque que se resalta en la siguiente imagen:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/run} 
+
+}
+
+\caption{Botón para ejecutar un bloque de código}\label{fig:unnamed-chunk-15}
+\end{figure}
+
+La salida se mostrará en la consola, y también incrustada en el propio documento, justo debajo del correspondiente bloque de código. Para esto último ha de estar marcada la opción \textbf{Show output inline for all R Markdown documents} en las opciones para R Markdown en el menú
+
+\begin{menu}
+Tools \textgreater{} Global options \ldots{} \textgreater{} R Markdown
+
+\end{menu}
+
+como muestra la siguiente imagen:
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/options-r-markdown-b} 
+
+}
+
+\caption{Ajuste para mostrar la salida de un bloque de código *inline*}\label{fig:unnamed-chunk-16}
+\end{figure}
 
 \hypertarget{plantilla-de-r-markdown}{%
 \section{Plantilla de R Markdown}\label{plantilla-de-r-markdown}}
@@ -541,14 +750,22 @@ Insert \textgreater{} R
 
 en la barra de herramientas de la pestaña del documento, que se muestra en la siguiente imagen:
 
-\begin{center}\includegraphics[width=1\linewidth]{images/insert-r} \end{center}
+\begin{figure}
 
-En el bloque de código que acabas de crear añade las instrucciones
+{\centering \includegraphics[width=1\linewidth]{images/insert-r} 
+
+}
+
+\caption{Insertar bloque de código}\label{fig:unnamed-chunk-17}
+\end{figure}
+
+En el bloque de código que acabas de crear añade las misma instrucciones que habíamos incluido en el script:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{sqrt(8)}
-\NormalTok{sqrt(10)}
+\NormalTok{sqrt(2)}
+\NormalTok{5\^{}3}
+\NormalTok{exp(3)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -559,8 +776,9 @@ de forma que los contenidos añadidos queden:
 \FunctionTok{\# Bloques de código}
 
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}}
-\InformationTok{sqrt(8)}
-\InformationTok{sqrt(10)}
+\InformationTok{sqrt(2)}
+\InformationTok{5\^{}3}
+\InformationTok{exp(3)}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
 \end{Highlighting}
 \end{Shaded}
@@ -575,24 +793,29 @@ Tras compilar el documento con los contenidos añadidos en la sección anterior,
 \begin{itemize}
 \tightlist
 \item
-  El código de la primera instrucción \texttt{sqrt(8)}
+  El código de la primera instrucción \texttt{sqrt(2)}
 \item
-  Su salida 2.8284271
+  Su salida 1.4142136
 \item
-  El código de la segunda instrucción \texttt{sqrt(10)}
+  El código de la segunda instrucción \texttt{5\^{}3}
 \item
-  Su salida 3.1622777
+  Su salida 125
+\item
+  El código de la tercera instrucción \texttt{exp(3)}
+\item
+  Su salida 20.0855369
 \end{itemize}
 
-Para que se muestre primero el código para las dos instrucciones y a continuación las dos salidas, añade la opción \texttt{results=\textquotesingle{}hold\textquotesingle{}}.
+Para que se muestre primero el código para las tres instrucciones y a continuación las dos salidas, añade la opción \texttt{results=\textquotesingle{}hold\textquotesingle{}}.
 
 Y para omitir los caracteres \texttt{\#\#} al comienzo de las líneas de la salida, añade la opción \texttt{comment\ =\ \textquotesingle{}\textquotesingle{}}. Nuestro bloque de código con estas dos opciones quedaría:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r, results=\textquotesingle{}hold\textquotesingle{}, comment = \textquotesingle{}\textquotesingle{}\}}
-\InformationTok{sqrt(8)}
-\InformationTok{sqrt(10)}
+\InformationTok{sqrt(2)}
+\InformationTok{5\^{}3}
+\InformationTok{exp(3)}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
 \end{Highlighting}
 \end{Shaded}
@@ -614,7 +837,7 @@ Al comienzo de nuestro documento, hemos conservado el bloque de código
 
 que estaba incluido en el documento de muestra. Este bloque se identifica con la etiqueta \texttt{setup} y tiene la opción \texttt{include=FALSE}, que hace que, al compilar el documento, si bien se ejecutará la instrucción que contiene, no se incluirá en el formato HTML de salida.
 
-Se explica a continuación el significado de la instrucción \texttt{knitr::opts\_chunk\$set(echo\ =\ TRUE)}: Las opciones especificadas como argumentos de \texttt{knitr::opts\_chunk\$set} (por ahora \texttt{echo=TRUE}) aplicarán a todos los bloques de código que se incluyan en el documento.
+Se explica a continuación el significado de la instrucción \texttt{knitr::opts\_chunk\$set(echo\ =\ TRUE)} en este bloque de código: Las opciones especificadas como argumentos de \texttt{knitr::opts\_chunk\$set} (por ahora \texttt{echo=TRUE}) aplicarán a todos los bloques de código que se incluyan en el documento.
 
 Las opciones \texttt{results=\textquotesingle{}hold\textquotesingle{}} y \texttt{comment\ =\ \textquotesingle{}\textquotesingle{}} que hemos aplicado antes a nuestro bloque de código tendrían un efecto local, es decir, aplicarían solo al bloque en el que se han especificado, y si queremos usarlas en los nuevos bloques que creemos, habría que escribirlas de nuevo en todos ellos.
 
@@ -631,36 +854,6 @@ Para aplicar las opciones \texttt{results=\textquotesingle{}hold\textquotesingle
 \end{Shaded}
 
 Ahora, estas dos nuevas opciones aplicarán a todos los bloques, sin necesidad de repetirlas de forma individual en cada uno de ellos, así que puedes borrarlas del bloque de código que creaste antes.
-
-\hypertarget{ejecuciuxf3n-de-instrucciones-individuales}{%
-\subsection{Ejecución de instrucciones individuales}\label{ejecuciuxf3n-de-instrucciones-individuales}}
-
-Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, tanto el código como la salida o resultado (siempre que no hay opciones como \texttt{echo=FALSE} o \texttt{include=FALSE} que inhiban la impresión del código y/o de la salida).
-
-Pero también podemos ejecutar determinadas instrucciones de forma individual, sin necesidad de compilar el documento completo.
-Para ello, podemos proceder exactamente igual que en el caso de los scripts, es decir:
-
-\begin{itemize}
-\item
-  Para ejecutar una sola instrucción, situamos el cursor en cualquiera de las líneas que compongan la instrucción y presionamos \texttt{Ctrl\ +\ Enter}.
-\item
-  Para ejecutar varias instrucciones, seleccionamos las correspondientes líneas y presionamos \texttt{Ctrl\ +\ Enter}.
-\end{itemize}
-
-La salida se mostrará en la consola, y también incrustada en el propio documento, justo debajo del correspondiente bloque de código. Para esto último ha de estar marcada la opción \textbf{Show output inline for all R Markdown documents} en las opciones para R Markdown en el menú
-
-\begin{menu}
-Tools \textgreater{} Global options \ldots{} \textgreater{} R Markdown
-
-\end{menu}
-
-como muestra la siguiente imagen:
-
-\begin{center}\includegraphics[width=1\linewidth]{images/options-r-markdown-b} \end{center}
-
-Además, podemos ejecutar todas las instrucciones que componen un bloque de código utilizando el botón a la derecha del comienzo del bloque que se resalta en la siguiente imagen:
-
-\begin{center}\includegraphics[width=0.8\linewidth]{images/run} \end{center}
 
 \hypertarget{tabla-de-contenidos-flotante}{%
 \subsection{Tabla de contenidos flotante}\label{tabla-de-contenidos-flotante}}
@@ -700,21 +893,6 @@ Para que nuestra tabla de contenidos tenga más de una entrada, añade al final 
 Compila de nuevo y abre el resultado en el navegador. Verás la tabla de contenidos flotante a la izquierda del cuerpo del documento (o encima del título en pantallas de dimensiones reducidas).
 
 Para apreciar la funcionalidad de la tabla de contenidos flotante, reduce la altura de la ventana del navegador hasta que sea inferior a los contenidos en el cuerpo del documento y aparezca la barra de \emph{scroll} para recorrerlo. Verás que las entradas de la tabla de contenidos actúan como enlaces al inicio de cada capítulo.
-
-\hypertarget{secciones-numeradas}{%
-\subsection{Secciones numeradas}\label{secciones-numeradas}}
-
-Para numerar los capítulos añade \texttt{number\_sections:\ true} como opción para el formato de salida:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\AnnotationTok{output:}\CommentTok{ }
-\CommentTok{    html\_document:}
-\CommentTok{        toc: true}
-\CommentTok{        toc\_float: true}
-\CommentTok{        number\_sections: true}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{plantilla-final}{%
 \subsection{Plantilla final}\label{plantilla-final}}
@@ -832,13 +1010,30 @@ puedes solucionarlo siguiendo los siguientes pasos:
 \hypertarget{cargar-un-paquete}{%
 \subsection{Cargar un paquete}\label{cargar-un-paquete}}
 
-Para cargar un paquete previamente instalado hay que usar la función \texttt{library()}. Por ejemplo, para cargar el paquete \texttt{tidyverse} escribimos
+Para cargar un paquete previamente instalado hay que usar la función \texttt{library()}. En particular, para cargar el paquete \texttt{tidyverse} escribimos
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(tidyverse)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{infobox}
+Recuerda que en tu documento R Markdown las instrucciones de \textsf{R} se escriben en bloques de código delimitados por la línea \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}} al comienzo y la línea \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}} al final. Según el flujo de trabajo que se ha explicado antes, la idea es que, después de leer el párrafo anterior, escribas en tu documento algo como
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Cargamos el paquete }\InformationTok{\textasciigrave{}tidyverse\textasciigrave{}}\NormalTok{.}
+
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}}
+\InformationTok{library(tidyverse)}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Nota:} Al escribir \texttt{\textasciigrave{}tidyverse\textasciigrave{}} se consigue fuente monoespaciada en el documento de salida.
+
+\end{infobox}
 
 Puedes ignorar los conflictos que se listan en el mensaje que se muestra al cargar \texttt{tidyverse}, no tendrán efectos negativos sobre nuestro código.
 
@@ -851,7 +1046,7 @@ Si bien instalación de un paquete (con \texttt{install.packages()}) se realiza 
 \hypertarget{objects}{%
 \section{Objetos en R}\label{objects}}
 
-En este capítulo veremos cómo crear un objeto en \textsf{R} y estudiaremos dos tipos de objetos destacados en \textsf{R}: los \textbf{vectores} y las \textbf{hojas de datos}.
+En este capítulo veremos cómo crear un objeto en \textsf{R}, estudiaremos dos tipos de objetos destacados en \textsf{R}: los \textbf{vectores} y las \textbf{hojas de datos}, y aprenderemos a crear nuestras propias \textbf{funciones}.
 
 \hypertarget{crear-un-objeto}{%
 \subsection{Crear un objeto}\label{crear-un-objeto}}
@@ -865,11 +1060,11 @@ La instrucción
 \end{Shaded}
 
 crea una variable u objeto de nombre \texttt{x} y le asigna el valor \(2\).
-El operador de asignación en \texttt{R} es \texttt{\textless{}-} (compuesto por el símbolo menor \texttt{\textless{}} y un guión central \texttt{-}).
+El operador de asignación en \textsf{R} es \texttt{\textless{}-} (compuesto por el símbolo menor \texttt{\textless{}} y un guión central \texttt{-}).
 
-Puedes comprobar que el objeto \texttt{x} aparece listado en el panel \emph{Environment} de la ventana superior derecha de \textsf{RStudio}. En este panel podemos ver todos los objetos definidos en nuestro entorno o espacio de trabajo (\emph{workspace}).
+Puedes comprobar que, después de ejecutar la instrucción anterior, el objeto \texttt{x} aparece listado en el panel \emph{Environment} de la ventana superior derecha de \textsf{RStudio}. En este panel podemos ver todos los objetos definidos en nuestro entorno o espacio de trabajo (\emph{workspace}).
 
-Cuando se ejecuta una instrucción como la anterior, en la que se asigna un valor u expresión a un objeto, la salida no muestra el valor asignado. Para verlo tenemos que \emph{imprimir} el objeto en cuestión, simplemente escribiendo su nombre:
+Cuando se ejecuta una instrucción como la anterior, en la que se asigna un valor o expresión a un objeto, la salida no muestra el valor asignado. Para verlo tenemos que \emph{imprimir} el objeto en cuestión, simplemente escribiendo su nombre:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -882,6 +1077,24 @@ Cuando se ejecuta una instrucción como la anterior, en la que se asigna un valo
 \NormalTok{\#\# [1] 2}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{infobox}
+
+Otra alternativa para mostrar el valor de un objeto es delimitar la instrucción con la asignación entre paréntesis:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(x }\OtherTok{\textless{}{-}} \DecValTok{2}\NormalTok{) }\CommentTok{\# asigna el valor 2 a la variable x y lo imprime}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\# [1] 2}
+\end{Highlighting}
+\end{Shaded}
+
+\end{infobox}
 
 Una vez definida el objeto o variable \texttt{x} podremos referenciarlo en cálculos posteriores. Por ejemplo, al ejecutar la instrucción
 
@@ -971,7 +1184,7 @@ Verás que \texttt{mpg} aparece listada en el panel Environment. Inicialmente es
 
 En general, una hoja de datos es una especie de matriz u hoja de cálculo, donde las filas representan unidades experimentales, casos u observaciones (en nuestro ejemplo coches) y las columnas representan variables que describen características de interés de las unidades experimentales (en nuestro caso fabricante, modelo, cilindrada, consumo de combustible \ldots). Las celdas contienen los valores observados para cada variable en cada unidad experimental.
 
-Para obtener una descripción de la hoja de datos, escribe \texttt{mpg} en el campo de búsqueda del panel \textbf{Help} de \textsf{RStudio}. También puedes escribir \texttt{?mpg} o \texttt{help(mpg)} en la consola. La página de ayuda explica que la hoja de datos tiene \(234\) filas, donde cada fila representa un coche, y \(11\) variables, que describen diferentes características de los coches. Nos vamos a centrar en las variables \texttt{displ} y \texttt{hwy}, que nos describen como:
+Para obtener una descripción de la hoja de datos, escribe \texttt{mpg} en el campo de búsqueda del panel \textbf{Help} de \textsf{RStudio}. También puedes escribir \texttt{?mpg} o \texttt{help(mpg)} en la consola, o poner el cursor sobre cualquier punto de la palabra \texttt{mpg} en la instrucción \texttt{data("mpg")} y presionar \texttt{F1}. La página de ayuda explica que la hoja de datos tiene \(234\) filas, donde cada fila representa un coche, y \(11\) variables, que describen diferentes características de los coches. Las variables que utilizaremos después son \texttt{displ}, \texttt{hwy} y \texttt{class}, que nos describen como:
 
 \begin{itemize}
 \tightlist
@@ -979,9 +1192,11 @@ Para obtener una descripción de la hoja de datos, escribe \texttt{mpg} en el ca
   \texttt{displ}: \emph{engine displacemente, in litres} (cilindrada)
 \item
   \texttt{hwy}: \emph{higway miles per gallon} (millas recorridas por galón de combustible en conducción por autopista)
+\item
+  \texttt{class}: \emph{``type'' of car}
 \end{itemize}
 
-Para extraer una de las variables de una hoja de datos se utiliza el formato \texttt{\textless{}nombre\ hoja\textgreater{}\$\textless{}nombre\ variable\textgreater{}}. Por ejemplo, para extraer las cilindradas (variable \texttt{displ}) de la hoja de datos \texttt{mpg} utilizamos la instrucción siguiente:
+Para extraer las cilindradas (variable \texttt{displ}) de la hoja de datos \texttt{mpg} utilizamos la instrucción siguiente:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1008,6 +1223,96 @@ Para extraer una de las variables de una hoja de datos se utiliza el formato \te
 \end{Shaded}
 
 que mostrará el vector con las cilindradas de los \(234\) coches.
+En general, para extraer una de las variables de una hoja de datos se utiliza el formato \texttt{\textless{}nombre\ hoja\textgreater{}\$\textless{}nombre\ variable\textgreater{}}.
+
+Podemos ver los diferentes tipos de coches incluidos en la variable \texttt{class} con
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{unique}\NormalTok{(mpg}\SpecialCharTok{$}\NormalTok{class)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\# [1] "compact"    "midsize"    "suv"        "2seater"    "minivan"   }
+\NormalTok{\#\# [6] "pickup"     "subcompact"}
+\end{Highlighting}
+\end{Shaded}
+
+El propósito de este apartado era presentar las hojas de datos en \textsf{R} y describir su estructura. En el capítulo \protect\hyperlink{tibbles}{Crear hojas de datos} veremos cómo crear nuestras propias hojas de datos, bien de forma manual, bien importando los datos de un archivo.
+
+\hypertarget{funciones}{%
+\subsection{Funciones}\label{funciones}}
+
+Hasta ahora hemos visto cómo utilizar algunas de las funciones predefinidas en \textsf{R}, pero en ocasiones necesitamos definir nuestras propias funciones. En este apartado veremos cómo hacerlo a través de un par de ejemplos.
+
+El código a continuación define una función de nombre \texttt{add\_two} que suma \(2\) al valor que recibe como argumento:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{add\_two }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{    x}\SpecialCharTok{+}\DecValTok{2}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Para utilizar la función que acaba de definirse escribiríamos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{add\_two}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\# [1] 7}
+\end{Highlighting}
+\end{Shaded}
+
+Veamos un segundo ejemplo. Consideremos la función
+\[ f(x) = a + be^{cx} \]
+que depende de tres parámetros \(a\), \(b\) y \(c\). Para evaluar está función en un determinado valor de la variable independendiente \(x\) y valores concretos de los parámetros \(a\), \(b\) y \(c\) definiríamos la siguiente función de \textsf{R}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myfun }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, a, b, c)\{}
+\NormalTok{    a }\SpecialCharTok{+}\NormalTok{ b}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(c}\SpecialCharTok{*}\NormalTok{x)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Si queremos calcular \(f(4)\) siendo \(a = 1\), \(b = 2\) y \(c = 3\) usaríamos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{myfun}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\# [1] 325510.6}
+\end{Highlighting}
+\end{Shaded}
+
+Como puede verse en los ejemplos anteriores, para definir una función en \textsf{R}:
+- Se indica el nombre de la nombre de la función (como \texttt{add\_two} o \texttt{myfun}) y se utiliza el operador de asignación \texttt{\textless{}-}, como para definir cualquier otro objeto.
+- Se escribe la palabra clave \texttt{function} y entre paréntesis los nombres de los argumentos.
+- Entre llaves, se escribe el cuerpo de la función, con el código que queremos ejecutar. En dicho código nos referiremos a los argumentos con los nombres que hayamos declarado antes entre paréntesis. El cuerpo de las dos funciones de nuestros ejemplos se limita a una única instrucción, pero en general puede contener un número arbitrario de líneas, donde cada línea puede ser cualquier instrucción de \textsf{R} que puede hacer uso de los argumentos y de otros objetos definidos en instrucciones previas.
+- La última expresión escrita en el cuerpo de la función será la salida de la función, que se imprimirá al llamarla. Nuestros dos ejemplos devuelven un valor numérico, pero una función puede devolver un objeto de cualquier otro tipo como un vector, una lista o una hoja de datos.
+
+\begin{infobox}
+La llamada \texttt{myfun(4,\ 1,\ 2,\ 3)} asigna los valores a los argumentos en el orden en que se especificaron en la definición de la función. Como al definir \texttt{myfun} especificamos los argumentos en el orden \texttt{x,\ a,\ b,\ c}, la llamada \texttt{myfun(4,\ 1,\ 2,\ 3)} ejecuta la función con las asignaciones \texttt{x\ =\ 4}, \texttt{a\ =\ 1}, \texttt{b\ =\ 2} y \texttt{c\ =\ 3}.
+
+Si escribimos explícitamente los nombres de los argumentos de una función, podemos indicarlos en cualquier orden. Por ejemplo:
+
+\texttt{myfun(a\ =\ 1,\ b\ =\ 2,\ c\ =\ 3,\ x\ =\ 4)}
+
+sería equivalente a \texttt{myfun(4,1,2,3)}.
+
+\end{infobox}
 
 \hypertarget{plots}{%
 \section{Visualización de datos}\label{plots}}
@@ -1024,7 +1329,7 @@ Para responder a la pregunta anterior, vamos a realizar un gráfico de puntos pa
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-24-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-37-1} \end{center}
 
 Todos los gráficos se inicializan con la función \texttt{ggplot()}. En el código anterior, la línea
 
@@ -1067,7 +1372,7 @@ Ahora vamos a incluir más información en nuestro gráfico estableciendo una co
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-28-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-41-1} \end{center}
 
 Notar que la inclusión de la correspondencia \texttt{color\ =\ class} ha hecho que \texttt{ggplot2} asigne un color diferente (nivel diferente de la estética \texttt{color}) a cada tipo de coche (valor diferente de la variable \texttt{class}), e incluya una leyenda explicando qué color corresponde a qué tipo de coche.
 
@@ -1088,24 +1393,101 @@ Acabamos personalizando los rótulos de nuestro gráfico con \texttt{labs()}:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-29-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-42-1} \end{center}
 
-\hypertarget{import}{%
-\section{Importar datos}\label{import}}
+\hypertarget{tibbles}{%
+\section{Crear hojas de datos}\label{tibbles}}
 
 Hasta ahora hemos trabajado con hojas de datos proporcionadas por paquetes de \textsf{R}, como \texttt{mpg} (de \texttt{ggplot2}). La colección de hojas de datos proporcionada por los diferentes paquetes de \textsf{R} es un buen recurso para enseñar y aprender diferentes tópicos. Pero en la práctica es necesario trabajar con nuestros propios datos o datos extraídos de diversas fuentes.
 
-En este capítulo veremos cómo importar datos en \textsf{R} desde un fichero externo con el paquete \texttt{readr}. El paquete \texttt{readr} forma parte de \texttt{tidyverse} de forma que no es necesario cargarlo individualmente si ya has cargado \texttt{tidyverse}. En concreto, veremos cómo importar los datos contenidos en un archivo CSV (\emph{comma separated values}) con la función \texttt{read\_csv()}.
+En este capítulo veremos cómo crear hojas de datos en \textsf{R} y cómo importar datos desde un fichero externo.
+
+\hypertarget{la-funciuxf3n-tibble}{%
+\subsection{\texorpdfstring{La función \texttt{tibble()}}{La función tibble()}}\label{la-funciuxf3n-tibble}}
+
+En este apartado veremos cómo crear hojas de datos en \textsf{R} con la función \texttt{tibble()}, del paquete del mismo nombre. El paquete \texttt{tibble} forma parte de \texttt{tidyverse} de forma que no es necesario cargarlo individualmente si ya has cargado \texttt{tidyverse}.
+
+En el siguiente ejemplo se crea una hoja de datos sobre los \href{https://en.wikipedia.org/wiki/List_of_best-selling_books}{seis libros más vendidos de la historia} y se almacena en un objeto de nombre \texttt{best\_sellers}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{best\_sellers }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}
+    \AttributeTok{title =} \FunctionTok{c}\NormalTok{(}
+        \StringTok{"A Tale of Two Cities"}\NormalTok{, }
+        \StringTok{"The Little Prince"}\NormalTok{,}
+        \StringTok{"Harry Potter and the Philosopher\textquotesingle{}s Stone"}\NormalTok{,}
+        \StringTok{"And Then There Were None"}\NormalTok{,}
+        \StringTok{"Dream of the Red Chamber"}\NormalTok{,}
+        \StringTok{"The Hobbit"}
+\NormalTok{    ),}
+    \AttributeTok{author =} \FunctionTok{c}\NormalTok{(}
+        \StringTok{"Charles Dickens"}\NormalTok{,}
+        \StringTok{"Antoine de Saint{-}Exupéry"}\NormalTok{,}
+        \StringTok{"J. K. Rowling"}\NormalTok{,}
+        \StringTok{"Agatha Christie"}\NormalTok{,}
+        \StringTok{"Cao Xueqin"}\NormalTok{,}
+        \StringTok{"J. R. R. Tolkien"}
+\NormalTok{    ),}
+    \AttributeTok{lang =} \FunctionTok{c}\NormalTok{(}
+        \StringTok{"English"}\NormalTok{,}
+        \StringTok{"French"}\NormalTok{,}
+        \StringTok{"English"}\NormalTok{,}
+        \StringTok{"English"}\NormalTok{,}
+        \StringTok{"Chinese"}\NormalTok{,}
+        \StringTok{"English"}
+\NormalTok{    ),}
+    \AttributeTok{year =} \FunctionTok{c}\NormalTok{(}
+        \DecValTok{1859}\NormalTok{,}
+        \DecValTok{1943}\NormalTok{,}
+        \DecValTok{1997}\NormalTok{,}
+        \DecValTok{1939}\NormalTok{,}
+        \DecValTok{1791}\NormalTok{,}
+        \DecValTok{1937}
+\NormalTok{    )}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Cada argumento de la función \texttt{tibble()} se corresponde con una variable en el formato \texttt{\textless{}nombre\ variable\textgreater{}\ =\ \textless{}vector\ de\ valores\textgreater{}.}
+
+Para ver sólo los títulos de los libros usaríamos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{best\_sellers}\SpecialCharTok{$}\NormalTok{title}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\# [1] "A Tale of Two Cities"                    }
+\NormalTok{\#\# [2] "The Little Prince"                       }
+\NormalTok{\#\# [3] "Harry Potter and the Philosopher\textquotesingle{}s Stone"}
+\NormalTok{\#\# [4] "And Then There Were None"                }
+\NormalTok{\#\# [5] "Dream of the Red Chamber"                }
+\NormalTok{\#\# [6] "The Hobbit"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{infobox}
+La función usada tradicionalmente para crear hojas de datos en \textsf{R} es \texttt{data.frame()}. Las hojas de datos creadas con la función \texttt{tibble()} son una versión mejorada de las hojas de datos clásicas creadas con \texttt{data.frame()} y son el estandar actúal. La mayoría de funciones del \textit{tidyverse} trabajan con este tipo de hojas de datos, que a menudo se refieren como \textit{\textbf{tibbles}}.
+
+\end{infobox}
+
+\hypertarget{import}{%
+\subsection{Importar datos}\label{import}}
+
+En este apartado veremos cómo importar datos desde un fichero externo con el paquete \texttt{readr}. El paquete \texttt{readr} forma parte de \texttt{tidyverse} de forma que no es necesario cargarlo individualmente si ya has cargado \texttt{tidyverse}. En concreto, veremos cómo importar los datos contenidos en un archivo CSV (\emph{comma separated values}) con la función \texttt{read\_csv()}.
 
 \hypertarget{los-datos}{%
-\subsection{Los datos}\label{los-datos}}
+\subsubsection{Los datos}\label{los-datos}}
 
 Trabajaremos con un archivo de nombre \texttt{temperaturas.csv}, que contiene las temperaturas máximas y mínimas registradas en el observatorio de la Virgen del Camino para todos los días del mes de abril del año 2018.
 
 Descárgalo pinchando \href{https://drive.google.com/uc?export=download\&id=1xDIvAcQSS4_dFoSIO2hcprhqnbXJqx9r}{aquí} y guárdalo en una carpeta de nombre \texttt{data} en el directorio del archivo R Markdown con el que estés trabajando.
 
 \hypertarget{importar-desde-archivo-local}{%
-\subsection{Importar desde archivo local}\label{importar-desde-archivo-local}}
+\subsubsection{Importar desde archivo local}\label{importar-desde-archivo-local}}
 
 Teniendo el archivo descargado en nuestro equipo, podemos importarlo especificando, como primer argumento de la función \texttt{read\_csv()}, la ruta del archivo, que puede ser local respecto al directorio de trabajo actual.
 
@@ -1143,7 +1525,7 @@ Verás que hay \(30\) filas, una por cada día del mes, y \(3\) columnas con las
 \end{itemize}
 
 \hypertarget{importar-desde-url}{%
-\subsection{Importar desde URL}\label{importar-desde-url}}
+\subsubsection{Importar desde URL}\label{importar-desde-url}}
 
 Antes hemos realizado la descarga del archivo de datos de forma manual. También podríamos haberlo hecho desde \textsf{R}, con la función \texttt{download.file()}:
 
@@ -1169,7 +1551,7 @@ De hecho, el argumento para especificar el archivo en la función \texttt{read\_
 Después de ejecutar la instrucción anterior, puedes verificar que los objetos \texttt{temps} y \texttt{temps2} son idénticos.
 
 \hypertarget{usar-datos-importados}{%
-\subsection{Usar datos importados}\label{usar-datos-importados}}
+\subsubsection{Usar datos importados}\label{usar-datos-importados}}
 
 Una vez que hemos importado los datos de un fichero y los hemos almacenado en un objeto, podemos utilizar dicho objeto como si se tratara de una de las hojas de datos predefinidas en \textsf{R}.
 
@@ -1183,7 +1565,7 @@ Podemos por ejemplo representar la evolución de las temperaturas mínimas y má
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-33-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-48-1} \end{center}
 
 La función \texttt{geom\_line()} actúa primero como si se dibujara un gráfico de puntos con \texttt{geom\_point()} y luego conecta los puntos conforme indique el valor del argumento \texttt{group}. En el caso de nuestros dos diagramas de líneas, queremos que todos los puntos estén conectados, y lo indicamos usando \texttt{group=1}. Cuando hay más variables, la agrupación para las líneas suele hacerse por variable. Si por ejemplo tuvierámos cada día mediciones en varias ciudades, podríamos agrupar para la variable especificando la ciudad.
 
@@ -1220,7 +1602,7 @@ A continuación tenemos una versión un poco más elaborada del gráfico anterio
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-35-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{basics-R-RStudio_files/figure-latex/unnamed-chunk-50-1} \end{center}
 
 \printbibliography
 

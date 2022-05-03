@@ -2,10 +2,12 @@
 
 Para escribir y ejecutar código de `r R()` desde `r RStudio()` podremos utilizar bien la consola o bien escribir nuestro código en un archivo.
 
-La **consola** se utiliza para ejecutar instrucciones sueltas, que no tenemos interés en conservar, por ejemplo para realizar cálculos auxiliares o para instalar paquetes.
+La **consola** se utiliza para ejecutar instrucciones sueltas, que no tenemos interés en conservar, por ejemplo para realizar cálculos auxiliares o acciones que se realizan una única vez como instalar un determinado paquete.
 
 Cuando el código que queremos escribir sea un conjunto de instrucciones que queramos conservar, de forma que podamos reutilizarlo posteriormente o compartirlo con otras personas, escribiremos nuestro código en un archivo.
 Entre los tipos de archivos que podemos crear desde `r RStudio()` para escribir y ejecutar código `r R()` están los **scripts** y los documentos **R Markdown**. 
+
+En los siguientes apartados exploraremos las tres opciones presentadas para escribir código `r R()`: ejecutar instrucciones desde la consola, escribir código en un script, y elaborar documentos R Markdown. Nuestra elección final para realizar las prácticas y tareas de esta asignatura serán los documentos R Markdown. 
 
 
 <!-- Además, podremos organizar nuestro trabajo usando los proyectos de `r RStudio()`. -->
@@ -15,29 +17,35 @@ Entre los tipos de archivos que podemos crear desde `r RStudio()` para escribir 
 
 En  `r RStudio()` encontrarás la consola en el panel de nombre `r textsf("Console")` en la ventana a la izquierda de la pantalla.
 
+```{r, echo=FALSE, fig.cap="Consola de RStudio", out.extra={if(knitr::is_html_output()){'style="border:1px solid gray;"'}}}
+knitr::include_graphics("images/rstudio-console.png")
+```
+
 
 Para calcular $\sqrt{2}$ desde la consola, sitúa el cursor al lado del símbolo `>` en la consola, escribe la instrucción `sqrt(2)` y presiona `Enter`. Verás la salida  debajo:
-
-<!-- ```{r, echo=FALSE} -->
-<!-- if (knitr:::is_latex_output()) { -->
-<!--     #knitr::asis_output('\\url{....}') -->
-<!--     knitr::include_graphics("https://raw.githubusercontent.com/EMazcunan/public-files/master/ule/ule-logo.png") -->
-<!-- } else { -->
-<!--   knitr::include_graphics("https://media.giphy.com/media/xUOxf7XfmpxuSode1O/giphy.gif") -->
-<!-- } -->
-<!-- linguisticsdown::include_graphics2("https://media.giphy.com/media/xUOxf7XfmpxuSode1O/giphy.gif", "https://raw.githubusercontent.com/EMazcunan/public-files/master/ule/ule-logo.png") -->
-<!-- ``` -->
 
 
 ```{r, comment="", prompt=TRUE, class.source='console-source', class.output='console-output', highlight=FALSE}
 sqrt(2)
 ```
 
+El símbolo `[1]` antes del valor  `r sqrt(2)` no es importante por ahora, simplemente indica que la salida de nuestra instrucción está compuesta por un único elemento. 
+
+```{r, echo=FALSE, out.extra={if(knitr::is_html_output()){'style="border:2px solid red;"'}}}
+emedia::include_gdrive_video(id="19pAbIq8TgtW6IjycuPj9UT1J_8U_vMOO")
+```
+
+::: {.infobox data-latex=""}
+Si quieres borrar las instrucciones de la consola, utiliza el botón con icono ![](images/clear.png){width=16px;} en la barra de título del panel (o el atajo `Ctrl + L`).
+:::
+
 
 ## Scripts de R
 
-Los scripts de R son el tipo de archivo más simple para escribir y ejecutar código de `r R()`. 
+Los scripts son el tipo de archivo más simple para escribir y ejecutar código de `r R()`. 
 
+
+### Creación
 Para crear un script, utiliza el menú 
 
 ::: {.menu data-latex=""}
@@ -46,72 +54,115 @@ File > New File > R Script
 
 El script se abrirá en una pestaña de una nueva ventana sobre la ventana con el panel de la consola. Este script no es más que un archivo de texto, que se guardará con la extensión `.R`.
 
-Escribe en la primera línea del script la instrucción 
+### Ejecución
+
+Escribe en la primera línea del script la misma instrucción que escribimos antes en consola para calcular \( \sqrt{2} \):
+
 ```md
-sqrt(3)
+sqrt(2)
 ```
 
 Para ejecutarla, sitúa el cursor sobre cualquier punto de la línea y presiona `Ctrl + Enter`. Verás la salida en la consola. 
 
+```{r, echo=FALSE, out.extra={if(knitr::is_html_output()){'style="border:2px solid red;"'}}}
+emedia::include_gdrive_video(id="1_vTsqbZS28gqPeWG2QVgblgRgojwRuUK")
+```
+
+
 Si en un script queremos incluir varias instrucciones, cada nueva instrucción debe comenzar en una nueva línea. 
 
-Añade una nueva línea al script para calcular la raíz de $5$, de forma que el contenido del script quede:
+Añade dos nuevas líneas al script: `5^3` para calcular \( 5^3 \), y `exp(3)` para calcular \( e^3 \),
+de forma que el contenido del script quede:
 
 ```md
-sqrt(3)
-sqrt(5)
+sqrt(2)
+5^3
+exp(3)
 ```
 
-Para ejecutar las dos instrucciones al mismo tiempo, selecciona las dos líneas y presiona de nuevo `Ctrl + Enter`. En la consola, verás las dos instrucciones y su salida correspondiente.
+::: {.infobox data-latex=""}
+Notar que para calcular \( 5^3 \) hemos escrito 
+ `5^3` y que para calcular \( e^3 \) hemos escrito `exp(3)`. Esto es así porque `r R()` no tiene predefinida una constante con el valor del número  \( e \), pero sí la función exponencial `exp()`, que  calcula \(e\) elevado a su argumento. 
+ 
+Si necesitamos el número `e` se obtendría con `exp(1)`. De hecho serían equivalentes `exp(3)` y `exp(1)^3`.
+:::
 
-Pueden dejarse tantas líneas en blanco como se quiera entre diferentes instrucciones, y también dividir el código de una misma instrucción en varías líneas. Por ejemplo: 
+Para ejecutar las tres instrucciones al mismo tiempo, selecciona las tres líneas y presiona de nuevo `Ctrl + Enter`. En la consola, verás las tres instrucciones y su salida correspondiente.
+
+```{r, echo=FALSE, out.extra={if(knitr::is_html_output()){'style="border:2px solid red;"'}}}
+emedia::include_gdrive_video(id="1KGhdm3zmBnbEDJJ3-AmS3TTmoeKranKw")
+```
+
+Pueden dejarse tantas líneas en blanco como se quiera entre diferentes instrucciones, y también incluir espacios alrededor de los argumentos de una función e incluso separarlos en varías líneas (tiene sentido para funciones con más de un argumento). Por ejemplo: 
 
 ```md
-sqrt(3)
-
 sqrt(
-    5
+    2
 )
+
+5^3
+
+exp( 3 )
 ```
 
-Notar que si situamos el cursor sobre cualquiera de las tres líneas que componen la segunda instrucción para calcular la raíz de $5$ y presionamos `Ctrl + Enter`, `r RStudio()` reconoce que la línea en la que tenemos el cursor forma parte de una instrucción compuesta por varias líneas y ejecuta todas ellas. 
+Notar que si situamos el cursor sobre cualquiera de las tres líneas que componen la primera instrucción para calcular la raíz de $2$ y presionamos `Ctrl + Enter`, `r RStudio()` reconoce que la línea en la que tenemos el cursor forma parte de una instrucción compuesta por varias líneas y ejecuta todas ellas. 
 
+### Comentarios
 
-Para añadir comentarios en un script, se utiliza el carácter `#`: Al ejecutar una línea de código, todo el texto escrito después del carácter `#` será  ignorado.  Puedes escribir por ejemplo 
+Para añadir comentarios en un script, se utiliza el carácter `#`: Al ejecutar una línea de código, todo el texto escrito en la línea después del carácter `#` será  ignorado.  Puedes escribir por ejemplo 
 
 ```md
 # calcular raíces 
-sqrt(3)
+sqrt(2)
 ```
 
 o 
 
 ```md
-sqrt(3) # calcular la raíz de 3
-sqrt(5) # calcular la raíz de 5
+sqrt(2) # calcular la raíz de 
+5^3     # calcular 5 elevado al cubo
+exp(3)  # calcular e elevado al cubo
 ```
+
+:::: {.infobox data-latex=""}
+Para comentar varías líneas hay que comentar cada una de ellas añadiendo `#` al principio de cada una (no hay sintaxis especial para comentar varias líneas).
+
+Ahora, en lugar de hacerlo manualmente línea por línea, puedes seleccionar las líneas que quieras comentar y usar el menú
+
+::: {.menu data-latex=""}
+Code > Comment/Uncomment Lines
+:::
+
+::::
+
+
+### Guardado
 
 Crea ahora una carpeta, de nombre`IntroR`, para guardar el script que acabas de escribir y otros documentos que generaremos a lo largo de la práctica. 
 
 
-Para guardar el script que acabas de escribir, presiona `Ctrl + S` (o utiliza el correspondiente icono en la barra de herramientas del archivo). 
+Para guardar el script que acabas de escribir, presiona `Ctrl + S`. También puedes utilizar el icono ![](images/save.png){width=16px;}  en la barra de herramientas del archivo o el menú 
+
+::: {.menu data-latex=""}
+File > Save As ...
+:::
 
 Si aparece un cuadro de diálogo preguntando por la codificación del archivo, selecciona la codificación que aparezca listada en primer lugar como defecto para tu sistema operativo (verás el texto (System default) al lado de su nombre). 
 
-En el selector de archivos que se abrirá a continuación, navega hasta la carpeta `IntroR` que has creado antes e indica `script` como nombre del archivo. Verás entonces que la etiqueta de la pestaña del script en el panel de RStudio cambia de `Untitled1` a `script.R`.
+En el selector de archivos que se abrirá a continuación, navega hasta la carpeta `IntroR` que has creado antes e indica `script` como nombre del archivo (la extensión `.R` se añadirá automáticamente). Verás entonces que la etiqueta de la pestaña del script en el panel de `r RStudio()` cambia de `Untitled1` a `script.R`.
 
 ## Documentos R Markdown
 
-Nuestra elección para realizar las prácticas y tareas de esta asignatura será utilizar documentos R Markdown.  En un documento R Markdown podremos escribir tanto código `r R()` como texto. Y al compilarlo obtendremos un documento que incluirá el código, la salida resultante de ejecutar el código, y el texto explicativo. 
+Nuestra elección para realizar las prácticas y tareas de esta asignatura será utilizar documentos R Markdown.  En un documento R Markdown podremos escribir tanto código `r R()` como texto. Y al compilarlo obtendremos un documento que incluirá el código, la salida resultante de ejecutar dicho código, y el texto explicativo que hayamos escrito. 
 
-* En el texto podremos utilizar la sintaxis propia del lenguaje de marcado [Markdown](https://es.wikipedia.org/wiki/Markdown){target="_blank"} (independiente de `r R()`). Por ejempl, para escribir texto negrita se escribe `**` al comienzo y al final del texto en cuestión: 
+* En el texto podremos utilizar la sintaxis propia del lenguaje de marcado [Markdown](https://es.wikipedia.org/wiki/Markdown){target="_blank"} (independiente de `r R()`). Por ejemplo, para escribir texto negrita se escribe `**` al comienzo y al final del texto en cuestión: 
 ```md
 El resultado anterior permite extraer una conclusión muy **importante**.
 ```
 
-* Y el código de `r R()` se incluirá en unos bloques especiales, que tendrán la estructura 
+* Y el código de `r R()` se incluirá en unos bloques especiales, que en su forma más simple tendrán la estructura 
 ````md
-```{r [etiqueta], [opciones]}`r ''`
+```{r}`r ''`
 <código R>
 ```
 ````
@@ -124,16 +175,30 @@ Para crear tu primer documento R Markdown utiliza el menú
 File > New File > R Markdown ...
 :::
 
-Aparecerá un cuadro de diálogo de nombre **New R Markdown**.
 
-```{r, echo=FALSE}
+::: {.infobox data-latex=""}
+Es probable que la primera vez que crees un documento R Markdown, aparezca una ventana como la de la siguiente imagen, solicitando permiso para instalar varios paquetes requeridos para usar este tipo de documentos.
+```{r, echo=FALSE, fig.cap="Instalar paquetes requeridos para R Markdown", out.width="85%", out.extra={if(knitr::is_html_output()){'style="border:1px solid gray;"'}}}
+knitr::include_graphics("images/rmarkdown-required.png")
+```
+
+Presiona el botón **Yes** para que se inicie el proceso de instalación de las dependencias indicadas y espera hasta que se complete la tarea. Tomará foco el panel de nombre **Jobs**, al lado de la consola y verás una barra indicando el progreso de la instalación.  
+:::
+
+Aparecerá entonces un cuadro de diálogo de nombre **New R Markdown**.
+
+```{r, echo=FALSE, fig.cap="Nuevo documento R Markdown", out.extra={if(knitr::is_html_output()){'style="border:1px solid gray;"'}}}
 knitr::include_graphics("images/new-r-markdown.png")
 ```
 
 Rellena 'Introducción a R y RStudio' en el campo **Title** y tu nombre en el campo **Author**. Para el campo **Default output format**, conserva la elección 'HTML' que aparece por defecto. 
 
-Al presionar el botón **OK** se abrirá una nueva pestaña en el panel de `r RStudio()` con el nuevo documento R Markdown. Presiona `Ctrl + S` para guardarlo, en la carpeta `IntroR` que creaste antes para la práctica, con el nombre `intro-r`. Verifica que la etiqueta de la pestaña del documento cambia de `Untitled1` a `intro-r.Rmd`.
+Al presionar el botón **OK** se abrirá una nueva pestaña en el panel de `r RStudio()` con el nuevo documento R Markdown. 
 
+### Guardado
+Presiona `Ctrl + S` para guardarlo, en la carpeta `IntroR` que creaste antes para la práctica, con el nombre `intro-r`. Verifica que la etiqueta de la pestaña del documento cambia de `Untitled1` a `intro-r.Rmd`.
+
+### Estructura
 Las primeras líneas del archivo (1 a 6), delimitadas por tres guiones (`---`) 
 
 ```md
@@ -144,7 +209,7 @@ date: "19/4/2021"
 output: html_document
 ---
 ```
-conforman  la llamada cabecera YAML del documento. Incluye metadatos como el título, el autor y la fecha y el formato de salida del documento que se generará al compilar. 
+conforman  la llamada **cabecera YAML** del documento. Incluye metadatos como el título, el autor y la fecha y el formato de salida del documento que se generará al compilar. 
 
 Las líneas siguientes (8 a 10)
 ````md
@@ -152,7 +217,7 @@ Las líneas siguientes (8 a 10)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ````
-las analizaremos con más detalle en la sección \@ref(global-options). 
+fijan opciones globales para los bloques de código de todo el documento. Las analizaremos con más detalle en la sección \@ref(global-options). 
 
 
 El resto de líneas (12 en adelante), son los contenidos propiamente dichos del documento. Se trata de unos contenidos de muestra, que enseguida reemplazaremos por nuestros contenidos propios. Pero antes de borrar estos contenidos de muestra, compilaremos el documento para ver el resultado inicial. 
@@ -161,12 +226,14 @@ El resto de líneas (12 en adelante), son los contenidos propiamente dichos del 
 
 Para compilar el documento presiona el botón **Knit** en la barra de herramientas de la pestaña del archivo. 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE,fig.cap="Botón **Knit** para compilar un documento R Markdown", out.extra={if(knitr::is_html_output()){'style="border:1px solid gray;"'}}}
 knitr::include_graphics("images/knit.png")
 ```
 
-El documento compilado aparecerá en el panel **Viewer**, en la ventana de la zona derecha inferior. 
-Si el documento no se abre en este panel, sino en una ventana emergente, cierra esa ventana y modifica este comportamiento siguiendo los siguientes pasos:
+Tomará foco el panel de nombre **Render**, en la misma ventana que la consola. Al terminar el proceso, el documento compilado aparecerá en el panel **Viewer**, en la ventana de la zona derecha inferior. 
+
+:::: {.infobox data-latex=""}
+Si al compilar el documento no se abre en el panel Viewer, sino en una ventana emergente, cierra esa ventana y modifica este comportamiento siguiendo los siguientes pasos:
 
 1. Selecciona el menú 
 
@@ -180,13 +247,19 @@ Tools > Global Options
 Show output preview in: Viewer Pane
 :::
 como indica la imagen siguiente:
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.cap="Ajuste para mostrar el documento compilado en el panel del visor", out.extra={if(knitr::is_html_output()){'style="border:1px solid gray;"'}}}
 knitr::include_graphics("images/options-r-markdown.png")
 ```
 
+Cierra el diálogo presionando **OK** y vuelve a compilar. 
+::::
+
+
+
+
 Si miras los contenidos de la carpeta `IntroR` (puedes hacerlo desde el panel **Files** de `r RStudio()`) verás que, como resultado de la compilación del archivo fuente `intro-r.Rmd`, se ha creado el archivo de salida `intro-r.html`. Éste es el archivo que estamos visualizando en el visor de documentos. También podríamos abrirlo en el navegador web, pudiendolo hacer desde el propio visor, presionando el icono resaltado en la siguiente imagen: 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.cap="Abrir documento en visor externo", out.extra={if(knitr::is_html_output()){'style="border:1px solid gray;"'}}}
 knitr::include_graphics("images/open-in-new-window.png")
 ```
 
@@ -214,7 +287,12 @@ produce un encabezado de nivel 1,
 ```
 un encabezado de nivel 2, y así sucesivamente. 
 
+
+::: {.infobox data-latex=""}
 Hay que indicar que es una casualidad la coincidencia del símbolo `#` para encabezados en el lenguaje Markdown (independiente de `r R()` ) y para comentarios en código `r R()`.
+:::
+
+
 
 
 ### Bloques de código
@@ -235,14 +313,14 @@ plot(pressure)
 Si miras el documento compilado, verás que, para el primer bloque se muestra el código y a continuación la salida o resultado de su ejecución; mientras que para el segundo, se muestra solo la salida, y no el código. Esto es debido a la opción `echo=FALSE`. 
 
 
-Como se indicó al principio de la sección, la sintaxis general para incluir un bloque de código `r R()` en un documento R Markdown es la siguiente:
+La sintaxis general para incluir un bloque de código `r R()` en un documento R Markdown es la siguiente:
 ````md
 ```{r [etiqueta], [lista de opciones]}`r ''`
 <código R>
 ```
 ````
 
-Las etiquetas de los dos bloques de código del documento de muestra son `cars` y `presure`. La etiqueta de un bloque de código sirve para identificarlo, podemos interpretarlo como su nombre, pero es opcional y puede omitirse.
+Las etiquetas de los dos bloques de código del documento de muestra son `cars` y `pressure`. La etiqueta de un bloque de código sirve para identificarlo, podemos interpretarlo como su nombre, pero es opcional y puede omitirse.
 
 El primer bloque de código no tiene ninguna opción. Y el segundo tiene la opción `echo=TRUE`, que como acabamos de decir inhibe la impresión del código en el documento compilado.
 
@@ -254,11 +332,43 @@ Puesto que la etiqueta y la lista de opciones son opcionales, el esqueleto bási
 ````
 En el cuerpo del bloque podemos escribir instrucciones de `r R()` igual que si estuvieramos escribiendo en un script (incluidos comentarios precedidos por el carácter `#`). 
 
+::: {.infobox data-latex=""}
 Notar el cambio de enfoque al escribir en un documento R Markdown respecto a escribir en un script:
 
 * En un script, se espera que escribamos código `r R()`, y para escribir texto ordinario hemos de usar comentarios utilizando el carácter `#`.
 
 * Por el contrario, en un documento R Markdown, se espera que escribamos texto (con posibilidad de incluir la sintaxis propia del lenguaje Markdown), y para escribir código `r R()` hemos de incluirlo en un bloque especial delimitado por la línea ` ```{r} ` al comienzo  y la línea  ` ``` ` al final.
+
+:::
+
+
+### Ejecución de instrucciones individuales
+
+Cuando compilamos un documento R Markdown, se ejecutan todos los bloques de código que contenga, y en el documento compilado podemos visualizar, tanto el código como la salida o resultado (siempre que no hay opciones como `echo=FALSE` o `include=FALSE` que inhiban la impresión del código y/o de la salida).
+
+Pero también podemos ejecutar determinadas instrucciones de forma individual, sin necesidad de compilar el documento completo. 
+Para ello, podemos proceder exactamente igual que en el caso de los scripts, es decir:
+
+* Para ejecutar una sola instrucción, situamos el cursor en cualquiera de las  líneas que compongan la instrucción y presionamos `Ctrl + Enter`. 
+
+* Para ejecutar varias instrucciones, seleccionamos las correspondientes líneas y presionamos `Ctrl + Enter`.
+
+Además, podemos ejecutar todas las instrucciones que componen un bloque de código utilizando el botón a la derecha del comienzo del bloque que se resalta en la siguiente imagen:
+
+```{r, echo=FALSE, out.width="80%", fig.cap="Botón para ejecutar un bloque de código", out.extra={if(knitr::is_html_output()){'style="border:1px solid gray;"'}}}
+knitr::include_graphics("images/run.png")
+```
+
+La salida se mostrará en la consola, y también  incrustada en el propio documento, justo debajo del correspondiente bloque de código. Para esto último ha de estar marcada la opción **Show output inline for all R Markdown documents** en las opciones para R Markdown en el menú 
+
+::: {.menu data-latex=""}
+Tools > Global options ... > R Markdown
+:::
+
+como muestra la siguiente imagen:
+```{r, echo=FALSE, fig.cap="Ajuste para mostrar la salida de un bloque de código *inline*", out.extra={if(knitr::is_html_output()){'style="border:1px solid gray;"'}}}
+knitr::include_graphics("images/options-r-markdown-b.png")
+```
 
 
 

@@ -42,10 +42,26 @@ install.packages("tidyverse")
 
 ## Cargar un paquete                  
                   
-Para cargar un paquete previamente instalado hay que usar la función `library()`. Por ejemplo, para cargar el paquete `tidyverse` escribimos
+Para cargar un paquete previamente instalado hay que usar la función `library()`. En particular, para cargar el paquete `tidyverse` escribimos
 ```{r}
 library(tidyverse)
 ```
+
+::: {.infobox data-latex=""}
+Recuerda que en tu documento R Markdown las instrucciones de `r R()` se escriben en bloques de código delimitados por la línea ` ```{r} ` al comienzo  y la línea  ` ``` ` al final. Según el flujo de trabajo que se ha explicado antes, la idea es que, después de leer el párrafo anterior,  escribas en tu documento  algo como
+
+```` md
+Cargamos el paquete `tidyverse`.
+
+```{r}`r ''`
+library(tidyverse)
+```
+````
+
+**Nota:** Al escribir `` `tidyverse` `` se consigue fuente monoespaciada en el documento de salida.
+:::
+
+
 
 Puedes ignorar los conflictos que se listan en el mensaje que se muestra al cargar `tidyverse`, no tendrán efectos negativos sobre nuestro código.
 
