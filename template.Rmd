@@ -174,8 +174,9 @@ knitr::opts_chunk$set(
 # Bloques de código
 
 ```{r}`r ''`
-sqrt(8)
-sqrt(10)
+sqrt(2)
+5^3
+exp(3)
 ```
 
 # Paquetes 
