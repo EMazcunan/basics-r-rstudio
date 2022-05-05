@@ -1299,10 +1299,17 @@ Si queremos calcular \(f(4)\) siendo \(a = 1\), \(b = 2\) y \(c = 3\) usaríamos
 \end{Shaded}
 
 Como puede verse en los ejemplos anteriores, para definir una función en \textsf{R}:
-- Se indica el nombre de la nombre de la función (como \texttt{add\_two} o \texttt{myfun}) y se utiliza el operador de asignación \texttt{\textless{}-}, como para definir cualquier otro objeto.
-- Se escribe la palabra clave \texttt{function} y entre paréntesis los nombres de los argumentos.
-- Entre llaves, se escribe el cuerpo de la función, con el código que queremos ejecutar. En dicho código nos referiremos a los argumentos con los nombres que hayamos declarado antes entre paréntesis. El cuerpo de las dos funciones de nuestros ejemplos se limita a una única instrucción, pero en general puede contener un número arbitrario de líneas, donde cada línea puede ser cualquier instrucción de \textsf{R} que puede hacer uso de los argumentos y de otros objetos definidos en instrucciones previas.
-- La última expresión escrita en el cuerpo de la función será la salida de la función, que se imprimirá al llamarla. Nuestros dos ejemplos devuelven un valor numérico, pero una función puede devolver un objeto de cualquier otro tipo como un vector, una lista o una hoja de datos.
+
+\begin{itemize}
+\item
+  Se indica el nombre de la nombre de la función (como \texttt{add\_two} o \texttt{myfun}) y se utiliza el operador de asignación \texttt{\textless{}-}, como para definir cualquier otro objeto.
+\item
+  Se escribe la palabra clave \texttt{function} y entre paréntesis los nombres de los argumentos.
+\item
+  Entre llaves, se escribe el cuerpo de la función, con el código que queremos ejecutar. En dicho código nos referiremos a los argumentos con los nombres que hayamos declarado antes entre paréntesis. El cuerpo de las dos funciones de nuestros ejemplos se limita a una única instrucción, pero en general puede contener un número arbitrario de líneas, donde cada línea puede ser cualquier instrucción de \textsf{R} que puede hacer uso de los argumentos y de otros objetos definidos en instrucciones previas.
+\item
+  La última expresión escrita en el cuerpo de la función será la salida de la función, que se imprimirá al llamarla. Nuestros dos ejemplos devuelven un valor numérico, pero una función puede devolver un objeto de cualquier otro tipo como un vector, una lista o una hoja de datos.
+\end{itemize}
 
 \begin{infobox}
 La llamada \texttt{myfun(4,\ 1,\ 2,\ 3)} asigna los valores a los argumentos en el orden en que se especificaron en la definición de la función. Como al definir \texttt{myfun} especificamos los argumentos en el orden \texttt{x,\ a,\ b,\ c}, la llamada \texttt{myfun(4,\ 1,\ 2,\ 3)} ejecuta la función con las asignaciones \texttt{x\ =\ 4}, \texttt{a\ =\ 1}, \texttt{b\ =\ 2} y \texttt{c\ =\ 3}.

@@ -140,9 +140,13 @@ myfun(4, 1, 2, 3)
 ```
 
 Como puede verse en los ejemplos anteriores, para definir una función en `r R()`:
+
 - Se indica el nombre de la nombre de la función (como `add_two` o `myfun`) y se utiliza el operador de asignación `<-`, como para definir cualquier otro objeto.
+
 - Se escribe la palabra clave `function` y entre paréntesis los nombres de los argumentos.
+
 - Entre llaves, se escribe el cuerpo de la función, con el código que queremos ejecutar. En dicho código nos referiremos a los argumentos con los nombres que hayamos declarado antes entre paréntesis. El cuerpo de las dos funciones de nuestros ejemplos se limita a una única instrucción, pero en general puede contener un número arbitrario de líneas, donde cada línea puede ser cualquier instrucción de `r R()` que puede hacer uso de los argumentos y de otros objetos definidos en instrucciones previas. 
+
 - La última expresión escrita en el cuerpo de la función será la salida de la función, que se imprimirá al llamarla. Nuestros dos ejemplos devuelven un valor numérico, pero una función puede devolver un objeto de cualquier otro tipo como un vector, una lista o una hoja de datos. 
 <!-- Las funciones que necesitaremos definir en las prácticas de este curso serán de dificultad similar a las de los dos ejemplos de este apartado. -->
 

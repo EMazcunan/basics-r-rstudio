@@ -265,12 +265,14 @@ que depende de tres parámetros <span class="math inline">\(a\)</span>, <span cl
 <p>Si queremos calcular <span class="math inline">\(f(4)\)</span> siendo <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 2\)</span> y <span class="math inline">\(c = 3\)</span> usaríamos</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="funciones.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">myfun</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre class="egitbook-output"><code>[1] 325510.6</code></pre>
-<p>Como puede verse en los ejemplos anteriores, para definir una función en <span class="textsf">R</span>:
-- Se indica el nombre de la nombre de la función (como <code>add_two</code> o <code>myfun</code>) y se utiliza el operador de asignación <code>&lt;-</code>, como para definir cualquier otro objeto.
-- Se escribe la palabra clave <code>function</code> y entre paréntesis los nombres de los argumentos.
-- Entre llaves, se escribe el cuerpo de la función, con el código que queremos ejecutar. En dicho código nos referiremos a los argumentos con los nombres que hayamos declarado antes entre paréntesis. El cuerpo de las dos funciones de nuestros ejemplos se limita a una única instrucción, pero en general puede contener un número arbitrario de líneas, donde cada línea puede ser cualquier instrucción de <span class="textsf">R</span> que puede hacer uso de los argumentos y de otros objetos definidos en instrucciones previas.
-- La última expresión escrita en el cuerpo de la función será la salida de la función, que se imprimirá al llamarla. Nuestros dos ejemplos devuelven un valor numérico, pero una función puede devolver un objeto de cualquier otro tipo como un vector, una lista o una hoja de datos.
-<!-- Las funciones que necesitaremos definir en las prácticas de este curso serán de dificultad similar a las de los dos ejemplos de este apartado. --></p>
+<p>Como puede verse en los ejemplos anteriores, para definir una función en <span class="textsf">R</span>:</p>
+<ul>
+<li><p>Se indica el nombre de la nombre de la función (como <code>add_two</code> o <code>myfun</code>) y se utiliza el operador de asignación <code>&lt;-</code>, como para definir cualquier otro objeto.</p></li>
+<li><p>Se escribe la palabra clave <code>function</code> y entre paréntesis los nombres de los argumentos.</p></li>
+<li><p>Entre llaves, se escribe el cuerpo de la función, con el código que queremos ejecutar. En dicho código nos referiremos a los argumentos con los nombres que hayamos declarado antes entre paréntesis. El cuerpo de las dos funciones de nuestros ejemplos se limita a una única instrucción, pero en general puede contener un número arbitrario de líneas, donde cada línea puede ser cualquier instrucción de <span class="textsf">R</span> que puede hacer uso de los argumentos y de otros objetos definidos en instrucciones previas.</p></li>
+<li><p>La última expresión escrita en el cuerpo de la función será la salida de la función, que se imprimirá al llamarla. Nuestros dos ejemplos devuelven un valor numérico, pero una función puede devolver un objeto de cualquier otro tipo como un vector, una lista o una hoja de datos.
+<!-- Las funciones que necesitaremos definir en las prácticas de este curso serán de dificultad similar a las de los dos ejemplos de este apartado. --></p></li>
+</ul>
 <div class="infobox">
 <p>La llamada <code>myfun(4, 1, 2, 3)</code> asigna los valores a los argumentos en el orden en que se especificaron en la definición de la función. Como al definir <code>myfun</code> especificamos los argumentos en el orden <code>x, a, b, c</code>, la llamada <code>myfun(4, 1, 2, 3)</code> ejecuta la función con las asignaciones <code>x = 4</code>, <code>a = 1</code>, <code>b = 2</code> y <code>c = 3</code>.</p>
 <p>Si escribimos explícitamente los nombres de los argumentos de una función, podemos indicarlos en cualquier orden. Por ejemplo:</p>
