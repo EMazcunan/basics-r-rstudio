@@ -1,6 +1,5 @@
 # Crear hojas de datos {#tibbles}
 
-
 Hasta ahora hemos trabajado con hojas de datos proporcionadas por paquetes de `r R()`, como `mpg` (de `ggplot2`). La colección de hojas de datos proporcionada por los diferentes paquetes de `r R()` es un buen recurso para enseñar y aprender diferentes tópicos. Pero en la práctica es necesario trabajar con nuestros propios datos o datos extraídos de diversas fuentes.  
 
 
@@ -68,7 +67,7 @@ La función usada tradicionalmente para crear hojas de datos en `r R()` es `data
 ## Importar datos {#import}
 
 
-En este apartado veremos cómo importar datos  desde un fichero externo con el paquete `readr`. El paquete `readr` forma parte de `tidyverse` de forma que no es necesario cargarlo individualmente si ya has cargado `tidyverse`.  En concreto, veremos cómo importar los datos contenidos en un archivo CSV (*comma separated values*) con la función  `read_csv()`.
+En este apartado veremos cómo importar datos  desde un fichero externo con el paquete `readr`. El paquete `readr` forma parte de `tidyverse` de forma que no es necesario cargarlo individualmente si ya has cargado `tidyverse`.  En concreto, veremos cómo importar los datos contenidos en un archivo CSV (*comma separated values*) con la función  `read_csv()`. **strong**
 
 
 ### Los datos 
@@ -90,7 +89,7 @@ temps <- read_csv("data/temperaturas.csv")
 ```
 
 
-::: {.infobox}
+:::: {.infobox}
 Si obtienes algún error indicando que no se encuentra el archivo, puede deberse a que el directorio de trabajo no es el correcto. 
 
 * Puedes saber cuál es el directorio de trabajo actual con `getwd()`. 
@@ -100,7 +99,8 @@ Si obtienes algún error indicando que no se encuentra el archivo, puede deberse
 ::: {.menu}
 Session > Set Working Directory > To Source File Location 
 :::
-:::
+
+::::
 
 
 Si todo ha ido bien, el objeto `temps` aparecerá en el panel **Environment** y podrás visualízarlo. 

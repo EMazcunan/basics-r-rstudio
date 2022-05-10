@@ -126,6 +126,16 @@
 \usepackage{enotation}
 \usepackage{fontawesome}
 
+% https://stackoverflow.com/questions/63222203/rmarkdown-wrap-code-in-chunks-but-keep-breaks-after-pipe
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+    breaksymbolleft={},
+    showspaces = false,
+    showtabs = false,
+    breaklines,
+    commandchars=\\\{\}
+}
+
 \pgfplotsset{compat=1.18}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
@@ -1101,7 +1111,7 @@ Una vez definida el objeto o variable \texttt{x} podremos referenciarlo en cálc
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x}\SpecialCharTok{\^{}}\DecValTok{2{-}3}
+\NormalTok{x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{{-}} \DecValTok{3}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1252,8 +1262,8 @@ El código a continuación define una función de nombre \texttt{add\_two} que s
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{add\_two }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x)\{}
-\NormalTok{    x}\SpecialCharTok{+}\DecValTok{2}
+\NormalTok{add\_two }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{  x }\SpecialCharTok{+} \DecValTok{2}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -1278,8 +1288,8 @@ que depende de tres parámetros \(a\), \(b\) y \(c\). Para evaluar está funció
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{myfun }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, a, b, c)\{}
-\NormalTok{    a }\SpecialCharTok{+}\NormalTok{ b}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(c}\SpecialCharTok{*}\NormalTok{x)}
+\NormalTok{myfun }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, a, b, c) \{}
+\NormalTok{  a }\SpecialCharTok{+}\NormalTok{ b }\SpecialCharTok{*} \FunctionTok{exp}\NormalTok{(c }\SpecialCharTok{*}\NormalTok{ x)}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -1332,8 +1342,8 @@ Para responder a la pregunta anterior, vamos a realizar un gráfico de puntos pa
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)) }
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1353,7 +1363,7 @@ Cada función para añadir un objeto geométrico como \texttt{geom\_point()} nec
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{mapping }\OtherTok{=} \FunctionTok{aes}\NormalTok{(...)}
+\NormalTok{mapping }\OtherTok{\textless{}{-}} \FunctionTok{aes}\NormalTok{(...)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1361,7 +1371,7 @@ En nuestro ejemplo, ese argumento para la función \texttt{geom\_line()} es
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{mapping }\OtherTok{=} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)}
+\NormalTok{mapping }\OtherTok{\textless{}{-}} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1375,8 +1385,8 @@ Ahora vamos a incluir más información en nuestro gráfico estableciendo una co
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping=}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy, }\AttributeTok{color =}\NormalTok{ class))  }
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy, }\AttributeTok{color =}\NormalTok{ class))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1390,14 +1400,14 @@ Acabamos personalizando los rótulos de nuestro gráfico con \texttt{labs()}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping=}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy, }\AttributeTok{color =}\NormalTok{ class)) }\SpecialCharTok{+}
-    \FunctionTok{labs}\NormalTok{(}
-        \AttributeTok{title =} \StringTok{"Relación entre el tamaño del motor y el consumo de combustible"}\NormalTok{, }
-        \AttributeTok{x =} \StringTok{"Cilindrada (litros)"}\NormalTok{,}
-        \AttributeTok{y =} \StringTok{"Rendimiento combustible (millas/galón)"}\NormalTok{,}
-        \AttributeTok{color =} \StringTok{"Tipo de coche"}
-\NormalTok{     )}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy, }\AttributeTok{color =}\NormalTok{ class)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Relación entre el tamaño del motor y el consumo de combustible"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Cilindrada (litros)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Rendimiento combustible (millas/galón)"}\NormalTok{,}
+    \AttributeTok{color =} \StringTok{"Tipo de coche"}
+\NormalTok{  )}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1420,38 +1430,38 @@ En el siguiente ejemplo se crea una hoja de datos sobre los \href{https://en.wik
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{best\_sellers }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}
-    \AttributeTok{title =} \FunctionTok{c}\NormalTok{(}
-        \StringTok{"A Tale of Two Cities"}\NormalTok{, }
-        \StringTok{"The Little Prince"}\NormalTok{,}
-        \StringTok{"Harry Potter and the Philosopher\textquotesingle{}s Stone"}\NormalTok{,}
-        \StringTok{"And Then There Were None"}\NormalTok{,}
-        \StringTok{"Dream of the Red Chamber"}\NormalTok{,}
-        \StringTok{"The Hobbit"}
-\NormalTok{    ),}
-    \AttributeTok{author =} \FunctionTok{c}\NormalTok{(}
-        \StringTok{"Charles Dickens"}\NormalTok{,}
-        \StringTok{"Antoine de Saint{-}Exupéry"}\NormalTok{,}
-        \StringTok{"J. K. Rowling"}\NormalTok{,}
-        \StringTok{"Agatha Christie"}\NormalTok{,}
-        \StringTok{"Cao Xueqin"}\NormalTok{,}
-        \StringTok{"J. R. R. Tolkien"}
-\NormalTok{    ),}
-    \AttributeTok{lang =} \FunctionTok{c}\NormalTok{(}
-        \StringTok{"English"}\NormalTok{,}
-        \StringTok{"French"}\NormalTok{,}
-        \StringTok{"English"}\NormalTok{,}
-        \StringTok{"English"}\NormalTok{,}
-        \StringTok{"Chinese"}\NormalTok{,}
-        \StringTok{"English"}
-\NormalTok{    ),}
-    \AttributeTok{year =} \FunctionTok{c}\NormalTok{(}
-        \DecValTok{1859}\NormalTok{,}
-        \DecValTok{1943}\NormalTok{,}
-        \DecValTok{1997}\NormalTok{,}
-        \DecValTok{1939}\NormalTok{,}
-        \DecValTok{1791}\NormalTok{,}
-        \DecValTok{1937}
-\NormalTok{    )}
+  \AttributeTok{title =} \FunctionTok{c}\NormalTok{(}
+    \StringTok{"A Tale of Two Cities"}\NormalTok{,}
+    \StringTok{"The Little Prince"}\NormalTok{,}
+    \StringTok{"Harry Potter and the Philosopher\textquotesingle{}s Stone"}\NormalTok{,}
+    \StringTok{"And Then There Were None"}\NormalTok{,}
+    \StringTok{"Dream of the Red Chamber"}\NormalTok{,}
+    \StringTok{"The Hobbit"}
+\NormalTok{  ),}
+  \AttributeTok{author =} \FunctionTok{c}\NormalTok{(}
+    \StringTok{"Charles Dickens"}\NormalTok{,}
+    \StringTok{"Antoine de Saint{-}Exupéry"}\NormalTok{,}
+    \StringTok{"J. K. Rowling"}\NormalTok{,}
+    \StringTok{"Agatha Christie"}\NormalTok{,}
+    \StringTok{"Cao Xueqin"}\NormalTok{,}
+    \StringTok{"J. R. R. Tolkien"}
+\NormalTok{  ),}
+  \AttributeTok{lang =} \FunctionTok{c}\NormalTok{(}
+    \StringTok{"English"}\NormalTok{,}
+    \StringTok{"French"}\NormalTok{,}
+    \StringTok{"English"}\NormalTok{,}
+    \StringTok{"English"}\NormalTok{,}
+    \StringTok{"Chinese"}\NormalTok{,}
+    \StringTok{"English"}
+\NormalTok{  ),}
+  \AttributeTok{year =} \FunctionTok{c}\NormalTok{(}
+    \DecValTok{1859}\NormalTok{,}
+    \DecValTok{1943}\NormalTok{,}
+    \DecValTok{1997}\NormalTok{,}
+    \DecValTok{1939}\NormalTok{,}
+    \DecValTok{1791}\NormalTok{,}
+    \DecValTok{1937}
+\NormalTok{  )}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1485,7 +1495,7 @@ La función usada tradicionalmente para crear hojas de datos en \textsf{R} es \t
 \hypertarget{import}{%
 \subsection{Importar datos}\label{import}}
 
-En este apartado veremos cómo importar datos desde un fichero externo con el paquete \texttt{readr}. El paquete \texttt{readr} forma parte de \texttt{tidyverse} de forma que no es necesario cargarlo individualmente si ya has cargado \texttt{tidyverse}. En concreto, veremos cómo importar los datos contenidos en un archivo CSV (\emph{comma separated values}) con la función \texttt{read\_csv()}.
+En este apartado veremos cómo importar datos desde un fichero externo con el paquete \texttt{readr}. El paquete \texttt{readr} forma parte de \texttt{tidyverse} de forma que no es necesario cargarlo individualmente si ya has cargado \texttt{tidyverse}. En concreto, veremos cómo importar los datos contenidos en un archivo CSV (\emph{comma separated values}) con la función \texttt{read\_csv()}. \textbf{strong}
 
 \hypertarget{los-datos}{%
 \subsubsection{Los datos}\label{los-datos}}
@@ -1540,8 +1550,8 @@ Antes hemos realizado la descarga del archivo de datos de forma manual. También
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{download.file}\NormalTok{(}
-    \AttributeTok{url =} \StringTok{"https://raw.githubusercontent.com/EMazcunan/basics{-}r{-}rstudio/master/data/temperaturas.csv"}\NormalTok{,}
-    \AttributeTok{destfile =} \StringTok{"data/temperaturas2.csv"}
+  \AttributeTok{url =} \StringTok{"https://raw.githubusercontent.com/EMazcunan/basics{-}r{-}rstudio/master/data/temperaturas.csv"}\NormalTok{,}
+  \AttributeTok{destfile =} \StringTok{"data/temperaturas2.csv"}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1567,9 +1577,9 @@ Podemos por ejemplo representar la evolución de las temperaturas mínimas y má
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{y =}\NormalTok{ Tmin, }\AttributeTok{group  =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{y =}\NormalTok{ Tmax, }\AttributeTok{group  =} \DecValTok{1}\NormalTok{)) }
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{y =}\NormalTok{ Tmin, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{y =}\NormalTok{ Tmax, }\AttributeTok{group =} \DecValTok{1}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1581,9 +1591,9 @@ Cuando varias capas de un gráfico comparten estéticas, esas estéticas comunes
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmin)) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmax)) }
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmin)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmax))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1593,20 +1603,20 @@ A continuación tenemos una versión un poco más elaborada del gráfico anterio
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(scales)}
 
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmax), }\AttributeTok{color=}\StringTok{"red"}\NormalTok{) }\SpecialCharTok{+} 
-    \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmin), }\AttributeTok{color=}\StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+} 
-    \FunctionTok{scale\_x\_date}\NormalTok{(}
-        \AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{),}
-        \AttributeTok{breaks =} \FunctionTok{date\_breaks}\NormalTok{(}\StringTok{"1 day"}\NormalTok{), }
-        \AttributeTok{labels =} \FunctionTok{date\_format}\NormalTok{(}\StringTok{"\%d"}\NormalTok{)}
-\NormalTok{    ) }\SpecialCharTok{+}
-    \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{5}\NormalTok{)) }\SpecialCharTok{+} 
-    \FunctionTok{labs}\NormalTok{(}
-        \AttributeTok{title =} \StringTok{"Temperaturas máximas y mínimas en abril de 2018"}\NormalTok{,}
-        \AttributeTok{x =} \StringTok{"Día"}\NormalTok{,}
-        \AttributeTok{y =} \StringTok{"Temperatura ( ºC )"}
-\NormalTok{    )}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ temps, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Fecha, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmax), }\AttributeTok{color =} \StringTok{"red"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Tmin), }\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_date}\NormalTok{(}
+    \AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+    \AttributeTok{breaks =} \FunctionTok{date\_breaks}\NormalTok{(}\StringTok{"1 day"}\NormalTok{),}
+    \AttributeTok{labels =} \FunctionTok{date\_format}\NormalTok{(}\StringTok{"\%d"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{5}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Temperaturas máximas y mínimas en abril de 2018"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Día"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Temperatura ( ºC )"}
+\NormalTok{  )}
 \end{Highlighting}
 \end{Shaded}
 

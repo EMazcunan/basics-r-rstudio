@@ -251,38 +251,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>En este apartado veremos cómo crear hojas de datos en <span class="textsf">R</span> con la función <code>tibble()</code>, del paquete del mismo nombre. El paquete <code>tibble</code> forma parte de <code>tidyverse</code> de forma que no es necesario cargarlo individualmente si ya has cargado <code>tidyverse</code>.</p>
 <p>En el siguiente ejemplo se crea una hoja de datos sobre los <a href="https://en.wikipedia.org/wiki/List_of_best-selling_books" target="_blank">seis libros más vendidos de la historia</a> y se almacena en un objeto de nombre <code>best_sellers</code>.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="la-función-tibble.html#cb64-1" aria-hidden="true" tabindex="-1"></a>best_sellers <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb64-2"><a href="la-función-tibble.html#cb64-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">c</span>(</span>
-<span id="cb64-3"><a href="la-función-tibble.html#cb64-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;A Tale of Two Cities&quot;</span>, </span>
-<span id="cb64-4"><a href="la-función-tibble.html#cb64-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;The Little Prince&quot;</span>,</span>
-<span id="cb64-5"><a href="la-función-tibble.html#cb64-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Harry Potter and the Philosopher&#39;s Stone&quot;</span>,</span>
-<span id="cb64-6"><a href="la-función-tibble.html#cb64-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;And Then There Were None&quot;</span>,</span>
-<span id="cb64-7"><a href="la-función-tibble.html#cb64-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Dream of the Red Chamber&quot;</span>,</span>
-<span id="cb64-8"><a href="la-función-tibble.html#cb64-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;The Hobbit&quot;</span></span>
-<span id="cb64-9"><a href="la-función-tibble.html#cb64-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb64-10"><a href="la-función-tibble.html#cb64-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">author =</span> <span class="fu">c</span>(</span>
-<span id="cb64-11"><a href="la-función-tibble.html#cb64-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Charles Dickens&quot;</span>,</span>
-<span id="cb64-12"><a href="la-función-tibble.html#cb64-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Antoine de Saint-Exupéry&quot;</span>,</span>
-<span id="cb64-13"><a href="la-función-tibble.html#cb64-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;J. K. Rowling&quot;</span>,</span>
-<span id="cb64-14"><a href="la-función-tibble.html#cb64-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Agatha Christie&quot;</span>,</span>
-<span id="cb64-15"><a href="la-función-tibble.html#cb64-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Cao Xueqin&quot;</span>,</span>
-<span id="cb64-16"><a href="la-función-tibble.html#cb64-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;J. R. R. Tolkien&quot;</span></span>
-<span id="cb64-17"><a href="la-función-tibble.html#cb64-17" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb64-18"><a href="la-función-tibble.html#cb64-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">lang =</span> <span class="fu">c</span>(</span>
-<span id="cb64-19"><a href="la-función-tibble.html#cb64-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;English&quot;</span>,</span>
-<span id="cb64-20"><a href="la-función-tibble.html#cb64-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;French&quot;</span>,</span>
-<span id="cb64-21"><a href="la-función-tibble.html#cb64-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;English&quot;</span>,</span>
-<span id="cb64-22"><a href="la-función-tibble.html#cb64-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;English&quot;</span>,</span>
-<span id="cb64-23"><a href="la-función-tibble.html#cb64-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Chinese&quot;</span>,</span>
-<span id="cb64-24"><a href="la-función-tibble.html#cb64-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;English&quot;</span></span>
-<span id="cb64-25"><a href="la-función-tibble.html#cb64-25" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb64-26"><a href="la-función-tibble.html#cb64-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> <span class="fu">c</span>(</span>
-<span id="cb64-27"><a href="la-función-tibble.html#cb64-27" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1859</span>,</span>
-<span id="cb64-28"><a href="la-función-tibble.html#cb64-28" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1943</span>,</span>
-<span id="cb64-29"><a href="la-función-tibble.html#cb64-29" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1997</span>,</span>
-<span id="cb64-30"><a href="la-función-tibble.html#cb64-30" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1939</span>,</span>
-<span id="cb64-31"><a href="la-función-tibble.html#cb64-31" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1791</span>,</span>
-<span id="cb64-32"><a href="la-función-tibble.html#cb64-32" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1937</span></span>
-<span id="cb64-33"><a href="la-función-tibble.html#cb64-33" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb64-2"><a href="la-función-tibble.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="fu">c</span>(</span>
+<span id="cb64-3"><a href="la-función-tibble.html#cb64-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;A Tale of Two Cities&quot;</span>,</span>
+<span id="cb64-4"><a href="la-función-tibble.html#cb64-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;The Little Prince&quot;</span>,</span>
+<span id="cb64-5"><a href="la-función-tibble.html#cb64-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Harry Potter and the Philosopher&#39;s Stone&quot;</span>,</span>
+<span id="cb64-6"><a href="la-función-tibble.html#cb64-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;And Then There Were None&quot;</span>,</span>
+<span id="cb64-7"><a href="la-función-tibble.html#cb64-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Dream of the Red Chamber&quot;</span>,</span>
+<span id="cb64-8"><a href="la-función-tibble.html#cb64-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;The Hobbit&quot;</span></span>
+<span id="cb64-9"><a href="la-función-tibble.html#cb64-9" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb64-10"><a href="la-función-tibble.html#cb64-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">author =</span> <span class="fu">c</span>(</span>
+<span id="cb64-11"><a href="la-función-tibble.html#cb64-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Charles Dickens&quot;</span>,</span>
+<span id="cb64-12"><a href="la-función-tibble.html#cb64-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Antoine de Saint-Exupéry&quot;</span>,</span>
+<span id="cb64-13"><a href="la-función-tibble.html#cb64-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;J. K. Rowling&quot;</span>,</span>
+<span id="cb64-14"><a href="la-función-tibble.html#cb64-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Agatha Christie&quot;</span>,</span>
+<span id="cb64-15"><a href="la-función-tibble.html#cb64-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Cao Xueqin&quot;</span>,</span>
+<span id="cb64-16"><a href="la-función-tibble.html#cb64-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;J. R. R. Tolkien&quot;</span></span>
+<span id="cb64-17"><a href="la-función-tibble.html#cb64-17" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb64-18"><a href="la-función-tibble.html#cb64-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">lang =</span> <span class="fu">c</span>(</span>
+<span id="cb64-19"><a href="la-función-tibble.html#cb64-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;English&quot;</span>,</span>
+<span id="cb64-20"><a href="la-función-tibble.html#cb64-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;French&quot;</span>,</span>
+<span id="cb64-21"><a href="la-función-tibble.html#cb64-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;English&quot;</span>,</span>
+<span id="cb64-22"><a href="la-función-tibble.html#cb64-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;English&quot;</span>,</span>
+<span id="cb64-23"><a href="la-función-tibble.html#cb64-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Chinese&quot;</span>,</span>
+<span id="cb64-24"><a href="la-función-tibble.html#cb64-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;English&quot;</span></span>
+<span id="cb64-25"><a href="la-función-tibble.html#cb64-25" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb64-26"><a href="la-función-tibble.html#cb64-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">c</span>(</span>
+<span id="cb64-27"><a href="la-función-tibble.html#cb64-27" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1859</span>,</span>
+<span id="cb64-28"><a href="la-función-tibble.html#cb64-28" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1943</span>,</span>
+<span id="cb64-29"><a href="la-función-tibble.html#cb64-29" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1997</span>,</span>
+<span id="cb64-30"><a href="la-función-tibble.html#cb64-30" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1939</span>,</span>
+<span id="cb64-31"><a href="la-función-tibble.html#cb64-31" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1791</span>,</span>
+<span id="cb64-32"><a href="la-función-tibble.html#cb64-32" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1937</span></span>
+<span id="cb64-33"><a href="la-función-tibble.html#cb64-33" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb64-34"><a href="la-función-tibble.html#cb64-34" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Cada argumento de la función <code>tibble()</code> se corresponde con una variable en el formato <code>&lt;nombre variable&gt; = &lt;vector de valores&gt;.</code></p>
 <p>Para ver sólo los títulos de los libros usaríamos</p>

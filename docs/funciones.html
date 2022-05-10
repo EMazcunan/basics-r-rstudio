@@ -250,8 +250,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.4</span> Funciones<a href="funciones.html#funciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Hasta ahora hemos visto cómo utilizar algunas de las funciones predefinidas en <span class="textsf">R</span>, pero en ocasiones necesitamos definir nuestras propias funciones. En este apartado veremos cómo hacerlo a través de un par de ejemplos.</p>
 <p>El código a continuación define una función de nombre <code>add_two</code> que suma <span class="math inline">\(2\)</span> al valor que recibe como argumento:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="funciones.html#cb52-1" aria-hidden="true" tabindex="-1"></a>add_two <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb52-2"><a href="funciones.html#cb52-2" aria-hidden="true" tabindex="-1"></a>    x<span class="sc">+</span><span class="dv">2</span></span>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="funciones.html#cb52-1" aria-hidden="true" tabindex="-1"></a>add_two <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb52-2"><a href="funciones.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> <span class="dv">2</span></span>
 <span id="cb52-3"><a href="funciones.html#cb52-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Para utilizar la función que acaba de definirse escribiríamos</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="funciones.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">add_two</span>(<span class="dv">5</span>)</span></code></pre></div>
@@ -259,8 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Veamos un segundo ejemplo. Consideremos la función
 <span class="math display">\[ f(x) = a + be^{cx} \]</span>
 que depende de tres parámetros <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> y <span class="math inline">\(c\)</span>. Para evaluar está función en un determinado valor de la variable independendiente <span class="math inline">\(x\)</span> y valores concretos de los parámetros <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> y <span class="math inline">\(c\)</span> definiríamos la siguiente función de <span class="textsf">R</span>:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="funciones.html#cb55-1" aria-hidden="true" tabindex="-1"></a>myfun <span class="ot">&lt;-</span> <span class="cf">function</span>(x, a, b, c){</span>
-<span id="cb55-2"><a href="funciones.html#cb55-2" aria-hidden="true" tabindex="-1"></a>    a <span class="sc">+</span> b<span class="sc">*</span><span class="fu">exp</span>(c<span class="sc">*</span>x)</span>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="funciones.html#cb55-1" aria-hidden="true" tabindex="-1"></a>myfun <span class="ot">&lt;-</span> <span class="cf">function</span>(x, a, b, c) {</span>
+<span id="cb55-2"><a href="funciones.html#cb55-2" aria-hidden="true" tabindex="-1"></a>  a <span class="sc">+</span> b <span class="sc">*</span> <span class="fu">exp</span>(c <span class="sc">*</span> x)</span>
 <span id="cb55-3"><a href="funciones.html#cb55-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Si queremos calcular <span class="math inline">\(f(4)\)</span> siendo <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 2\)</span> y <span class="math inline">\(c = 3\)</span> usaríamos</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="funciones.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">myfun</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
